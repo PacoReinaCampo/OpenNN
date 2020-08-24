@@ -24,6 +24,18 @@ The documentation is composed by tutorials and examples to offer a complete over
 
 OpenNN is developed by <a href="http://artelnics.com" target="_blank">Artelnics</a>, a company specialized in artificial intelligence.
 
+**For Windows Users!**
+
+1. Settings → Apps → Apps & features → Related settings, Programs and Features → Turn Windows features on or off → Windows Subsystem for Linux
+
+2. Microsoft Store → INSTALL UBUNTU
+
+type:
+```
+sudo apt update
+sudo apt upgrade
+```
+
 # 2. PROJECTS
 
 ## 2.1. OpenNN Examples
@@ -32,6 +44,7 @@ OpenNN is developed by <a href="http://artelnics.com" target="_blank">Artelnics<
 
 type:
 ```
+source BUILD-x86
 ./simple_function_regression-x86.run
 ```
 
@@ -39,6 +52,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./simple_pattern_recognition-x86.run
 ```
 
@@ -46,6 +60,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./airfoil_self_noise-x86.run
 ```
 
@@ -53,6 +68,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./airline_passengers-x86.run
 ```
 
@@ -60,6 +76,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./breast_cancer-x86.run
 ```
 
@@ -67,6 +84,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./iris_plant-x86.run
 ```
 
@@ -74,6 +92,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./logical_operations-x86.run
 ```
 
@@ -81,6 +100,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./pima_indians_diabetes-x86.run
 ```
 
@@ -88,6 +108,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./urinary_inflammations_diagnosis-x86.run
 ```
 
@@ -95,6 +116,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./yacht_hydrodynamics_design-x86.run
 ```
 
@@ -102,6 +124,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./yacht_hydrodynamics_production-x86.run
 ```
 
@@ -109,6 +132,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./leukemia-x86.run
 ```
 
@@ -116,6 +140,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./pollution_forecasting-x86.run
 ```
 
@@ -123,6 +148,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./temperature_forecasting-x86.run
 ```
 
@@ -130,6 +156,7 @@ type:
 
 type:
 ```
+source BUILD-x86
 ./mnist-x86.run
 ```
 
@@ -139,20 +166,23 @@ type:
 
 type:
 ```
-./PU-x86.run-x86.run
+source BUILD-x86
+./PU-x86.run
 ```
 
 ### 2.2.2. SoC
 
 type:
 ```
-./SoC-x86.run-x86.run
+source BUILD-x86
+./SoC-x86.run
 ```
 
 ### 2.2.3. MPSoC
 
 type:
 ```
+source BUILD-x86
 ./MPSoC-x86.run
 ```
 
