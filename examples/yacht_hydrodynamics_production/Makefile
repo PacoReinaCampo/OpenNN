@@ -62,11 +62,15 @@ x86:
 	g++ main.cpp ${SOURCES} -o ${TARGET}-x86.run
 
 riscv:
+	# Compilation. From OpenNN source code to ELF
 	riscv64-unknown-elf-g++ -std=c++11 -o ${TARGET}-riscv.elf main.cpp ${SOURCES}
+	# Conversion. From ELF to HEX
 	riscv64-unknown-elf-objcopy -O ihex ${TARGET}-riscv.elf ${TARGET}-riscv.hex
 
 or1k:
+	# Compilation. From OpenNN source code to ELF
 	or1k-elf-g++ -std=c++11 -o ${TARGET}-or1k.elf main.cpp ${SOURCES}
+	# Conversion. From ELF to HEX
 	or1k-elf-objcopy -O ihex ${TARGET}-or1k.elf ${TARGET}-or1k.hex
 
 clean:

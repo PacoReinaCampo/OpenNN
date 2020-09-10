@@ -27,7 +27,7 @@ int main(void)
 {
     try
     {
-        cout << "OdsfadfenNN. Airline Passengers Example." << endl;
+        cout << "OpenNN. Airline Passengers Example." << endl;
 
         srand(static_cast<unsigned>(time(nullptr)));
 
