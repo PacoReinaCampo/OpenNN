@@ -1,7 +1,4 @@
-#include <riscv-support.h>
-
 #include "timer.h"
-
 
 struct optimsoc_list_t *_optimsoc_timers;
 

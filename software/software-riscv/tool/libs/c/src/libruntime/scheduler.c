@@ -24,7 +24,6 @@
  */
 
 #include <optimsoc-baremetal.h>
-#include <riscv-support.h>
 #include <context.h>
 
 #include "runtime.h"

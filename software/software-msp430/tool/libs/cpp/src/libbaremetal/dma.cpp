@@ -26,7 +26,6 @@
  *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
  */
 
-#include <msp430-support.h>
 #include <stdlib.h>
 
 #include "include/optimsoc-baremetal.h"

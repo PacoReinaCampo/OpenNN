@@ -23,7 +23,6 @@
  */
 
 #include "include/optimsoc-baremetal.h"
-#include <or1k-support.h>
 
 #include <stdio.h>
 #include <stdarg.h>

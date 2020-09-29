@@ -1,7 +1,4 @@
-#include <msp430-support.h>
-
 #include "timer.h"
-
 
 struct optimsoc_list_t *_optimsoc_timers;
 

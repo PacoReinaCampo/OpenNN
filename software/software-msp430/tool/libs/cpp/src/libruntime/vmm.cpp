@@ -23,7 +23,6 @@
  *   Stefan Rösch <roe.stefan@gmail.com>
  */
 
-#include <msp430-sprs.h>
 #include <optimsoc-baremetal.h>
 
 #include <assert.h>

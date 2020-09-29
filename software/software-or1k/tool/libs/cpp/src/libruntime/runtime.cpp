@@ -28,7 +28,6 @@
 #include "thread.h"
 #include "context.h"
 #include <assert.h>
-#include <or1k-support.h>
 #include <optimsoc-baremetal.h>
 
 #include <stdio.h>

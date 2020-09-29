@@ -5,8 +5,6 @@
 #include <string.h>
 #include <inttypes.h>
 
-#include <or1k-support.h>
-
 _optimsoc_thread_ctx_t **_optimsoc_exception_ctx;
 
 extern void **_or1k_exception_stack_core;

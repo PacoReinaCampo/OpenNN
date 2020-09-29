@@ -24,7 +24,6 @@
  */
 
 #include <optimsoc-baremetal.h>
-#include <or1k-support.h>
 #include <context.h>
 
 #include "runtime.h"

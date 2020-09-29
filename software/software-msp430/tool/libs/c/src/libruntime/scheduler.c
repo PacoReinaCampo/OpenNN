@@ -24,7 +24,6 @@
  */
 
 #include <optimsoc-baremetal.h>
-#include <msp430-support.h>
 #include <context.h>
 
 #include "runtime.h"

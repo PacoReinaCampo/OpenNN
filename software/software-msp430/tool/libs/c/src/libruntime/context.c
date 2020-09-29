@@ -5,8 +5,6 @@
 #include <string.h>
 #include <inttypes.h>
 
-#include <msp430-support.h>
-
 _optimsoc_thread_ctx_t **_optimsoc_exception_ctx;
 
 extern void **_msp430_exception_stack_core;

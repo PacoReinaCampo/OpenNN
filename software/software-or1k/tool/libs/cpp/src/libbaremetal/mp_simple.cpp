@@ -26,8 +26,6 @@
  *   Stefan Wallentowitz <stefan.wallentowitz@tum.de>
  */
 
-#include <or1k-support.h>
-
 #include "include/optimsoc-baremetal.h"
 
 #include <stdlib.h>
