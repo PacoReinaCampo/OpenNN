@@ -1,5 +1,7 @@
 # INTRODUCTION
 
+## Library
+
 OpenNN is a software library written in C++ for advanced analytics. It implements neural networks, the most successful machine learning method. 
 
 * The main advantage of OpenNN is its high performance.
@@ -17,6 +19,8 @@ The documentation is composed by tutorials and examples to offer a complete over
 * The .pro files are project files for the Qt Creator IDE, which can be downloaded from its <a href="http://www.qt.io" target="_blank">site</a>. Note that OpenNN does not make use of the Qt library. 
 
 OpenNN is developed by <a href="http://artelnics.com" target="_blank">Artelnics</a>, a company specialized in artificial intelligence.
+
+## Instalation
 
 **For Windows Users!**
 

@@ -42,7 +42,7 @@ source BUILD-x86
 ./breast_cancer-x86.run
 ```
 
-### 6. iris plant
+### iris plant
 
 type:
 ```
@@ -124,7 +124,7 @@ source BUILD-x86
 
 ## Neural Turing Machine
 
-### PU
+### PU-NTM
 
 type:
 ```
@@ -132,7 +132,7 @@ source BUILD-x86
 ./PU-x86.run
 ```
 
-### SoC
+### SoC-NTM
 
 type:
 ```
@@ -140,7 +140,7 @@ source BUILD-x86
 ./SoC-x86.run
 ```
 
-### MPSoC
+### MPSoC-NTM
 
 type:
 ```
