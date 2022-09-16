@@ -4,3 +4,5 @@ chapters/chapter3.md
 chapters/chapter4.md
 chapters/chapter5.md
 chapters/chapter6.md
+chapters/chapter7.md
+chapters/chapter8.md
