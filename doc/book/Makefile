@@ -90,7 +90,6 @@ PANDOC_EPUB_OPTIONS=--to epub3
 %.epub : %.md
 	pandoc -s $(shell cat $<) $(PANDOC_OPTIONS) $(PANDOC_EPUB_OPTIONS) -o $@
 
-
 all : $(EXPORTED_DOCS)
 
 clean:
