@@ -1,6 +1,6 @@
 # COMPONENTS
 
-|FOLDER        |NORMATIVE                    |TECHNOLOGU     |
+|FOLDER        |NORMATIVE                    |TECHNOLOGY     |
 |-------------:|:----------------------------|:--------------|
 |requirements  | OMG-2.5.1.                  | UML           |
 |certification | RTCA DO-254                 |               |
