@@ -16,7 +16,7 @@
 
 // OpenNN includes
 
-#include "../../opennn/opennn.h"
+#include "../../../src/opennn/opennn.h"
 
 using namespace OpenNN;
 
