@@ -1,6 +1,6 @@
 ---
 title: 'Neural Turing Machine - OpenNN'
-subtitle: 'QueenField ![](../../icon.jpg)'
+subtitle: 'QueenField ![](../../openNN.svg){width=17cm}'
 
 author: Paco Reina Campo
 
