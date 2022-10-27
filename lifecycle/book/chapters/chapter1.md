@@ -108,7 +108,7 @@
 | Hardware Verification Plan                                                                |
 | Hardware Configuration Management Plan                                                    |
 | Hardware Process Assurance Plan                                                           |
-| Hardware Process Assurance Records                           |                            |
+| Hardware Process Assurance Records                                                        |
 | Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
@@ -124,7 +124,7 @@
 | Hardware Verification Plan                                                                |
 | Hardware Configuration Management Plan                                                    |
 | Hardware Process Assurance Plan                                                           |
-| Hardware Process Assurance Records                           |                            |
+| Hardware Process Assurance Records                                                        |
 | Hardware Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
