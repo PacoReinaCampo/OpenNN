@@ -47,7 +47,7 @@
 # Includes
 #
 ##########################################################################
--include Makefile.include
+-include include.txt
 
 TARGET=yacht_hydrodynamics_production
 

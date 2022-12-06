@@ -47,7 +47,7 @@
 # Includes
 #
 ##########################################################################
--include Makefile.include
+-include include.txt
 
 TARGET=breast_cancer
 
