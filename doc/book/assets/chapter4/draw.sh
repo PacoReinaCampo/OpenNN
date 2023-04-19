@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-dot -Tsvg dependences-mpsoc-life.dot > dependences-mpsoc-life.svg
-dot -Tsvg dependences-soc-life.dot > dependences-soc-life.svg
-dot -Tsvg dependences-pu-life.dot > dependences-pu-life.svg
+dot -Tsvg dependences-mpsoc-lifetech.dot > dependences-mpsoc-lifetech.svg
+dot -Tsvg dependences-soc-lifetech.dot > dependences-soc-lifetech.svg
+dot -Tsvg dependences-pu-lifetech.dot > dependences-pu-lifetech.svg
 
-dot -Tsvg dependences-mpsoc-life.dot > dependences-mpsoc-fintech.svg
-dot -Tsvg dependences-soc-life.dot > dependences-soc-fintech.svg
-dot -Tsvg dependences-pu-life.dot > dependences-pu-fintech.svg
+dot -Tsvg dependences-mpsoc-lifetech.dot > dependences-mpsoc-fintech.svg
+dot -Tsvg dependences-soc-lifetech.dot > dependences-soc-fintech.svg
+dot -Tsvg dependences-pu-lifetech.dot > dependences-pu-fintech.svg
