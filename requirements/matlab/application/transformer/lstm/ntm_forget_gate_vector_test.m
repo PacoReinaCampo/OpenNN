@@ -1,3 +1,4 @@
+%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -9,14 +10,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              QueenField                                                       ##
-##              Multi-Processor System on Chip                                   ##
+##              Peripheral-NTM for MPSoC                                         ##
+##              Neural Turing Machine for MPSoC                                  ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2025 by the author(s)                                      ##
+## Copyright (c) 2020-2024 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -41,48 +42,39 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
+%}
 
-java application/arithmetic/matrix/test_matrix_arithmetic.scala
-java application/arithmetic/scalar/test_scalar_arithmetic.scala
-java application/arithmetic/tensor/test_tensor_arithmetic.scala
-java application/arithmetic/vector/test_vector_arithmetic.scala
-java application/controller/FNN/convolutional/ntm_controller.scala
-java application/controller/FNN/standard/ntm_controller.scala
-java application/controller/LSTM/convolutional/ntm_controller.scala
-java application/controller/LSTM/standard/ntm_controller.scala
-java application/transformer/components/ntm_components.scala
-java application/transformer/fnn/ntm_fnn.scala
-java application/transformer/functions/ntm_functions.scala
-java application/transformer/inputs/ntm_inputs.scala
-java application/transformer/lstm/ntm_lstm.scala
-java application/transformer/top/ntm_controller.scala
-java application/dnc/memory/dnc_memory.scala
-java application/dnc/top/dnc_top.scala
-java application/dnc/trained/dnc_trained_top.scala
-java application/math/algebra/matrix/test_matrix_algebra.scala
-java application/math/algebra/scalar/test_scalar_algebra.scala
-java application/math/algebra/tensor/test_tensor_algebra.scala
-java application/math/algebra/vector/test_vector_algebra.scala
-java application/math/calculus/matrix/test_matrix_calculus.scala
-java application/math/calculus/tensor/test_tensor_calculus.scala
-java application/math/calculus/vector/test_vector_calculus.scala
-java application/math/function/matrix/test_matrix_function.scala
-java application/math/function/scalar/test_scalar_function.scala
-java application/math/function/vector/test_vector_function.scala
-java application/math/statitics/matrix/test_matrix_statitics.scala
-java application/math/statitics/scalar/test_scalar_statitics.scala
-java application/math/statitics/vector/test_vector_statitics.scala
-java application/ntm/memory/ntm_addressing.scala
-java application/ntm/read_heads/ntm_reading.scala
-java application/ntm/top/ntm_top.scala
-java application/ntm/trained/ntm_trained_top.scala
-java application/ntm/write_heads/ntm_write_heads.scala
-java application/state/feedback/test_state_feedback.scala
-java application/state/outputs/test_state_outputs.scala
-java application/state/top/test_state_top.scala
-java application/trainer/differentiation/ntm_controller_differentiation.scala
-java application/trainer/FNN/ntm_fnn_trainer.scala
-java application/trainer/LSTM/activation/ntm_lstm_activation_trainer.scala
-java application/trainer/LSTM/forget/ntm_lstm_forget_trainer.scala
-java application/trainer/LSTM/input/ntm_lstm_input_trainer.scala
-java application/trainer/LSTM/output/ntm_lstm_output_trainer.scala
+% Package
+addpath(genpath('../../../../library/math/algebra/matrix'));
+addpath(genpath('../../../../library/math/algebra/tensor'));
+addpath(genpath('../../../../library/math/function/vector'));
+
+addpath(genpath('../../../../library/transformer/lstm'));
+
+% Constants
+SIZE_X_IN = 3;
+SIZE_Y_IN = 3;
+SIZE_N_IN = 3;
+SIZE_W_IN = 3;
+SIZE_D_IN = 3;
+SIZE_R_IN = 3;
+SIZE_M_IN = 3;
+SIZE_S_IN = 3;
+
+% Signals
+W_IN = rand(SIZE_D_IN, SIZE_X_IN);
+K_IN = rand(SIZE_R_IN, SIZE_D_IN, SIZE_W_IN);
+V_IN = rand(SIZE_D_IN, SIZE_S_IN);
+D_IN = rand(SIZE_R_IN, SIZE_D_IN, SIZE_M_IN);
+U_IN = rand(SIZE_D_IN, SIZE_D_IN);
+B_IN = rand(SIZE_D_IN, 1);
+
+X_IN = rand(SIZE_X_IN, 1);
+R_IN = rand(SIZE_R_IN, SIZE_W_IN);
+XI_IN = rand(SIZE_S_IN, 1);
+RHO_IN = rand(SIZE_R_IN, SIZE_M_IN);
+
+H_IN = rand(SIZE_D_IN, 1);
+
+% DUT
+F_OUT = ntm_forget_gate_vector(W_IN, K_IN, V_IN, D_IN, U_IN, B_IN, R_IN, XI_IN, RHO_IN, H_IN, X_IN);
