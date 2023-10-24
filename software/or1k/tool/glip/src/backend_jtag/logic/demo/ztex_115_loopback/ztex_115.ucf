@@ -1,3 +1,0 @@
-NET clk LOC = L22;
-NET "clk" TNM_NET = "clk";
-TIMESPEC TS_clk = PERIOD clk 48 MHz HIGH 50 %;
