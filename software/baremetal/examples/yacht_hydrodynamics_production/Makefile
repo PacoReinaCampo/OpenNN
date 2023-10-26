@@ -67,6 +67,10 @@ riscv:
 	# Conversion. From ELF to HEX
 	riscv64-unknown-elf-objcopy -O ihex ${TARGET}-riscv.elf ${TARGET}-riscv.hex
 
+riscv-simulation:
+	# Baremetal simulation
+	spike pk ${TARGET}-riscv.elf
+
 or1k:
 	# Compilation. From OpenNN source code to ELF
 	or1k-elf-g++ -std=c++11 -o ${TARGET}-or1k.elf main.cpp ${SOURCES}

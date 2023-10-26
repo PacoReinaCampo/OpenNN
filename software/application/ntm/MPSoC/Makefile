@@ -65,6 +65,10 @@ riscv:
 	riscv64-unknown-elf-g++ -std=c++11 -o ${TARGET}-riscv.elf main.cpp ${SOURCES}
 	riscv64-unknown-elf-objcopy -O ihex ${TARGET}-riscv.elf ${TARGET}-riscv.hex
 
+riscv-simulation:
+	# Baremetal simulation
+	spike pk ${TARGET}-riscv.elf
+
 or1k:
 	or1k-elf-g++ -std=c++11 -o ${TARGET}-or1k.elf main.cpp ${SOURCES}
 	or1k-elf-objcopy -O ihex ${TARGET}-or1k.elf ${TARGET}-or1k.hex
