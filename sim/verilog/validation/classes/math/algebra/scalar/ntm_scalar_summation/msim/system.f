@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/classes/application/arithmetic/scalar/adder/ntm_design.sv
+../../../../../../../../validation/classes/application/math/algebra/scalar/ntm_scalar_summation/ntm_design.sv
 
-../../../../../../../../verification/classes/library/arithmetic/scalar/adder/ntm_testbench.sv
+../../../../../../../../validation/classes/library/math/algebra/scalar/ntm_scalar_summation/ntm_testbench.sv

@@ -42,8 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-+incdir+../../../../../../../../verification/uvm/src
++incdir+../../../../../../../../validation/uvm/src
 
-../../../../../../../../verification/uvm/application/arithmetic/scalar/adder/ntm_design.sv
+../../../../../../../../validation/uvm/application/state/feedback/ntm_state_matrix_feedforward/ntm_design.sv
 
-../../../../../../../../verification/uvm/library/arithmetic/scalar/adder/ntm_uvm_testbench.sv
+../../../../../../../../validation/uvm/library/state/feedback/ntm_state_matrix_feedforward/ntm_uvm_testbench.sv

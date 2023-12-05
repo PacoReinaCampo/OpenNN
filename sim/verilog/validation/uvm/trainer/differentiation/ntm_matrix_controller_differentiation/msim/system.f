@@ -42,8 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-+incdir+../../../../../../../../verification/uvm/src
++incdir+../../../../../../../../validation/uvm/src
 
-../../../../../../../../verification/uvm/application/arithmetic/scalar/adder/ntm_design.sv
+../../../../../../../../validation/uvm/application/trainer/differentiation/ntm_matrix_controller_differentiation/ntm_design.sv
 
-../../../../../../../../verification/uvm/library/arithmetic/scalar/adder/ntm_uvm_testbench.sv
+../../../../../../../../validation/uvm/library/trainer/differentiation/ntm_matrix_controller_differentiation/ntm_uvm_testbench.sv

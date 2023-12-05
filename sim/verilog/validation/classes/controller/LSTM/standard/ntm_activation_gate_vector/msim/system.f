@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/classes/application/arithmetic/scalar/adder/ntm_design.sv
+../../../../../../../../validation/classes/application/controller/LSTM/standard/ntm_activation_gate_vector/ntm_design.sv
 
-../../../../../../../../verification/classes/library/arithmetic/scalar/adder/ntm_testbench.sv
+../../../../../../../../validation/classes/library/controller/LSTM/standard/ntm_activation_gate_vector/ntm_testbench.sv
