@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              QueenField                                                       ##
-##              Multi-Processor System on Chip                                   ##
+##              Peripheral-NTM for MPSoC                                         ##
+##              Neural Turing Machine for MPSoC                                  ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2025 by the author(s)                                      ##
+## Copyright (c) 2020-2024 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,8 +42,23 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.m' library > TREE-MATLAB.txt
+def data_c_out = ntm_state_matrix_output(data_k_in, data_c_in, data_d_in)
+  # Package
 
-tree -f -i -P '*.m' library > CREATE-MATLAB.sh
-sed -i '/.m/!d' CREATE-MATLAB.sh
-sed -i 's/^/touch /g' CREATE-MATLAB.sh
+  # Constants
+  # SIZE: A[N,N]; B[N,P]; C[Q,N]; D[Q,P];
+  # SIZE: K[P,P]; x[N,1]; y[Q,1]; u[P,1];
+
+  [SIZE_D_I_IN, SIZE_D_J_IN] = size(data_d_in);
+
+  # Body
+  # c = inv(I + D·K)·C
+  matrix_operation_int = ntm_matrix_product(data_d_in, data_k_in);
+
+  matrix_operation_int = ntm_matrix_adder(ntm_matrix_eye(SIZE_D_I_IN, SIZE_D_J_IN), matrix_operation_int);
+
+  matrix_operation_int = ntm_matrix_inverse(matrix_operation_int);
+
+  data_c_out = ntm_matrix_product(matrix_operation_int, data_c_in);
+
+  return data_c_out;

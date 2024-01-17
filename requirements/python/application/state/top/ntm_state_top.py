@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              QueenField                                                       ##
-##              Multi-Processor System on Chip                                   ##
+##              Peripheral-NTM for MPSoC                                         ##
+##              Neural Turing Machine for MPSoC                                  ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2025 by the author(s)                                      ##
+## Copyright (c) 2020-2024 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,8 +42,14 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.m' library > TREE-MATLAB.txt
+def [data_x_out, data_y_out] = ntm_state_top(data_k_in, data_a_in, data_b_in, data_c_in, data_d_in, data_u_in, initial_x, k)
+  # Package
 
-tree -f -i -P '*.m' library > CREATE-MATLAB.sh
-sed -i '/.m/!d' CREATE-MATLAB.sh
-sed -i 's/^/touch /g' CREATE-MATLAB.sh
+  # Body
+  # x(k) = exp(A,k)·x(0) + summation(exp(A,k-j-1)·B·u(j))[j in 0 to k-1]
+  data_x_out = ntm_state_vector_state(data_k_in, data_a_in, data_b_in, data_c_in, data_d_in, data_u_in, initial_x, k);
+
+  # y(k) = C·exp(A,k)·x(0) + summation(C·exp(A,k-j)·B·u(j))[j in 0 to k-1] + D·u(k)
+  data_y_out = ntm_state_vector_output(data_k_in, data_a_in, data_b_in, data_c_in, data_d_in, data_u_in, initial_x, k);
+
+  return data_x_out, data_y_out;

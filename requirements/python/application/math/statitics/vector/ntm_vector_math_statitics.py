@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              QueenField                                                       ##
-##              Multi-Processor System on Chip                                   ##
+##              Peripheral-NTM for MPSoC                                         ##
+##              Neural Turing Machine for MPSoC                                  ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2025 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,8 +42,37 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.m' library > TREE-MATLAB.txt
+import numpy as np 
 
-tree -f -i -P '*.m' library > CREATE-MATLAB.sh
-sed -i '/.m/!d' CREATE-MATLAB.sh
-sed -i 's/^/touch /g' CREATE-MATLAB.sh
+class VectorMathStatitics:
+  def __init__(self, data_in, mean_in):
+    self.data_in = data_in
+    self.mean_in = mean_in
+
+  def ntm_vector_mean(self):
+    data_out = []
+
+    # calculating mean
+    for i in range(len(self.data_in)):
+      temporal = 0.0
+
+      for j in range(len(self.data_in[i])):
+        temporal += self.data_in[i][j]/len(self.data_in[i])
+
+      data_out.append(temporal)
+
+    return data_out
+
+  def ntm_vector_deviation(self):
+    data_out = []
+
+    # calculating deviation
+    for i in range(len(self.data_in)):
+      temporal = 0.0
+
+      for j in range(len(self.data_in[i])):
+        temporal += self.data_in[i][j]/len(self.data_in[i])
+
+      data_out.append(temporal)
+
+    return data_out

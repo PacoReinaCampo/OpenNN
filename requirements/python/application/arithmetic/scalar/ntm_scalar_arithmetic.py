@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              QueenField                                                       ##
-##              Multi-Processor System on Chip                                   ##
+##              Peripheral-NTM for MPSoC                                         ##
+##              Neural Turing Machine for MPSoC                                  ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2025 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,8 +42,21 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.m' library > TREE-MATLAB.txt
+import random
 
-tree -f -i -P '*.m' library > CREATE-MATLAB.sh
-sed -i '/.m/!d' CREATE-MATLAB.sh
-sed -i 's/^/touch /g' CREATE-MATLAB.sh
+class ScalarArithmetic:
+  def __init__(self, data_a_in, data_b_in):
+    self.data_a_in = data_a_in
+    self.data_b_in = data_b_in
+
+  def ntm_scalar_adder(self):
+    # calculating addition
+    return (self.data_a_in + self.data_b_in)
+
+  def ntm_scalar_multiplier(self):
+    # calculating multiplication
+    return (self.data_a_in * self.data_b_in)
+
+  def ntm_scalar_divider(self):
+    # calculating division
+    return (self.data_a_in / self.data_b_in)

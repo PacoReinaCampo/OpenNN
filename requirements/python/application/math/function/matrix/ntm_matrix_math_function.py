@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              QueenField                                                       ##
-##              Multi-Processor System on Chip                                   ##
+##              Peripheral-NTM for MPSoC                                         ##
+##              Neural Turing Machine for MPSoC                                  ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2025 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,8 +42,24 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.m' library > TREE-MATLAB.txt
+import numpy as np 
 
-tree -f -i -P '*.m' library > CREATE-MATLAB.sh
-sed -i '/.m/!d' CREATE-MATLAB.sh
-sed -i 's/^/touch /g' CREATE-MATLAB.sh
+class MatrixMathFunction:
+  def __init__(self, data_in):
+    self.data_in = data_in
+
+  def ntm_matrix_logistic_function(self):
+    inputs = np.array(self.data_in)
+
+    ones = np.ones(inputs.shape)
+
+    # calculating logistic
+    return (ones/(ones + ones/np.exp(inputs)))
+
+  def ntm_matrix_oneplus_function(self):
+    inputs = np.array(self.data_in)
+
+    ones = np.ones(inputs.shape)
+
+    # calculating oneplus
+    return (ones + np.log(ones + np.exp(inputs)))

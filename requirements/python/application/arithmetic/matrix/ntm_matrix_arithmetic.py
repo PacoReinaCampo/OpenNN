@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              QueenField                                                       ##
-##              Multi-Processor System on Chip                                   ##
+##              Peripheral-NTM for MPSoC                                         ##
+##              Neural Turing Machine for MPSoC                                  ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2025 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,8 +42,51 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.m' library > TREE-MATLAB.txt
+import numpy as np 
 
-tree -f -i -P '*.m' library > CREATE-MATLAB.sh
-sed -i '/.m/!d' CREATE-MATLAB.sh
-sed -i 's/^/touch /g' CREATE-MATLAB.sh
+class MatrixArithmetic:
+  def __init__(self, data_a_in, data_b_in):
+    self.data_a_in = data_a_in
+    self.data_b_in = data_b_in
+
+  def ntm_matrix_adder(self):
+    a_in = np.array(self.data_a_in)
+    b_in = np.array(self.data_b_in)
+
+    data_out = []
+
+    # calculating addition
+    for i in range(len(self.data_a_in)):
+      data_out.append([])
+      for j in range(len(self.data_a_in[i])):
+        data_out[i].append(a_in[i][j] + b_in[i][j])
+
+    return data_out
+
+  def ntm_matrix_multiplier(self):
+    a_in = np.array(self.data_a_in)
+    b_in = np.array(self.data_b_in)
+
+    data_out = []
+
+    # calculating multiplication
+    for i in range(len(self.data_a_in)):
+      data_out.append([])
+      for j in range(len(self.data_a_in[i])):
+        data_out[i].append(a_in[i][j] * b_in[i][j])
+
+    return data_out
+
+  def ntm_matrix_divider(self):
+    a_in = np.array(self.data_a_in)
+    b_in = np.array(self.data_b_in)
+
+    data_out = []
+
+    # calculating division
+    for i in range(len(self.data_a_in)):
+      data_out.append([])
+      for j in range(len(self.data_a_in[i])):
+        data_out[i].append(a_in[i][j] / b_in[i][j])
+
+    return data_out

@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              QueenField                                                       ##
-##              Multi-Processor System on Chip                                   ##
+##              Peripheral-NTM for MPSoC                                         ##
+##              Neural Turing Machine for MPSoC                                  ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2025 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,8 +42,60 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.m' library > TREE-MATLAB.txt
+import math
+import numpy as np 
 
-tree -f -i -P '*.m' library > CREATE-MATLAB.sh
-sed -i '/.m/!d' CREATE-MATLAB.sh
-sed -i 's/^/touch /g' CREATE-MATLAB.sh
+class VectorMathCalculus:
+  def __init__(self, data_in, length_in):
+    self.data_in = data_in
+
+    self.length_in = length_in
+
+  def ntm_vector_differentiation(self):
+    temporal = 0.0
+
+    data_out = []
+
+    # calculating differentiation
+    for i in range(len(self.data_in)):
+      temporal = (self.data_in[i] - self.data_in[i-1])/self.length_in
+
+      data_out.append(temporal)
+
+    return data_out
+
+  def ntm_vector_integration(self):
+    temporal = 0.0
+
+    data_out = []
+
+    # calculating integration
+    for i in range(len(self.data_in)):
+      temporal += self.data_in[i]
+
+      data_out.append(temporal*self.length_in)
+
+    return data_out
+
+  def ntm_vector_softmax(self):
+    temporal0 = 0.0
+    temporal1 = 0.0
+
+    inputs = np.array(self.data_in)
+
+    data_int = []
+
+    data_out = []
+
+    # calculating softmax
+    for i in range(len(self.data_in)):
+      temporal0 += math.exp(self.data_in[i])
+
+      temporal1 = math.exp(self.data_in[i])
+
+      data_int.append(temporal1)
+
+    for i in range(len(self.data_in)):
+      data_out.append(data_int[i]/temporal0)
+
+    return data_out

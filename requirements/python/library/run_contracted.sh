@@ -61,47 +61,31 @@ python3 math/statitics/test_matrix_statitics.py
 python3 math/statitics/test_scalar_statitics.py
 python3 math/statitics/test_vector_statitics.py
 
-python3 ntm/memory/test_addressing_test.py
-python3 ntm/memory/test_matrix_content_based_addressing_test.py
-python3 ntm/memory/test_vector_content_based_addressing_test.py
-python3 ntm/read_heads/test_reading_test.py
-python3 ntm/top/test_interface_matrix_test.py
-python3 ntm/top/test_interface_top_test.py
-python3 ntm/top/test_interface_vector_test.py
-python3 ntm/top/test_output_vector_test.py
-python3 ntm/top/test_top_test.py
-python3 ntm/trained/test_trained_top_test.py
-python3 ntm/write_heads/test_erasing_test.py
-python3 ntm/write_heads/test_writing_test.py
+python3 state/test_state_feedback.py
+python3 state/test_state_outputs.py
+python3 state/test_state_top.py
 
-python3 dnc/memory/dnc_addressing_test.py
-python3 dnc/memory/dnc_allocation_weighting_test.py
-python3 dnc/memory/dnc_backward_weighting_test.py
-python3 dnc/memory/dnc_forward_weighting_test.py
-python3 dnc/memory/dnc_matrix_content_based_addressing_test.py
-python3 dnc/memory/dnc_memory_matrix_test.py
-python3 dnc/memory/dnc_memory_retention_vector_test.py
-python3 dnc/memory/dnc_precedence_weighting_test.py
-python3 dnc/memory/dnc_read_content_weighting_test.py
-python3 dnc/memory/dnc_read_vectors_test.py
-python3 dnc/memory/dnc_read_weighting_test.py
-python3 dnc/memory/dnc_sort_vector_test.py
-python3 dnc/memory/dnc_temporal_link_matrix_test.py
-python3 dnc/memory/dnc_usage_vector_test.py
-python3 dnc/memory/dnc_vector_content_based_addressing_test.py
-python3 dnc/memory/dnc_write_content_weighting_test.py
-python3 dnc/memory/dnc_write_weighting_test.py
-python3 dnc/top/dnc_interface_matrix_test.py
-python3 dnc/top/dnc_interface_top_test.py
-python3 dnc/top/dnc_interface_vector_test.py
-python3 dnc/top/dnc_output_vector_test.py
-python3 dnc/top/dnc_top_test.py
-python3 dnc/trained/dnc_trained_top_test.py
+python3 controller/FNN/test_convolutional_fnn_controller.py
+python3 controller/FNN/test_standard_fnn_controller.py
+python3 controller/LSTM/test_convolutional_lstm_controller.py
+python3 controller/LSTM/test_standard_lstm_controller.py
 
-python3 trainer/differentiation/test_matrix_controller_differentiation_test.py
-python3 trainer/differentiation/test_vector_controller_differentiation_test.py
-python3 trainer/FNN/test_fnn_trainer_test.py
-python3 trainer/LSTM/activation/test_lstm_activation_trainer_test.py
-python3 trainer/LSTM/forget/test_lstm_forget_trainer_test.py
-python3 trainer/LSTM/input/test_lstm_input_trainer_test.py
-python3 trainer/LSTM/output/test_lstm_output_trainer_test.py
+python3 ntm/test_ntm_memory.py
+python3 ntm/test_ntm_read_heads.py
+python3 ntm/test_ntm_top.py
+python3 ntm/test_ntm_trained.py
+python3 ntm/test_ntm_write_heads.py
+
+python3 dnc/test_dnc_memory.py
+python3 dnc/test_dnc_top.py
+python3 dnc/test_dnc_trained.py
+
+python3 transformer/test_transformer_components.py
+python3 transformer/test_transformer_controller.py
+python3 transformer/test_transformer_functions.py
+python3 transformer/test_transformer_inputs.py
+python3 transformer/test_transformer_top.py
+
+python3 trainer/test_trainer_differentiation.py
+python3 trainer/test_trainer_fnn.py
+python3 trainer/test_trainer_lstm.py

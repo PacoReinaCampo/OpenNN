@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              QueenField                                                       ##
-##              Multi-Processor System on Chip                                   ##
+##              Peripheral-NTM for MPSoC                                         ##
+##              Neural Turing Machine for MPSoC                                  ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2025 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,8 +42,25 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.m' library > TREE-MATLAB.txt
+import numpy as np
 
-tree -f -i -P '*.m' library > CREATE-MATLAB.sh
-sed -i '/.m/!d' CREATE-MATLAB.sh
-sed -i 's/^/touch /g' CREATE-MATLAB.sh
+def ntm_tensor_summation(data_in):
+
+  data_out = []
+
+  # calculating summation
+  for i in range(len(data_in)):
+    data_out.append([])
+
+    for j in range(len(data_in[i])):
+      data_out[i].append([])
+
+      for k in range(len(data_in[i][j])):
+        temporal = 1.0
+
+        for t in range(len(data_in[i][j][k])):
+          temporal += data_in[i][j][k][t]
+
+        data_out[i][j].append(temporal)
+
+  return data_out

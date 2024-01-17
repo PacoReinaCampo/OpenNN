@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              QueenField                                                       ##
-##              Multi-Processor System on Chip                                   ##
+##              Peripheral-NTM for MPSoC                                         ##
+##              Neural Turing Machine for MPSoC                                  ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2025 by the author(s)                                      ##
+## Copyright (c) 2022-2023 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,8 +42,34 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.m' library > TREE-MATLAB.txt
+import math
+import numpy as np
 
-tree -f -i -P '*.m' library > CREATE-MATLAB.sh
-sed -i '/.m/!d' CREATE-MATLAB.sh
-sed -i 's/^/touch /g' CREATE-MATLAB.sh
+def ntm_tensor_softmax(data_in):
+  temporal0 = 0.0
+  temporal1 = 0.0
+
+  inputs = np.array(data_in)
+
+  data_int = []
+
+  data_out = []
+
+  # calculating softmax
+  for i in range(len(data_in)):
+    data_int.append([])
+    data_out.append([])
+    for j in range(len(data_in[i])):
+      data_int[i].append([])
+      data_out[i].append([])
+      for k in range(len(data_in[i][j])):
+        temporal0 += math.exp(data_in[i][j][k])
+
+        temporal1 = math.exp(data_in[i][j][k])
+
+        data_int[i][j].append(temporal1)
+
+      for k in range(len(data_in[i][j])):
+        data_out[i][j].append(data_int[i][j][k]/temporal0)
+
+  return data_out
