@@ -1,0 +1,89 @@
+library
+├── arithmetic
+│   └── src
+│       ├── matrix
+│       │   └── mod.rs
+│       ├── scalar
+│       │   └── mod.rs
+│       ├── tensor
+│       │   └── mod.rs
+│       └── vector
+│           └── mod.rs
+├── controller
+│   ├── FNN
+│   │   ├── convolutional
+│   │   └── standard
+│   └── LSTM
+│       ├── convolutional
+│       └── standard
+├── dnc
+│   ├── memory
+│   ├── top
+│   └── trained
+├── math
+│   ├── algebra
+│   │   └── src
+│   │       ├── matrix
+│   │       │   └── mod.rs
+│   │       ├── scalar
+│   │       │   └── mod.rs
+│   │       ├── tensor
+│   │       │   └── mod.rs
+│   │       └── vector
+│   │           └── mod.rs
+│   ├── calculus
+│   │   └── src
+│   │       ├── matrix
+│   │       │   └── mod.rs
+│   │       ├── tensor
+│   │       │   └── mod.rs
+│   │       └── vector
+│   │           └── mod.rs
+│   ├── function
+│   │   └── src
+│   │       ├── matrix
+│   │       │   └── mod.rs
+│   │       ├── scalar
+│   │       │   └── mod.rs
+│   │       └── vector
+│   │           └── mod.rs
+│   └── statitics
+│       └── src
+│           ├── matrix
+│           │   └── mod.rs
+│           ├── scalar
+│           │   └── mod.rs
+│           └── vector
+│               └── mod.rs
+├── ntm
+│   ├── memory
+│   ├── read_heads
+│   ├── top
+│   ├── trained
+│   └── write_heads
+├── state
+│   └── src
+│       ├── feedback
+│       │   └── mod.rs
+│       ├── outputs
+│       │   └── mod.rs
+│       └── top
+│           └── mod.rs
+├── trainer
+│   ├── differentiation
+│   ├── FNN
+│   └── LSTM
+│       ├── activation
+│       ├── forget
+│       ├── input
+│       └── output
+└── transformer
+    ├── components
+    ├── controller
+    │   ├── fnn
+    │   └── lstm
+    ├── functions
+    ├── inputs
+    └── top
+
+66 directories, 20 files

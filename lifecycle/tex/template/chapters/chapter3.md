@@ -1,47 +1,45 @@
-# Hardware Design Data
+# Software Design Data
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-| Data Required for the Hardware Development Review    |
-|:-----------------------------------------------------|
-| Hardware Requirements, Design and HDL Code Standards |
-| Hardware Requirements                                |
-| Hardware Design Data                                 |
-| Hardware Description Language                        |
-| Hardware Design Schematics                           |
-| Hardware Traceability Data                           |
-| Hardware Review and Analysis Procedures              |
-| Hardware Review and Analysis Results                 |
-| Hardware Life Cycle Environment Configuration Index  |
-| Problem Reports                                      |
-| Hardware Configuration Management Records            |
-| Hardware Process Assurance Records                   |
-| Hardware Tool Qualification Data                     |
-:Data Required for the Hardware Development Review
+| Data Required for the Software Development Review       |
+|:--------------------------------------------------------|
+| Software Requirements, Design and Source Code Standards |
+| Software Requirements                                   |
+| Software Design Data                                    |
+| Programming Language                                    |
+| Software Traceability Data                              |
+| Software Review and Analysis Procedures                 |
+| Software Review and Analysis Results                    |
+| Software Life Cycle Environment Configuration Index     |
+| Problem Reports                                         |
+| Software Configuration Management Records               |
+| Software Process Assurance Records                      |
+| Software Tool Qualification Data                        |
+:Data Required for the Software Development Review
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-| Data Required for the Hardware Development Object    |
-|:-----------------------------------------------------|
-| Hardware Requirements, Design and HDL Code Standards |
-| Hardware Requirements                                |
-| Hardware Design Data                                 |
-| Hardware Description Language                        |
-| Hardware Design Schematics                           |
-| Hardware Traceability Data                           |
-| Hardware Object and Analysis Procedures              |
-| Hardware Object and Analysis Results                 |
-| Hardware Life Cycle Environment Configuration Index  |
-| Problem Reports                                      |
-| Hardware Configuration Management Records            |
-| Hardware Process Assurance Records                   |
-| Hardware Tool Qualification Data                     |
-:Data Required for the Hardware Development Object
+| Data Required for the Software Development Object       |
+|:--------------------------------------------------------|
+| Software Requirements, Design and Source Code Standards |
+| Software Requirements                                   |
+| Software Design Data                                    |
+| Programming Language                                    |
+| Software Traceability Data                              |
+| Software Object and Analysis Procedures                 |
+| Software Object and Analysis Results                    |
+| Software Life Cycle Environment Configuration Index     |
+| Problem Reports                                         |
+| Software Configuration Management Records               |
+| Software Process Assurance Records                      |
+| Software Tool Qualification Data                        |
+:Data Required for the Software Development Object
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-## Hardware Requirements
-## Hardware Design Representation Data
+## Software Requirements
+## Software Design Representation Data
 ### Conceptual Design Data
 ### Detailed Design Data
 #### Top-Level Drawing

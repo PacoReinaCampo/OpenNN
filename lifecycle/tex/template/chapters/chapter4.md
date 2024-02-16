@@ -2,37 +2,37 @@
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-| Data Required for the Hardware Verification Review  |
+| Data Required for the Software Verification Review  |
 |:----------------------------------------------------|
-| Hardware Requirements Data                          |
-| Hardware Design Representation Data                 |
-| Hardware Description Language                       |
-| Hardware Design Schematics                          |
-| Hardware Verification Procedures                    |
-| Hardware Verification Results                       |
-| Hardware Life Cycle Environment Configuration Index |
+| Software Requirements Data                          |
+| Software Design Representation Data                 |
+| Programming Language                                |
+| Software Design Schematics                          |
+| Software Verification Procedures                    |
+| Software Verification Results                       |
+| Software Life Cycle Environment Configuration Index |
 | Problem Reports                                     |
-| Hardware Configuration Management Records           |
-| Hardware Process Assurance Records                  |
-| Hardware Tool Qualification Data                    |
-:Data Required for the Hardware Verification Review
+| Software Configuration Management Records           |
+| Software Process Assurance Records                  |
+| Software Tool Qualification Data                    |
+:Data Required for the Software Verification Review
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-| Data Required for the Hardware Verification Object  |
+| Data Required for the Software Verification Object  |
 |:----------------------------------------------------|
-| Hardware Requirements Data                          |
-| Hardware Design Representation Data                 |
-| Hardware Description Language                       |
-| Hardware Design Schematics                          |
-| Hardware Verification Procedures                    |
-| Hardware Verification Results                       |
-| Hardware Life Cycle Environment Configuration Index |
+| Software Requirements Data                          |
+| Software Design Representation Data                 |
+| Programming Language                                |
+| Software Design Schematics                          |
+| Software Verification Procedures                    |
+| Software Verification Results                       |
+| Software Life Cycle Environment Configuration Index |
 | Problem Reports                                     |
-| Hardware Configuration Management Records           |
-| Hardware Process Assurance Records                  |
-| Hardware Tool Qualification Data                    |
-:Data Required for the Hardware Verification Object
+| Software Configuration Management Records           |
+| Software Process Assurance Records                  |
+| Software Tool Qualification Data                    |
+:Data Required for the Software Verification Object
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 

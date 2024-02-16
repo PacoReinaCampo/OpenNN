@@ -1,5 +1,5 @@
-# Hardware Design Standards and Guidance
+# Software Design Standards and Guidance
 ## Requirements Standards
-## Hardware Design Standards
+## Software Design Standards
 ## Validation and Verification Standards
-## Hardware Archive Standards
+## Software Archive Standards
