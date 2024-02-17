@@ -1,0 +1,147 @@
+###################################################################################
+##                                            __ _      _     _                  ##
+##                                           / _(_)    | |   | |                 ##
+##                __ _ _   _  ___  ___ _ __ | |_ _  ___| | __| |                 ##
+##               / _` | | | |/ _ \/ _ \ '_ \|  _| |/ _ \ |/ _` |                 ##
+##              | (_| | |_| |  __/  __/ | | | | | |  __/ | (_| |                 ##
+##               \__, |\__,_|\___|\___|_| |_|_| |_|\___|_|\__,_|                 ##
+##                  | |                                                          ##
+##                  |_|                                                          ##
+##                                                                               ##
+##                                                                               ##
+##              Neural Turing Machine                                            ##
+##              Software                                                         ##
+##                                                                               ##
+###################################################################################
+
+###################################################################################
+##                                                                               ##
+## Copyright (c) 2020-2021 by the author(s)                                      ##
+##                                                                               ##
+## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
+## of this software and associated documentation files (the "Software"), to deal ##
+## in the Software without restriction, including without limitation the rights  ##
+## to use, copy, modify, merge, publish, distribute, sublicense, and/or sell     ##
+## copies of the Software, and to permit persons to whom the Software is         ##
+## furnished to do so, subject to the following conditions:                      ##
+##                                                                               ##
+## The above copyright notice and this permission notice shall be included in    ##
+## all copies or substantial portions of the Software.                           ##
+##                                                                               ##
+## THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR    ##
+## IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,      ##
+## FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE   ##
+## AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER        ##
+## LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, ##
+## OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN     ##
+## THE SOFTWARE.                                                                 ##
+##                                                                               ##
+## ============================================================================= ##
+## Author(s):                                                                    ##
+##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
+##                                                                               ##
+###################################################################################
+
+#####################################################################
+# OpenNN Sources
+#####################################################################
+SOURCES =	../../../../src/opennn/adaptive_moment_estimation.cpp \
+		../../../../src/opennn/adaptive_moment_estimation.h \
+		../../../../src/opennn/bounding_layer.cpp \
+		../../../../src/opennn/bounding_layer.h \
+		../../../../src/opennn/conjugate_gradient.cpp \
+		../../../../src/opennn/conjugate_gradient.h \
+		../../../../src/opennn/convolutional_layer.cpp \
+		../../../../src/opennn/convolutional_layer.h \
+		../../../../src/opennn/correlations.cpp \
+		../../../../src/opennn/correlations.h \
+		../../../../src/opennn/cross_entropy_error.cpp \
+		../../../../src/opennn/cross_entropy_error.h \
+		../../../../src/opennn/data_set.cpp \
+		../../../../src/opennn/data_set.h \
+		../../../../src/opennn/functions.cpp \
+		../../../../src/opennn/functions.h \
+		../../../../src/opennn/genetic_algorithm.cpp \
+		../../../../src/opennn/genetic_algorithm.h \
+		../../../../src/opennn/gradient_descent.cpp \
+		../../../../src/opennn/gradient_descent.h \
+		../../../../src/opennn/growing_inputs.cpp \
+		../../../../src/opennn/growing_inputs.h \
+		../../../../src/opennn/incremental_neurons.cpp \
+		../../../../src/opennn/incremental_neurons.h \
+		../../../../src/opennn/inputs_selection.cpp \
+		../../../../src/opennn/inputs_selection.h \
+		../../../../src/opennn/k_means.cpp \
+		../../../../src/opennn/k_means.h \
+		../../../../src/opennn/layer.cpp \
+		../../../../src/opennn/layer.h \
+		../../../../src/opennn/learning_rate_algorithm.cpp \
+		../../../../src/opennn/learning_rate_algorithm.h \
+		../../../../src/opennn/levenberg_marquardt_algorithm.cpp \
+		../../../../src/opennn/levenberg_marquardt_algorithm.h \
+		../../../../src/opennn/long_short_term_memory_layer.cpp \
+		../../../../src/opennn/long_short_term_memory_layer.h \
+		../../../../src/opennn/loss_index.cpp \
+		../../../../src/opennn/loss_index.h \
+		../../../../src/opennn/matrix.h \
+		../../../../src/opennn/mean_squared_error.cpp \
+		../../../../src/opennn/mean_squared_error.h \
+		../../../../src/opennn/metrics.cpp \
+		../../../../src/opennn/metrics.h \
+		../../../../src/opennn/minkowski_error.cpp \
+		../../../../src/opennn/minkowski_error.h \
+		../../../../src/opennn/model_selection.cpp \
+		../../../../src/opennn/model_selection.h \
+		../../../../src/opennn/neural_network.cpp \
+		../../../../src/opennn/neural_network.h \
+		../../../../src/opennn/neurons_selection.cpp \
+		../../../../src/opennn/neurons_selection.h \
+		../../../../src/opennn/normalized_squared_error.cpp \
+		../../../../src/opennn/normalized_squared_error.h \
+		../../../../src/opennn/numerical_differentiation.cpp \
+		../../../../src/opennn/numerical_differentiation.h \
+		../../../../src/opennn/opennn.h \
+		../../../../src/opennn/opennn_strings.cpp \
+		../../../../src/opennn/opennn_strings.h \
+		../../../../src/opennn/optimization_algorithm.cpp \
+		../../../../src/opennn/optimization_algorithm.h \
+		../../../../src/opennn/perceptron_layer.cpp \
+		../../../../src/opennn/perceptron_layer.h \
+		../../../../src/opennn/pooling_layer.cpp \
+		../../../../src/opennn/pooling_layer.h \
+		../../../../src/opennn/principal_components_layer.cpp \
+		../../../../src/opennn/principal_components_layer.h \
+		../../../../src/opennn/probabilistic_layer.cpp \
+		../../../../src/opennn/probabilistic_layer.h \
+		../../../../src/opennn/pruning_inputs.cpp \
+		../../../../src/opennn/pruning_inputs.h \
+		../../../../src/opennn/quasi_newton_method.cpp \
+		../../../../src/opennn/quasi_newton_method.h \
+		../../../../src/opennn/recurrent_layer.cpp \
+		../../../../src/opennn/recurrent_layer.h \
+		../../../../src/opennn/response_optimization.cpp \
+		../../../../src/opennn/response_optimization.h \
+		../../../../src/opennn/scaling_layer.cpp \
+		../../../../src/opennn/scaling_layer.h \
+		../../../../src/opennn/statistics.cpp \
+		../../../../src/opennn/statistics.h \
+		../../../../src/opennn/stochastic_gradient_descent.cpp \
+		../../../../src/opennn/stochastic_gradient_descent.h \
+		../../../../src/opennn/sum_squared_error.cpp \
+		../../../../src/opennn/sum_squared_error.h \
+		../../../../src/opennn/tensor.h \
+		../../../../src/opennn/testing_analysis.cpp \
+		../../../../src/opennn/testing_analysis.h \
+		../../../../src/opennn/tinyxml2.cpp \
+		../../../../src/opennn/tinyxml2.h \
+		../../../../src/opennn/training_strategy.cpp \
+		../../../../src/opennn/training_strategy.h \
+		../../../../src/opennn/transformations.cpp \
+		../../../../src/opennn/transformations.h \
+		../../../../src/opennn/unit_testing.cpp \
+		../../../../src/opennn/unit_testing.h \
+		../../../../src/opennn/unscaling_layer.cpp \
+		../../../../src/opennn/unscaling_layer.h \
+		../../../../src/opennn/vector.h \
+		../../../../src/opennn/weighted_squared_error.cpp \
+		../../../../src/opennn/weighted_squared_error.h
