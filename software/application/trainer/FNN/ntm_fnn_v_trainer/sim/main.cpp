@@ -44,7 +44,30 @@ int main(void)
 
         srand(static_cast<unsigned>(time(nullptr)));
 
-		// Here your code
+        // Contents:
+        // * Data Set.
+
+        // * Neural Network.
+        // ** PerceptronLayer: This class represents a layer of perceptrons.
+        // ** ScalingLayer: This class represents a layer of scaling neurons.
+        // ** UnscalingLayer: This class represents a layer of unscaling neurons.
+        // ** Boundinglayer: This class represents a layer of bounding neurons.
+        // ** ProbabilisticLayer: This class represents a layer of probabilistic neurons.
+        // ** LongShortTermMemoryLayer: This class represents a layer of LSTM neurons.
+        // ** RecurrentLayer: This class represents a layer of recurrent neurons.
+        // ** ConvolutionaLayer: This class represents a layer of convolutional neurons.
+        // ** PoolingLayer: This class is used to store information about the Pooling Layer in a Convolutional Neural Network (CNN).
+        // ** PrincipalComponentsLayer: This class represents the layer of principal component analysis.
+
+        // * Training Strategy.
+        // ** LossIndex: This abstract class represents the concept of the error term.
+        // ** TrainingAlgorithm: This abstract class represents the concept of a training algorithm for a neural network.
+
+        // * Model Selection.
+
+        // * Testing Analysis.
+
+        // * Model Deployment.
 
         cout << "Bye MPSoC Application" << endl;
 
