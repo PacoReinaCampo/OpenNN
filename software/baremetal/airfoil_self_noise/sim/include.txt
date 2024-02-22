@@ -92,6 +92,8 @@ SOURCES =	../../../../src/opennn/adaptive_moment_estimation.cpp \
 		../../../../src/opennn/minkowski_error.h \
 		../../../../src/opennn/model_selection.cpp \
 		../../../../src/opennn/model_selection.h \
+		../../../../src/opennn/multihead_attention_layer.h \
+		../../../../src/opennn/multihead_attention_layer.cpp \
 		../../../../src/opennn/neural_network.cpp \
 		../../../../src/opennn/neural_network.h \
 		../../../../src/opennn/neurons_selection.cpp \

@@ -23,6 +23,7 @@
 #include "bounding_layer.h"
 #include "perceptron_layer.h"
 #include "long_short_term_memory_layer.h"
+#include "multihead_attention_layer.h"
 #include "recurrent_layer.h"
 #include "probabilistic_layer.h"
 #include "scaling_layer.h"
