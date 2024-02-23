@@ -73,8 +73,7 @@ int main(void)
 
         double residuary_resistance = outputs[0];
 
-        cout << "Residuary resistance per unit weight of displacement:\n"
-                  << residuary_resistance << endl;
+        cout << "Residuary resistance per unit weight of displacement:\n" << residuary_resistance << endl;
 
         return 0;
     }
