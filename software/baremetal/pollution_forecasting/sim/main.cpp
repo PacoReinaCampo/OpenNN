@@ -19,7 +19,7 @@
 
 // OpenNN includes
 
-#include "../../../../src/opennn/opennn.h"
+#include "../../../../src/opennn/top/opennn.h"
 
 using namespace OpenNN;
 
