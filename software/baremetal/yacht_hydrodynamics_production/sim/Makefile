@@ -77,4 +77,5 @@ clean:
 	rm -rf *.run
 	rm -rf *.elf
 	rm -rf *.hex
+	rm -rf data/*.dat
 	rm -rf data/*.xml

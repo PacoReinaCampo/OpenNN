@@ -67,13 +67,8 @@ int main(void)
         QuasiNewtonMethod* quasi_Newton_method_pointer = training_strategy.get_quasi_Newton_method_pointer();
 
         cout << training_strategy.get_loss_index_pointer()->calculate_training_loss_gradient() << endl;
-        quasi_Newton_method_pointer->set_epochs_number(1000);
-
-        quasi_Newton_method_pointer->set_training_initial_batch_size(11);
 
         quasi_Newton_method_pointer->set_display_period(10);
-
-        quasi_Newton_method_pointer->set_maximum_iterations_number(1000);
 
         const OptimizationAlgorithm::Results training_strategy_results = training_strategy.perform_training();
 

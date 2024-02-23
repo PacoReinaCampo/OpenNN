@@ -80,7 +80,6 @@ int main(void)
         training_strategy_results.save("data/training_strategy_results.dat");
 
         binary_classification_tests.save("data/binary_classification_tests.dat");
-        confusion.save("data/confusion.dat");
 
         cout << "Bye" << endl;
 
