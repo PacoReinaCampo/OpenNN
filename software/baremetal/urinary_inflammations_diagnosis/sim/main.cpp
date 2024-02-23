@@ -81,19 +81,19 @@ int main(void)
 
         // Model selection
 
-//        ModelSelection model_selection(&training_strategy);
+        ModelSelection model_selection(&training_strategy);
 
-//        model_selection.set_inputs_selection_method(ModelSelection::GENETIC_ALGORITHM);
+        model_selection.set_inputs_selection_method(ModelSelection::GENETIC_ALGORITHM);
 
-//        GeneticAlgorithm* genetic_algorithm_pointer = model_selection.get_genetic_algorithm_pointer();
+        GeneticAlgorithm* genetic_algorithm_pointer = model_selection.get_genetic_algorithm_pointer();
 
-//        genetic_algorithm_pointer->set_approximation(false);
+        genetic_algorithm_pointer->set_approximation(false);
 
-//        genetic_algorithm_pointer->set_inicialization_method(GeneticAlgorithm::Random);
+        genetic_algorithm_pointer->set_inicialization_method(GeneticAlgorithm::Random);
 
-//        genetic_algorithm_pointer->set_display(true);
+        genetic_algorithm_pointer->set_display(true);
 
-//        const ModelSelection::Results model_selection_results = model_selection.perform_inputs_selection();
+        const ModelSelection::Results model_selection_results = model_selection.perform_inputs_selection();
 
         // Testing analysis
 
@@ -113,8 +113,8 @@ int main(void)
 
         training_strategy.save("data/training_strategy.xml");
 
-//        model_selection.save("data/model_selection.xml");
-//        model_selection_results.save("data/model_selection_results.dat");
+        model_selection.save("data/model_selection.xml");
+        model_selection_results.save("data/model_selection_results.dat");
 
         confusion.save_csv("data/confusion.csv");
 

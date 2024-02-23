@@ -39,7 +39,7 @@ int main(void)
         const Vector<string> inputs_names = data_set.get_input_variables_names();
         const Vector<string> targets_names = data_set.get_target_variables_names();
 
-//        data_set.set_training();
+        data_set.set_training();
         data_set.split_instances_random(0.6,0.1,0.3);
 
         const Vector<Descriptives> inputs_descriptives = data_set.scale_inputs_minimum_maximum();
@@ -66,20 +66,20 @@ int main(void)
 
         QuasiNewtonMethod* quasi_Newton_method_pointer = training_strategy.get_quasi_Newton_method_pointer();
 
-//        cout << training_strategy.get_loss_index_pointer()->calculate_training_loss_gradient() << endl;
-//        quasi_Newton_method_pointer->set_epochs_number(1000);
+        cout << training_strategy.get_loss_index_pointer()->calculate_training_loss_gradient() << endl;
+        quasi_Newton_method_pointer->set_epochs_number(1000);
 
-//        quasi_Newton_method_pointer->set_training_initial_batch_size(11);
+        quasi_Newton_method_pointer->set_training_initial_batch_size(11);
 
         quasi_Newton_method_pointer->set_display_period(10);
 
-//        quasi_Newton_method_pointer->set_maximum_iterations_number(1000);
+        quasi_Newton_method_pointer->set_maximum_iterations_number(1000);
 
         const OptimizationAlgorithm::Results training_strategy_results = training_strategy.perform_training();
 
         // Testing analysis
 
-//        data_set.set_testing();
+        data_set.set_testing();
 
         TestingAnalysis testing_analysis(&neural_network, &data_set);
 
@@ -88,15 +88,15 @@ int main(void)
 
         // Save results
 
-//        data_set.save("data/data_set.xml");
+        data_set.save("data/data_set.xml");
 
-//        neural_network.save("data/neural_network.xml");
-//        neural_network.save_expression("data/expression.txt");
+        neural_network.save("data/neural_network.xml");
+        neural_network.save_expression("data/expression.txt");
 
-//        training_strategy.save("data/training_strategy.xml");
-//        training_strategy_results.save("data/training_strategy_results.dat");
+        training_strategy.save("data/training_strategy.xml");
+        training_strategy_results.save("data/training_strategy_results.dat");
 
-//        linear_regression_results.save("data/linear_regression_analysis_results.dat");
+        linear_regression_results.save("data/linear_regression_analysis_results.dat");
 
         return 0;
     }

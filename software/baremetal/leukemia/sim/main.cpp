@@ -75,21 +75,20 @@ int main(void)
         training_strategy.perform_training_void();
 
         // Model selection
-/*
+
         ModelSelection model_selection(&training_strategy);
 
         model_selection.set_inputs_selection_method(ModelSelection::GROWING_INPUTS);
 
         model_selection.perform_inputs_selection();
 
-//      GrowingInputs* growing_inputs_pointer = model_selection.get_growing_inputs_pointer();
+        GrowingInputs* growing_inputs_pointer = model_selection.get_growing_inputs_pointer();
 
-//      growing_inputs_pointer->set_approximation(false);
+        growing_inputs_pointer->set_approximation(false);
 
-//      growing_inputs_pointer->set_maximum_selection_failures(3);
+        growing_inputs_pointer->set_maximum_selection_failures(3);
 
-//        ModelSelection::Results model_selection_results = model_selection.perform_inputs_selection();
-
+        ModelSelection::Results model_selection_results = model_selection.perform_inputs_selection();
 
         // Testing analysis
 
@@ -105,11 +104,11 @@ int main(void)
 
         training_strategy.save("data/training_strategy.xml");
 
-//        model_selection.save("data/model_selection.xml");
-//        model_selection_results.save("data/model_selection_results.dat");
+        model_selection.save("data/model_selection.xml");
+        model_selection_results.save("data/model_selection_results.dat");
 
         confusion.save_csv("data/confusion.csv");
-*/
+
         cout << "Bye" << endl;
 
         return 0;

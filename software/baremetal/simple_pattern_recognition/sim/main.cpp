@@ -56,7 +56,7 @@ int main(void)
 
         TrainingStrategy training_strategy(&neural_network, &data_set);
 
-//        QuasiNewtonMethod* quasi_Newton_method_pointer = training_strategy.get_quasi_Newton_method_pointer();
+        QuasiNewtonMethod* quasi_Newton_method_pointer = training_strategy.get_quasi_Newton_method_pointer();
 
         const OptimizationAlgorithm::Results training_strategy_results = training_strategy.perform_training();
 
@@ -78,10 +78,10 @@ int main(void)
         neural_network.save_expression("data/expression.txt");
 
         training_strategy.save("data/training_strategy.xml");
-//        training_strategy_results.save("data/training_strategy_results.dat");
+        training_strategy_results.save("data/training_strategy_results.dat");
 
         binary_classification_tests.save("data/binary_classification_tests.dat");
-//        confusion.save("data/confusion.dat");
+        confusion.save("data/confusion.dat");
 
         cout << "Bye" << endl;
 

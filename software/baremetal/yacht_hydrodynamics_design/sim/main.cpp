@@ -67,7 +67,7 @@ int main(void)
 
         unscaling_layer_pointer->set_unscaling_method(UnscalingLayer::MinimumMaximum);
 
-//        unscaling_layer_pointer->set_unscaling_method(UnscalingLayer::NoUnscaling);
+        unscaling_layer_pointer->set_unscaling_method(UnscalingLayer::NoUnscaling);
 
         TrainingStrategy training_strategy(&neural_network, &data_set);
 
@@ -75,11 +75,11 @@ int main(void)
 
         quasi_Newton_method_pointer->set_maximum_epochs_number(1000);
 
-//        quasi_Newton_method_pointer->set_display_period(10000);
+        quasi_Newton_method_pointer->set_display_period(10000);
 
         const OptimizationAlgorithm::Results training_strategy_results = training_strategy.perform_training();
 
-//        unscaling_layer_pointer->set_unscaling_method(UnscalingLayer::MinimumMaximum);
+        unscaling_layer_pointer->set_unscaling_method(UnscalingLayer::MinimumMaximum);
 
         // Testing analysis
 

@@ -105,10 +105,10 @@ int main(void)
         neural_network.save_expression("data/expression.txt");
 
         training_strategy.save("data/training_strategy.xml");
-//        training_strategy_results.save("data/training_strategy_results.dat");
+        training_strategy_results.save("data/training_strategy_results.dat");
 
         confusion.save_csv("data/confusion.csv");
-//        binary_classification_tests.save("data/binary_classification_tests.dat");
+        binary_classification_tests.save("data/binary_classification_tests.dat");
 
         cout << "End" << endl;
 

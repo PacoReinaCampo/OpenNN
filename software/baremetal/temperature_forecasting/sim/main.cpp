@@ -66,7 +66,7 @@ int main(void)
 
         NeuralNetwork neural_network(NeuralNetwork::Forecasting, {inputs_number, hidden_perceptrons_number, outputs_number});
 
-//        neural_network.set(NeuralNetwork::Forecasting, {inputs_number, hidden_perceptrons_number, outputs_number});
+        neural_network.set(NeuralNetwork::Forecasting, {inputs_number, hidden_perceptrons_number, outputs_number});
 
         ScalingLayer* scaling_layer_pointer = neural_network.get_scaling_layer_pointer();
         scaling_layer_pointer->set_descriptives(inputs_descriptives);
@@ -117,7 +117,7 @@ int main(void)
         error_autocorrelation.save("data/error_autocorrelation.dat");
         error_crosscorrelation.save("data/error_crosscorrelation.dat");
         error_data.save("data/error_data.dat");
-//        error_data_statistics.save("data/error_data_statistics.dat");
+        error_data_statistics.save("data/error_data_statistics.dat");
 
         // Deployment
 

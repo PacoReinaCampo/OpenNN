@@ -140,15 +140,15 @@ int main(void)
         cout << "\nAccuracy: " << (confusion.calculate_trace()/confusion.calculate_sum())*100 << " %" << endl << endl;
 
         // Save results
-/*
+
         data_set.save("data/data_set.xml");
 
         neural_network.save("data/neural_network.xml");
-//        neural_network.save_expression("data/expression.txt");
+        neural_network.save_expression("data/expression.txt");
 
         training_strategy.save("data/training_strategy.xml");
         training_strategy_results.save("data/training_strategy_results.dat");
-*/       
+      
         return 0;
     }
     catch(exception& e)
