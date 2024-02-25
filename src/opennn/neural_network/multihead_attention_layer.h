@@ -31,28 +31,25 @@
 namespace OpenNN
 {
 
-/// This class represents a layer of Multihead Attention.
-
-/// MultiheadAttentionLayer has 2 types of input: Context and Input. Output has the shape of Input
-/// The layer consists of 2 separate PerceptronLayers at the start (1 for Context and  1 for Input) and 1 at the end, all for projection purposes.
-/// In between there is an attention computation.
-///
-/// Layers of Multihead Attention will be used to construct Transformer models .
+/// This class represents a layer of neurons.
+/// Layers of neurons will be used to construct multilayer neurons.
 
 class MultiheadAttentionLayer : public Layer
 {
 
 public:
 
+    // Enumerations
+
+    /// Enumeration of available activation functions for the long-short term memory layer.
+
+    enum ActivationFunction{Threshold, SymmetricThreshold, Logistic, HyperbolicTangent, Linear, RectifiedLinear, ExponentialLinear, ScaledExponentialLinear, SoftPlus, SoftSign, HardSigmoid};
+
    // Constructors
 
    explicit MultiheadAttentionLayer();
 
-   explicit MultiheadAttentionLayer(const size_t&, /// Input size
-                                    const size_t&, /// Context size
-                                    const size_t&, /// Embedding depth
-                                    const size_t& /// Number of attention heads
-                                    );
+   explicit MultiheadAttentionLayer(const size_t&, const size_t&);
 
    MultiheadAttentionLayer(const MultiheadAttentionLayer&);
 
@@ -60,127 +57,240 @@ public:
    
    virtual ~MultiheadAttentionLayer();
 
-/*   // Get methods*/
+   // Get methods
 
-/*   bool is_empty() const;*/
+   bool is_empty() const;
 
-/*   size_t get_input_size() const;*/
-/*   size_t get_context_size() const;*/
-/*   size_t get_depth() const;*/
-/*   size_t get_number_of_heads() const;*/
+   size_t get_inputs_number() const;
+   size_t get_neurons_number() const;
 
    // Parameters
 
-/*   Vector<size_t> get_inputs_dimensions() const final;*/
-/*   Vector<size_t> get_outputs_dimensions() const final;*/
+   Vector<double> get_input_biases() const;
+   Vector<double> get_forget_biases() const;
+   Vector<double> get_state_biases() const;
+   Vector<double> get_output_biases() const;
 
-   Tensor<double> get_query_kernel() const;
-   Tensor<double> get_key_kernel() const;
-   Tensor<double> get_value_kernel() const;
+   Matrix<double> get_input_weights() const;
+   Matrix<double> get_forget_weights() const;
+   Matrix<double> get_state_weights() const;
+   Matrix<double> get_output_weights() const;
 
-   Tensor<double> get_projection_kernel() const;
+   Matrix<double> get_input_recurrent_weights() const;
+   Matrix<double> get_forget_recurrent_weights() const;
+   Matrix<double> get_state_recurrent_weights() const;
+   Matrix<double> get_output_recurrent_weights() const;
 
-/*   size_t get_parameters_number() const final;*/
+   Matrix<double> get_biases() const;
+   Tensor<double> get_weights() const;
+   Tensor<double> get_recurrent_weights() const;
 
-/*   // Display messages*/
+   size_t get_timesteps() const;
 
-/*   const bool& get_display() const;*/
+   size_t get_parameters_number() const;
+   Vector<double> get_parameters() const;
 
-/*   // Set methods*/
+   // Activation functions
 
-/*   void set();*/
-/*   void set(const size_t&, const size_t&, const size_t&, const size_t&);*/
+   const MultiheadAttentionLayer::ActivationFunction& get_activation_function() const;
+   const MultiheadAttentionLayer::ActivationFunction& get_recurrent_activation_function() const;
 
-/*   void set_default();*/
-/*   void set_name(const string&);*/
+   string write_activation_function() const;
+   string write_recurrent_activation_function() const;
+   // Display messages
 
-/*   // Architecture*/
+   const bool& get_display() const;
 
-/*   void set_input_size(const size_t&);*/
-/*   void set_context_size(const size_t&);*/
-/*   void set_depth(const size_t&);*/
-/*   void set_number_of_heads(const size_t&);*/
+   // Set methods
 
-/*   void set_kernels();*/
-/*   void set_parameters_random() final;*/
+   void set();
+   void set(const size_t&, const size_t&);
+   void set(const MultiheadAttentionLayer&);
 
-/*   void set_dropout_rate(const Matrix<double>&);*/
+   void set_default();
 
-/*   // Display messages*/
+   // Architecture
 
-/*   void set_display(const bool&);*/
+   void set_inputs_number(const size_t&);
+   void set_neurons_number(const size_t&);
+   void set_input_shape(const Vector<size_t>&);
 
-/*   // Linear transformation & projection*/
+   // Parameters
 
-/*   void calculate_query_transformation(const Tensor<double>&, type*);*/
-/*   void calculate_key_transformation(const Tensor<double>&, type*);*/
-/*   void calculate_value_transformation(const Tensor<double>&, type*);*/
+   void set_input_biases(const Vector<double>&);
+   void set_forget_biases(const Vector<double>&);
+   void set_state_biases(const Vector<double>&);
+   void set_output_biases(const Vector<double>&);
 
-/*   void calculate_output_projection(const Tensor<type, 4>&, type*);*/
+   void set_input_weights(const Matrix<double>&);
+   void set_forget_weights(const Matrix<double>&);
+   void set_state_weights(const Matrix<double>&);
+   void set_output_weights(const Matrix<double>&);
 
-/*   // Attention computation*/
+   void set_input_recurrent_weights(const Matrix<double>&);
+   void set_forget_recurrent_weights(const Matrix<double>&);
+   void set_state_recurrent_weights(const Matrix<double>&);
+   void set_output_recurrent_weights(const Matrix<double>&);
 
-/*   void compute_attention_scores(type*, const Vector<size_t>&, type*, const Vector<size_t>&, type*); /// Softmax before saving*/
+   void set_parameters(const Vector<double>&);
 
-/*   void compute_attention_output(type*, const Vector<size_t>&, type*, const Vector<size_t>&, type*);*/
+   // Activation functions
 
-/*   // Multihead Attention layer outputs*/
+   void set_activation_function(const ActivationFunction&);
+   void set_activation_function(const string&);
 
-/*   void forward_propagate(const Tensor<DynamicTensor<type>, 1>&,*/
-/*                          LayerForwardPropagation*,*/
-/*                          const bool&) final;*/
+   void set_recurrent_activation_function(const ActivationFunction&);
+   void set_recurrent_activation_function(const string&);
 
-/*   // Expression methods*/
+   void set_timesteps(const size_t&);
 
-/*   string write_expression(const Vector<string>&, const Vector<string>&) const final;*/
+   // Display messages
 
-/*   string write_activation_function_expression() const;*/
+   void set_display(const bool&);
+
+   // Parameters initialization methods
+
+   void initialize_biases(const double&); 
+
+   void initialize_forget_biases(const double&);
+   void initialize_input_biases(const double&);
+   void initialize_state_biases(const double&);
+   void initialize_output_biases(const double&);
+
+   void initialize_weights(const double&);
+
+   void initialize_forget_weights(const double&);
+   void initialize_input_weights(const double&);
+   void initialize_state_weights(const double&);
+   void initialize_output_weights(const double&);
+
+   void initialize_recurrent_weights(const double&);
+
+   void initialize_forget_recurrent_weights(const double&);
+   void initialize_input_recurrent_weights(const double&);
+   void initialize_state_recurrent_weights(const double&);
+   void initialize_output_recurrent_weights(const double&);
+
+   void initialize_hidden_states(const double&);
+   void initialize_cell_states(const double&);
+
+   void initialize_weights_Glorot(const double&, const double&);
+
+   void initialize_parameters(const double&);
+
+   void randomize_parameters_uniform();
+   void randomize_parameters_uniform(const double&, const double&);
+
+   void randomize_parameters_normal(const double& = 0.0, const double& = 1.0);
+
+   // Parameters norm 
+
+   double calculate_parameters_norm() const;
+
+   // Long short term memory layer combinations
+
+   Vector<double> calculate_forget_combinations(const Vector<double>&) const;
+   Vector<double> calculate_input_combinations(const Vector<double>&) const;
+   Vector<double> calculate_state_combinations(const Vector<double>&) const;
+   Vector<double> calculate_output_combinations(const Vector<double>&) const;
+
+   Tensor<double> calculate_activations_states(const Tensor<double>&);
+
+   // Long short term memory layer activations
+
+   Tensor<double> calculate_activations(const Tensor<double>&) const;
+   Vector<double> calculate_activations(const Vector<double>&) const;
+   Tensor<double> calculate_recurrent_activations(const Tensor<double>&) const;
+   Vector<double> calculate_recurrent_activations(const Vector<double>&) const;
+
+   // Long short term memory layer derivatives
+
+   Tensor<double> calculate_activations_derivatives(const Tensor<double>&) const;
+   Vector<double> calculate_activations_derivatives(const Vector<double>&) const;
+   Vector<double> calculate_recurrent_activations_derivatives(const Vector<double>&) const;
+
+   // Long short term memory layer outputs
+
+   void update_cell_states(const Vector<double>&);
+   void update_hidden_states(const Vector<double>&);
+
+   Tensor<double> calculate_outputs(const Tensor<double>&);
+   Tensor<double> calculate_outputs(const Tensor<double>&,const Vector<double>& );
+   Tensor<double> calculate_outputs(const Tensor<double>&, const Matrix<double>&, const Tensor<double>&, const Tensor<double>&);
+
+   FirstOrderActivations calculate_first_order_activations(const Tensor<double>&);
+
+   Tensor<double> calculate_output_delta(const Tensor<double>&, const Tensor<double>&) const;
+
+   Tensor<double> calculate_hidden_delta(Layer*, const Tensor<double>&, const Tensor<double>&, const Tensor<double>&) const;
+
+   Vector<double> calculate_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
+
+   Vector<double> calculate_forget_weights_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&, const Tensor<double>&);
+   Vector<double> calculate_input_weights_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&, const Tensor<double>&);
+   Vector<double> calculate_state_weights_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&, const Tensor<double>&);
+   Vector<double> calculate_output_weights_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&, const Tensor<double>&);
+
+   Vector<double> calculate_forget_recurrent_weights_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&, const Tensor<double>&);
+   Vector<double> calculate_input_recurrent_weights_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&, const Tensor<double>&);
+   Vector<double> calculate_state_recurrent_weights_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&, const Tensor<double>&);
+   Vector<double> calculate_output_recurrent_weights_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&, const Tensor<double>&);
+
+   Vector<double> calculate_forget_biases_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&, const Tensor<double>&);
+   Vector<double> calculate_input_biases_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&, const Tensor<double>&);
+   Vector<double> calculate_state_biases_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&, const Tensor<double>&);
+   Vector<double> calculate_output_biases_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&, const Tensor<double>&);
+
+   // Expression methods
+
+   string write_expression(const Vector<string>&, const Vector<string>&) const;
+   string write_recurrent_activation_function_expression() const;
+   string write_activation_function_expression() const;
+
+   string object_to_string() const;
 
 protected:
 
-   // MEMBERS
+   size_t timesteps = 10;
 
-   /// Input size
+   Vector<double> input_biases;
+   Vector<double> forget_biases;
+   Vector<double> state_biases;
+   Vector<double> output_biases;
 
-   size_t input_size;
+   Matrix<double> input_weights;
+   Matrix<double> forget_weights;
+   Matrix<double> state_weights;
+   Matrix<double> output_weights;
 
-   /// Context size
+   Matrix<double> forget_recurrent_weights;
+   Matrix<double> input_recurrent_weights;
+   Matrix<double> state_recurrent_weights;
+   Matrix<double> output_recurrent_weights;
 
-   size_t context_size;
+   /// Activation function variable.
 
-   /// Embedding depth
+   ActivationFunction activation_function = HyperbolicTangent;
+   ActivationFunction recurrent_activation_function = HardSigmoid;
 
-   size_t depth;
+   size_t batch;
+   size_t variables;
 
-   /// Number of attention heads
+   Vector<double> hidden_states;
+   Vector<double> cell_states;
 
-   size_t number_of_heads;
+   /// Display messages to screen. 
 
-   /// Linear transformation kernels
-
-   Tensor<double> query_kernel;
-   Tensor<double> key_kernel;
-   Tensor<double> value_kernel;
-
-   /// Linear projection kernel
-
-   Tensor<double> projection_kernel;
-
-   /// Dropour rate
-
-/*   type dropout_rate = type(0);*/
-
-   /// Display messages to screen.
-
-   bool display = true;
+   bool display;
 };
 
 }
 
 #endif
 
+
 // OpenNN: Open Neural Networks Library.
-// Copyright(C) 2005-2023 Artificial Intelligence Techniques, SL.
+// Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
