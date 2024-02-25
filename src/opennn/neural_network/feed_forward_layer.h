@@ -187,7 +187,7 @@ public:
 
    double calculate_parameters_norm() const;
 
-   // Long short term memory layer combinations
+   // Feed forward layer combinations
 
    Vector<double> calculate_forget_combinations(const Vector<double>&) const;
    Vector<double> calculate_input_combinations(const Vector<double>&) const;
@@ -196,20 +196,20 @@ public:
 
    Tensor<double> calculate_activations_states(const Tensor<double>&);
 
-   // Long short term memory layer activations
+   // Feed forward layer activations
 
    Tensor<double> calculate_activations(const Tensor<double>&) const;
    Vector<double> calculate_activations(const Vector<double>&) const;
    Tensor<double> calculate_recurrent_activations(const Tensor<double>&) const;
    Vector<double> calculate_recurrent_activations(const Vector<double>&) const;
 
-   // Long short term memory layer derivatives
+   // Feed forward layer derivatives
 
    Tensor<double> calculate_activations_derivatives(const Tensor<double>&) const;
    Vector<double> calculate_activations_derivatives(const Vector<double>&) const;
    Vector<double> calculate_recurrent_activations_derivatives(const Vector<double>&) const;
 
-   // Long short term memory layer outputs
+   // Feed forward layer outputs
 
    void update_cell_states(const Vector<double>&);
    void update_hidden_states(const Vector<double>&);

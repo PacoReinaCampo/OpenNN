@@ -1,13 +1,13 @@
 //   OpenNN: Open Neural Networks Library
 //   www.opennn.net
 //
-//   M U L T I H E A D   A T T E N T I O N   L A Y E R   C L A S S   H E A D E R
+//   D I F F E R E N T I A B L E   N E U R A L   C O M P U T E R   L A Y E R   C L A S S   H E A D E R
 //
 //   Artificial Intelligence Techniques SL
 //   artelnics@artelnics.com
 
-#ifndef MULTIHEADATTENTIONLAYER_H
-#define MULTIHEADATTENTIONLAYER_H
+#ifndef DIFFERENTIABLENEURALCOMPUTER_H
+#define DIFFERENTIABLENEURALCOMPUTER_H
 
 // System includes
 
@@ -34,7 +34,7 @@ namespace OpenNN
 /// This class represents a layer of neurons.
 /// Layers of neurons will be used to construct multilayer neurons.
 
-class MultiheadAttentionLayer : public Layer
+class DifferentiableNeuralComputerLayer : public Layer
 {
 
 public:
@@ -47,15 +47,15 @@ public:
 
    // Constructors
 
-   explicit MultiheadAttentionLayer();
+   explicit DifferentiableNeuralComputerLayer();
 
-   explicit MultiheadAttentionLayer(const size_t&, const size_t&);
+   explicit DifferentiableNeuralComputerLayer(const size_t&, const size_t&);
 
-   MultiheadAttentionLayer(const MultiheadAttentionLayer&);
+   DifferentiableNeuralComputerLayer(const DifferentiableNeuralComputerLayer&);
 
    // Destructor
    
-   virtual ~MultiheadAttentionLayer();
+   virtual ~DifferentiableNeuralComputerLayer();
 
    // Get methods
 
@@ -92,8 +92,8 @@ public:
 
    // Activation functions
 
-   const MultiheadAttentionLayer::ActivationFunction& get_activation_function() const;
-   const MultiheadAttentionLayer::ActivationFunction& get_recurrent_activation_function() const;
+   const DifferentiableNeuralComputerLayer::ActivationFunction& get_activation_function() const;
+   const DifferentiableNeuralComputerLayer::ActivationFunction& get_recurrent_activation_function() const;
 
    string write_activation_function() const;
    string write_recurrent_activation_function() const;
@@ -105,7 +105,7 @@ public:
 
    void set();
    void set(const size_t&, const size_t&);
-   void set(const MultiheadAttentionLayer&);
+   void set(const DifferentiableNeuralComputerLayer&);
 
    void set_default();
 
@@ -187,7 +187,7 @@ public:
 
    double calculate_parameters_norm() const;
 
-   // Multi head attention layer combinations
+   // Differentiable neural computer layer combinations
 
    Vector<double> calculate_forget_combinations(const Vector<double>&) const;
    Vector<double> calculate_input_combinations(const Vector<double>&) const;
@@ -196,20 +196,20 @@ public:
 
    Tensor<double> calculate_activations_states(const Tensor<double>&);
 
-   // Multi head attention layer activations
+   // Differentiable neural computer layer activations
 
    Tensor<double> calculate_activations(const Tensor<double>&) const;
    Vector<double> calculate_activations(const Vector<double>&) const;
    Tensor<double> calculate_recurrent_activations(const Tensor<double>&) const;
    Vector<double> calculate_recurrent_activations(const Vector<double>&) const;
 
-   // Multi head attention layer derivatives
+   // Differentiable neural computer layer derivatives
 
    Tensor<double> calculate_activations_derivatives(const Tensor<double>&) const;
    Vector<double> calculate_activations_derivatives(const Vector<double>&) const;
    Vector<double> calculate_recurrent_activations_derivatives(const Vector<double>&) const;
 
-   // Multi head attention layer outputs
+   // Differentiable neural computer layer outputs
 
    void update_cell_states(const Vector<double>&);
    void update_hidden_states(const Vector<double>&);
