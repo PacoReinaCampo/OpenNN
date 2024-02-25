@@ -45,66 +45,34 @@
 #####################################################################
 # OpenNN Sources
 #####################################################################
-SOURCES =	../../../../../src/opennn/training_strategy/adaptive_moment_estimation.cpp \
-		../../../../../src/opennn/training_strategy/adaptive_moment_estimation.h \
-		../../../../../src/opennn/neural_network/bounding_layer.cpp \
-		../../../../../src/opennn/neural_network/bounding_layer.h \
-		../../../../../src/opennn/training_strategy/conjugate_gradient.cpp \
-		../../../../../src/opennn/training_strategy/conjugate_gradient.h \
-		../../../../../src/opennn/neural_network/convolutional_layer.cpp \
-		../../../../../src/opennn/neural_network/convolutional_layer.h \
-		../../../../../src/opennn/utilities/correlations.cpp \
-		../../../../../src/opennn/utilities/correlations.h \
-		../../../../../src/opennn/training_strategy/cross_entropy_error.cpp \
-		../../../../../src/opennn/training_strategy/cross_entropy_error.h \
-		../../../../../src/opennn/data_set/data_set.cpp \
+SOURCES =	../../../../../src/opennn/data_set/data_set.cpp \
 		../../../../../src/opennn/data_set/data_set.h \
-		../../../../../src/opennn/utilities/functions.cpp \
-		../../../../../src/opennn/utilities/functions.h \
 		../../../../../src/opennn/model_selection/genetic_algorithm.cpp \
 		../../../../../src/opennn/model_selection/genetic_algorithm.h \
-		../../../../../src/opennn/training_strategy/gradient_descent.cpp \
-		../../../../../src/opennn/training_strategy/gradient_descent.h \
 		../../../../../src/opennn/model_selection/growing_inputs.cpp \
 		../../../../../src/opennn/model_selection/growing_inputs.h \
 		../../../../../src/opennn/model_selection/incremental_neurons.cpp \
 		../../../../../src/opennn/model_selection/incremental_neurons.h \
 		../../../../../src/opennn/model_selection/inputs_selection.cpp \
 		../../../../../src/opennn/model_selection/inputs_selection.h \
-		../../../../../src/opennn/utilities/k_means.cpp \
-		../../../../../src/opennn/utilities/k_means.h \
-		../../../../../src/opennn/neural_network/layer.cpp \
-		../../../../../src/opennn/neural_network/layer.h \
-		../../../../../src/opennn/training_strategy/learning_rate_algorithm.cpp \
-		../../../../../src/opennn/training_strategy/learning_rate_algorithm.h \
-		../../../../../src/opennn/training_strategy/levenberg_marquardt_algorithm.cpp \
-		../../../../../src/opennn/training_strategy/levenberg_marquardt_algorithm.h \
-		../../../../../src/opennn/neural_network/long_short_term_memory_layer.cpp \
-		../../../../../src/opennn/neural_network/long_short_term_memory_layer.h \
-		../../../../../src/opennn/training_strategy/loss_index.cpp \
-		../../../../../src/opennn/training_strategy/loss_index.h \
-		../../../../../src/opennn/utilities/matrix.h \
-		../../../../../src/opennn/training_strategy/mean_squared_error.cpp \
-		../../../../../src/opennn/training_strategy/mean_squared_error.h \
-		../../../../../src/opennn/utilities/metrics.cpp \
-		../../../../../src/opennn/utilities/metrics.h \
-		../../../../../src/opennn/training_strategy/minkowski_error.cpp \
-		../../../../../src/opennn/training_strategy/minkowski_error.h \
 		../../../../../src/opennn/model_selection/model_selection.cpp \
 		../../../../../src/opennn/model_selection/model_selection.h \
-		../../../../../src/opennn/neural_network/neural_network.cpp \
-		../../../../../src/opennn/neural_network/neural_network.h \
 		../../../../../src/opennn/model_selection/neurons_selection.cpp \
 		../../../../../src/opennn/model_selection/neurons_selection.h \
-		../../../../../src/opennn/training_strategy/normalized_squared_error.cpp \
-		../../../../../src/opennn/training_strategy/normalized_squared_error.h \
-		../../../../../src/opennn/utilities/numerical_differentiation.cpp \
-		../../../../../src/opennn/utilities/numerical_differentiation.h \
-		../../../../../src/opennn/top/opennn.h \
-		../../../../../src/opennn/utilities/opennn_strings.cpp \
-		../../../../../src/opennn/utilities/opennn_strings.h \
-		../../../../../src/opennn/training_strategy/optimization_algorithm.cpp \
-		../../../../../src/opennn/training_strategy/optimization_algorithm.h \
+		../../../../../src/opennn/model_selection/pruning_inputs.cpp \
+		../../../../../src/opennn/model_selection/pruning_inputs.h \
+		../../../../../src/opennn/neural_network/bounding_layer.cpp \
+		../../../../../src/opennn/neural_network/bounding_layer.h \
+		../../../../../src/opennn/neural_network/convolutional_layer.cpp \
+		../../../../../src/opennn/neural_network/convolutional_layer.h \
+		../../../../../src/opennn/neural_network/layer.cpp \
+		../../../../../src/opennn/neural_network/layer.h \
+		../../../../../src/opennn/neural_network/long_short_term_memory_layer.cpp \
+		../../../../../src/opennn/neural_network/long_short_term_memory_layer.h \
+		../../../../../src/opennn/neural_network/multihead_attention_layer.cpp \
+		../../../../../src/opennn/neural_network/multihead_attention_layer.h \
+		../../../../../src/opennn/neural_network/neural_network.cpp \
+		../../../../../src/opennn/neural_network/neural_network.h \
 		../../../../../src/opennn/neural_network/perceptron_layer.cpp \
 		../../../../../src/opennn/neural_network/perceptron_layer.h \
 		../../../../../src/opennn/neural_network/pooling_layer.cpp \
@@ -113,35 +81,69 @@ SOURCES =	../../../../../src/opennn/training_strategy/adaptive_moment_estimation
 		../../../../../src/opennn/neural_network/principal_components_layer.h \
 		../../../../../src/opennn/neural_network/probabilistic_layer.cpp \
 		../../../../../src/opennn/neural_network/probabilistic_layer.h \
-		../../../../../src/opennn/model_selection/pruning_inputs.cpp \
-		../../../../../src/opennn/model_selection/pruning_inputs.h \
-		../../../../../src/opennn/training_strategy/quasi_newton_method.cpp \
-		../../../../../src/opennn/training_strategy/quasi_newton_method.h \
 		../../../../../src/opennn/neural_network/recurrent_layer.cpp \
 		../../../../../src/opennn/neural_network/recurrent_layer.h \
-		../../../../../src/opennn/utilities/response_optimization.cpp \
-		../../../../../src/opennn/utilities/response_optimization.h \
 		../../../../../src/opennn/neural_network/scaling_layer.cpp \
 		../../../../../src/opennn/neural_network/scaling_layer.h \
-		../../../../../src/opennn/utilities/statistics.cpp \
-		../../../../../src/opennn/utilities/statistics.h \
+		../../../../../src/opennn/neural_network/unscaling_layer.cpp \
+		../../../../../src/opennn/neural_network/unscaling_layer.h \
+		../../../../../src/opennn/testing_analysis/testing_analysis.cpp \
+		../../../../../src/opennn/testing_analysis/testing_analysis.h \
+		../../../../../src/opennn/testing_analysis/unit_testing.cpp \
+		../../../../../src/opennn/testing_analysis/unit_testing.h \
+		../../../../../src/opennn/top/opennn.h \
+		../../../../../src/opennn/training_strategy/adaptive_moment_estimation.cpp \
+		../../../../../src/opennn/training_strategy/adaptive_moment_estimation.h \
+		../../../../../src/opennn/training_strategy/conjugate_gradient.cpp \
+		../../../../../src/opennn/training_strategy/conjugate_gradient.h \
+		../../../../../src/opennn/training_strategy/cross_entropy_error.cpp \
+		../../../../../src/opennn/training_strategy/cross_entropy_error.h \
+		../../../../../src/opennn/training_strategy/gradient_descent.cpp \
+		../../../../../src/opennn/training_strategy/gradient_descent.h \
+		../../../../../src/opennn/training_strategy/learning_rate_algorithm.cpp \
+		../../../../../src/opennn/training_strategy/learning_rate_algorithm.h \
+		../../../../../src/opennn/training_strategy/levenberg_marquardt_algorithm.cpp \
+		../../../../../src/opennn/training_strategy/levenberg_marquardt_algorithm.h \
+		../../../../../src/opennn/training_strategy/loss_index.cpp \
+		../../../../../src/opennn/training_strategy/loss_index.h \
+		../../../../../src/opennn/training_strategy/mean_squared_error.cpp \
+		../../../../../src/opennn/training_strategy/mean_squared_error.h \
+		../../../../../src/opennn/training_strategy/minkowski_error.cpp \
+		../../../../../src/opennn/training_strategy/minkowski_error.h \
+		../../../../../src/opennn/training_strategy/normalized_squared_error.cpp \
+		../../../../../src/opennn/training_strategy/normalized_squared_error.h \
+		../../../../../src/opennn/training_strategy/optimization_algorithm.cpp \
+		../../../../../src/opennn/training_strategy/optimization_algorithm.h \
+		../../../../../src/opennn/training_strategy/quasi_newton_method.cpp \
+		../../../../../src/opennn/training_strategy/quasi_newton_method.h \
 		../../../../../src/opennn/training_strategy/stochastic_gradient_descent.cpp \
 		../../../../../src/opennn/training_strategy/stochastic_gradient_descent.h \
 		../../../../../src/opennn/training_strategy/sum_squared_error.cpp \
 		../../../../../src/opennn/training_strategy/sum_squared_error.h \
-		../../../../../src/opennn/utilities/tensor.h \
-		../../../../../src/opennn/testing_analysis/testing_analysis.cpp \
-		../../../../../src/opennn/testing_analysis/testing_analysis.h \
-		../../../../../src/opennn/utilities/tinyxml2.cpp \
-		../../../../../src/opennn/utilities/tinyxml2.h \
 		../../../../../src/opennn/training_strategy/training_strategy.cpp \
 		../../../../../src/opennn/training_strategy/training_strategy.h \
+		../../../../../src/opennn/training_strategy/weighted_squared_error.cpp \
+		../../../../../src/opennn/training_strategy/weighted_squared_error.h \
+		../../../../../src/opennn/utilities/correlations.cpp \
+		../../../../../src/opennn/utilities/correlations.h \
+		../../../../../src/opennn/utilities/functions.cpp \
+		../../../../../src/opennn/utilities/functions.h \
+		../../../../../src/opennn/utilities/k_means.cpp \
+		../../../../../src/opennn/utilities/k_means.h \
+		../../../../../src/opennn/utilities/matrix.h \
+		../../../../../src/opennn/utilities/metrics.cpp \
+		../../../../../src/opennn/utilities/metrics.h \
+		../../../../../src/opennn/utilities/numerical_differentiation.cpp \
+		../../../../../src/opennn/utilities/numerical_differentiation.h \
+		../../../../../src/opennn/utilities/opennn_strings.cpp \
+		../../../../../src/opennn/utilities/opennn_strings.h \
+		../../../../../src/opennn/utilities/response_optimization.cpp \
+		../../../../../src/opennn/utilities/response_optimization.h \
+		../../../../../src/opennn/utilities/statistics.cpp \
+		../../../../../src/opennn/utilities/statistics.h \
+		../../../../../src/opennn/utilities/tensor.h \
+		../../../../../src/opennn/utilities/tinyxml2.cpp \
+		../../../../../src/opennn/utilities/tinyxml2.h \
 		../../../../../src/opennn/utilities/transformations.cpp \
 		../../../../../src/opennn/utilities/transformations.h \
-		../../../../../src/opennn/testing_analysis/unit_testing.cpp \
-		../../../../../src/opennn/testing_analysis/unit_testing.h \
-		../../../../../src/opennn/neural_network/unscaling_layer.cpp \
-		../../../../../src/opennn/neural_network/unscaling_layer.h \
-		../../../../../src/opennn/utilities/vector.h \
-		../../../../../src/opennn/training_strategy/weighted_squared_error.cpp \
-		../../../../../src/opennn/training_strategy/weighted_squared_error.h
+		../../../../../src/opennn/utilities/vector.h

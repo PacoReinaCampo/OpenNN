@@ -21,6 +21,7 @@
 #include "../neural_network/convolutional_layer.h"
 #include "../neural_network/bounding_layer.h"
 #include "../neural_network/perceptron_layer.h"
+#include "../neural_network/feed_forward_layer.h"
 #include "../neural_network/long_short_term_memory_layer.h"
 #include "../neural_network/multihead_attention_layer.h"
 #include "../neural_network/recurrent_layer.h"
