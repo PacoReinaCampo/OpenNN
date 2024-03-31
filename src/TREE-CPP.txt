@@ -1,0 +1,62 @@
+opennn
+├── data_set
+│   └── data_set.cpp
+├── model_selection
+│   ├── genetic_algorithm.cpp
+│   ├── growing_inputs.cpp
+│   ├── incremental_neurons.cpp
+│   ├── inputs_selection.cpp
+│   ├── model_selection.cpp
+│   ├── neurons_selection.cpp
+│   └── pruning_inputs.cpp
+├── neural_network
+│   ├── bounding_layer.cpp
+│   ├── convolutional_layer.cpp
+│   ├── differentiable_neural_computer_layer.cpp
+│   ├── feed_forward_layer.cpp
+│   ├── layer.cpp
+│   ├── long_short_term_memory_layer.cpp
+│   ├── multihead_attention_layer.cpp
+│   ├── neural_network.cpp
+│   ├── neural_turing_machine_layer.cpp
+│   ├── perceptron_layer.cpp
+│   ├── pooling_layer.cpp
+│   ├── principal_components_layer.cpp
+│   ├── probabilistic_layer.cpp
+│   ├── recurrent_layer.cpp
+│   ├── scaling_layer.cpp
+│   └── unscaling_layer.cpp
+├── testing_analysis
+│   ├── testing_analysis.cpp
+│   └── unit_testing.cpp
+├── top
+├── training_strategy
+│   ├── adaptive_moment_estimation.cpp
+│   ├── conjugate_gradient.cpp
+│   ├── cross_entropy_error.cpp
+│   ├── gradient_descent.cpp
+│   ├── learning_rate_algorithm.cpp
+│   ├── levenberg_marquardt_algorithm.cpp
+│   ├── loss_index.cpp
+│   ├── mean_squared_error.cpp
+│   ├── minkowski_error.cpp
+│   ├── normalized_squared_error.cpp
+│   ├── optimization_algorithm.cpp
+│   ├── quasi_newton_method.cpp
+│   ├── stochastic_gradient_descent.cpp
+│   ├── sum_squared_error.cpp
+│   ├── training_strategy.cpp
+│   └── weighted_squared_error.cpp
+└── utilities
+    ├── correlations.cpp
+    ├── functions.cpp
+    ├── k_means.cpp
+    ├── metrics.cpp
+    ├── numerical_differentiation.cpp
+    ├── opennn_strings.cpp
+    ├── response_optimization.cpp
+    ├── statistics.cpp
+    ├── tinyxml2.cpp
+    └── transformations.cpp
+
+7 directories, 52 files

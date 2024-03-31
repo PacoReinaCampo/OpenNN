@@ -9,17 +9,6 @@ library
 │       │   └── mod.rs
 │       └── vector
 │           └── mod.rs
-├── controller
-│   ├── FNN
-│   │   ├── convolutional
-│   │   └── standard
-│   └── LSTM
-│       ├── convolutional
-│       └── standard
-├── dnc
-│   ├── memory
-│   ├── top
-│   └── trained
 ├── math
 │   ├── algebra
 │   │   └── src
@@ -55,12 +44,31 @@ library
 │           │   └── mod.rs
 │           └── vector
 │               └── mod.rs
-├── ntm
-│   ├── memory
-│   ├── read_heads
-│   ├── top
-│   ├── trained
-│   └── write_heads
+├── nn
+│   ├── ANN
+│   │   ├── components
+│   │   ├── controller
+│   │   │   ├── fnn
+│   │   │   └── lstm
+│   │   ├── functions
+│   │   ├── inputs
+│   │   └── top
+│   ├── DNC
+│   │   ├── memory
+│   │   ├── top
+│   │   └── trained
+│   ├── FNN
+│   │   ├── convolutional
+│   │   └── standard
+│   ├── LSTM
+│   │   ├── convolutional
+│   │   └── standard
+│   └── NTM
+│       ├── memory
+│       ├── read_heads
+│       ├── top
+│       ├── trained
+│       └── write_heads
 ├── state
 │   └── src
 │       ├── feedback
@@ -69,21 +77,13 @@ library
 │       │   └── mod.rs
 │       └── top
 │           └── mod.rs
-├── trainer
-│   ├── differentiation
-│   ├── FNN
-│   └── LSTM
-│       ├── activation
-│       ├── forget
-│       ├── input
-│       └── output
-└── transformer
-    ├── components
-    ├── controller
-    │   ├── fnn
-    │   └── lstm
-    ├── functions
-    ├── inputs
-    └── top
+└── trainer
+    ├── differentiation
+    ├── FNN
+    └── LSTM
+        ├── activation
+        ├── forget
+        ├── input
+        └── output
 
 66 directories, 20 files
