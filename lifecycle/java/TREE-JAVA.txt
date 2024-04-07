@@ -1,4 +1,13 @@
 library
+├── algebra
+│   ├── matrix
+│   │   └── ntm_matrix_algebra.java
+│   ├── scalar
+│   │   └── ntm_scalar_algebra.java
+│   ├── tensor
+│   │   └── ntm_tensor_algebra.java
+│   └── vector
+│       └── ntm_vector_algebra.java
 ├── arithmetic
 │   ├── matrix
 │   │   └── ntm_matrix_arithmetic.java
@@ -10,36 +19,12 @@ library
 │   └── vector
 │       └── ntm_vector_arithmetic.java
 ├── math
-│   ├── algebra
-│   │   ├── matrix
-│   │   │   └── ntm_matrix_algebra.java
-│   │   ├── scalar
-│   │   │   └── ntm_scalar_algebra.java
-│   │   ├── tensor
-│   │   │   └── ntm_tensor_algebra.java
-│   │   └── vector
-│   │       └── ntm_vector_algebra.java
-│   ├── calculus
-│   │   ├── matrix
-│   │   │   └── ntm_matrix_calculus.java
-│   │   ├── tensor
-│   │   │   └── ntm_tensor_calculus.java
-│   │   └── vector
-│   │       └── ntm_vector_calculus.java
-│   ├── function
-│   │   ├── matrix
-│   │   │   └── ntm_matrix_function.java
-│   │   ├── scalar
-│   │   │   └── ntm_scalar_function.java
-│   │   └── vector
-│   │       └── ntm_vector_function.java
-│   └── statitics
-│       ├── matrix
-│       │   └── ntm_matrix_statitics.java
-│       ├── scalar
-│       │   └── ntm_scalar_statitics.java
-│       └── vector
-│           └── ntm_vector_statitics.java
+│   ├── matrix
+│   │   └── ntm_matrix_math.java
+│   ├── scalar
+│   │   └── ntm_scalar_math.java
+│   └── vector
+│       └── ntm_vector_math.java
 ├── nn
 │   ├── ANN
 │   │   ├── components
@@ -184,4 +169,4 @@ library
             ├── ntm_lstm_output_v_trainer.java
             └── ntm_lstm_output_w_trainer.java
 
-60 directories, 124 files
+51 directories, 118 files
