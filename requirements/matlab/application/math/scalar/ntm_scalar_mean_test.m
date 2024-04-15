@@ -1,4 +1,3 @@
-%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -42,16 +41,17 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
-%}
 
-% Package
-addpath(genpath('../../../../library/math/statitics/scalar'));
+warning('off','all');
 
-% Constants
+# Package
+addpath(genpath('../../../library/math/scalar'));
+
+# Constants
 LENGTH_IN = 3;
 
-% Signals
+# Signals
 DATA_IN = rand(LENGTH_IN, 1);
 
-% DUT
+# DUT
 assert(ntm_scalar_mean(DATA_IN), mean(DATA_IN));

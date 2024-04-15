@@ -1,4 +1,3 @@
-%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -42,17 +41,18 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
-%}
 
-% Package
-addpath(genpath('../../../../library/math/calculus/tensor'));
+warning('off','all');
 
-% Constants
+# Package
+addpath(genpath('../../../library/algebra/tensor'));
+
+# Constants
 SIZE_I_IN = 3;
 SIZE_J_IN = 3;
 SIZE_K_IN = 3;
 
-% Signals
+# Signals
 DATA_IN = rand(SIZE_I_IN, SIZE_J_IN, SIZE_K_IN);
 
 LENGTH_I_IN = 3;
@@ -61,5 +61,5 @@ LENGTH_K_IN = 3;
 
 CONTROL = 1;
 
-% DUT
+# DUT
 DATA_OUT = ntm_tensor_differentiation(DATA_IN, LENGTH_I_IN, LENGTH_J_IN, LENGTH_K_IN, CONTROL);

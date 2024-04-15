@@ -1,4 +1,3 @@
-%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -42,13 +41,14 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
-%}
 
-% Package
-addpath(genpath('../../../../library/math/function/scalar'));
+warning('off','all');
 
-% Signals
+# Package
+addpath(genpath('../../../library/math/scalar'));
+
+# Signals
 DATA_IN = rand(1);
 
-% DUT
+# DUT
 DATA_OUT = ntm_scalar_logistic_function(DATA_IN);

@@ -1,4 +1,3 @@
-%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -42,19 +41,20 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
-%}
 
-% Package
-addpath(genpath('../../../../library/math/algebra/tensor'));
+warning('off','all');
 
-% Constants
+# Package
+addpath(genpath('../../../library/algebra/tensor'));
+
+# Constants
 SIZE_I_IN = 3;
 SIZE_J_IN = 3;
 SIZE_K_IN = 3;
 
-% Signals
+# Signals
 DATA_A_IN = rand(SIZE_I_IN, SIZE_J_IN, SIZE_K_IN);
 DATA_B_IN = rand(SIZE_I_IN, SIZE_J_IN, SIZE_K_IN);
 
-% DUT
+# DUT
 DATA_OUT = ntm_tensor_convolution(DATA_A_IN, DATA_B_IN);

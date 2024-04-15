@@ -28,7 +28,7 @@ library
 │       └── vector
 │           └── mod.rs
 ├── nn
-│   ├── ANN
+│   ├── ann
 │   │   ├── components
 │   │   ├── controller
 │   │   │   ├── fnn
@@ -36,17 +36,19 @@ library
 │   │   ├── functions
 │   │   ├── inputs
 │   │   └── top
-│   ├── DNC
+│   ├── dnc
 │   │   ├── memory
+│   │   ├── read_heads
 │   │   ├── top
-│   │   └── trained
-│   ├── FNN
+│   │   ├── trained
+│   │   └── write_heads
+│   ├── fnn
 │   │   ├── convolutional
 │   │   └── standard
-│   ├── LSTM
+│   ├── lstm
 │   │   ├── convolutional
 │   │   └── standard
-│   └── NTM
+│   └── ntm
 │       ├── memory
 │       ├── read_heads
 │       ├── top
@@ -62,11 +64,11 @@ library
 │           └── mod.rs
 └── trainer
     ├── differentiation
-    ├── FNN
-    └── LSTM
+    ├── fnn
+    └── lstm
         ├── activation
         ├── forget
         ├── input
         └── output
 
-55 directories, 14 files
+57 directories, 14 files

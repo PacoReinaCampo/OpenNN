@@ -1,4 +1,3 @@
-%{
 ###################################################################################
 ##                                            __ _      _     _                  ##
 ##                                           / _(_)    | |   | |                 ##
@@ -42,17 +41,18 @@
 ##   Paco Reina Campo <pacoreinacampo@queenfield.tech>                           ##
 ##                                                                               ##
 ###################################################################################
-%}
 
-% Package
-addpath(genpath('../../../../library/math/algebra/vector'));
+warning('off','all');
 
-% Constants
+# Package
+addpath(genpath('../../../library/algebra/vector'));
+
+# Constants
 SIZE_IN = 3;
 LENGTH_IN = 3;
 
-% Signals
+# Signals
 DATA_IN = rand(LENGTH_IN, SIZE_IN);
 
-% DUT
+# DUT
 DATA_OUT = ntm_vector_multiplication(DATA_IN);

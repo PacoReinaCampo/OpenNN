@@ -227,7 +227,7 @@ library
 │       ├── ntm_vector_oneplus_function_design.cpp
 │       └── ntm_vector_oneplus_function_testbench.cpp
 ├── nn
-│   ├── ANN
+│   ├── ann
 │   │   ├── components
 │   │   │   ├── ntm_masked_multi_head_attention.cpp
 │   │   │   ├── ntm_masked_multi_head_attention_design.cpp
@@ -270,7 +270,7 @@ library
 │   │   │   ├── ntm_values_vector.cpp
 │   │   │   ├── ntm_values_vector_design.cpp
 │   │   │   └── ntm_values_vector_testbench.cpp
-│   │   ├── ntm_transformer_controller.cpp
+│   │   ├── ntm_ann_controller.cpp
 │   │   └── top
 │   │       ├── ntm_controller.cpp
 │   │       ├── ntm_controller_design.cpp
@@ -281,7 +281,7 @@ library
 │   │       ├── ntm_encoder.cpp
 │   │       ├── ntm_encoder_design.cpp
 │   │       └── ntm_encoder_testbench.cpp
-│   ├── DNC
+│   ├── dnc
 │   │   ├── dnc.cpp
 │   │   ├── memory
 │   │   │   ├── dnc_addressing.cpp
@@ -308,13 +308,10 @@ library
 │   │   │   ├── dnc_precedence_weighting.cpp
 │   │   │   ├── dnc_precedence_weighting_design.cpp
 │   │   │   ├── dnc_precedence_weighting_testbench.cpp
-│   │   │   ├── dnc_read_content_weighting.cpp
 │   │   │   ├── dnc_read_content_weighting_design.cpp
 │   │   │   ├── dnc_read_content_weighting_testbench.cpp
-│   │   │   ├── dnc_read_vectors.cpp
 │   │   │   ├── dnc_read_vectors_design.cpp
 │   │   │   ├── dnc_read_vectors_testbench.cpp
-│   │   │   ├── dnc_read_weighting.cpp
 │   │   │   ├── dnc_read_weighting_design.cpp
 │   │   │   ├── dnc_read_weighting_testbench.cpp
 │   │   │   ├── dnc_sort_vector.cpp
@@ -329,12 +326,14 @@ library
 │   │   │   ├── dnc_vector_content_based_addressing.cpp
 │   │   │   ├── dnc_vector_content_based_addressing_design.cpp
 │   │   │   ├── dnc_vector_content_based_addressing_testbench.cpp
-│   │   │   ├── dnc_write_content_weighting.cpp
 │   │   │   ├── dnc_write_content_weighting_design.cpp
 │   │   │   ├── dnc_write_content_weighting_testbench.cpp
-│   │   │   ├── dnc_write_weighting.cpp
 │   │   │   ├── dnc_write_weighting_design.cpp
 │   │   │   └── dnc_write_weighting_testbench.cpp
+│   │   ├── read_heads
+│   │   │   ├── dnc_read_content_weighting.cpp
+│   │   │   ├── dnc_read_vectors.cpp
+│   │   │   └── dnc_read_weighting.cpp
 │   │   ├── top
 │   │   │   ├── dnc_interface_matrix.cpp
 │   │   │   ├── dnc_interface_matrix_design.cpp
@@ -351,11 +350,14 @@ library
 │   │   │   ├── dnc_top.cpp
 │   │   │   ├── dnc_top_design.cpp
 │   │   │   └── dnc_top_testbench.cpp
-│   │   └── trained
-│   │       ├── dnc_trained_top.cpp
-│   │       ├── dnc_trained_top_design.cpp
-│   │       └── dnc_trained_top_testbench.cpp
-│   ├── FNN
+│   │   ├── trained
+│   │   │   ├── dnc_trained_top.cpp
+│   │   │   ├── dnc_trained_top_design.cpp
+│   │   │   └── dnc_trained_top_testbench.cpp
+│   │   └── write_heads
+│   │       ├── dnc_write_content_weighting.cpp
+│   │       └── dnc_write_weighting.cpp
+│   ├── fnn
 │   │   ├── convolutional
 │   │   │   ├── ntm_controller.cpp
 │   │   │   ├── ntm_controller_design.cpp
@@ -364,7 +366,7 @@ library
 │   │       ├── ntm_controller.cpp
 │   │       ├── ntm_controller_design.cpp
 │   │       └── ntm_controller_testbench.cpp
-│   ├── LSTM
+│   ├── lstm
 │   │   ├── convolutional
 │   │   │   ├── ntm_activation_gate_vector.cpp
 │   │   │   ├── ntm_activation_gate_vector_design.cpp
@@ -409,7 +411,7 @@ library
 │   │       ├── ntm_state_gate_vector.cpp
 │   │       ├── ntm_state_gate_vector_design.cpp
 │   │       └── ntm_state_gate_vector_testbench.cpp
-│   ├── NTM
+│   ├── ntm
 │   │   ├── memory
 │   │   │   ├── ntm_addressing.cpp
 │   │   │   ├── ntm_addressing_design.cpp
@@ -488,7 +490,7 @@ library
     │   ├── ntm_vector_controller_differentiation.cpp
     │   ├── ntm_vector_controller_differentiation_design.cpp
     │   └── ntm_vector_controller_differentiation_testbench.cpp
-    ├── FNN
+    ├── fnn
     │   ├── ntm_fnn_b_trainer.cpp
     │   ├── ntm_fnn_b_trainer_design.cpp
     │   ├── ntm_fnn_b_trainer_testbench.cpp
@@ -510,7 +512,7 @@ library
     │   ├── ntm_fnn_w_trainer.cpp
     │   ├── ntm_fnn_w_trainer_design.cpp
     │   └── ntm_fnn_w_trainer_testbench.cpp
-    ├── LSTM
+    ├── lstm
     │   ├── activation
     │   │   ├── ntm_lstm_activation_b_trainer.cpp
     │   │   ├── ntm_lstm_activation_b_trainer_design.cpp
@@ -602,4 +604,4 @@ library
     ├── ntm_fnn.cpp
     └── ntm_lstm.cpp
 
-67 directories, 535 files
+69 directories, 535 files
