@@ -262,7 +262,7 @@ library
 │           ├── ntm_model.vhd
 │           └── ntm_testbench.vhd
 ├── nn
-│   ├── ANN
+│   ├── ann
 │   │   ├── components
 │   │   │   ├── ntm_masked_multi_head_attention
 │   │   │   │   ├── ntm_model_pkg.vhd
@@ -330,7 +330,7 @@ library
 │   │           ├── ntm_model_pkg.vhd
 │   │           ├── ntm_model.vhd
 │   │           └── ntm_testbench.vhd
-│   ├── DNC
+│   ├── dnc
 │   │   ├── memory
 │   │   │   ├── dnc_addressing
 │   │   │   │   ├── ntm_model_pkg.vhd
@@ -364,18 +364,6 @@ library
 │   │   │   │   ├── ntm_model_pkg.vhd
 │   │   │   │   ├── ntm_model.vhd
 │   │   │   │   └── ntm_testbench.vhd
-│   │   │   ├── dnc_read_content_weighting
-│   │   │   │   ├── ntm_model_pkg.vhd
-│   │   │   │   ├── ntm_model.vhd
-│   │   │   │   └── ntm_testbench.vhd
-│   │   │   ├── dnc_read_vectors
-│   │   │   │   ├── ntm_model_pkg.vhd
-│   │   │   │   ├── ntm_model.vhd
-│   │   │   │   └── ntm_testbench.vhd
-│   │   │   ├── dnc_read_weighting
-│   │   │   │   ├── ntm_model_pkg.vhd
-│   │   │   │   ├── ntm_model.vhd
-│   │   │   │   └── ntm_testbench.vhd
 │   │   │   ├── dnc_sort_vector
 │   │   │   │   ├── ntm_model_pkg.vhd
 │   │   │   │   ├── ntm_model.vhd
@@ -388,15 +376,20 @@ library
 │   │   │   │   ├── ntm_model_pkg.vhd
 │   │   │   │   ├── ntm_model.vhd
 │   │   │   │   └── ntm_testbench.vhd
-│   │   │   ├── dnc_vector_content_based_addressing
+│   │   │   └── dnc_vector_content_based_addressing
+│   │   │       ├── ntm_model_pkg.vhd
+│   │   │       ├── ntm_model.vhd
+│   │   │       └── ntm_testbench.vhd
+│   │   ├── read_heads
+│   │   │   ├── dnc_read_content_weighting
 │   │   │   │   ├── ntm_model_pkg.vhd
 │   │   │   │   ├── ntm_model.vhd
 │   │   │   │   └── ntm_testbench.vhd
-│   │   │   ├── dnc_write_content_weighting
+│   │   │   ├── dnc_read_vectors
 │   │   │   │   ├── ntm_model_pkg.vhd
 │   │   │   │   ├── ntm_model.vhd
 │   │   │   │   └── ntm_testbench.vhd
-│   │   │   └── dnc_write_weighting
+│   │   │   └── dnc_read_weighting
 │   │   │       ├── ntm_model_pkg.vhd
 │   │   │       ├── ntm_model.vhd
 │   │   │       └── ntm_testbench.vhd
@@ -421,12 +414,21 @@ library
 │   │   │       ├── ntm_model_pkg.vhd
 │   │   │       ├── ntm_model.vhd
 │   │   │       └── ntm_testbench.vhd
-│   │   └── trained
-│   │       └── dnc_trained_top
+│   │   ├── trained
+│   │   │   └── dnc_trained_top
+│   │   │       ├── ntm_model_pkg.vhd
+│   │   │       ├── ntm_model.vhd
+│   │   │       └── ntm_testbench.vhd
+│   │   └── write_heads
+│   │       ├── dnc_write_content_weighting
+│   │       │   ├── ntm_model_pkg.vhd
+│   │       │   ├── ntm_model.vhd
+│   │       │   └── ntm_testbench.vhd
+│   │       └── dnc_write_weighting
 │   │           ├── ntm_model_pkg.vhd
 │   │           ├── ntm_model.vhd
 │   │           └── ntm_testbench.vhd
-│   ├── FNN
+│   ├── fnn
 │   │   ├── convolutional
 │   │   │   └── ntm_controller
 │   │   │       ├── ntm_model_pkg.vhd
@@ -437,7 +439,7 @@ library
 │   │           ├── ntm_model_pkg.vhd
 │   │           ├── ntm_model.vhd
 │   │           └── ntm_testbench.vhd
-│   ├── LSTM
+│   ├── lstm
 │   │   ├── convolutional
 │   │   │   ├── ntm_activation_gate_vector
 │   │   │   │   ├── ntm_model_pkg.vhd
@@ -496,7 +498,7 @@ library
 │   │           ├── ntm_model_pkg.vhd
 │   │           ├── ntm_model.vhd
 │   │           └── ntm_testbench.vhd
-│   └── NTM
+│   └── ntm
 │       ├── memory
 │       │   ├── ntm_addressing
 │       │   │   ├── ntm_model_pkg.vhd
@@ -592,7 +594,7 @@ library
     │       ├── ntm_model_pkg.vhd
     │       ├── ntm_model.vhd
     │       └── ntm_testbench.vhd
-    ├── FNN
+    ├── fnn
     │   ├── ntm_fnn_b_trainer
     │   │   ├── ntm_model_pkg.vhd
     │   │   ├── ntm_model.vhd
@@ -621,7 +623,7 @@ library
     │       ├── ntm_model_pkg.vhd
     │       ├── ntm_model.vhd
     │       └── ntm_testbench.vhd
-    └── LSTM
+    └── lstm
         ├── activation
         │   ├── ntm_lstm_activation_b_trainer
         │   │   ├── ntm_model_pkg.vhd
@@ -739,4 +741,4 @@ library
                 ├── ntm_model.vhd
                 └── ntm_testbench.vhd
 
-223 directories, 516 files
+225 directories, 516 files

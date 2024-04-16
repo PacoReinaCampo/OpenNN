@@ -200,7 +200,7 @@ application
 │           ├── ntm_design.sv
 │           └── ntm_testbench.sv
 ├── nn
-│   ├── ANN
+│   ├── ann
 │   │   ├── components
 │   │   │   ├── ntm_masked_multi_head_attention
 │   │   │   │   ├── ntm_design.sv
@@ -253,7 +253,7 @@ application
 │   │       └── ntm_encoder
 │   │           ├── ntm_design.sv
 │   │           └── ntm_testbench.sv
-│   ├── DNC
+│   ├── dnc
 │   │   ├── memory
 │   │   │   ├── dnc_addressing
 │   │   │   │   ├── ntm_design.sv
@@ -279,15 +279,6 @@ application
 │   │   │   ├── dnc_precedence_weighting
 │   │   │   │   ├── ntm_design.sv
 │   │   │   │   └── ntm_testbench.sv
-│   │   │   ├── dnc_read_content_weighting
-│   │   │   │   ├── ntm_design.sv
-│   │   │   │   └── ntm_testbench.sv
-│   │   │   ├── dnc_read_vectors
-│   │   │   │   ├── ntm_design.sv
-│   │   │   │   └── ntm_testbench.sv
-│   │   │   ├── dnc_read_weighting
-│   │   │   │   ├── ntm_design.sv
-│   │   │   │   └── ntm_testbench.sv
 │   │   │   ├── dnc_sort_vector
 │   │   │   │   ├── ntm_design.sv
 │   │   │   │   └── ntm_testbench.sv
@@ -297,13 +288,17 @@ application
 │   │   │   ├── dnc_usage_vector
 │   │   │   │   ├── ntm_design.sv
 │   │   │   │   └── ntm_testbench.sv
-│   │   │   ├── dnc_vector_content_based_addressing
+│   │   │   └── dnc_vector_content_based_addressing
+│   │   │       ├── ntm_design.sv
+│   │   │       └── ntm_testbench.sv
+│   │   ├── read_heads
+│   │   │   ├── dnc_read_content_weighting
 │   │   │   │   ├── ntm_design.sv
 │   │   │   │   └── ntm_testbench.sv
-│   │   │   ├── dnc_write_content_weighting
+│   │   │   ├── dnc_read_vectors
 │   │   │   │   ├── ntm_design.sv
 │   │   │   │   └── ntm_testbench.sv
-│   │   │   └── dnc_write_weighting
+│   │   │   └── dnc_read_weighting
 │   │   │       ├── ntm_design.sv
 │   │   │       └── ntm_testbench.sv
 │   │   ├── top
@@ -322,11 +317,18 @@ application
 │   │   │   └── dnc_top
 │   │   │       ├── ntm_design.sv
 │   │   │       └── ntm_testbench.sv
-│   │   └── trained
-│   │       └── dnc_trained_top
+│   │   ├── trained
+│   │   │   └── dnc_trained_top
+│   │   │       ├── ntm_design.sv
+│   │   │       └── ntm_testbench.sv
+│   │   └── write_heads
+│   │       ├── dnc_write_content_weighting
+│   │       │   ├── ntm_design.sv
+│   │       │   └── ntm_testbench.sv
+│   │       └── dnc_write_weighting
 │   │           ├── ntm_design.sv
 │   │           └── ntm_testbench.sv
-│   ├── FNN
+│   ├── fnn
 │   │   ├── convolutional
 │   │   │   └── ntm_controller
 │   │   │       ├── ntm_design.sv
@@ -335,7 +337,7 @@ application
 │   │       └── ntm_controller
 │   │           ├── ntm_design.sv
 │   │           └── ntm_testbench.sv
-│   ├── LSTM
+│   ├── lstm
 │   │   ├── convolutional
 │   │   │   ├── ntm_activation_gate_vector
 │   │   │   │   ├── ntm_design.sv
@@ -380,7 +382,7 @@ application
 │   │       └── ntm_state_gate_vector
 │   │           ├── ntm_design.sv
 │   │           └── ntm_testbench.sv
-│   └── NTM
+│   └── ntm
 │       ├── memory
 │       │   ├── ntm_addressing
 │       │   │   ├── ntm_design.sv
@@ -455,7 +457,7 @@ application
     │   └── ntm_vector_controller_differentiation
     │       ├── ntm_design.sv
     │       └── ntm_testbench.sv
-    ├── FNN
+    ├── fnn
     │   ├── ntm_fnn_b_trainer
     │   │   ├── ntm_design.sv
     │   │   └── ntm_testbench.sv
@@ -477,7 +479,7 @@ application
     │   └── ntm_fnn_w_trainer
     │       ├── ntm_design.sv
     │       └── ntm_testbench.sv
-    └── LSTM
+    └── lstm
         ├── activation
         │   ├── ntm_lstm_activation_b_trainer
         │   │   ├── ntm_design.sv
@@ -567,4 +569,4 @@ application
                 ├── ntm_design.sv
                 └── ntm_testbench.sv
 
-223 directories, 344 files
+225 directories, 344 files
