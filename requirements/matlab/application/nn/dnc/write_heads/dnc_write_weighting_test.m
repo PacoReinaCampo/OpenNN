@@ -47,7 +47,7 @@ warning('off','all');
 # Package
 addpath(genpath('../../../../library/algebra/vector'));
 
-addpath(genpath('../../../../library/nn/DNC/write_heads'));
+addpath(genpath('../../../../library/nn/dnc/write_heads'));
 
 # Constants
 SIZE_N_IN = 3;

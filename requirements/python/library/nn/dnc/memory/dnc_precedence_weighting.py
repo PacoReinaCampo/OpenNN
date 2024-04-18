@@ -16,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2023 by the author(s)                                      ##
+## Copyright (c) 2020-2024 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,4 +42,29 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def dnc_precedence_weighting(W_IN, P_IN):
+  # Constants
+  SIZE_N_IN = W_IN.shape
+
+  # Internal Signals
+  vector_operation_int = np.zeros(SIZE_N_IN)
+
+  # Body
+  # p(t;j) = (1 - summation(w(t;j))[j in 1 to N])·p(t-1;j) + w(t;j)
+
+  # p(t=0) = 0
+
+  data_summation_int = ntm_scalar_summation(W_IN)
+
+  for j in range(len(SIZE_N_IN)):
+    vector_operation_int[j] = data_summation_int
+  
+  vector_operation_int = np.ones(SIZE_N_IN) - vector_operation_int
+
+  vector_operation_int = ntm_vector_multiplier(vector_operation_int, P_IN)
+
+  P_OUT = vector_operation_int + W_IN
+
+  return P_OUT

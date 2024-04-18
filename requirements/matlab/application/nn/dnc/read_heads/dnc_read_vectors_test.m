@@ -47,7 +47,7 @@ warning('off','all');
 # Package
 addpath(genpath('../../../../library/algebra/matrix'));
 
-addpath(genpath('../../../../library/nn/DNC/read_heads'));
+addpath(genpath('../../../../library/nn/dnc/read_heads'));
 
 # Constants
 SIZE_R_IN = 3;

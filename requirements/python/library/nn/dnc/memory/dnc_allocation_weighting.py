@@ -16,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2023 by the author(s)                                      ##
+## Copyright (c) 2020-2024 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,4 +42,24 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def dnc_allocation_weighting(U_IN):
+  # Constants
+  SIZE_N_IN = U_IN.shape
+
+  # Signals
+  vector_index_int = np.zeros(SIZE_N_IN)
+
+  # Body
+  # a(t)[phi(t)[j]] = (1 - u(t)[phi(t)[j]])·multiplication(u(t)[phi(t)[j]])[i in 1 to j-1]
+
+  vector_operation_int = dnc_sort_vector(U_IN)
+
+  vector_index_int = ntm_vector_integration(vector_index_int, SIZE_N_IN)
+
+  vector_operation_int = np.ones(SIZE_N_IN) - vector_operation_int
+
+  A_OUT = ntm_vector_multiplier(vector_operation_int, vector_index_int)
+
+  return A_OUT

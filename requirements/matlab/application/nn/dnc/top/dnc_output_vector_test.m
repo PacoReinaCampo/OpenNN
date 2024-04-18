@@ -48,7 +48,7 @@ warning('off','all');
 addpath(genpath('../../../../library/algebra/matrix'));
 addpath(genpath('../../../../library/algebra/tensor'));
 
-addpath(genpath('../../../../library/nn/DNC/top'));
+addpath(genpath('../../../../library/nn/dnc/top'));
 
 # Constants
 SIZE_X_IN = 3;

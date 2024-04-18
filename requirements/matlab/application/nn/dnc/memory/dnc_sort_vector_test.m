@@ -45,7 +45,7 @@
 warning('off','all');
 
 # Package
-addpath(genpath('../../../../library/nn/DNC/memory'));
+addpath(genpath('../../../../library/nn/dnc/memory'));
 
 # Constants
 SIZE_IN = 3;

@@ -53,12 +53,12 @@ addpath(genpath('../../../../library/math/vector'));
 addpath(genpath('../../../../library/math/matrix'));
 addpath(genpath('../../../../library/math/vector'));
 
-addpath(genpath('../../../../library/nn/FNN/standard'));
+addpath(genpath('../../../../library/nn/fnn/standard'));
 
-addpath(genpath('../../../../library/nn/DNC/memory'));
-addpath(genpath('../../../../library/nn/DNC/read_heads'));
-addpath(genpath('../../../../library/nn/DNC/write_heads'));
-addpath(genpath('../../../../library/nn/DNC/top'));
+addpath(genpath('../../../../library/nn/dnc/memory'));
+addpath(genpath('../../../../library/nn/dnc/read_heads'));
+addpath(genpath('../../../../library/nn/dnc/write_heads'));
+addpath(genpath('../../../../library/nn/dnc/top'));
 
 # Constants
 SIZE_T_IN = 3;

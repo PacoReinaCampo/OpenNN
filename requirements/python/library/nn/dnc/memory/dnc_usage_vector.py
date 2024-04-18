@@ -16,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2023 by the author(s)                                      ##
+## Copyright (c) 2020-2024 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,4 +42,18 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def dnc_usage_vector(U_IN, W_IN, PSI_IN):
+  # Body
+  # u(t;j) = (u(t-1;j) + w(t-1;j) - u(t-1;j) o w(t-1;j)) o psi(t;j)
+
+  vector_operation_int = ntm_vector_multiplier(U_IN, W_IN)
+
+  vector_operation_int = W_IN - vector_operation_int
+
+  vector_operation_int = U_IN - vector_operation_int
+
+  U_OUT = ntm_vector_multiplier(vector_operation_int, PSI_IN)
+
+  return U_OUT

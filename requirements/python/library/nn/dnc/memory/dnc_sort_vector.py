@@ -16,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2023 by the author(s)                                      ##
+## Copyright (c) 2020-2024 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,4 +42,36 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def dnc_sort_vector(U_IN):
+  # Constants
+  SIZE_IN = U_IN.shape
+
+  # Internal Signals
+  vector_index_int = np.zeros(SIZE_IN)
+
+  # Body
+  vector_operation_int = U_IN
+
+  for i in range(len(SIZE_IN)):
+    vector_index_int[i] = i;
+  
+  for i in range(len(SIZE_IN)):
+    for j in range(len(SIZE_IN)-i):
+      if (vector_operation_int[j] > vector_operation_int[j + 1]):
+        scalar_operation_int = vector_operation_int[j]
+
+        vector_operation_int[j] = vector_operation_int[j + 1]
+
+        vector_operation_int[j + 1] = scalar_operation_int
+
+        scalar_index_int = vector_index_int[j]
+
+        vector_index_int[j] = vector_index_int[j + 1]
+
+        vector_index_int[j + 1] = scalar_index_int
+            
+  PHI_OUT = vector_index_int
+
+  return PHI_OUT

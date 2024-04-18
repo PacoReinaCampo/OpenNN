@@ -16,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2023 by the author(s)                                      ##
+## Copyright (c) 2020-2024 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,4 +42,27 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def dnc_forward_weighting(L_IN, W_IN):
+  # Constants
+  SIZE_R_IN, SIZE_N_IN = W_IN.shape
+
+  # Internal Signals
+  vector_operation_int = np.zeros(SIZE_R_IN)
+
+  # Body
+  # f(t;i;j) = L(t;g;j)·w(t-1;i;j)
+
+  F_OUT = np.zeros((SIZE_R_IN, SIZE_N_IN))
+
+  for i in range(len(SIZE_R_IN)):
+    for j in range(len(SIZE_N_IN)):
+      vector_operation_int[j] = W_IN[i][j]
+    
+    vector_operation_int = ntm_matrix_vector_product(L_IN, vector_operation_int)
+
+    for j in range(len(SIZE_N_IN)):
+      F_OUT[i][j] = vector_operation_int[j]
+
+  return F_OUT

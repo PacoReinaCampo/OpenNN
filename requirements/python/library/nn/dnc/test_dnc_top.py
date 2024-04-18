@@ -42,4 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
+from top import dnc_interface_matrix as interface_matrix
+from top import dnc_interface_top as interface_top
+from top import dnc_interface_vector as interface_vector
+from top import dnc_output_vector as output_vector
+from top import dnc_top as top
+
 print('Hello, world!')

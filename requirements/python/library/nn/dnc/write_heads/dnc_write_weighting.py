@@ -16,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2023 by the author(s)                                      ##
+## Copyright (c) 2020-2024 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,4 +42,31 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def dnc_write_weighting(A_IN, C_IN, GA_IN, GW_IN):
+  # Constants
+  SIZE_N_IN = A_IN.shape
+
+  # Signals
+  vector_ga_int = np.zeros(SIZE_N_IN)
+  vector_gw_int = np.zeros(SIZE_N_IN)
+
+  # Body
+  # w(t;j) = gw(t)·(ga(t)·a(t;j) + (1 - ga(t))·c(t;j))
+
+  for j in range(len(SIZE_N_IN)):
+    vector_ga_int[j] = GA_IN
+    vector_gw_int[j] = GW_IN
+  
+  vector_cga_int = np.ones(SIZE_N_IN) - vector_ga_int
+
+  vector_ga_int = ntm_vector_multiplier(vector_ga_int, A_IN)
+
+  vector_cga_int = ntm_vector_multiplier(vector_cga_int, C_IN)
+
+  vector_operation_int = vector_ga_int + vector_cga_int
+
+  W_OUT = ntm_vector_multiplier(vector_gw_int, vector_operation_int)
+
+  return W_OUT

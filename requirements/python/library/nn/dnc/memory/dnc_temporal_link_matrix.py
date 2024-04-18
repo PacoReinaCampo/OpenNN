@@ -16,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2023 by the author(s)                                      ##
+## Copyright (c) 2020-2024 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,4 +42,34 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def dnc_temporal_link_matrix(L_IN, W_IN, P_IN):
+  # Constants
+  SIZE_N_IN = W_IN.shape
+
+  # Internal Signals
+  matrix_w_i_int = np.zeros((SIZE_N_IN, SIZE_N_IN))
+  matrix_w_j_int = np.zeros((SIZE_N_IN, SIZE_N_IN))
+
+  # Body
+  # L(t)[g;j] = (1 - w(t;j)[i] - w(t;j)[j])·L(t-1)[g;j] + w(t;j)[i]·p(t-1;j)[j]
+
+  # L(t=0)[g,j] = 0
+
+  for g in range(len(SIZE_N_IN)):
+    for j in range(len(SIZE_N_IN)):
+      matrix_w_i_int[g][j] = W_IN(g)
+      matrix_w_j_int[g][j] = W_IN[j]
+      
+  matrix_first_operation_int = ones(SIZE_N_IN, SIZE_N_IN) - matrix_w_i_int
+
+  matrix_first_operation_int = matrix_first_operation_int - matrix_w_j_int
+
+  matrix_first_operation_int = ntm_matrix_multiplier(matrix_first_operation_int, L_IN)
+
+  matrix_second_operation_int = ntm_transpose_vector_product(W_IN, P_IN)
+
+  L_OUT = matrix_first_operation_int + matrix_second_operation_int
+
+  return L_OUT

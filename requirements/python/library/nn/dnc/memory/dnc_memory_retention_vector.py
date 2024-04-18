@@ -16,7 +16,7 @@
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2023 by the author(s)                                      ##
+## Copyright (c) 2020-2024 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,4 +42,26 @@
 ##                                                                               ##
 ###################################################################################
 
-print('Hello, world!')
+import numpy as np
+
+def dnc_memory_retention_vector(W_IN, F_IN):
+  # Constants
+  SIZE_R_IN, SIZE_N_IN = W_IN.shape
+
+  # Internal Signals
+  matrix_operation_int = np.zeros((SIZE_R_IN, SIZE_N_IN))
+
+  # Body
+  # psi(t;j) = multiplication(1 - f(t;i)·w(t-1;i;j))[i in 1 to R]
+
+  vector_operation_int = ones(SIZE_R_IN, 1) - F_IN
+
+  for i in range(len(SIZE_R_IN)):
+    for j in range(len(SIZE_N_IN)):
+      matrix_operation_int[i][j] = vector_operation_int[i]
+      
+  matrix_operation_int = ntm_matrix_multiplier(matrix_operation_int, W_IN)
+
+  PSI_OUT = ntm_vector_summation(matrix_operation_int)
+
+  return PSI_OUT

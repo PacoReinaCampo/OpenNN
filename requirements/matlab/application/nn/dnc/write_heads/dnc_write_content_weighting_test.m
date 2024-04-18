@@ -48,7 +48,7 @@ warning('off','all');
 addpath(genpath('../../../../library/algebra/vector'));
 addpath(genpath('../../../../library/math/vector'));
 
-addpath(genpath('../../../../library/nn/DNC/write_heads'));
+addpath(genpath('../../../../library/nn/dnc/write_heads'));
 
 
 # Constants

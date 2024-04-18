@@ -53,14 +53,14 @@ addpath(genpath('../../../../library/math/vector'));
 addpath(genpath('../../../../library/math/matrix'));
 addpath(genpath('../../../../library/math/vector'));
 
-addpath(genpath('../../../../library/nn/FNN/standard'));
+addpath(genpath('../../../../library/nn/fnn/standard'));
 
-addpath(genpath('../../../../library/nn/DNC/memory'));
-addpath(genpath('../../../../library/nn/DNC/top'));
-addpath(genpath('../../../../library/nn/DNC/trained'));
+addpath(genpath('../../../../library/nn/dnc/memory'));
+addpath(genpath('../../../../library/nn/dnc/top'));
+addpath(genpath('../../../../library/nn/dnc/trained'));
 
 addpath(genpath('../../../../library/trainer/differentiation'));
-addpath(genpath('../../../../library/trainer/FNN'));
+addpath(genpath('../../../../library/trainer/fnn'));
 
 # Constants
 SIZE_T_IN = 3;
