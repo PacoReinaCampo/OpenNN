@@ -21,7 +21,7 @@
 
 // OpenNN includes
 
-#include "../neural_network/neural_network.h"
+#include "../neural_network/main/neural_network.h"
 #include "../training_strategy/loss_index.h"
 #include "../utilities/tinyxml2.h"
 

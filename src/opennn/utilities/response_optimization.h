@@ -24,7 +24,7 @@
 
 #include "../utilities/vector.h"
 #include "../utilities/matrix.h"
-#include "../neural_network/neural_network.h"
+#include "../neural_network/main/neural_network.h"
 
 
 

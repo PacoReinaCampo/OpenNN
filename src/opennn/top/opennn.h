@@ -16,19 +16,19 @@
 
 // Neural network
 
-#include "../neural_network/layer.h"
-#include "../neural_network/pooling_layer.h"
-#include "../neural_network/convolutional_layer.h"
-#include "../neural_network/bounding_layer.h"
-#include "../neural_network/perceptron_layer.h"
-#include "../neural_network/feed_forward_layer.h"
-#include "../neural_network/long_short_term_memory_layer.h"
-#include "../neural_network/multihead_attention_layer.h"
-#include "../neural_network/recurrent_layer.h"
-#include "../neural_network/probabilistic_layer.h"
-#include "../neural_network/scaling_layer.h"
-#include "../neural_network/unscaling_layer.h"
-#include "../neural_network/neural_network.h"
+#include "../neural_network/main/layer.h"
+#include "../neural_network/main/pooling_layer.h"
+#include "../neural_network/cnn/convolutional_layer.h"
+#include "../neural_network/main/bounding_layer.h"
+#include "../neural_network/pnn/perceptron_layer.h"
+#include "../neural_network/fnn/feed_forward_layer.h"
+#include "../neural_network/lstm/long_short_term_memory_layer.h"
+#include "../neural_network/ann/multihead_attention_layer.h"
+#include "../neural_network/rnn/recurrent_layer.h"
+#include "../neural_network/main/probabilistic_layer.h"
+#include "../neural_network/main/scaling_layer.h"
+#include "../neural_network/main/unscaling_layer.h"
+#include "../neural_network/main/neural_network.h"
 
 // Training strategy
 

@@ -61,32 +61,32 @@ SOURCES =	../../../../../src/opennn/data_set/data_set.cpp \
 		../../../../../src/opennn/model_selection/neurons_selection.h \
 		../../../../../src/opennn/model_selection/pruning_inputs.cpp \
 		../../../../../src/opennn/model_selection/pruning_inputs.h \
-		../../../../../src/opennn/neural_network/bounding_layer.cpp \
-		../../../../../src/opennn/neural_network/bounding_layer.h \
-		../../../../../src/opennn/neural_network/convolutional_layer.cpp \
-		../../../../../src/opennn/neural_network/convolutional_layer.h \
-		../../../../../src/opennn/neural_network/layer.cpp \
-		../../../../../src/opennn/neural_network/layer.h \
-		../../../../../src/opennn/neural_network/long_short_term_memory_layer.cpp \
-		../../../../../src/opennn/neural_network/long_short_term_memory_layer.h \
-		../../../../../src/opennn/neural_network/multihead_attention_layer.cpp \
-		../../../../../src/opennn/neural_network/multihead_attention_layer.h \
-		../../../../../src/opennn/neural_network/neural_network.cpp \
-		../../../../../src/opennn/neural_network/neural_network.h \
-		../../../../../src/opennn/neural_network/perceptron_layer.cpp \
-		../../../../../src/opennn/neural_network/perceptron_layer.h \
-		../../../../../src/opennn/neural_network/pooling_layer.cpp \
-		../../../../../src/opennn/neural_network/pooling_layer.h \
-		../../../../../src/opennn/neural_network/principal_components_layer.cpp \
-		../../../../../src/opennn/neural_network/principal_components_layer.h \
-		../../../../../src/opennn/neural_network/probabilistic_layer.cpp \
-		../../../../../src/opennn/neural_network/probabilistic_layer.h \
-		../../../../../src/opennn/neural_network/recurrent_layer.cpp \
-		../../../../../src/opennn/neural_network/recurrent_layer.h \
-		../../../../../src/opennn/neural_network/scaling_layer.cpp \
-		../../../../../src/opennn/neural_network/scaling_layer.h \
-		../../../../../src/opennn/neural_network/unscaling_layer.cpp \
-		../../../../../src/opennn/neural_network/unscaling_layer.h \
+		../../../../../src/opennn/neural_network/main/bounding_layer.cpp \
+		../../../../../src/opennn/neural_network/main/bounding_layer.h \
+		../../../../../src/opennn/neural_network/cnn/convolutional_layer.cpp \
+		../../../../../src/opennn/neural_network/cnn/convolutional_layer.h \
+		../../../../../src/opennn/neural_network/main/layer.cpp \
+		../../../../../src/opennn/neural_network/main/layer.h \
+		../../../../../src/opennn/neural_network/lstm/long_short_term_memory_layer.cpp \
+		../../../../../src/opennn/neural_network/lstm/long_short_term_memory_layer.h \
+		../../../../../src/opennn/neural_network/ann/multihead_attention_layer.cpp \
+		../../../../../src/opennn/neural_network/ann/multihead_attention_layer.h \
+		../../../../../src/opennn/neural_network/main/neural_network.cpp \
+		../../../../../src/opennn/neural_network/main/neural_network.h \
+		../../../../../src/opennn/neural_network/pnn/perceptron_layer.cpp \
+		../../../../../src/opennn/neural_network/pnn/perceptron_layer.h \
+		../../../../../src/opennn/neural_network/main/pooling_layer.cpp \
+		../../../../../src/opennn/neural_network/main/pooling_layer.h \
+		../../../../../src/opennn/neural_network/main/principal_components_layer.cpp \
+		../../../../../src/opennn/neural_network/main/principal_components_layer.h \
+		../../../../../src/opennn/neural_network/main/probabilistic_layer.cpp \
+		../../../../../src/opennn/neural_network/main/probabilistic_layer.h \
+		../../../../../src/opennn/neural_network/rnn/recurrent_layer.cpp \
+		../../../../../src/opennn/neural_network/rnn/recurrent_layer.h \
+		../../../../../src/opennn/neural_network/main/scaling_layer.cpp \
+		../../../../../src/opennn/neural_network/main/scaling_layer.h \
+		../../../../../src/opennn/neural_network/main/unscaling_layer.cpp \
+		../../../../../src/opennn/neural_network/main/unscaling_layer.h \
 		../../../../../src/opennn/testing_analysis/testing_analysis.cpp \
 		../../../../../src/opennn/testing_analysis/testing_analysis.h \
 		../../../../../src/opennn/testing_analysis/unit_testing.cpp \

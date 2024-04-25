@@ -25,7 +25,7 @@
 
 #include "../data_set/data_set.h"
 
-#include "../neural_network/neural_network.h"
+#include "../neural_network/main/neural_network.h"
 #include "../utilities/numerical_differentiation.h"
 
 
