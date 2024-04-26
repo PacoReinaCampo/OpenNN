@@ -10,22 +10,31 @@ opennn
 │   ├── neurons_selection.cpp
 │   └── pruning_inputs.cpp
 ├── neural_network
-│   ├── bounding_layer.cpp
-│   ├── convolutional_layer.cpp
-│   ├── differentiable_neural_computer_layer.cpp
-│   ├── feed_forward_layer.cpp
-│   ├── layer.cpp
-│   ├── long_short_term_memory_layer.cpp
-│   ├── multihead_attention_layer.cpp
-│   ├── neural_network.cpp
-│   ├── neural_turing_machine_layer.cpp
-│   ├── perceptron_layer.cpp
-│   ├── pooling_layer.cpp
-│   ├── principal_components_layer.cpp
-│   ├── probabilistic_layer.cpp
-│   ├── recurrent_layer.cpp
-│   ├── scaling_layer.cpp
-│   └── unscaling_layer.cpp
+│   ├── ann
+│   │   └── multihead_attention_layer.cpp
+│   ├── cnn
+│   │   └── convolutional_layer.cpp
+│   ├── dnc
+│   │   └── differentiable_neural_computer_layer.cpp
+│   ├── fnn
+│   │   └── feed_forward_layer.cpp
+│   ├── lstm
+│   │   └── long_short_term_memory_layer.cpp
+│   ├── main
+│   │   ├── bounding_layer.cpp
+│   │   ├── layer.cpp
+│   │   ├── neural_network.cpp
+│   │   ├── pooling_layer.cpp
+│   │   ├── principal_components_layer.cpp
+│   │   ├── probabilistic_layer.cpp
+│   │   ├── scaling_layer.cpp
+│   │   └── unscaling_layer.cpp
+│   ├── ntm
+│   │   └── neural_turing_machine_layer.cpp
+│   ├── pnn
+│   │   └── perceptron_layer.cpp
+│   └── rnn
+│       └── recurrent_layer.cpp
 ├── testing_analysis
 │   ├── testing_analysis.cpp
 │   └── unit_testing.cpp
@@ -59,4 +68,4 @@ opennn
     ├── tinyxml2.cpp
     └── transformations.cpp
 
-7 directories, 52 files
+16 directories, 52 files
