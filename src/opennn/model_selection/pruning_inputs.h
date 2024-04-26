@@ -3,146 +3,127 @@
 //   OpenNN: Open Neural Networks Library
 //   www.opennn.net
 
-//   P R U N I N G   I N P U T S   C L A S S   H E A D E R                 
+//   P R U N I N G   I N P U T S   C L A S S   H E A D E R
 
 //   Artificial Intelligence Techniques SL
 //   artelnics@artelnics.com
-
-
 
 #ifndef PRUNINGINPUTS_H
 #define PRUNINGINPUTS_H
 
 // System includes
 
-#include <iostream>
-#include <fstream>
 #include <algorithm>
-#include <functional>
-#include <limits>
 #include <cmath>
 #include <ctime>
+#include <fstream>
+#include <functional>
+#include <iostream>
+#include <limits>
 
 // OpenNN includes
 
-#include "../utilities/vector.h"
-#include "../utilities/matrix.h"
-
-#include "../training_strategy/training_strategy.h"
-
 #include "../model_selection/inputs_selection.h"
-
-
-
+#include "../training_strategy/training_strategy.h"
+#include "../utilities/matrix.h"
 #include "../utilities/tinyxml2.h"
+#include "../utilities/vector.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This concrete class represents a pruning inputs algorithm for the InputsSelection as part of the ModelSelection[1] class.
 
 /// [1] Neural Designer "Model Selection Algorithms in Predictive Analytics." \ref https://www.neuraldesigner.com/blog/model-selection
 
-class PruningInputs : public InputsSelection
-{
-public:
-    // DEFAULT CONSTRUCTOR
+class PruningInputs : public InputsSelection {
+ public:
+  // DEFAULT CONSTRUCTOR
 
-    explicit PruningInputs();
+  explicit PruningInputs();
 
-    // TRAINING STRATEGY CONSTRUCTOR
+  // TRAINING STRATEGY CONSTRUCTOR
 
-    explicit PruningInputs(TrainingStrategy*);
+  explicit PruningInputs(TrainingStrategy*);
 
-    // XML CONSTRUCTOR
+  // XML CONSTRUCTOR
 
-    explicit PruningInputs(const tinyxml2::XMLDocument&);
+  explicit PruningInputs(const tinyxml2::XMLDocument&);
 
-    // FILE CONSTRUCTOR
+  // FILE CONSTRUCTOR
 
-    explicit PruningInputs(const string&);
+  explicit PruningInputs(const string&);
 
-    
+  virtual ~PruningInputs();
 
-    virtual ~PruningInputs();
+  // STRUCTURES
 
+  ///
+  /// This structure contains the training results for the pruning inputs method.
+  ///
 
-    // STRUCTURES
+  struct PruningInputsResults : public InputsSelection::Results {
+    /// Default constructor.
 
-    ///
-    /// This structure contains the training results for the pruning inputs method.
-    ///
+    explicit PruningInputsResults() : InputsSelection::Results() {
+    }
 
-    struct PruningInputsResults : public InputsSelection::Results
-    {
-        /// Default constructor.
+    /// Destructor.
 
-        explicit PruningInputsResults() : InputsSelection::Results()
-        {
-        }
+    virtual ~PruningInputsResults() {
+    }
+  };
 
-        /// Destructor.
+  // Get methods
 
-        virtual ~PruningInputsResults()
-        {
-        }
+  const size_t& get_minimum_inputs_number() const;
 
-    };
+  const size_t& get_maximum_inputs_number() const;
 
+  const size_t& get_maximum_selection_failures() const;
 
-    // Get methods
+  // Set methods
 
-    const size_t& get_minimum_inputs_number() const;
+  void set_default();
 
-    const size_t& get_maximum_inputs_number() const;
+  void set_minimum_inputs_number(const size_t&);
 
-    const size_t& get_maximum_selection_failures() const;
+  void set_maximum_inputs_number(const size_t&);
 
-    // Set methods
+  void set_maximum_selection_failures(const size_t&);
 
-    void set_default();
+  // Order selection methods
 
-    void set_minimum_inputs_number(const size_t&);
+  PruningInputsResults* perform_inputs_selection();
 
-    void set_maximum_inputs_number(const size_t&);
+  // Serialization methods
 
-    void set_maximum_selection_failures(const size_t&);
+  Matrix<string> to_string_matrix() const;
 
-    // Order selection methods
+  tinyxml2::XMLDocument* to_XML() const;
+  void from_XML(const tinyxml2::XMLDocument&);
 
-    PruningInputsResults* perform_inputs_selection();
+  void write_XML(tinyxml2::XMLPrinter&) const;
 
-    // Serialization methods
+  void save(const string&) const;
+  void load(const string&);
 
-    Matrix<string> to_string_matrix() const;
+ private:
+  // Stopping criteria
 
-    tinyxml2::XMLDocument* to_XML() const;
-    void from_XML(const tinyxml2::XMLDocument&);
+  /// Minimum number of inputs in the neural network.
 
-    void write_XML(tinyxml2::XMLPrinter&) const;
-    
+  size_t minimum_inputs_number;
 
-    void save(const string&) const;
-    void load(const string&);
+  /// Maximum number of inputs in the neural network.
 
-private:
+  size_t maximum_inputs_number;
 
-    // Stopping criteria
+  /// Maximum number of iterations at which the selection error increases.
 
-    /// Minimum number of inputs in the neural network.
-
-    size_t minimum_inputs_number;
-
-    /// Maximum number of inputs in the neural network.
-
-    size_t maximum_inputs_number;
-
-    /// Maximum number of iterations at which the selection error increases.
-
-    size_t maximum_selection_failures;
+  size_t maximum_selection_failures;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
 

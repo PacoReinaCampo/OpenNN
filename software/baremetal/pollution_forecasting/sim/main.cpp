@@ -10,12 +10,13 @@
 
 // System includes
 
-#include <iostream>
+#include <time.h>
+
+#include <cstring>
 #include <fstream>
+#include <iostream>
 #include <sstream>
 #include <string>
-#include <cstring>
-#include <time.h>
 
 // OpenNN includes
 
@@ -23,105 +24,99 @@
 
 using namespace OpenNN;
 
-int main(void)
-{
-    try
-    {
-        cout << "OpenNN. Pollution forecasting example." << endl;
+int main(void) {
+  try {
+    cout << "OpenNN. Pollution forecasting example." << endl;
 
-        srand(static_cast<unsigned>(time(nullptr)));
+    srand(static_cast<unsigned>(time(nullptr)));
 
-        //  Load data set
+    //  Load data set
 
-        DataSet data_set;
+    DataSet data_set;
 
-        data_set.set_data_file_name("../../datasets/pollution.csv");
-        data_set.set_separator(',');
-        data_set.set_has_columns_names(true);
-        size_t lags_number = 2;
-        size_t steps_ahead = 1;
+    data_set.set_data_file_name("../../datasets/pollution.csv");
+    data_set.set_separator(',');
+    data_set.set_has_columns_names(true);
+    size_t lags_number = 2;
+    size_t steps_ahead = 1;
 
-        data_set.set_lags_number(lags_number);
-        data_set.set_steps_ahead_number(steps_ahead);
+    data_set.set_lags_number(lags_number);
+    data_set.set_steps_ahead_number(steps_ahead);
 
-        data_set.set_time_index(0);
+    data_set.set_time_index(0);
 
-        data_set.set_missing_values_method("Mean");
+    data_set.set_missing_values_method("Mean");
 
-        data_set.read_csv();
+    data_set.read_csv();
 
-        cout<<"dta"<< data_set.get_data()<<endl;
+    cout << "dta" << data_set.get_data() << endl;
 
-        // Autocorrelations
+    // Autocorrelations
 
-        const Matrix<double> autocorrelations = data_set.calculate_autocorrelations();
+    const Matrix<double> autocorrelations = data_set.calculate_autocorrelations();
 
-        const Matrix<Vector<double>> cross_correlations = data_set.calculate_cross_correlations();
+    const Matrix<Vector<double>> cross_correlations = data_set.calculate_cross_correlations();
 
-        const Vector<Descriptives> inputs_descriptives = data_set.scale_inputs_minimum_maximum();
+    const Vector<Descriptives> inputs_descriptives = data_set.scale_inputs_minimum_maximum();
 
-        const Vector<Descriptives> targets_descriptives = data_set.scale_targets_minimum_maximum();
+    const Vector<Descriptives> targets_descriptives = data_set.scale_targets_minimum_maximum();
 
+    // Neural network
 
-        // Neural network
+    const size_t inputs_number = data_set.get_input_variables_number();
 
-        const size_t inputs_number = data_set.get_input_variables_number();
+    const size_t outputs_number = data_set.get_target_variables_number();
 
-        const size_t outputs_number = data_set.get_target_variables_number();
+    NeuralNetwork neural_network(NeuralNetwork::Approximation, {inputs_number, outputs_number});
 
-        NeuralNetwork neural_network(NeuralNetwork::Approximation, {inputs_number, outputs_number});
+    neural_network.print_summary();
 
-        neural_network.print_summary();
+    // Training strategy
 
-        // Training strategy
+    TrainingStrategy training_strategy(&neural_network, &data_set);
 
-        TrainingStrategy training_strategy(&neural_network, &data_set);
+    training_strategy.set_optimization_method(TrainingStrategy::GRADIENT_DESCENT);
 
-        training_strategy.set_optimization_method(TrainingStrategy::GRADIENT_DESCENT);
+    GradientDescent* quasi_Newton_method_pointer = training_strategy.get_gradient_descent_pointer();
 
-        GradientDescent* quasi_Newton_method_pointer = training_strategy.get_gradient_descent_pointer();
+    quasi_Newton_method_pointer->get_learning_rate_algorithm_pointer()->set_learning_rate_method(LearningRateAlgorithm::Fixed);
 
-        quasi_Newton_method_pointer->get_learning_rate_algorithm_pointer()->set_learning_rate_method(LearningRateAlgorithm::Fixed);
+    quasi_Newton_method_pointer->set_maximum_epochs_number(2);
 
-        quasi_Newton_method_pointer->set_maximum_epochs_number(2);
+    quasi_Newton_method_pointer->set_display_period(1);
 
-        quasi_Newton_method_pointer->set_display_period(1);
+    const OptimizationAlgorithm::Results training_strategy_results = training_strategy.perform_training();
 
-        const OptimizationAlgorithm::Results training_strategy_results = training_strategy.perform_training();
+    training_strategy.print();
 
-        training_strategy.print();
+    // Testing analysis
 
-        // Testing analysis
+    data_set.unscale_inputs_minimum_maximum(inputs_descriptives);
 
-        data_set.unscale_inputs_minimum_maximum(inputs_descriptives);
+    data_set.unscale_targets_minimum_maximum(targets_descriptives);
 
-        data_set.unscale_targets_minimum_maximum(targets_descriptives);
+    TestingAnalysis testing_analysis(&neural_network, &data_set);
 
-        TestingAnalysis testing_analysis(&neural_network, &data_set);
+    const TestingAnalysis::LinearRegressionAnalysis linear_regression_results = testing_analysis.perform_linear_regression_analysis()[0];
 
-        const TestingAnalysis::LinearRegressionAnalysis linear_regression_results = testing_analysis.perform_linear_regression_analysis()[0];
+    // Save results
 
-        // Save results
+    data_set.save("data/data_set.xml");
 
-        data_set.save("data/data_set.xml");
+    neural_network.save("data/neural_network.xml");
 
-        neural_network.save("data/neural_network.xml");
+    training_strategy.save("data/training_strategy.xml");
+    training_strategy_results.save("data/training_strategy_results.dat");
 
-        training_strategy.save("data/training_strategy.xml");
-        training_strategy_results.save("data/training_strategy_results.dat");
+    linear_regression_results.save("data/linear_regression_analysis_results.dat");
 
-        linear_regression_results.save("data/linear_regression_analysis_results.dat");
+    return 0;
+  } catch (exception& e) {
+    cerr << e.what() << endl;
 
-        return 0;
-    }
-    catch(exception& e)
-    {
-        cerr << e.what() << endl;
-
-        return 1;
-    }
-}  
-
+    return 1;
+  }
+}
 
 // OpenNN: Open Neural Networks Library.
 // Copyright (C) 2005-2019 Artificial Intelligence Techniques SL

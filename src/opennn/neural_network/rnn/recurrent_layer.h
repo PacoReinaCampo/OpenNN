@@ -15,216 +15,221 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 // OpenNN includes
 
-#include "../../utilities/vector.h"
 #include "../../neural_network/main/layer.h"
-#include "../../utilities/matrix.h"
-#include "../../utilities/tensor.h"
-#include "../../utilities/functions.h"
-#include "../../utilities/metrics.h"
 #include "../../neural_network/pnn/perceptron_layer.h"
+#include "../../utilities/functions.h"
+#include "../../utilities/matrix.h"
+#include "../../utilities/metrics.h"
+#include "../../utilities/tensor.h"
+#include "../../utilities/vector.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This class represents a layer of neurons.
 /// Layers of neurons will be used to construct multilayer neurons.
 
-class RecurrentLayer : public Layer
-{
+class RecurrentLayer : public Layer {
+ public:
+  // Enumerations
 
-public:
+  /// Enumeration of the available activation functions for the recurrent layer.
 
-    // Enumerations
+  enum ActivationFunction { Threshold,
+                            SymmetricThreshold,
+                            Logistic,
+                            HyperbolicTangent,
+                            Linear,
+                            RectifiedLinear,
+                            ExponentialLinear,
+                            ScaledExponentialLinear,
+                            SoftPlus,
+                            SoftSign,
+                            HardSigmoid };
 
-    /// Enumeration of the available activation functions for the recurrent layer.
+  // Constructors
 
-    enum ActivationFunction{Threshold, SymmetricThreshold, Logistic, HyperbolicTangent, Linear, RectifiedLinear, ExponentialLinear, ScaledExponentialLinear, SoftPlus, SoftSign, HardSigmoid};
+  explicit RecurrentLayer();
 
-   // Constructors
+  explicit RecurrentLayer(const size_t&, const size_t&);
 
-   explicit RecurrentLayer();
+  RecurrentLayer(const RecurrentLayer&);
 
-   explicit RecurrentLayer(const size_t&, const size_t&);
+  // Destructor
 
-   RecurrentLayer(const RecurrentLayer&);
+  virtual ~RecurrentLayer();
 
-   // Destructor
-   
-   virtual ~RecurrentLayer();
+  // Get methods
 
-   // Get methods
+  bool is_empty() const;
 
-   bool is_empty() const;
+  Vector<size_t> get_input_variables_dimensions() const;
 
-   Vector<size_t> get_input_variables_dimensions() const;
+  size_t get_inputs_number() const;
+  size_t get_neurons_number() const;
 
-   size_t get_inputs_number() const;
-   size_t get_neurons_number() const;
+  Vector<double> get_hidden_states() const;
 
-   Vector<double> get_hidden_states() const;
+  // Parameters
 
-   // Parameters
+  size_t get_timesteps() const;
 
-   size_t get_timesteps()const;
+  Vector<double> get_biases() const;
+  Matrix<double> get_input_weights() const;
+  Matrix<double> get_recurrent_weights() const;
 
-   Vector<double> get_biases() const;
-   Matrix<double> get_input_weights() const;
-   Matrix<double> get_recurrent_weights() const;
+  size_t get_biases_number() const;
+  size_t get_input_weights_number() const;
+  size_t get_recurrent_weights_number() const;
 
-   size_t get_biases_number() const;
-   size_t get_input_weights_number() const;
-   size_t get_recurrent_weights_number() const;
+  size_t get_parameters_number() const;
+  Vector<double> get_parameters() const;
 
-   size_t get_parameters_number() const;
-   Vector<double> get_parameters() const;
+  Vector<double> get_biases(const Vector<double>&) const;
+  Matrix<double> get_input_weights(const Vector<double>&) const;
+  Matrix<double> get_recurrent_weights(const Vector<double>&) const;
 
-   Vector<double> get_biases(const Vector<double>&) const;
-   Matrix<double> get_input_weights(const Vector<double>&) const;
-   Matrix<double> get_recurrent_weights(const Vector<double>&) const;
+  Matrix<double> get_input_weights_transpose() const;
+  Matrix<double> get_recurrent_weights_transpose() const;
 
-   Matrix<double> get_input_weights_transpose() const;
-   Matrix<double> get_recurrent_weights_transpose() const;
+  // Activation functions
 
-   // Activation functions
+  const RecurrentLayer::ActivationFunction& get_activation_function() const;
 
-   const RecurrentLayer::ActivationFunction& get_activation_function() const;
+  string write_activation_function() const;
 
-   string write_activation_function() const;
+  // Display messages
 
-   // Display messages
+  const bool& get_display() const;
 
-   const bool& get_display() const;
+  // Set methods
 
-   // Set methods
+  void set();
+  void set(const size_t&, const size_t&);
+  void set(const RecurrentLayer&);
 
-   void set();
-   void set(const size_t&, const size_t&);
-   void set(const RecurrentLayer&);
+  void set_default();
 
-   void set_default();
+  // Architecture
 
-   // Architecture
+  void set_inputs_number(const size_t&);
+  void set_neurons_number(const size_t&);
+  void set_input_shape(const Vector<size_t>&);
 
-   void set_inputs_number(const size_t&);
-   void set_neurons_number(const size_t&);
-   void set_input_shape(const Vector<size_t>&);
+  // Parameters
 
-   // Parameters
+  void set_timesteps(const size_t&);
 
-   void set_timesteps(const size_t&);
+  void set_biases(const Vector<double>&);
 
-   void set_biases(const Vector<double>&);
+  void set_input_weights(const Matrix<double>&);
 
-   void set_input_weights(const Matrix<double>&);
+  void set_recurrent_weights(const Matrix<double>&);
 
-   void set_recurrent_weights(const Matrix<double>&);
+  void set_parameters(const Vector<double>&);
 
-   void set_parameters(const Vector<double>&);
+  // Activation functions
 
-   // Activation functions
+  void set_activation_function(const ActivationFunction&);
+  void set_activation_function(const string&);
 
-   void set_activation_function(const ActivationFunction&);
-   void set_activation_function(const string&);
+  // Display messages
 
-   // Display messages
+  void set_display(const bool&);
 
-   void set_display(const bool&);
+  // Parameters initialization methods
 
-   // Parameters initialization methods
+  void initialize_hidden_states(const double&);
 
-   void initialize_hidden_states(const double&);
+  void initialize_biases(const double&);
 
-   void initialize_biases(const double&);
+  void initialize_input_weights(const double&);
+  void initialize_recurrent_weights(const double&);
+  void initialize_input_weights_Glorot(const double&, const double&);
 
-   void initialize_input_weights(const double&);
-   void initialize_recurrent_weights(const double&);
-   void initialize_input_weights_Glorot(const double&, const double&);
+  void initialize_parameters(const double&);
 
-   void initialize_parameters(const double&);
+  void randomize_parameters_uniform(const double&, const double&);
 
-   void randomize_parameters_uniform(const double&, const double&);
+  void randomize_parameters_normal(const double&, const double&);
 
-   void randomize_parameters_normal(const double&, const double&);
+  // Parameters norm
 
-   // Parameters norm
+  double calculate_parameters_norm() const;
 
-   double calculate_parameters_norm() const;
+  // neuron layer combinations
 
-   // neuron layer combinations
+  Vector<double> calculate_combinations(const Vector<double>&) const;
 
-   Vector<double> calculate_combinations(const Vector<double>&) const;
+  Tensor<double> calculate_combinations(const Tensor<double>&);
 
-   Tensor<double> calculate_combinations(const Tensor<double>&);
+  Vector<double> calculate_combinations(const Vector<double>&, const Vector<double>&) const;
 
-   Vector<double> calculate_combinations(const Vector<double>&, const Vector<double>&) const;
+  Vector<double> calculate_combinations(const Vector<double>&, const Vector<double>&, const Matrix<double>&, const Matrix<double>&) const;
 
-   Vector<double> calculate_combinations(const Vector<double>&, const Vector<double>&, const Matrix<double>&, const Matrix<double>&) const;
+  // neuron layer activations
 
-   // neuron layer activations
+  Vector<double> calculate_activations(const Vector<double>&) const;
 
-   Vector<double> calculate_activations(const Vector<double>&) const;
+  Tensor<double> calculate_activations(const Tensor<double>&) const;
 
-   Tensor<double> calculate_activations(const Tensor<double>&) const;
+  Tensor<double> calculate_activations_derivatives(const Tensor<double>&) const;
 
-   Tensor<double> calculate_activations_derivatives(const Tensor<double>&) const;
+  // neuron layer outputs
 
-   // neuron layer outputs
+  void update_hidden_states(const Vector<double>&);
 
-   void update_hidden_states(const Vector<double>&);
+  Tensor<double> calculate_outputs(const Tensor<double>&);
+  Tensor<double> calculate_outputs(const Tensor<double>&, const Vector<double>&);
 
-   Tensor<double> calculate_outputs(const Tensor<double>&);
-   Tensor<double> calculate_outputs(const Tensor<double>&, const Vector<double>&);
+  Tensor<double> calculate_outputs(const Tensor<double>&, const Vector<double>&, const Matrix<double>&, const Matrix<double>&);
 
-   Tensor<double> calculate_outputs(const Tensor<double>&, const Vector<double>&, const Matrix<double>&, const Matrix<double>&);
+  Tensor<double> calculate_output_delta(const Tensor<double>&, const Tensor<double>&) const;
 
-   Tensor<double> calculate_output_delta(const Tensor<double>&, const Tensor<double>&) const;
+  Tensor<double> calculate_hidden_delta(Layer*, const Tensor<double>&, const Tensor<double>&, const Tensor<double>&) const;
 
-   Tensor<double> calculate_hidden_delta(Layer*, const Tensor<double>&, const Tensor<double>&, const Tensor<double>&) const;
+  Layer::FirstOrderActivations calculate_first_order_activations(const Tensor<double>& inputs);
 
-   Layer::FirstOrderActivations calculate_first_order_activations(const Tensor<double>& inputs);
+  // Gradient
 
-   // Gradient
+  Vector<double> calculate_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
 
-   Vector<double> calculate_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
+  Vector<double> calculate_input_weights_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
+  Vector<double> calculate_recurrent_weights_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
+  Vector<double> calculate_biases_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
 
-   Vector<double> calculate_input_weights_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
-   Vector<double> calculate_recurrent_weights_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
-   Vector<double> calculate_biases_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
+  // Expression methods
 
-   // Expression methods
+  string write_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_activation_function_expression() const;
 
-   string write_expression(const Vector<string>&, const Vector<string>&) const;
-   string write_activation_function_expression() const;
+  string object_to_string() const;
 
-   string object_to_string() const;
+ protected:
+  size_t timesteps = 1;
 
-protected:
+  Vector<double> biases;
 
-   size_t timesteps = 1;
+  Matrix<double> input_weights;
 
-   Vector<double> biases;
+  Matrix<double> recurrent_weights;
 
-   Matrix<double> input_weights;
+  /// Activation function variable.
 
-   Matrix<double> recurrent_weights;
+  ActivationFunction activation_function = HyperbolicTangent;
 
-   /// Activation function variable.
+  Vector<double> hidden_states;
 
-   ActivationFunction activation_function = HyperbolicTangent;
+  /// Display messages to screen.
 
-   Vector<double> hidden_states;
-
-   /// Display messages to screen.
-
-   bool display;
+  bool display;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
 

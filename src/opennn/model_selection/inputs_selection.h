@@ -11,25 +11,22 @@
 
 // System includes
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
 #include <cmath>
 #include <ctime>
+#include <fstream>
+#include <iostream>
 #include <limits>
+#include <sstream>
+#include <string>
 
 // OpenNN includes
 
-#include "../utilities/vector.h"
-#include "../utilities/matrix.h"
-
 #include "../training_strategy/training_strategy.h"
-
+#include "../utilities/matrix.h"
 #include "../utilities/tinyxml2.h"
+#include "../utilities/vector.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This abstract class represents the concept of inputs selection algorithm for a ModelSelection[1].
 
@@ -38,238 +35,238 @@ namespace OpenNN
 ///
 /// [1] Neural Designer "Model Selection Algorithms in Predictive Analytics." \ref https://www.neuraldesigner.com/blog/model-selection
 
-class InputsSelection
-{
-public:
+class InputsSelection {
+ public:
+  // Constructors
 
-    // Constructors
+  explicit InputsSelection();
 
-    explicit InputsSelection();
+  explicit InputsSelection(TrainingStrategy*);
 
-    explicit InputsSelection(TrainingStrategy*);
+  explicit InputsSelection(const string&);
 
-    explicit InputsSelection(const string&);
+  explicit InputsSelection(const tinyxml2::XMLDocument&);
 
-    explicit InputsSelection(const tinyxml2::XMLDocument&);
+  // Destructor
 
-    // Destructor
+  virtual ~InputsSelection();
 
-    virtual ~InputsSelection();
+  // Enumerations
 
-    // Enumerations
+  /// Enumeration of all possibles condition of stop for the algorithms.
 
-    /// Enumeration of all possibles condition of stop for the algorithms.
+  enum StoppingCondition { MaximumTime,
+                           SelectionErrorGoal,
+                           MaximumInputs,
+                           MinimumInputs,
+                           MaximumIterations,
+                           MaximumSelectionFailures,
+                           CorrelationGoal,
+                           AlgorithmFinished };
 
-    enum StoppingCondition{MaximumTime,SelectionErrorGoal,MaximumInputs,MinimumInputs,MaximumIterations,
-                           MaximumSelectionFailures,CorrelationGoal,AlgorithmFinished};
+  // STRUCTURES
 
-    // STRUCTURES
+  /// This structure contains the results from the inputs selection.
 
-    /// This structure contains the results from the inputs selection.
+  struct Results {
+    explicit Results() {}
 
-    struct Results
-    {
-       explicit Results() {}
+    virtual ~Results() {}
 
-       virtual ~Results() {}
+    string write_stopping_condition() const;
 
-       string write_stopping_condition() const;
+    string object_to_string() const;
 
-       string object_to_string() const;
+    /// Inputs of the different neural networks.
 
-       /// Inputs of the different neural networks.
+    Vector<Vector<bool>> inputs_data;
 
-       Vector<Vector<bool>> inputs_data;
-       
-       /// Performance of the different neural networks.
+    /// Performance of the different neural networks.
 
-       Vector<double> loss_data;
+    Vector<double> loss_data;
 
-       /// Selection loss of the different neural networks.
+    /// Selection loss of the different neural networks.
 
-       Vector<double> selection_error_data;
+    Vector<double> selection_error_data;
 
-       /// Vector of parameters for the neural network with minimum selection error.
+    /// Vector of parameters for the neural network with minimum selection error.
 
-       Vector<double> minimal_parameters;
+    Vector<double> minimal_parameters;
 
-       /// Value of minimum selection error.
+    /// Value of minimum selection error.
 
-       double final_selection_error;
+    double final_selection_error;
 
-       /// Value of loss for the neural network with minimum selection error.
+    /// Value of loss for the neural network with minimum selection error.
 
-       double final_training_error;
+    double final_training_error;
 
-       /// Inputs of the neural network with minimum selection error.
+    /// Inputs of the neural network with minimum selection error.
 
-       Vector<size_t> optimal_inputs_indices;
+    Vector<size_t> optimal_inputs_indices;
 
-       /// Inputs of the neural network with minimum selection error.
+    /// Inputs of the neural network with minimum selection error.
 
-       Vector<bool> optimal_inputs;
+    Vector<bool> optimal_inputs;
 
-       /// Number of iterations to perform the inputs selection.
+    /// Number of iterations to perform the inputs selection.
 
-       size_t iterations_number;
+    size_t iterations_number;
 
-       /// Stopping condition of the algorithm.
+    /// Stopping condition of the algorithm.
 
-       StoppingCondition stopping_condition;
+    StoppingCondition stopping_condition;
 
-       /// Elapsed time during the loss of the algortihm.
+    /// Elapsed time during the loss of the algortihm.
 
-       double elapsed_time;
-    };
+    double elapsed_time;
+  };
 
-    // Get methods
+  // Get methods
 
-    const bool& get_approximation() const;
+  const bool& get_approximation() const;
 
-    TrainingStrategy* get_training_strategy_pointer() const;
+  TrainingStrategy* get_training_strategy_pointer() const;
 
-    bool has_training_strategy() const;
+  bool has_training_strategy() const;
 
-    const size_t& get_trials_number() const;
+  const size_t& get_trials_number() const;
 
-    const bool& get_reserve_error_data() const;
-    const bool& get_reserve_selection_error_data() const;
-    const bool& get_reserve_minimal_parameters() const;
+  const bool& get_reserve_error_data() const;
+  const bool& get_reserve_selection_error_data() const;
+  const bool& get_reserve_minimal_parameters() const;
 
-    const bool& get_display() const;
+  const bool& get_display() const;
 
-    const double& get_selection_error_goal() const;
-    const size_t& get_maximum_iterations_number() const;
-    const double& get_maximum_time() const;
-    const double& get_maximum_correlation() const;
-    const double& get_minimum_correlation() const;
-    const double& get_tolerance() const;
+  const double& get_selection_error_goal() const;
+  const size_t& get_maximum_iterations_number() const;
+  const double& get_maximum_time() const;
+  const double& get_maximum_correlation() const;
+  const double& get_minimum_correlation() const;
+  const double& get_tolerance() const;
 
-    // Set methods
+  // Set methods
 
-    void set_approximation(const bool&);
+  void set_approximation(const bool&);
 
-    void set_training_strategy_pointer(TrainingStrategy*);
+  void set_training_strategy_pointer(TrainingStrategy*);
 
-    void set_default();
+  void set_default();
 
-    void set_trials_number(const size_t&);
+  void set_trials_number(const size_t&);
 
-    void set_reserve_error_data(const bool&);
-    void set_reserve_selection_error_data(const bool&);
-    void set_reserve_minimal_parameters(const bool&);
+  void set_reserve_error_data(const bool&);
+  void set_reserve_selection_error_data(const bool&);
+  void set_reserve_minimal_parameters(const bool&);
 
-    void set_display(const bool&);
+  void set_display(const bool&);
 
-    void set_selection_error_goal(const double&);
-    void set_maximum_iterations_number(const size_t&);
-    void set_maximum_time(const double&);
-    void set_maximum_correlation(const double&);
-    void set_minimum_correlation(const double&);
-    void set_tolerance(const double&);
+  void set_selection_error_goal(const double&);
+  void set_maximum_iterations_number(const size_t&);
+  void set_maximum_time(const double&);
+  void set_maximum_correlation(const double&);
+  void set_minimum_correlation(const double&);
+  void set_tolerance(const double&);
 
-    // Performances calculation methods
+  // Performances calculation methods
 
-    Vector<double> calculate_losses(const Vector<bool>&);
+  Vector<double> calculate_losses(const Vector<bool>&);
 
-    Vector<double> perform_mean_model_evaluation(const Vector<bool>&);
+  Vector<double> perform_mean_model_evaluation(const Vector<bool>&);
 
-    Vector<double> get_parameters_inputs(const Vector<bool>&) const;
+  Vector<double> get_parameters_inputs(const Vector<bool>&) const;
 
-    string write_stopping_condition(const OptimizationAlgorithm::Results&) const;
+  string write_stopping_condition(const OptimizationAlgorithm::Results&) const;
 
-    // inputs selection methods
+  // inputs selection methods
 
-    void delete_selection_history();
-    void delete_loss_history();
-    void delete_parameters_history();
-    void check() const;
+  void delete_selection_history();
+  void delete_loss_history();
+  void delete_parameters_history();
+  void check() const;
 
-    size_t get_input_index(const Vector<DataSet::VariableUse>, const size_t);
+  size_t get_input_index(const Vector<DataSet::VariableUse>, const size_t);
 
-    /// Performs the inputs selection for a neural network.
+  /// Performs the inputs selection for a neural network.
 
-    virtual Results* perform_inputs_selection() = 0;
+  virtual Results* perform_inputs_selection() = 0;
 
-protected:
+ protected:
+  /// Pointer to a training strategy object.
 
-    /// Pointer to a training strategy object.
+  TrainingStrategy* training_strategy_pointer = nullptr;
 
-    TrainingStrategy* training_strategy_pointer = nullptr;
+  /// True if this is a function regression problem.
 
-    /// True if this is a function regression problem.
+  bool approximation;
 
-    bool approximation;
+  /// Inputs of all the neural networks trained.
 
-    /// Inputs of all the neural networks trained.
+  Vector<Vector<bool>> inputs_history;
 
-    Vector<Vector<bool>> inputs_history;
+  /// Selection loss of all the neural networks trained.
 
-    /// Selection loss of all the neural networks trained.
+  Vector<double> selection_error_history;
 
-    Vector<double> selection_error_history;
+  /// Performance of all the neural networks trained.
 
-    /// Performance of all the neural networks trained.
+  Vector<double> training_error_history;
 
-    Vector<double> training_error_history;
+  /// Parameters of all the neural network trained.
 
-    /// Parameters of all the neural network trained.
+  Vector<Vector<double>> parameters_history;
 
-    Vector<Vector<double>> parameters_history;
+  /// Number of trials for each neural network.
 
-    /// Number of trials for each neural network.
+  size_t trials_number;
 
-    size_t trials_number;
+  // Inputs selection results
 
-    // Inputs selection results
+  /// True if the parameters of all neural networks are to be reserved.
 
-    /// True if the parameters of all neural networks are to be reserved.
+  /// True if the loss of all neural networks are to be reserved.
 
-    
+  bool reserve_error_data;
 
-    /// True if the loss of all neural networks are to be reserved.
+  /// True if the selection error of all neural networks are to be reserved.
 
-    bool reserve_error_data;
+  bool reserve_selection_error_data;
 
-    /// True if the selection error of all neural networks are to be reserved.
+  /// True if the vector parameters of the neural network presenting minimum selection error is to be reserved.
 
-    bool reserve_selection_error_data;
+  bool reserve_minimal_parameters;
 
-    /// True if the vector parameters of the neural network presenting minimum selection error is to be reserved.
+  /// Display messages to screen.
 
-    bool reserve_minimal_parameters;
+  bool display;
 
-    /// Display messages to screen.
+  // Stopping criteria
 
-    bool display;
+  /// Goal value for the selection error. It is used as a stopping criterion.
 
-    // Stopping criteria
+  double selection_error_goal;
 
-    /// Goal value for the selection error. It is used as a stopping criterion.
+  /// Maximum number of iterations to perform_inputs_selection. It is used as a stopping criterion.
 
-    double selection_error_goal;
+  size_t maximum_epochs_number;
 
-    /// Maximum number of iterations to perform_inputs_selection. It is used as a stopping criterion.
+  /// Maximum value for the correlations.
 
-    size_t maximum_epochs_number;
+  double maximum_correlation;
 
-    /// Maximum value for the correlations.
+  /// Minimum value for the correlations.
 
-    double maximum_correlation;
+  double minimum_correlation;
 
-    /// Minimum value for the correlations.
+  /// Maximum selection algorithm time. It is used as a stopping criterion.
 
-    double minimum_correlation;
+  double maximum_time;
 
-    /// Maximum selection algorithm time. It is used as a stopping criterion.
+  /// Tolerance for the error in the trainings of the algorithm.
 
-    double maximum_time;
-
-    /// Tolerance for the error in the trainings of the algorithm.
-
-    double tolerance;
+  double tolerance;
 };
-}
+}  // namespace OpenNN
 
 #endif
 

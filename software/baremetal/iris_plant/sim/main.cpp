@@ -10,12 +10,13 @@
 
 // System includes
 
-#include <iostream>
+#include <time.h>
+
+#include <cstring>
 #include <fstream>
+#include <iostream>
 #include <sstream>
 #include <string>
-#include <cstring>
-#include <time.h>
 
 // OpenNN includes
 
@@ -23,99 +24,94 @@
 
 using namespace OpenNN;
 
-int main(void)
-{
-    try
-    {
-        cout << "OpenNN. Iris Plant Example." << endl;
+int main(void) {
+  try {
+    cout << "OpenNN. Iris Plant Example." << endl;
 
-        srand(static_cast<unsigned>(time(nullptr)));
+    srand(static_cast<unsigned>(time(nullptr)));
 
-        // Data set
+    // Data set
 
-        DataSet data_set("data/iris_plant_original.csv", ';', true);
+    DataSet data_set("data/iris_plant_original.csv", ';', true);
 
-        data_set.set_columns_uses({"Input","Input","Input","Input","Target"});
+    data_set.set_columns_uses({"Input", "Input", "Input", "Input", "Target"});
 
-        const Vector<string> inputs_names = data_set.get_input_variables_names();
-        const Vector<string> targets_names = data_set.get_target_variables_names();
+    const Vector<string> inputs_names = data_set.get_input_variables_names();
+    const Vector<string> targets_names = data_set.get_target_variables_names();
 
-        const Vector<string> input_columns_names = data_set.get_input_columns_names();
-        const Vector<string> target_columns_names = data_set.get_target_columns_names();
+    const Vector<string> input_columns_names = data_set.get_input_columns_names();
+    const Vector<string> target_columns_names = data_set.get_target_columns_names();
 
-        data_set.split_instances_random();
+    data_set.split_instances_random();
 
-        const Vector<Descriptives> inputs_descriptives = data_set.scale_inputs_minimum_maximum();
+    const Vector<Descriptives> inputs_descriptives = data_set.scale_inputs_minimum_maximum();
 
-        // Neural network
+    // Neural network
 
-        NeuralNetwork neural_network(NeuralNetwork::Classification, {4, 6, 3});
+    NeuralNetwork neural_network(NeuralNetwork::Classification, {4, 6, 3});
 
-        neural_network.set_inputs_names(inputs_names);
+    neural_network.set_inputs_names(inputs_names);
 
-        neural_network.set_outputs_names(targets_names);
+    neural_network.set_outputs_names(targets_names);
 
-        ScalingLayer* scaling_layer_pointer = neural_network.get_scaling_layer_pointer();
+    ScalingLayer* scaling_layer_pointer = neural_network.get_scaling_layer_pointer();
 
-        scaling_layer_pointer->set_descriptives(inputs_descriptives);
+    scaling_layer_pointer->set_descriptives(inputs_descriptives);
 
-        scaling_layer_pointer->set_scaling_methods(ScalingLayer::MinimumMaximum);
+    scaling_layer_pointer->set_scaling_methods(ScalingLayer::MinimumMaximum);
 
-        // Training strategy
+    // Training strategy
 
-        TrainingStrategy training_strategy(&neural_network, &data_set);
+    TrainingStrategy training_strategy(&neural_network, &data_set);
 
-        training_strategy.set_loss_method(TrainingStrategy::NORMALIZED_SQUARED_ERROR);
+    training_strategy.set_loss_method(TrainingStrategy::NORMALIZED_SQUARED_ERROR);
 
-        QuasiNewtonMethod* quasi_Newton_method_pointer = training_strategy.get_quasi_Newton_method_pointer();
+    QuasiNewtonMethod* quasi_Newton_method_pointer = training_strategy.get_quasi_Newton_method_pointer();
 
-        quasi_Newton_method_pointer->set_minimum_loss_decrease(1.0e-6);
+    quasi_Newton_method_pointer->set_minimum_loss_decrease(1.0e-6);
 
-        quasi_Newton_method_pointer->set_loss_goal(1.0e-3);
+    quasi_Newton_method_pointer->set_loss_goal(1.0e-3);
 
-        quasi_Newton_method_pointer->set_minimum_parameters_increment_norm(0.0);
+    quasi_Newton_method_pointer->set_minimum_parameters_increment_norm(0.0);
 
-        quasi_Newton_method_pointer->perform_training();
+    quasi_Newton_method_pointer->perform_training();
 
-        training_strategy.set_display(false);
+    training_strategy.set_display(false);
 
-        ModelSelection model_selection(&training_strategy);
+    ModelSelection model_selection(&training_strategy);
 
-        model_selection.perform_inputs_selection();
+    model_selection.perform_inputs_selection();
 
-        // Testing analysis
+    // Testing analysis
 
-        data_set.unscale_inputs_minimum_maximum(inputs_descriptives);
+    data_set.unscale_inputs_minimum_maximum(inputs_descriptives);
 
-        TestingAnalysis testing_analysis(&neural_network, &data_set);
+    TestingAnalysis testing_analysis(&neural_network, &data_set);
 
-        const Matrix<size_t> confusion = testing_analysis.calculate_confusion();
+    const Matrix<size_t> confusion = testing_analysis.calculate_confusion();
 
-        cout << "Confusion: " << endl;
-        cout << confusion << endl;
+    cout << "Confusion: " << endl;
+    cout << confusion << endl;
 
-        // Save results
+    // Save results
 
-        data_set.save("data/data_set.xml");
+    data_set.save("data/data_set.xml");
 
-        neural_network.save("data/neural_network.xml");
+    neural_network.save("data/neural_network.xml");
 
-        training_strategy.save("data/training_strategy.xml");
+    training_strategy.save("data/training_strategy.xml");
 
-        confusion.save_csv("data/confusion.csv");
+    confusion.save_csv("data/confusion.csv");
 
-        cout << "Bye" << endl;
+    cout << "Bye" << endl;
 
-        return 0;
-    }
-    catch(exception& e)
-    {
-        cout << e.what() << endl;
+    return 0;
+  } catch (exception& e) {
+    cout << e.what() << endl;
 
-        return 1;
-    }
-}  
-
+    return 1;
+  }
+}
 
 // OpenNN: Open Neural Networks Library.
 // Copyright (C) 2005-2019 Artificial Intelligence Techniques SL

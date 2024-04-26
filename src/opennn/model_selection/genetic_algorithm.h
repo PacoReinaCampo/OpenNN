@@ -11,24 +11,23 @@
 
 // System includes
 
-#include <iostream>
-#include <fstream>
 #include <algorithm>
-#include <functional>
-#include <limits>
 #include <cmath>
 #include <ctime>
+#include <fstream>
+#include <functional>
+#include <iostream>
+#include <limits>
 
 // OpenNN includes
 
-#include "../utilities/vector.h"
-#include "../utilities/matrix.h"
-#include "../training_strategy/training_strategy.h"
 #include "../model_selection/inputs_selection.h"
+#include "../training_strategy/training_strategy.h"
+#include "../utilities/matrix.h"
 #include "../utilities/tinyxml2.h"
+#include "../utilities/vector.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This concrete class represents a genetic algorithm, inspired by the process of natural selection[1] such as mutation, crossover and selection.
 
@@ -39,304 +38,300 @@ namespace OpenNN
 ///
 /// \cite 1 Neural Designer "Genetic Algorithms for Feature Selection." \ref https://www.neuraldesigner.com/blog/genetic_algorithms_for_feature_selection
 
-class GeneticAlgorithm : public InputsSelection
-{
-public:
+class GeneticAlgorithm : public InputsSelection {
+ public:
+  // Constructors
 
-    // Constructors
+  explicit GeneticAlgorithm();
 
-    explicit GeneticAlgorithm();
+  explicit GeneticAlgorithm(TrainingStrategy*);
 
-    explicit GeneticAlgorithm(TrainingStrategy*);
+  explicit GeneticAlgorithm(const tinyxml2::XMLDocument&);
 
-    explicit GeneticAlgorithm(const tinyxml2::XMLDocument&);
+  explicit GeneticAlgorithm(const string&);
 
-    explicit GeneticAlgorithm(const string&);
+  // Destructor
 
-    // Destructor
+  virtual ~GeneticAlgorithm();
 
-    virtual ~GeneticAlgorithm();
+  // Enumerations
 
-    // Enumerations
+  /// Enumeration of available methods for the initialization of the population.
 
-    /// Enumeration of available methods for the initialization of the population.
+  enum InitializationMethod { Random,
+                              Weigthed };
 
-    enum InitializationMethod{Random, Weigthed};
+  /// Enumeration of available methods for the crossover of the population.
 
-    /// Enumeration of available methods for the crossover of the population.
+  enum CrossoverMethod { OnePoint,
+                         TwoPoint,
+                         Uniform };
 
-    enum CrossoverMethod{OnePoint, TwoPoint, Uniform};
+  /// Enumeration of available methods for the fitness assignement of the population.
 
-    /// Enumeration of available methods for the fitness assignement of the population.
+  enum FitnessAssignment { ObjectiveBased,
+                           RankBased };
 
-    enum FitnessAssignment{ObjectiveBased, RankBased};
+  // Structures
 
-    // Structures
+  /// This structure contains the training results for the genetic algorithm method.
 
-    /// This structure contains the training results for the genetic algorithm method.    
+  struct GeneticAlgorithmResults : public InputsSelection::Results {
+    /// Default constructor.
 
-    struct GeneticAlgorithmResults : public InputsSelection::Results
-    {
-        /// Default constructor.
+    explicit GeneticAlgorithmResults() : InputsSelection::Results() {
+    }
 
-        explicit GeneticAlgorithmResults() : InputsSelection::Results()
-        {
-        }
+    /// Destructor.
 
-        /// Destructor.
+    virtual ~GeneticAlgorithmResults() {
+    }
 
-        virtual ~GeneticAlgorithmResults()
-        {
-        }
+    string object_to_string() const;
 
-        string object_to_string() const;
+    /// Values of the minimum loss in each generation.
 
-        /// Values of the minimum loss in each generation.
+    Vector<double> generation_optimum_loss_history;
 
-        Vector<double> generation_optimum_loss_history;
+    /// Values of the minimum selection error in each generation.
 
-        /// Values of the minimum selection error in each generation.
+    Vector<double> generation_minimum_selection_history;
 
-        Vector<double> generation_minimum_selection_history;
+    /// Mean of the selection error in each generation.
 
-        /// Mean of the selection error in each generation.
+    Vector<double> generation_mean_history;
 
-        Vector<double> generation_mean_history;
+    /// Standard deviation of the selection error in each generation.
 
-        /// Standard deviation of the selection error in each generation.
+    Vector<double> generation_standard_deviation_history;
+  };
 
-        Vector<double> generation_standard_deviation_history;
-    };
+  // Get methods
 
-    // Get methods
+  const Vector<Vector<bool>>& get_population() const;
 
-    const Vector<Vector<bool>>& get_population() const;
+  const Matrix<double>& get_loss() const;
 
-    const Matrix<double>& get_loss() const;
+  const Vector<double>& get_fitness() const;
 
-    const Vector<double>& get_fitness() const;
+  const InitializationMethod& get_initialization_method() const;
 
-    const InitializationMethod& get_initialization_method() const;
+  const CrossoverMethod& get_crossover_method() const;
 
-    const CrossoverMethod& get_crossover_method() const;
+  const FitnessAssignment& get_fitness_assignment_method() const;
 
-    const FitnessAssignment& get_fitness_assignment_method() const;
+  const size_t& get_population_size() const;
 
-    const size_t& get_population_size() const;
+  const double& get_mutation_rate() const;
 
-    const double& get_mutation_rate() const;
+  const size_t& get_elitism_size() const;
 
-    const size_t& get_elitism_size() const;
+  const size_t& get_crossover_first_point() const;
 
-    const size_t& get_crossover_first_point() const;
+  const size_t& get_crossover_second_point() const;
 
-    const size_t& get_crossover_second_point() const;
+  const double& get_selective_pressure() const;
 
-    const double& get_selective_pressure() const;
+  const double& get_incest_prevention_distance() const;
 
-    const double& get_incest_prevention_distance() const;
+  const bool& get_reserve_generation_mean() const;
 
-    const bool& get_reserve_generation_mean() const;
+  const bool& get_reserve_generation_standard_deviation() const;
 
-    const bool& get_reserve_generation_standard_deviation() const;
+  const bool& get_reserve_generation_minimum_selection() const;
 
-    const bool& get_reserve_generation_minimum_selection() const;
+  const bool& get_reserve_generation_optimum_loss() const;
 
-    const bool& get_reserve_generation_optimum_loss() const;
+  string write_initialization_method() const;
 
-    string write_initialization_method() const;
+  string write_crossover_method() const;
 
-    string write_crossover_method() const;
+  string write_fitness_assignment_method() const;
 
-    string write_fitness_assignment_method() const;
+  // Set methods
 
-    // Set methods
+  void set_default();
 
-    void set_default();
+  void set_population(const Vector<Vector<bool>>&);
 
-    void set_population(const Vector<Vector<bool>>&);
+  void set_loss(const Matrix<double>&);
 
-    void set_loss(const Matrix<double>&);
+  void set_fitness(const Vector<double>&);
 
-    void set_fitness(const Vector<double>&);
+  void set_inicialization_method(const InitializationMethod&);
+  void set_fitness_assignment_method(const FitnessAssignment&);
+  void set_crossover_method(const CrossoverMethod&);
 
-    void set_inicialization_method(const InitializationMethod&);
-    void set_fitness_assignment_method(const FitnessAssignment&);
-    void set_crossover_method(const CrossoverMethod&);
+  void set_inicialization_method(const string&);
+  void set_fitness_assignment_method(const string&);
+  void set_crossover_method(const string&);
 
-    void set_inicialization_method(const string&);
-    void set_fitness_assignment_method(const string&);
-    void set_crossover_method(const string&);
+  void set_population_size(const size_t&);
 
-    void set_population_size(const size_t&);
+  void set_mutation_rate(const double&);
 
-    void set_mutation_rate(const double&);
+  void set_elitism_size(const size_t&);
 
-    void set_elitism_size(const size_t&);
+  void set_crossover_first_point(const size_t&);
 
-    void set_crossover_first_point(const size_t&);
+  void set_crossover_second_point(const size_t&);
 
-    void set_crossover_second_point(const size_t&);
+  void set_selective_pressure(const double&);
 
-    void set_selective_pressure(const double&);
+  void set_incest_prevention_distance(const double&);
 
-    void set_incest_prevention_distance(const double&);
+  void set_reserve_generation_mean(const bool&);
 
-    void set_reserve_generation_mean(const bool&);
+  void set_reserve_generation_standard_deviation(const bool&);
 
-    void set_reserve_generation_standard_deviation(const bool&);
+  void set_reserve_generation_minimum_selection(const bool&);
 
-    void set_reserve_generation_minimum_selection(const bool&);
+  void set_reserve_generation_optimum_loss(const bool&);
 
-    void set_reserve_generation_optimum_loss(const bool&);
+  // GENETIC METHODS
 
-    // GENETIC METHODS
+  // Population methods
 
-    // Population methods
+  void initialize_population();
 
-    void initialize_population();
+  void initialize_random_population();
 
-    void initialize_random_population();
+  void initialize_weighted_population();
 
-    void initialize_weighted_population();
+  void evaluate_population();
 
-    void evaluate_population();
+  void calculate_fitness();
 
-    void calculate_fitness();
+  void calculate_objetive_fitness();
 
-    void calculate_objetive_fitness();
+  void calculate_rank_fitness();
 
-    void calculate_rank_fitness();
+  void evolve_population();
 
-    void evolve_population();
+  // Selection methods
 
-    // Selection methods
+  void perform_selection();
 
-    void perform_selection();
+  // Crossover methods
 
-    // Crossover methods
+  void perform_crossover();
 
-    void perform_crossover();
+  void perform_1point_crossover();
 
-    void perform_1point_crossover();
+  void perform_2point_crossover();
 
-    void perform_2point_crossover();
+  void perform_uniform_crossover();
 
-    void perform_uniform_crossover();
+  // Mutation methods
 
-    // Mutation methods
+  void perform_mutation();
 
-    void perform_mutation();
+  // Order selection methods
 
-    // Order selection methods
+  size_t get_optimal_individual_index() const;
 
-    size_t get_optimal_individual_index() const;
+  GeneticAlgorithmResults* perform_inputs_selection();
 
-    GeneticAlgorithmResults* perform_inputs_selection();
+  // Serialization methods
 
-    // Serialization methods
+  Matrix<string> to_string_matrix() const;
 
-    Matrix<string> to_string_matrix() const;
+  tinyxml2::XMLDocument* to_XML() const;
+  void from_XML(const tinyxml2::XMLDocument&);
 
-    tinyxml2::XMLDocument* to_XML() const;
-    void from_XML(const tinyxml2::XMLDocument&);
+  void write_XML(tinyxml2::XMLPrinter&) const;
 
-    void write_XML(tinyxml2::XMLPrinter&) const;
-    
+  void save(const string&) const;
+  void load(const string&);
 
-    void save(const string&) const;
-    void load(const string&);
+ private:
+  // Population stuff
 
-private:
+  /// Population matrix.
 
-    // Population stuff
+  Vector<Vector<bool>> population;
 
-    /// Population matrix.
+  /// Performance of population.
 
-    Vector<Vector<bool>> population;
+  Matrix<double> loss;
 
-    /// Performance of population.
+  /// Fitness of population.
 
-    Matrix<double> loss;
+  Vector<double> fitness;
 
-    /// Fitness of population.
+  // Training operators
 
-    Vector<double> fitness;
+  /// Initialization method used in the algorithm.
 
-    // Training operators
+  InitializationMethod initialization_method;
 
-    /// Initialization method used in the algorithm.
+  /// Crossover method used in the algorithm.
 
-    InitializationMethod initialization_method;
+  CrossoverMethod crossover_method;
 
-    /// Crossover method used in the algorithm.
+  /// Fitness assignment method used in the algorithm.
 
-    CrossoverMethod crossover_method;
+  FitnessAssignment fitness_assignment_method;
 
-    /// Fitness assignment method used in the algorithm.
+  /// Initial uses of the variables in the data set.
 
-    FitnessAssignment fitness_assignment_method;
+  Vector<DataSet::VariableUse> original_uses;
 
-    /// Initial uses of the variables in the data set.
+  /// Size of the population.
 
-    Vector<DataSet::VariableUse> original_uses;
+  size_t population_size;
 
-    /// Size of the population.
+  /// Incest prevention distance
+  /// Distance between two individuals to prevent the crossover.
 
-    size_t population_size;
+  double incest_prevention_distance;
 
-    /// Incest prevention distance
-    /// Distance between two individuals to prevent the crossover.
+  /// Mutation rate.
+  /// The mutation rate value must be between 0 and 1.
+  /// This is a parameter of the mutation operator.
 
-    double incest_prevention_distance;
+  double mutation_rate;
 
-    /// Mutation rate.
-    /// The mutation rate value must be between 0 and 1.
-    /// This is a parameter of the mutation operator.
+  /// Elitism size.
+  /// It represents the number of individuals which will always be selected for recombination.
+  /// This is a parameter of the selection operator.
 
-    double mutation_rate;
+  size_t elitism_size;
 
-    /// Elitism size.
-    /// It represents the number of individuals which will always be selected for recombination.
-    /// This is a parameter of the selection operator.
+  /// First point used in the OnePoint and TwoPoint crossover method.
+  /// If it is 0 the algorithm selects a random point for each pair of offsprings.
 
-    size_t elitism_size;
+  size_t crossover_first_point;
 
-    /// First point used in the OnePoint and TwoPoint crossover method.
-    /// If it is 0 the algorithm selects a random point for each pair of offsprings.
+  /// Second point used in the TwoPoint crossover method.
+  /// If it is 0 the algorithm selects a random point for each pair of offsprings.
 
-    size_t crossover_first_point;
+  size_t crossover_second_point;
 
-    /// Second point used in the TwoPoint crossover method.
-    /// If it is 0 the algorithm selects a random point for each pair of offsprings.
+  /// Linear ranking allows values for the selective pressure greater than 0.
+  /// This is a parameter of the fitness assignment operator.
 
-    size_t crossover_second_point;
+  double selective_pressure;
 
-    /// Linear ranking allows values for the selective pressure greater than 0.
-    /// This is a parameter of the fitness assignment operator.
+  // Inputs selection results
 
-    double selective_pressure;
+  /// True if the mean of selection error are to be reserved in each generation.
 
-    // Inputs selection results
+  bool reserve_generation_mean;
 
-    /// True if the mean of selection error are to be reserved in each generation.
+  /// True if the standard deviation of selection error are to be reserved in each generation.
 
-    bool reserve_generation_mean;
+  bool reserve_generation_standard_deviation;
 
-    /// True if the standard deviation of selection error are to be reserved in each generation.
+  /// True if the minimum of selection error are to be reserved in each generation.
 
-    bool reserve_generation_standard_deviation;
+  bool reserve_generation_minimum_selection;
 
-    /// True if the minimum of selection error are to be reserved in each generation.
+  /// True if the optimum of loss are to be reserved in each generation.
 
-    bool reserve_generation_minimum_selection;
-
-    /// True if the optimum of loss are to be reserved in each generation.
-
-    bool reserve_generation_optimum_loss;
-
+  bool reserve_generation_optimum_loss;
 };
 
-}
+}  // namespace OpenNN
 
 #endif

@@ -8,18 +8,19 @@
 
 // System includes
 
-#include <iostream>
+#include <limits.h>
+#include <stdint.h>
 #include <stdlib.h>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <cstring>
 #include <time.h>
+
 #include <algorithm>
 #include <chrono>
-#include <stdint.h>
-#include <limits.h>
+#include <cstring>
+#include <fstream>
+#include <iostream>
 #include <regex>
+#include <sstream>
+#include <string>
 
 // Systems Complementaries
 
@@ -35,51 +36,45 @@ using namespace OpenNN;
 using namespace std;
 using namespace chrono;
 
+int main(void) {
+  try {
+    cout << "Hello MPSoC Application" << endl;
 
-int main(void)
-{
-    try
-    {
-        cout << "Hello MPSoC Application" << endl;
+    srand(static_cast<unsigned>(time(nullptr)));
 
-        srand(static_cast<unsigned>(time(nullptr)));
+    // Contents:
+    // * Data Set.
 
-        // Contents:
-        // * Data Set.
+    // * Neural Network.
+    // ** PerceptronLayer: This class represents a layer of perceptrons.
+    // ** ScalingLayer: This class represents a layer of scaling neurons.
+    // ** UnscalingLayer: This class represents a layer of unscaling neurons.
+    // ** Boundinglayer: This class represents a layer of bounding neurons.
+    // ** ProbabilisticLayer: This class represents a layer of probabilistic neurons.
+    // ** LongShortTermMemoryLayer: This class represents a layer of LSTM neurons.
+    // ** RecurrentLayer: This class represents a layer of recurrent neurons.
+    // ** ConvolutionaLayer: This class represents a layer of convolutional neurons.
+    // ** PoolingLayer: This class is used to store information about the Pooling Layer in a Convolutional Neural Network (CNN).
+    // ** PrincipalComponentsLayer: This class represents the layer of principal component analysis.
 
-        // * Neural Network.
-        // ** PerceptronLayer: This class represents a layer of perceptrons.
-        // ** ScalingLayer: This class represents a layer of scaling neurons.
-        // ** UnscalingLayer: This class represents a layer of unscaling neurons.
-        // ** Boundinglayer: This class represents a layer of bounding neurons.
-        // ** ProbabilisticLayer: This class represents a layer of probabilistic neurons.
-        // ** LongShortTermMemoryLayer: This class represents a layer of LSTM neurons.
-        // ** RecurrentLayer: This class represents a layer of recurrent neurons.
-        // ** ConvolutionaLayer: This class represents a layer of convolutional neurons.
-        // ** PoolingLayer: This class is used to store information about the Pooling Layer in a Convolutional Neural Network (CNN).
-        // ** PrincipalComponentsLayer: This class represents the layer of principal component analysis.
+    // * Training Strategy.
+    // ** LossIndex: This abstract class represents the concept of the error term.
+    // ** TrainingAlgorithm: This abstract class represents the concept of a training algorithm for a neural network.
 
-        // * Training Strategy.
-        // ** LossIndex: This abstract class represents the concept of the error term.
-        // ** TrainingAlgorithm: This abstract class represents the concept of a training algorithm for a neural network.
+    // * Model Selection.
 
-        // * Model Selection.
+    // * Testing Analysis.
 
-        // * Testing Analysis.
+    // * Model Deployment.
 
-        // * Model Deployment.
+    cout << "Bye MPSoC Application" << endl;
 
-        cout << "Bye MPSoC Application" << endl;
+    return 0;
 
-        return 0;
-
-    }
-       catch(exception& e)
-    {
-       cerr << e.what() << endl;
-    }
+  } catch (exception& e) {
+    cerr << e.what() << endl;
   }
-
+}
 
 // OpenNN: Open Neural Networks Library.
 // Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.

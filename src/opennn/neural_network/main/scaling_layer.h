@@ -1,7 +1,7 @@
 //   OpenNN: Open Neural Networks Library
 //   www.opennn.net
 //
-//   S C A L I N G   L A Y E R   C L A S S   H E A D E R                   
+//   S C A L I N G   L A Y E R   C L A S S   H E A D E R
 //
 //   Artificial Intelligence Techniques SL
 //   artelnics@artelnics.com
@@ -15,184 +15,178 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 // OpenNN includes
 
-#include "../../utilities/vector.h"
-#include "../../utilities/matrix.h"
 #include "../../neural_network/main/layer.h"
+#include "../../utilities/matrix.h"
 #include "../../utilities/statistics.h"
-
-
-
 #include "../../utilities/tinyxml2.h"
+#include "../../utilities/vector.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This class represents a layer of scaling neurons.
 
 ///
-/// Scaling layers are included in the definition of a neural network. 
-/// They are used to normalize variables so they are in an appropriate range for computer processing.  
+/// Scaling layers are included in the definition of a neural network.
+/// They are used to normalize variables so they are in an appropriate range for computer processing.
 
-class ScalingLayer : public Layer
-{
+class ScalingLayer : public Layer {
+ public:
+  // Constructors
 
-public:
+  explicit ScalingLayer();
 
-   // Constructors
+  explicit ScalingLayer(const size_t&);
+  explicit ScalingLayer(const Vector<size_t>&);
 
-   explicit ScalingLayer();
+  explicit ScalingLayer(const Vector<Descriptives>&);
 
-   explicit ScalingLayer(const size_t&);
-   explicit ScalingLayer(const Vector<size_t>&);
+  ScalingLayer(const ScalingLayer&);
 
-   explicit ScalingLayer(const Vector<Descriptives>&);
+  // Destructors
 
-   ScalingLayer(const ScalingLayer&);
+  virtual ~ScalingLayer();
 
-   // Destructors
+  /// Enumeration of available methods for scaling the input variables.
 
-   virtual ~ScalingLayer();
+  enum ScalingMethod { NoScaling,
+                       MinimumMaximum,
+                       MeanStandardDeviation,
+                       StandardDeviation };
 
-   /// Enumeration of available methods for scaling the input variables.  
-   
-   enum ScalingMethod{NoScaling, MinimumMaximum, MeanStandardDeviation, StandardDeviation};
+  // Get methods
 
-   // Get methods
+  Vector<size_t> get_input_variables_dimensions() const;
+  Vector<size_t> get_outputs_dimensions() const;
 
-   Vector<size_t> get_input_variables_dimensions() const;
-   Vector<size_t> get_outputs_dimensions() const;
+  size_t get_inputs_number() const;
+  size_t get_neurons_number() const;
 
-   size_t get_inputs_number() const;
-   size_t get_neurons_number() const;
+  // Inputs descriptives
 
-   // Inputs descriptives
+  Vector<Descriptives> get_descriptives() const;
+  Descriptives get_descriptives(const size_t&) const;
 
-   Vector<Descriptives> get_descriptives() const;
-   Descriptives get_descriptives(const size_t&) const;
+  Matrix<double> get_descriptives_matrix() const;
 
-   Matrix<double> get_descriptives_matrix() const;
+  Vector<double> get_minimums() const;
+  Vector<double> get_maximums() const;
+  Vector<double> get_means() const;
+  Vector<double> get_standard_deviations() const;
 
-   Vector<double> get_minimums() const;
-   Vector<double> get_maximums() const;
-   Vector<double> get_means() const;
-   Vector<double> get_standard_deviations() const;
+  // Variables scaling and unscaling
 
-   // Variables scaling and unscaling
+  const Vector<ScalingMethod> get_scaling_methods() const;
 
-   const Vector<ScalingMethod> get_scaling_methods() const;
+  Vector<string> write_scaling_methods() const;
+  Vector<string> write_scaling_methods_text() const;
 
-   Vector<string> write_scaling_methods() const;
-   Vector<string> write_scaling_methods_text() const;
+  // Display messages
 
-   // Display messages
+  const bool& get_display() const;
 
-   const bool& get_display() const;
+  // Set methods
 
-   // Set methods
+  void set();
+  void set(const size_t&);
+  void set(const Vector<size_t>&);
+  void set(const Vector<Descriptives>&);
+  void set(const tinyxml2::XMLDocument&);
+  void set(const ScalingLayer&);
 
-   void set();
-   void set(const size_t&);
-   void set(const Vector<size_t>&);
-   void set(const Vector<Descriptives>&);
-   void set(const tinyxml2::XMLDocument&);
-   void set(const ScalingLayer&);
+  void set(const Vector<bool>&);
 
-   void set(const Vector<bool>&);
+  void set_inputs_number(const size_t&);
+  void set_neurons_number(const size_t&);
 
-   void set_inputs_number(const size_t&);
-   void set_neurons_number(const size_t&);
+  void set_default();
 
-   void set_default();
+  // Descriptives
 
-   // Descriptives
+  void set_descriptives(const Vector<Descriptives>&);
+  void set_descriptives_eigen(const Eigen::MatrixXd&);
+  void set_item_descriptives(const size_t&, const Descriptives&);
 
-   void set_descriptives(const Vector<Descriptives>&);
-   void set_descriptives_eigen(const Eigen::MatrixXd&);
-   void set_item_descriptives(const size_t&, const Descriptives&);
+  void set_minimum(const size_t&, const double&);
+  void set_maximum(const size_t&, const double&);
+  void set_mean(const size_t&, const double&);
+  void set_standard_deviation(const size_t&, const double&);
 
-   void set_minimum(const size_t&, const double&);
-   void set_maximum(const size_t&, const double&);
-   void set_mean(const size_t&, const double&);
-   void set_standard_deviation(const size_t&, const double&);
+  // Scaling method
 
-   // Scaling method
+  void set_scaling_methods(const Vector<ScalingMethod>&);
+  void set_scaling_methods(const Vector<string>&);
+  void set_scaling_methods(const vector<string>&);
 
-   void set_scaling_methods(const Vector<ScalingMethod>&);
-   void set_scaling_methods(const Vector<string>&);
-   void set_scaling_methods(const vector<string>&);
+  void set_scaling_methods(const ScalingMethod&);
+  void set_scaling_methods(const string&);
 
-   void set_scaling_methods(const ScalingMethod&);
-   void set_scaling_methods(const string&);
+  // Display messages
 
-   // Display messages
+  void set_display(const bool&);
 
-   void set_display(const bool&);
+  // Pruning and growing
 
-   // Pruning and growing
+  void grow_neuron(const Descriptives& new_descriptives = Descriptives());
 
-   void grow_neuron(const Descriptives& new_descriptives = Descriptives());
+  void prune_neuron(const size_t&);
 
-   void prune_neuron(const size_t&);
+  // Check methods
 
-   // Check methods
+  bool is_empty() const;
 
-   bool is_empty() const;
+  void check_range(const Vector<double>&) const;
 
-   void check_range(const Vector<double>&) const;
+  Tensor<double> calculate_outputs(const Tensor<double>&);
 
-   Tensor<double> calculate_outputs(const Tensor<double>&);
+  Tensor<double> calculate_minimum_maximum_outputs(const Tensor<double>&) const;
 
-   Tensor<double> calculate_minimum_maximum_outputs(const Tensor<double>&) const;
+  Tensor<double> calculate_mean_standard_deviation_outputs(const Tensor<double>&) const;
 
-   Tensor<double> calculate_mean_standard_deviation_outputs(const Tensor<double>&) const;
+  // Expression methods
 
-   // Expression methods
+  string write_no_scaling_expression(const Vector<string>&, const Vector<string>&) const;
 
-   string write_no_scaling_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_minimum_maximum_expression(const Vector<string>&, const Vector<string>&) const;
 
-   string write_minimum_maximum_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_mean_standard_deviation_expression(const Vector<string>&, const Vector<string>&) const;
 
-   string write_mean_standard_deviation_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_standard_deviation_expression(const Vector<string>&, const Vector<string>&) const;
 
-   string write_standard_deviation_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_expression(const Vector<string>&, const Vector<string>&) const;
 
-   string write_expression(const Vector<string>&, const Vector<string>&) const;
+  // Serialization methods
 
-   // Serialization methods
+  string object_to_string() const;
 
-   string object_to_string() const;
+  tinyxml2::XMLDocument* to_XML() const;
+  virtual void from_XML(const tinyxml2::XMLDocument&);
 
-   tinyxml2::XMLDocument* to_XML() const;
-   virtual void from_XML(const tinyxml2::XMLDocument&);
+  void write_XML(tinyxml2::XMLPrinter&) const;
 
-   void write_XML(tinyxml2::XMLPrinter&) const;
+ protected:
+  Vector<size_t> inputs_dimensions;
 
-protected:
+  /// Descriptives of input variables.
 
-   Vector<size_t> inputs_dimensions;
+  Vector<Descriptives> descriptives;
 
-   /// Descriptives of input variables.
+  /// Vector of scaling methods for each variable.
 
-   Vector<Descriptives> descriptives;
+  Vector<ScalingMethod> scaling_methods;
 
-   /// Vector of scaling methods for each variable.
+  /// Display warning messages to screen.
 
-   Vector<ScalingMethod> scaling_methods;
-
-   /// Display warning messages to screen. 
-
-   bool display;
+  bool display;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
-
 
 // OpenNN: Open Neural Networks Library.
 // Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.
@@ -211,4 +205,3 @@ protected:
 // License along with this library; if not, write to the Free Software
 
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-

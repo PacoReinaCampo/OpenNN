@@ -1,286 +1,268 @@
 //   OpenNN: Open Neural Networks Library
 //   www.opennn.net
 //
-//   Q U A S I - N E W T O N   M E T H O D    C L A S S   H E A D E R      
+//   Q U A S I - N E W T O N   M E T H O D    C L A S S   H E A D E R
 //
 //   Artificial Intelligence Techniques SL
 //   artelnics@artelnics.com
-
-
 
 #ifndef QUASINEWTONMETHOD_H
 #define QUASINEWTONMETHOD_H
 
 // System includes
 
-#include <string>
-#include <sstream>
-#include <iostream>
-#include <fstream>
 #include <algorithm>
-#include <functional>
-#include <limits>
 #include <cmath>
 #include <ctime>
+#include <fstream>
+#include <functional>
+#include <iostream>
+#include <limits>
+#include <sstream>
+#include <string>
 
 // OpenNN includes
 
-#include "../utilities/metrics.h"
-#include "../training_strategy/loss_index.h"
-
-#include "../training_strategy/optimization_algorithm.h"
 #include "../training_strategy/learning_rate_algorithm.h"
-
-
-
+#include "../training_strategy/loss_index.h"
+#include "../training_strategy/optimization_algorithm.h"
+#include "../utilities/metrics.h"
 #include "../utilities/tinyxml2.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This concrete class represents a quasi-Newton training algorithm[1], used to minimize loss function.
 
 ///
 /// \cite 1  Neural Designer "5 Algorithms to Train a Neural Network." \ref https://www.neuraldesigner.com/blog/5_algorithms_to_train_a_neural_network
 
+class QuasiNewtonMethod : public OptimizationAlgorithm {
+ public:
+  // Enumerations
 
-class QuasiNewtonMethod : public OptimizationAlgorithm
-{
+  /// Enumeration of the available training operators for obtaining the approximation to the inverse hessian.
 
-public:
+  enum InverseHessianApproximationMethod { DFP,
+                                           BFGS };
 
-   // Enumerations
+  // DEFAULT CONSTRUCTOR
 
-   /// Enumeration of the available training operators for obtaining the approximation to the inverse hessian.
+  explicit QuasiNewtonMethod();
 
-   enum InverseHessianApproximationMethod{DFP, BFGS};
+  // LOSS INDEX CONSTRUCTOR
 
+  explicit QuasiNewtonMethod(LossIndex*);
 
-   // DEFAULT CONSTRUCTOR
+  // XML CONSTRUCTOR
 
-   explicit QuasiNewtonMethod();
+  explicit QuasiNewtonMethod(const tinyxml2::XMLDocument&);
 
-   // LOSS INDEX CONSTRUCTOR
+  virtual ~QuasiNewtonMethod();
 
-   explicit QuasiNewtonMethod(LossIndex*);
+  // Get methods
 
-   // XML CONSTRUCTOR
+  const LearningRateAlgorithm& get_learning_rate_algorithm() const;
+  LearningRateAlgorithm* get_learning_rate_algorithm_pointer();
 
-   explicit QuasiNewtonMethod(const tinyxml2::XMLDocument&);
+  const InverseHessianApproximationMethod& get_inverse_hessian_approximation_method() const;
+  string write_inverse_hessian_approximation_method() const;
 
-   virtual ~QuasiNewtonMethod();
+  // Training parameters
 
-   // Get methods
+  const double& get_warning_parameters_norm() const;
+  const double& get_warning_gradient_norm() const;
+  const double& get_warning_learning_rate() const;
 
-   const LearningRateAlgorithm& get_learning_rate_algorithm() const;
-   LearningRateAlgorithm* get_learning_rate_algorithm_pointer();
+  const double& get_error_parameters_norm() const;
+  const double& get_error_gradient_norm() const;
+  const double& get_error_learning_rate() const;
 
-   const InverseHessianApproximationMethod& get_inverse_hessian_approximation_method() const;
-   string write_inverse_hessian_approximation_method() const;
+  const size_t& get_epochs_number() const;
 
-   // Training parameters
+  // Stopping criteria
 
-   const double& get_warning_parameters_norm() const;
-   const double& get_warning_gradient_norm() const;
-   const double& get_warning_learning_rate() const;
+  const double& get_minimum_parameters_increment_norm() const;
 
-   const double& get_error_parameters_norm() const;
-   const double& get_error_gradient_norm() const;
-   const double& get_error_learning_rate() const;
+  const double& get_minimum_loss_increase() const;
+  const double& get_loss_goal() const;
+  const double& get_gradient_norm_goal() const;
+  const size_t& get_maximum_selection_error_decreases() const;
 
-   const size_t& get_epochs_number() const;
+  const size_t& get_maximum_epochs_number() const;
+  const double& get_maximum_time() const;
 
-   // Stopping criteria
+  const bool& get_return_minimum_selection_error_neural_network() const;
+  const bool& get_apply_early_stopping() const;
 
-   const double& get_minimum_parameters_increment_norm() const;
+  // Reserve training history
 
-   const double& get_minimum_loss_increase() const;
-   const double& get_loss_goal() const;
-   const double& get_gradient_norm_goal() const;
-   const size_t& get_maximum_selection_error_decreases() const;
+  const bool& get_reserve_training_error_history() const;
+  const bool& get_reserve_selection_error_history() const;
 
-   const size_t& get_maximum_epochs_number() const;
-   const double& get_maximum_time() const;
+  // Set methods
 
-   const bool& get_return_minimum_selection_error_neural_network() const;
-   const bool& get_apply_early_stopping() const;
+  void set_loss_index_pointer(LossIndex*);
 
-   // Reserve training history
+  void set_inverse_hessian_approximation_method(const InverseHessianApproximationMethod&);
+  void set_inverse_hessian_approximation_method(const string&);
 
+  void set_display(const bool&);
 
-   const bool& get_reserve_training_error_history() const;
-   const bool& get_reserve_selection_error_history() const;
+  void set_default();
 
-   // Set methods
+  // Training parameters
 
-   void set_loss_index_pointer(LossIndex*);
+  void set_warning_parameters_norm(const double&);
+  void set_warning_gradient_norm(const double&);
+  void set_warning_learning_rate(const double&);
 
-   void set_inverse_hessian_approximation_method(const InverseHessianApproximationMethod&);
-   void set_inverse_hessian_approximation_method(const string&);
+  void set_error_parameters_norm(const double&);
+  void set_error_gradient_norm(const double&);
+  void set_error_learning_rate(const double&);
 
-   void set_display(const bool&);
+  // Stopping criteria
 
-   void set_default();
+  void set_minimum_parameters_increment_norm(const double&);
 
-   // Training parameters
+  void set_minimum_loss_decrease(const double&);
+  void set_loss_goal(const double&);
+  void set_gradient_norm_goal(const double&);
+  void set_maximum_selection_error_increases(const size_t&);
 
-   void set_warning_parameters_norm(const double&);
-   void set_warning_gradient_norm(const double&);
-   void set_warning_learning_rate(const double&);
+  void set_maximum_epochs_number(const size_t&);
+  void set_maximum_time(const double&);
 
-   void set_error_parameters_norm(const double&);
-   void set_error_gradient_norm(const double&);
-   void set_error_learning_rate(const double&);
+  void set_return_minimum_selection_error_neural_network(const bool&);
+  void set_apply_early_stopping(const bool&);
 
-   // Stopping criteria
+  // Reserve training history
 
-   void set_minimum_parameters_increment_norm(const double&);
+  void set_reserve_training_error_history(const bool&);
+  void set_reserve_selection_error_history(const bool&);
 
-   void set_minimum_loss_decrease(const double&);
-   void set_loss_goal(const double&);
-   void set_gradient_norm_goal(const double&);
-   void set_maximum_selection_error_increases(const size_t&);
+  // Utilities
 
-   void set_maximum_epochs_number(const size_t&);
-   void set_maximum_time(const double&);
+  void set_display_period(const size_t&);
 
-   void set_return_minimum_selection_error_neural_network(const bool&);
-   void set_apply_early_stopping(const bool&);
+  // Training methods
 
-   // Reserve training history
+  Vector<double> calculate_gradient_descent_training_direction(const Vector<double>&) const;
 
-   void set_reserve_training_error_history(const bool&);
-   void set_reserve_selection_error_history(const bool&);
+  Matrix<double> calculate_DFP_inverse_hessian(const Vector<double>&, const Vector<double>&, const Vector<double>&, const Vector<double>&, const Matrix<double>&) const;
 
-   // Utilities
+  Matrix<double> calculate_BFGS_inverse_hessian(const Vector<double>&, const Vector<double>&, const Vector<double>&, const Vector<double>&, const Matrix<double>&) const;
 
-   void set_display_period(const size_t&);
+  Matrix<double> calculate_inverse_hessian_approximation(const Vector<double>&, const Vector<double>&, const Vector<double>&, const Vector<double>&, const Matrix<double>&) const;
+  void update_inverse_hessian_approximation(const Vector<double>&, const Vector<double>&, const Vector<double>&, const Vector<double>&) const;
 
-   // Training methods
+  Vector<double> calculate_training_direction(const Vector<double>&, const Matrix<double>&) const;
 
-   Vector<double> calculate_gradient_descent_training_direction(const Vector<double>&) const;
+  Results perform_training();
+  void perform_training_void();
 
-   Matrix<double> calculate_DFP_inverse_hessian
-  (const Vector<double>&, const Vector<double>&, const Vector<double>&, const Vector<double>&, const Matrix<double>&) const;
+  // Training history methods
 
-   Matrix<double> calculate_BFGS_inverse_hessian
-  (const Vector<double>&, const Vector<double>&, const Vector<double>&, const Vector<double>&, const Matrix<double>&) const;
+  void set_reserve_all_training_history(const bool&);
 
-   Matrix<double> calculate_inverse_hessian_approximation(const Vector<double>&, const Vector<double>&, const Vector<double>&, const Vector<double>&, const Matrix<double>&) const;
-   void update_inverse_hessian_approximation(const Vector<double>&, const Vector<double>&, const Vector<double>&, const Vector<double>&) const;
+  string write_optimization_algorithm_type() const;
 
-   Vector<double> calculate_training_direction(const Vector<double>&, const Matrix<double>&) const;
+  // Serialization methods
 
-   Results perform_training();
-   void perform_training_void();
+  tinyxml2::XMLDocument* to_XML() const;
+  void from_XML(const tinyxml2::XMLDocument&);
 
-   // Training history methods
+  void write_XML(tinyxml2::XMLPrinter&) const;
 
-   void set_reserve_all_training_history(const bool&);
+  string object_to_string() const;
+  Matrix<string> to_string_matrix() const;
 
-   string write_optimization_algorithm_type() const;
+ private:
+  /// Training rate algorithm object.
+  /// It is used to calculate the step for the quasi-Newton training direction.
 
-   // Serialization methods
+  LearningRateAlgorithm learning_rate_algorithm;
 
-   tinyxml2::XMLDocument* to_XML() const;
-   void from_XML(const tinyxml2::XMLDocument&);
+  /// Variable containing the actual method used to obtain a suitable training rate.
 
-   void write_XML(tinyxml2::XMLPrinter&) const;
+  InverseHessianApproximationMethod inverse_hessian_approximation_method;
 
-   string object_to_string() const;
-   Matrix<string> to_string_matrix() const;
+  /// Value for the parameters norm at which a warning message is written to the screen.
 
-private: 
+  double warning_parameters_norm;
 
-   /// Training rate algorithm object. 
-   /// It is used to calculate the step for the quasi-Newton training direction.
+  /// Value for the gradient norm at which a warning message is written to the screen.
 
-   LearningRateAlgorithm learning_rate_algorithm;
+  double warning_gradient_norm;
 
-   /// Variable containing the actual method used to obtain a suitable training rate. 
+  /// Training rate value at wich a warning message is written to the screen.
 
-   InverseHessianApproximationMethod inverse_hessian_approximation_method;
+  double warning_learning_rate;
 
-   /// Value for the parameters norm at which a warning message is written to the screen. 
+  /// Value for the parameters norm at which the training process is assumed to fail.
 
-   double warning_parameters_norm;
+  double error_parameters_norm;
 
-   /// Value for the gradient norm at which a warning message is written to the screen. 
+  /// Value for the gradient norm at which the training process is assumed to fail.
 
-   double warning_gradient_norm;   
+  double error_gradient_norm;
 
-   /// Training rate value at wich a warning message is written to the screen.
+  /// Training rate at wich the line minimization algorithm is assumed to be unable to bracket a minimum.
 
-   double warning_learning_rate;
+  double error_learning_rate;
 
-   /// Value for the parameters norm at which the training process is assumed to fail. 
-   
-   double error_parameters_norm;
+  // Stopping criteria
 
-   /// Value for the gradient norm at which the training process is assumed to fail. 
+  /// Norm of the parameters increment vector at which training stops.
 
-   double error_gradient_norm;
+  double minimum_parameters_increment_norm;
 
-   /// Training rate at wich the line minimization algorithm is assumed to be unable to bracket a minimum.
+  /// Minimum loss improvement between two successive epochs. It is used as a stopping criterion.
 
-   double error_learning_rate;
+  double minimum_loss_decrease;
 
+  /// Goal value for the loss. It is used as a stopping criterion.
 
-   // Stopping criteria
+  double loss_goal;
 
-   /// Norm of the parameters increment vector at which training stops.
+  /// Goal value for the norm of the error function gradient. It is used as a stopping criterion.
 
-   double minimum_parameters_increment_norm;
+  double gradient_norm_goal;
 
-   /// Minimum loss improvement between two successive epochs. It is used as a stopping criterion.
+  /// Maximum number of epochs at which the selection error increases.
+  /// This is an early stopping method for improving selection.
 
-   double minimum_loss_decrease;
+  size_t maximum_selection_error_decreases;
 
-   /// Goal value for the loss. It is used as a stopping criterion.
+  /// Maximum number of epochs to perform_training. It is used as a stopping criterion.
 
-   double loss_goal;
+  size_t maximum_epochs_number;
 
-   /// Goal value for the norm of the error function gradient. It is used as a stopping criterion.
+  /// Maximum training time. It is used as a stopping criterion.
 
-   double gradient_norm_goal;
+  double maximum_time;
 
-   /// Maximum number of epochs at which the selection error increases.
-   /// This is an early stopping method for improving selection.
+  /// True if the final model will be the neural network with the minimum selection error, false otherwise.
 
-   size_t maximum_selection_error_decreases;
+  bool return_minimum_selection_error_neural_network;
 
-   /// Maximum number of epochs to perform_training. It is used as a stopping criterion.
+  /// True if the selection error decrease stopping criteria has to be taken in account, false otherwise.
 
-   size_t maximum_epochs_number;
+  bool apply_early_stopping;
 
-   /// Maximum training time. It is used as a stopping criterion.
+  // TRAINING HISTORY
 
-   double maximum_time;
+  /// True if the training error history vector is to be reserved, false otherwise.
 
-   /// True if the final model will be the neural network with the minimum selection error, false otherwise.
+  bool reserve_training_error_history;
 
-   bool return_minimum_selection_error_neural_network;
+  /// True if the selection error history vector is to be reserved, false otherwise.
 
-   /// True if the selection error decrease stopping criteria has to be taken in account, false otherwise.
-
-   bool apply_early_stopping;
-
-   // TRAINING HISTORY
-
-   /// True if the training error history vector is to be reserved, false otherwise.
-
-   bool reserve_training_error_history;
-
-   /// True if the selection error history vector is to be reserved, false otherwise.
-
-   bool reserve_selection_error_history;
-
+  bool reserve_selection_error_history;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
-
 
 // OpenNN: Open Neural Networks Library.
 // Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.

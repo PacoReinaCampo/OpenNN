@@ -8,18 +8,19 @@
 
 // System includes
 
-#include <iostream>
+#include <limits.h>
+#include <stdint.h>
 #include <stdlib.h>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <cstring>
 #include <time.h>
+
 #include <algorithm>
 #include <chrono>
-#include <stdint.h>
-#include <limits.h>
+#include <cstring>
+#include <fstream>
+#include <iostream>
 #include <regex>
+#include <sstream>
+#include <string>
 
 // Systems Complementaries
 
@@ -35,28 +36,22 @@ using namespace OpenNN;
 using namespace std;
 using namespace chrono;
 
+int main(void) {
+  try {
+    cout << "Hello MPSoC Application" << endl;
 
-int main(void)
-{
-    try
-    {
-        cout << "Hello MPSoC Application" << endl;
+    srand(static_cast<unsigned>(time(nullptr)));
 
-        srand(static_cast<unsigned>(time(nullptr)));
+    // Here your code
 
-		// Here your code
+    cout << "Bye MPSoC Application" << endl;
 
-        cout << "Bye MPSoC Application" << endl;
+    return 0;
 
-        return 0;
-
-    }
-       catch(exception& e)
-    {
-       cerr << e.what() << endl;
-    }
+  } catch (exception& e) {
+    cerr << e.what() << endl;
   }
-
+}
 
 // OpenNN: Open Neural Networks Library.
 // Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.

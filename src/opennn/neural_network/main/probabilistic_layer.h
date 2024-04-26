@@ -1,7 +1,7 @@
 //   OpenNN: Open Neural Networks Library
 //   www.opennn.net
 //
-//   P R O B A B I L I S T I C   L A Y E R   C L A S S   H E A D E R       
+//   P R O B A B I L I S T I C   L A Y E R   C L A S S   H E A D E R
 //
 //   Artificial Intelligence Techniques SL
 //   artelnics@artelnics.com
@@ -15,23 +15,19 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 // OpenNN includes
 
-#include "../../utilities/vector.h"
-#include "../../utilities/matrix.h"
-#include "../../utilities/functions.h"
 #include "../../neural_network/main/layer.h"
+#include "../../utilities/functions.h"
+#include "../../utilities/matrix.h"
 #include "../../utilities/metrics.h"
-
-
-
 #include "../../utilities/tinyxml2.h"
+#include "../../utilities/vector.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This class represents a layer of probabilistic neurons.
 
@@ -40,173 +36,169 @@ namespace OpenNN
 /// when the outptus are to be interpreted as probabilities.
 /// It does not has Synaptic weights or Biases
 
-class ProbabilisticLayer : public Layer
-{
+class ProbabilisticLayer : public Layer {
+ public:
+  // Constructors
 
-public:
+  explicit ProbabilisticLayer();
 
-   // Constructors
+  explicit ProbabilisticLayer(const size_t&, const size_t&);
 
-   explicit ProbabilisticLayer();
+  ProbabilisticLayer(const ProbabilisticLayer&);
 
-   explicit ProbabilisticLayer(const size_t&, const size_t&);
+  // Destructor
 
-   ProbabilisticLayer(const ProbabilisticLayer&);
+  virtual ~ProbabilisticLayer();
 
-   // Destructor
+  // Enumerations
 
-   virtual ~ProbabilisticLayer();
+  /// Enumeration of available methods for interpreting variables as probabilities.
 
-   // Enumerations
+  enum ActivationFunction { Binary,
+                            Logistic,
+                            Competitive,
+                            Softmax };
 
-   /// Enumeration of available methods for interpreting variables as probabilities.
+  // Get methods
 
-   enum ActivationFunction{Binary, Logistic, Competitive, Softmax};
+  Vector<size_t> get_input_variables_dimensions() const;
 
-   // Get methods
+  size_t get_inputs_number() const;
+  size_t get_neurons_number() const;
 
-   Vector<size_t> get_input_variables_dimensions() const;
+  const double& get_decision_threshold() const;
 
-   size_t get_inputs_number() const;
-   size_t get_neurons_number() const;
+  const ActivationFunction& get_activation_function() const;
+  string write_activation_function() const;
+  string write_activation_function_text() const;
 
-   const double& get_decision_threshold() const;
+  const bool& get_display() const;
 
-   const ActivationFunction& get_activation_function() const;
-   string write_activation_function() const;
-   string write_activation_function_text() const;
+  // Set methods
 
-   const bool& get_display() const;
+  void set();
+  void set(const size_t&, const size_t&);
+  void set(const ProbabilisticLayer&);
 
-   // Set methods
+  void set_inputs_number(const size_t&);
+  void set_neurons_number(const size_t&);
 
-   void set();
-   void set(const size_t&, const size_t&);
-   void set(const ProbabilisticLayer&);
+  void set_biases(const Vector<double>&);
+  void set_synaptic_weights(const Matrix<double>&);
 
-   void set_inputs_number(const size_t&);
-   void set_neurons_number(const size_t&);
+  void set_parameters(const Vector<double>&);
 
-   void set_biases(const Vector<double>&);
-   void set_synaptic_weights(const Matrix<double>&);
+  void set_decision_threshold(const double&);
 
-   void set_parameters(const Vector<double>&);
+  void set_activation_function(const ActivationFunction&);
+  void set_activation_function(const string&);
 
-   void set_decision_threshold(const double&);
+  virtual void set_default();
 
-   void set_activation_function(const ActivationFunction&);
-   void set_activation_function(const string&);
+  // Parameters
 
-   virtual void set_default();
+  Vector<double> get_biases() const;
+  Matrix<double> get_synaptic_weights() const;
 
-   // Parameters
+  Vector<double> get_biases(const Vector<double>&) const;
+  Matrix<double> get_synaptic_weights(const Vector<double>&) const;
 
-   Vector<double> get_biases() const;
-   Matrix<double> get_synaptic_weights() const;
+  Matrix<double> get_synaptic_weights_transpose() const;
 
-   Vector<double> get_biases(const Vector<double>&) const;
-   Matrix<double> get_synaptic_weights(const Vector<double>&) const;
+  size_t get_parameters_number() const;
+  Vector<double> get_parameters() const;
 
-   Matrix<double> get_synaptic_weights_transpose() const;
+  //   void randomize_parameters_normal(const double& = 0.0, const double& = 1.0);
 
-   size_t get_parameters_number() const;
-   Vector<double> get_parameters() const;
+  // Display messages
 
-//   void randomize_parameters_normal(const double& = 0.0, const double& = 1.0);
+  void set_display(const bool&);
 
-   // Display messages
+  // Pruning and growing
 
-   void set_display(const bool&);
+  void prune_neuron(const size_t&);
 
-   // Pruning and growing
+  // Parameters initialization methods
 
-   void prune_neuron(const size_t&);
+  void initialize_biases(const double&);
+  void initialize_synaptic_weights(const double&);
+  void initialize_synaptic_weights_Glorot(const double&, const double&);
 
-   // Parameters initialization methods
+  void initialize_parameters(const double&);
 
-   void initialize_biases(const double&);
-   void initialize_synaptic_weights(const double&);
-   void initialize_synaptic_weights_Glorot(const double&,const double&);
+  void randomize_parameters_uniform();
+  void randomize_parameters_uniform(const double&, const double&);
 
-   void initialize_parameters(const double&);
+  void randomize_parameters_normal();
+  void randomize_parameters_normal(const double&, const double&);
 
-   void randomize_parameters_uniform();
-   void randomize_parameters_uniform(const double&, const double&);
+  // Combinations
 
-   void randomize_parameters_normal();
-   void randomize_parameters_normal(const double&, const double&);
+  Tensor<double> calculate_combinations(const Tensor<double>&) const;
 
+  // Outputs
 
-   // Combinations
+  Tensor<double> calculate_outputs(const Tensor<double>&);
+  Tensor<double> calculate_outputs(const Tensor<double>&, const Vector<double>&);
+  Tensor<double> calculate_outputs(const Tensor<double>&, const Vector<double>&, const Matrix<double>&) const;
 
-   Tensor<double> calculate_combinations(const Tensor<double>&) const;
+  FirstOrderActivations calculate_first_order_activations(const Tensor<double>&);
 
-   // Outputs
+  // Deltas
 
-   Tensor<double> calculate_outputs(const Tensor<double>&);
-   Tensor<double> calculate_outputs(const Tensor<double>&, const Vector<double>&);
-   Tensor<double> calculate_outputs(const Tensor<double>&, const Vector<double>&, const Matrix<double>&) const;
+  Tensor<double> calculate_output_delta(const Tensor<double>&, const Tensor<double>&) const;
 
-   FirstOrderActivations calculate_first_order_activations(const Tensor<double>&);
+  // Gradient methods
 
-   // Deltas
+  Vector<double> calculate_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
 
-   Tensor<double> calculate_output_delta(const Tensor<double>&, const Tensor<double>&) const;
+  // Activations
 
-   // Gradient methods
+  Tensor<double> calculate_activations(const Tensor<double>&) const;
 
-   Vector<double> calculate_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
+  Tensor<double> calculate_activations_derivatives(const Tensor<double>&) const;
 
-   // Activations
+  // Expression methods
 
-   Tensor<double> calculate_activations(const Tensor<double>&) const;
+  string write_binary_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_probability_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_competitive_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_softmax_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_no_probabilistic_expression(const Vector<string>&, const Vector<string>&) const;
 
-   Tensor<double> calculate_activations_derivatives(const Tensor<double>&) const;
+  string write_expression(const Vector<string>&, const Vector<string>&) const;
 
+  // Serialization methods
 
-   // Expression methods
+  string object_to_string() const;
 
-   string write_binary_expression(const Vector<string>&, const Vector<string>&) const;
-   string write_probability_expression(const Vector<string>&, const Vector<string>&) const;
-   string write_competitive_expression(const Vector<string>&, const Vector<string>&) const;
-   string write_softmax_expression(const Vector<string>&, const Vector<string>&) const;
-   string write_no_probabilistic_expression(const Vector<string>&, const Vector<string>&) const;
+  virtual tinyxml2::XMLDocument* to_XML() const;
 
-   string write_expression(const Vector<string>&, const Vector<string>&) const;
+  virtual void from_XML(const tinyxml2::XMLDocument&);
 
-   // Serialization methods
+  virtual void write_XML(tinyxml2::XMLPrinter&) const;
 
-   string object_to_string() const;
+ protected:
+  // MEMBERS
 
-   virtual tinyxml2::XMLDocument* to_XML() const;
+  Vector<double> biases;
 
-   virtual void from_XML(const tinyxml2::XMLDocument&);
+  Matrix<double> synaptic_weights;
 
-   virtual void write_XML(tinyxml2::XMLPrinter&) const;
-   
-protected:
+  /// Activation function variable.
 
-   // MEMBERS
+  ActivationFunction activation_function = Logistic;
 
-   Vector<double> biases;
+  double decision_threshold;
 
-   Matrix<double> synaptic_weights;
+  /// Display messages to screen.
 
-   /// Activation function variable.
-
-   ActivationFunction activation_function = Logistic;
-
-   double decision_threshold;
-
-   /// Display messages to screen.
-
-   bool display;
+  bool display;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
-
 
 // OpenNN: Open Neural Networks Library.
 // Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.

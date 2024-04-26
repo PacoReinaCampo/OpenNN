@@ -11,30 +11,30 @@
 
 // System includes
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
 #include <cstdlib>
-#include <stdexcept>
 #include <ctime>
 #include <exception>
+#include <fstream>
+#include <iostream>
 #include <regex>
+#include <sstream>
+#include <stdexcept>
+#include <string>
 //#include <math.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 // OpenNN includes
 
-#include "../utilities/metrics.h"
+#include "../utilities/correlations.h"
 #include "../utilities/matrix.h"
+#include "../utilities/metrics.h"
 #include "../utilities/statistics.h"
+#include "../utilities/tinyxml2.h"
 #include "../utilities/transformations.h"
 #include "../utilities/vector.h"
-#include "../utilities/correlations.h"
-#include "../utilities/tinyxml2.h"
 
 // Eigen includes
 
@@ -42,8 +42,7 @@
 
 using namespace std;
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This class represents the concept of data set for data modelling problems, such as function regression, classification, time series prediction, images approximation and images classification.
 
@@ -55,782 +54,797 @@ namespace OpenNN
 /// calculate correlations between variables (inputs and targets), select particular variables or instances,
 /// transform human date into timestamp,... .
 
-class DataSet
-{
+class DataSet {
+ public:
+  // Constructors
 
-public:
+  explicit DataSet();
 
-   // Constructors
+  explicit DataSet(const Eigen::MatrixXd&);
 
-   explicit DataSet();
+  explicit DataSet(const Matrix<double>&);
 
-   explicit DataSet(const Eigen::MatrixXd&);
+  explicit DataSet(const size_t&, const size_t&);
 
-   explicit DataSet(const Matrix<double>&);
+  explicit DataSet(const size_t&, const size_t&, const size_t&);
 
-   explicit DataSet(const size_t&, const size_t&);
+  explicit DataSet(const tinyxml2::XMLDocument&);
 
-   explicit DataSet(const size_t&, const size_t&, const size_t&);
+  explicit DataSet(const string&, const char&, const bool&);
 
-   explicit DataSet(const tinyxml2::XMLDocument&);
+  DataSet(const DataSet&);
 
-   explicit DataSet(const string&, const char&, const bool&);
+  // Destructor
 
-   DataSet(const DataSet&);
+  virtual ~DataSet();
 
-   // Destructor
+  // Enumerations
 
-   virtual ~DataSet();
+  /// Enumeration of available separators for the data file.
 
-   // Enumerations
+  enum Separator { Space,
+                   Tab,
+                   Comma,
+                   Semicolon };
 
-   /// Enumeration of available separators for the data file.
+  /// Enumeration of available methods for missing values in the data.
 
-   enum Separator{Space, Tab, Comma, Semicolon};
+  enum MissingValuesMethod { Unuse,
+                             Mean,
+                             Median };
 
-   /// Enumeration of available methods for missing values in the data.
+  /// Enumeration of available methods for scaling and unscaling the data.
 
-   enum MissingValuesMethod{Unuse, Mean, Median};
+  enum ScalingUnscalingMethod { NoScaling,
+                                NoUnscaling,
+                                MinimumMaximum,
+                                MeanStandardDeviation,
+                                StandardDeviation,
+                                Logarithmic };
 
-   /// Enumeration of available methods for scaling and unscaling the data.
+  /// Enumeration of the learning tasks.
 
-   enum ScalingUnscalingMethod{NoScaling, NoUnscaling, MinimumMaximum, MeanStandardDeviation, StandardDeviation, Logarithmic};
+  enum ProjectType { Approximation,
+                     Classification,
+                     Forecasting,
+                     ImageApproximation,
+                     ImageClassification };
 
-   /// Enumeration of the learning tasks.
+  /// This enumeration represents the possible uses of an instance
+  /// (training, selection, testing or unused).
 
-   enum ProjectType{Approximation, Classification, Forecasting, ImageApproximation, ImageClassification};
+  enum InstanceUse { Training,
+                     Selection,
+                     Testing,
+                     UnusedInstance };
 
-   /// This enumeration represents the possible uses of an instance
-   /// (training, selection, testing or unused).
+  /// This enumeration represents the possible uses of an variable
+  /// (input, target, time or unused).
 
-   enum InstanceUse{Training, Selection, Testing, UnusedInstance};
+  enum VariableUse { Input,
+                     Target,
+                     Time,
+                     UnusedVariable };
 
-   /// This enumeration represents the possible uses of an variable
-   /// (input, target, time or unused).
+  /// This enumeration represents the data type of a column
+  /// (numeric, binary, categorical or time).
 
-   enum VariableUse{Input, Target, Time, UnusedVariable};
+  enum ColumnType { Numeric,
+                    Binary,
+                    Categorical,
+                    DateTime };
 
-   /// This enumeration represents the data type of a column
-   /// (numeric, binary, categorical or time).
+  // Structs
 
-   enum ColumnType{Numeric, Binary, Categorical, DateTime};
+  /// This structure represents the columns of the DataSet.
 
-   // Structs
+  struct Column {
+    /// Default constructor.
 
+    Column();
 
-   /// This structure represents the columns of the DataSet.
+    /// Values constructor
 
-   struct Column
-   {
-       /// Default constructor.
+    Column(const string&, const VariableUse&, const ColumnType& = Numeric, const Vector<string>& = Vector<string>(), const Vector<VariableUse>& = Vector<VariableUse>());
 
-       Column();
+    /// Destructor.
 
-       /// Values constructor
+    virtual ~Column();
 
-       Column(const string&, const VariableUse&, const ColumnType& = Numeric, const Vector<string>& = Vector<string>(), const Vector<VariableUse>& = Vector<VariableUse>());
+    /// Column name.
 
-       /// Destructor.
+    string name;
 
-       virtual ~Column();
+    /// Column use.
 
-       /// Column name.
+    VariableUse column_use;
 
-       string name;
+    /// Column type.
 
-       /// Column use.
+    ColumnType type;
 
-       VariableUse column_use;
+    /// Categories within the column.
 
-       /// Column type.
+    Vector<string> categories;
 
-       ColumnType type;
+    /// Categories use.
 
-       /// Categories within the column.
+    Vector<VariableUse> categories_uses;
 
-       Vector<string> categories;
+    // Methods
 
-       /// Categories use.
+    size_t get_categories_number() const;
 
-       Vector<VariableUse> categories_uses;
+    Vector<string> get_used_variables_names() const;
 
-       // Methods
+    void set_use(const VariableUse&);
+    void set_use(const string&);
 
-       size_t get_categories_number() const;
+    void set_type(const ColumnType&);
+    void set_type(const string&);
 
-       Vector<string> get_used_variables_names() const;
+    void set_categories_uses(const Vector<VariableUse>&);
+    void set_categories_uses(const Vector<string>&);
 
-       void set_use(const VariableUse&);
-       void set_use(const string&);
+    bool is_used();
+    bool is_unused();
 
-       void set_type(const ColumnType&);
-       void set_type(const string&);
+    void from_XML(const tinyxml2::XMLDocument&);
+    void write_XML(tinyxml2::XMLPrinter&) const;
+  };
 
-       void set_categories_uses(const Vector<VariableUse>&);
-       void set_categories_uses(const Vector<string>&);
+  // Instances get methods
 
-       bool is_used();
-       bool is_unused();
+  inline size_t get_instances_number() const { return instances_uses.size(); }
 
-       void from_XML(const tinyxml2::XMLDocument&);
-       void write_XML(tinyxml2::XMLPrinter&) const;
-   };
+  size_t get_training_instances_number() const;
+  size_t get_selection_instances_number() const;
+  size_t get_testing_instances_number() const;
 
-   // Instances get methods
+  size_t get_used_instances_number() const;
+  size_t get_unused_instances_number() const;
 
-   inline size_t get_instances_number() const {return instances_uses.size();}
+  Vector<size_t> get_training_instances_indices() const;
+  Vector<size_t> get_selection_instances_indices() const;
+  Vector<size_t> get_testing_instances_indices() const;
 
-   size_t get_training_instances_number() const;
-   size_t get_selection_instances_number() const;
-   size_t get_testing_instances_number() const;
+  Vector<size_t> get_used_instances_indices() const;
+  Vector<size_t> get_unused_instances_indices() const;
 
-   size_t get_used_instances_number() const;
-   size_t get_unused_instances_number() const;
+  InstanceUse get_instance_use(const size_t&) const;
+  const Vector<InstanceUse>& get_instances_uses() const;
 
-   Vector<size_t> get_training_instances_indices() const;
-   Vector<size_t> get_selection_instances_indices() const;
-   Vector<size_t> get_testing_instances_indices() const;
+  Vector<size_t> get_instances_uses_numbers() const;
+  Vector<double> get_instances_uses_percentages() const;
 
-   Vector<size_t> get_used_instances_indices() const;
-   Vector<size_t> get_unused_instances_indices() const;
+  // Columns get methods
 
-   InstanceUse get_instance_use(const size_t&) const;
-   const Vector<InstanceUse>& get_instances_uses() const;
+  Vector<Column> get_columns() const;
+  Vector<Column> get_used_columns() const;
 
-   Vector<size_t> get_instances_uses_numbers() const;
-   Vector<double> get_instances_uses_percentages() const;
+  size_t get_columns_number() const;
 
-   // Columns get methods
+  size_t get_input_columns_number() const;
+  size_t get_target_columns_number() const;
+  size_t get_time_columns_number() const;
+  size_t get_unused_columns_number() const;
+  size_t get_used_columns_number() const;
 
-   Vector<Column> get_columns() const;
-   Vector<Column> get_used_columns() const;
+  size_t get_column_index(const string&) const;
 
-   size_t get_columns_number() const;
+  Vector<size_t> get_input_columns_indices() const;
+  Vector<size_t> get_target_columns_indices() const;
+  Vector<size_t> get_unused_columns_indices() const;
+  Vector<size_t> get_used_columns_indices() const;
 
-   size_t get_input_columns_number() const;
-   size_t get_target_columns_number() const;
-   size_t get_time_columns_number() const;
-   size_t get_unused_columns_number() const;
-   size_t get_used_columns_number() const;
+  Vector<string> get_columns_names() const;
 
-   size_t get_column_index(const string&) const;
+  Vector<string> get_input_columns_names() const;
+  Vector<string> get_target_columns_names() const;
+  Vector<string> get_used_columns_names() const;
 
-   Vector<size_t> get_input_columns_indices() const;
-   Vector<size_t> get_target_columns_indices() const;
-   Vector<size_t> get_unused_columns_indices() const;
-   Vector<size_t> get_used_columns_indices() const;
+  ColumnType get_column_type(const size_t& index) const { return columns[index].type; }
 
-   Vector<string> get_columns_names() const;
+  VariableUse get_column_use(const size_t&) const;
+  Vector<VariableUse> get_columns_uses() const;
 
-   Vector<string> get_input_columns_names() const;
-   Vector<string> get_target_columns_names() const;
-   Vector<string> get_used_columns_names() const;
+  // Variables get methods
 
-   ColumnType get_column_type(const size_t& index) const {return columns[index].type;}
+  size_t get_variables_number() const;
 
-   VariableUse get_column_use(const size_t &) const;
-   Vector<VariableUse> get_columns_uses() const;
+  size_t get_input_variables_number() const;
+  size_t get_target_variables_number() const;
+  size_t get_unused_variables_number() const;
+  size_t get_used_variables_number() const;
 
-   // Variables get methods
+  string get_variable_name(const size_t&) const;
+  Vector<string> get_variables_names() const;
 
-   size_t get_variables_number() const;
+  Vector<string> get_input_variables_names() const;
+  Vector<string> get_target_variables_names() const;
 
-   size_t get_input_variables_number() const;
-   size_t get_target_variables_number() const;
-   size_t get_unused_variables_number() const;
-   size_t get_used_variables_number() const;
+  size_t get_variable_index(const string&) const;
 
-   string get_variable_name(const size_t&) const;
-   Vector<string> get_variables_names() const;
+  Vector<size_t> get_variable_indices(const size_t&) const;
+  Vector<size_t> get_unused_variables_indices() const;
+  Vector<size_t> get_input_variables_indices() const;
+  Vector<size_t> get_target_variables_indices() const;
 
-   Vector<string> get_input_variables_names() const;
-   Vector<string> get_target_variables_names() const;
+  VariableUse get_variable_use(const size_t&) const;
+  Vector<VariableUse> get_variables_uses() const;
 
-   size_t get_variable_index(const string&) const;
+  Vector<size_t> get_input_variables_dimensions() const;
+  Vector<size_t> get_target_variables_dimensions() const;
 
-   Vector<size_t> get_variable_indices(const size_t&) const;
-   Vector<size_t> get_unused_variables_indices() const;
-   Vector<size_t> get_input_variables_indices() const;
-   Vector<size_t> get_target_variables_indices() const;
+  // Batches get methods
 
-   VariableUse get_variable_use(const size_t&) const;
-   Vector<VariableUse> get_variables_uses() const;
+  inline size_t get_batch_instances_number() { return batch_instances_number; }
 
-   Vector<size_t> get_input_variables_dimensions() const;
-   Vector<size_t> get_target_variables_dimensions() const;
+  Vector<Vector<size_t>> get_training_batches(const bool& = true) const;
+  Vector<Vector<size_t>> get_selection_batches(const bool& = true) const;
+  Vector<Vector<size_t>> get_testing_batches(const bool& = true) const;
 
-   // Batches get methods
+  // Data get methods
 
-   inline size_t get_batch_instances_number() {return batch_instances_number;}
+  const Matrix<double>& get_data() const;
+  const Eigen::MatrixXd get_data_eigen() const;
 
-   Vector<Vector<size_t>> get_training_batches(const bool& = true) const;
-   Vector<Vector<size_t>> get_selection_batches(const bool& = true) const;
-   Vector<Vector<size_t>> get_testing_batches(const bool& = true) const;
+  const Matrix<double>& get_time_series_data() const;
 
-   // Data get methods
+  Matrix<double> get_training_data() const;
+  Eigen::MatrixXd get_training_data_eigen() const;
+  Matrix<double> get_selection_data() const;
+  Eigen::MatrixXd get_selection_data_eigen() const;
+  Matrix<double> get_testing_data() const;
+  Eigen::MatrixXd get_testing_data_eigen() const;
 
-   const Matrix<double>& get_data() const;
-   const Eigen::MatrixXd get_data_eigen() const;
+  Matrix<double> get_input_data() const;
+  Eigen::MatrixXd get_input_data_eigen() const;
+  Matrix<double> get_target_data() const;
+  Eigen::MatrixXd get_target_data_eigen() const;
 
-   const Matrix<double>& get_time_series_data() const;
+  Tensor<double> get_input_data(const Vector<size_t>&) const;
+  Tensor<double> get_target_data(const Vector<size_t>&) const;
 
-   Matrix<double> get_training_data() const;
-   Eigen::MatrixXd get_training_data_eigen() const;
-   Matrix<double> get_selection_data() const;
-   Eigen::MatrixXd get_selection_data_eigen() const;
-   Matrix<double> get_testing_data() const;
-   Eigen::MatrixXd get_testing_data_eigen() const;
+  Matrix<float> get_input_data_float(const Vector<size_t>&) const;
+  Matrix<float> get_target_data_float(const Vector<size_t>&) const;
 
-   Matrix<double> get_input_data() const;
-   Eigen::MatrixXd get_input_data_eigen() const;
-   Matrix<double> get_target_data() const;
-   Eigen::MatrixXd get_target_data_eigen() const;
+  Tensor<double> get_training_input_data() const;
+  Eigen::MatrixXd get_training_input_data_eigen() const;
+  Tensor<double> get_training_target_data() const;
+  Eigen::MatrixXd get_training_target_data_eigen() const;
 
-   Tensor<double> get_input_data(const Vector<size_t>&) const;
-   Tensor<double> get_target_data(const Vector<size_t>&) const;
+  Tensor<double> get_selection_input_data() const;
+  Eigen::MatrixXd get_selection_input_data_eigen() const;
+  Tensor<double> get_selection_target_data() const;
+  Eigen::MatrixXd get_selection_target_data_eigen() const;
 
-   Matrix<float> get_input_data_float(const Vector<size_t>&) const;
-   Matrix<float> get_target_data_float(const Vector<size_t>&) const;
+  Tensor<double> get_testing_input_data() const;
+  Eigen::MatrixXd get_testing_input_data_eigen() const;
+  Tensor<double> get_testing_target_data() const;
+  Eigen::MatrixXd get_testing_target_data_eigen() const;
 
-   Tensor<double> get_training_input_data() const;
-   Eigen::MatrixXd get_training_input_data_eigen() const;
-   Tensor<double> get_training_target_data() const;
-   Eigen::MatrixXd get_training_target_data_eigen() const;
+  Vector<double> get_instance_data(const size_t&) const;
+  Vector<double> get_instance_data(const size_t&, const Vector<size_t>&) const;
+  Tensor<double> get_instance_input_data(const size_t&) const;
+  Tensor<double> get_instance_target_data(const size_t&) const;
 
-   Tensor<double> get_selection_input_data() const;
-   Eigen::MatrixXd get_selection_input_data_eigen() const;
-   Tensor<double> get_selection_target_data() const;
-   Eigen::MatrixXd get_selection_target_data_eigen() const;
+  Matrix<double> get_column_data(const size_t&) const;
+  Matrix<double> get_column_data(const Vector<size_t>&) const;
+  Matrix<double> get_column_data(const string&) const;
 
-   Tensor<double> get_testing_input_data() const;
-   Eigen::MatrixXd get_testing_input_data_eigen() const;
-   Tensor<double> get_testing_target_data() const;
-   Eigen::MatrixXd get_testing_target_data_eigen() const;
+  Vector<double> get_variable_data(const size_t&) const;
+  Vector<double> get_variable_data(const string&) const;
 
-   Vector<double> get_instance_data(const size_t&) const;
-   Vector<double> get_instance_data(const size_t&, const Vector<size_t>&) const;
-   Tensor<double> get_instance_input_data(const size_t&) const;
-   Tensor<double> get_instance_target_data(const size_t&) const;
+  Vector<double> get_variable_data(const size_t&, const Vector<size_t>&) const;
+  Vector<double> get_variable_data(const string&, const Vector<size_t>&) const;
 
-   Matrix<double> get_column_data(const size_t&) const;
-   Matrix<double> get_column_data(const Vector<size_t>&) const;
-   Matrix<double> get_column_data(const string&) const;
+  // Members get methods
 
-   Vector<double> get_variable_data(const size_t&) const;
-   Vector<double> get_variable_data(const string&) const;
+  MissingValuesMethod get_missing_values_method() const;
 
-   Vector<double> get_variable_data(const size_t&, const Vector<size_t>&) const;
-   Vector<double> get_variable_data(const string&, const Vector<size_t>&) const;
+  const string& get_data_file_name() const;
 
-   // Members get methods
+  const bool& get_header_line() const;
+  const bool& get_rows_label() const;
 
-   MissingValuesMethod get_missing_values_method() const;
+  const Separator& get_separator() const;
+  char get_separator_char() const;
+  string get_separator_string() const;
 
-   const string& get_data_file_name() const;
+  const string& get_missing_values_label() const;
 
-   const bool& get_header_line() const;
-   const bool& get_rows_label() const;
+  const size_t& get_lags_number() const;
+  const size_t& get_steps_ahead() const;
+  const size_t& get_time_index() const;
 
-   const Separator& get_separator() const;
-   char get_separator_char() const;
-   string get_separator_string() const;
+  static Vector<string> get_default_columns_names(const size_t&);
 
-   const string& get_missing_values_label() const;
+  static ScalingUnscalingMethod get_scaling_unscaling_method(const string&);
 
-   const size_t& get_lags_number() const;
-   const size_t& get_steps_ahead() const;
-   const size_t& get_time_index() const;
+  int get_gmt() const;
 
-   static Vector<string> get_default_columns_names(const size_t&);
+  const bool& get_display() const;
 
-   static ScalingUnscalingMethod get_scaling_unscaling_method(const string&);
+  // Set methods
 
-   int get_gmt() const;
+  void set();
+  void set(const Matrix<double>&);
+  void set(const Eigen::MatrixXd&);
+  void set(const size_t&, const size_t&);
+  void set(const size_t&, const size_t&, const size_t&);
+  void set(const DataSet&);
+  void set(const tinyxml2::XMLDocument&);
+  void set(const string&);
 
-   const bool& get_display() const;
+  void set_default();
 
-   // Set methods
+  // Instances set methods
 
-   void set();
-   void set(const Matrix<double>&);
-   void set(const Eigen::MatrixXd&);
-   void set(const size_t&, const size_t&);
-   void set(const size_t&, const size_t&, const size_t&);
-   void set(const DataSet&);
-   void set(const tinyxml2::XMLDocument&);
-   void set(const string&);
+  void set_instances_number(const size_t&);
 
-   void set_default();
+  void set_training();
+  void set_selection();
+  void set_testing();
 
-   // Instances set methods
+  void set_training(const Vector<size_t>&);
+  void set_selection(const Vector<size_t>&);
+  void set_testing(const Vector<size_t>&);
 
-   void set_instances_number(const size_t&);
+  void set_instances_unused();
+  void set_instances_unused(const Vector<size_t>&);
 
-   void set_training();
-   void set_selection();
-   void set_testing();
+  void set_instance_use(const size_t&, const InstanceUse&);
+  void set_instance_use(const size_t&, const string&);
 
-   void set_training(const Vector<size_t>&);
-   void set_selection(const Vector<size_t>&);
-   void set_testing(const Vector<size_t>&);
+  void set_instances_uses(const Vector<InstanceUse>&);
+  void set_instances_uses(const Vector<string>&);
 
-   void set_instances_unused();
-   void set_instances_unused(const Vector<size_t>&);
+  void set_testing_to_selection_instances();
+  void set_selection_to_testing_instances();
 
-   void set_instance_use(const size_t&, const InstanceUse&);
-   void set_instance_use(const size_t&, const string&);
+  void set_batch_instances_number(const size_t&);
 
-   void set_instances_uses(const Vector<InstanceUse>&);
-   void set_instances_uses(const Vector<string>&);
+  void set_k_fold_cross_validation_instances_uses(const size_t&, const size_t&);
 
-   void set_testing_to_selection_instances();
-   void set_selection_to_testing_instances();
+  // Columns set methods
 
-   void set_batch_instances_number(const size_t&);
+  void set_default_columns_uses();
 
-   void set_k_fold_cross_validation_instances_uses(const size_t&, const size_t&);
+  void set_default_columns_names();
 
-   // Columns set methods
+  void set_columns_uses(const Vector<string>&);
+  void set_columns_uses(const Vector<VariableUse>&);
+  void set_columns_unused();
+  void set_input_columns_unused();
 
-   void set_default_columns_uses();
+  void set_column_use(const size_t&, const VariableUse&);
+  void set_column_use(const string&, const VariableUse&);
 
-   void set_default_columns_names();
+  void set_columns_names(const Vector<string>&);
 
-   void set_columns_uses(const Vector<string>&);
-   void set_columns_uses(const Vector<VariableUse>&);
-   void set_columns_unused();
-   void set_input_columns_unused();
+  void set_columns_number(const size_t&);
 
+  // Variables set methods
 
-   void set_column_use(const size_t&, const VariableUse&);
-   void set_column_use(const string&, const VariableUse&);
+  void set_variables_names(const Vector<string>&);
+  void set_variable_name(const size_t&, const string&);
 
-   void set_columns_names(const Vector<string>&);
+  void set_input();
+  void set_target();
+  void set_variables_unused();
 
-   void set_columns_number(const size_t&);
+  void set_input_variables_dimensions(const Vector<size_t>&);
+  void set_target_variables_dimensions(const Vector<size_t>&);
 
-   // Variables set methods
+  // Data set methods
 
-   void set_variables_names(const Vector<string>&);
-   void set_variable_name(const size_t&, const string&);
+  void set_data(const Matrix<double>&);
 
-   void set_input();
-   void set_target();
-   void set_variables_unused();
+  void set_instance(const size_t&, const Vector<double>&);
 
-   void set_input_variables_dimensions(const Vector<size_t>& );
-   void set_target_variables_dimensions(const Vector<size_t>& );
+  // Batch set methods
 
-   // Data set methods
+  //   void set_shufffle_batches_instances(const bool&);
 
-   void set_data(const Matrix<double>&);
+  // Members set methods
 
-   void set_instance(const size_t&, const Vector<double>&);
+  void set_data_file_name(const string&);
 
-   // Batch set methods
+  void set_has_columns_names(const bool&);
+  void set_has_rows_label(const bool&);
 
-//   void set_shufffle_batches_instances(const bool&);
+  void set_separator(const Separator&);
+  void set_separator(const string&);
+  void set_separator(const char&);
 
-   // Members set methods
+  void set_missing_values_label(const string&);
+  void set_missing_values_method(const MissingValuesMethod&);
+  void set_missing_values_method(const string&);
 
-   void set_data_file_name(const string&);
+  void set_lags_number(const size_t&);
+  void set_steps_ahead_number(const size_t&);
+  void set_time_index(const size_t&);
 
-   void set_has_columns_names(const bool&);
-   void set_has_rows_label(const bool&);
+  void set_gmt(int&);
 
-   void set_separator(const Separator&);
-   void set_separator(const string&);
-   void set_separator(const char&);
+  void set_display(const bool&);
 
-   void set_missing_values_label(const string&);
-   void set_missing_values_method(const MissingValuesMethod&);
-   void set_missing_values_method(const string&);
+  // Check methods
 
-   void set_lags_number(const size_t&);
-   void set_steps_ahead_number(const size_t&);
-   void set_time_index(const size_t&);
+  bool is_binary_classification() const;
+  bool is_multiple_classification() const;
 
-   void set_gmt(int&);
+  bool is_empty() const;
 
-   void set_display(const bool&);
+  bool is_instance_used(const size_t&) const;
+  bool is_instance_unused(const size_t&) const;
 
-   // Check methods
+  bool has_data() const;
 
-   bool is_binary_classification() const;
-   bool is_multiple_classification() const;
+  bool has_categorical_variables() const;
+  bool has_time_variables() const;
 
-   bool is_empty() const;
+  // Splitting methods
 
-   bool is_instance_used(const size_t&) const;
-   bool is_instance_unused(const size_t&) const;
+  void split_instances_sequential(const double& training_ratio = 0.6, const double& selection_ratio = 0.2, const double& testing_ratio = 0.2);
 
-   bool has_data() const;
+  void split_instances_random(const double& training_ratio = 0.6, const double& selection_ratio = 0.2, const double& testing_ratio = 0.2);
 
-   bool has_categorical_variables() const;
-   bool has_time_variables() const;
+  // Unusing methods
 
-   // Splitting methods
+  Vector<string> unuse_constant_columns();
 
-   void split_instances_sequential(const double& training_ratio = 0.6, const double& selection_ratio = 0.2, const double& testing_ratio = 0.2);
+  Vector<size_t> unuse_repeated_instances();
 
-   void split_instances_random(const double& training_ratio = 0.6, const double& selection_ratio = 0.2, const double& testing_ratio = 0.2);
+  Vector<size_t> unuse_non_significant_input_columns();
 
-   // Unusing methods
+  Vector<size_t> unuse_uncorrelated_columns(const double& = 0.25);
 
-   Vector<string> unuse_constant_columns();
+  Vector<size_t> unuse_most_populated_target(const size_t&);
 
-   Vector<size_t> unuse_repeated_instances();
+  // Initialization methods
 
-   Vector<size_t> unuse_non_significant_input_columns();
+  void initialize_data(const double&);
 
-   Vector<size_t> unuse_uncorrelated_columns(const double& = 0.25);
+  void randomize_data_uniform(const double& minimum = -1.0, const double& maximum = 1.0);
+  void randomize_data_normal(const double& mean = 0.0, const double& standard_deviation = 1.0);
 
-   Vector<size_t> unuse_most_populated_target(const size_t&);
+  // Descriptives methods
 
-   // Initialization methods
+  Vector<Descriptives> calculate_columns_descriptives() const;
 
-   void initialize_data(const double&);
+  Matrix<double> calculate_columns_descriptives_matrix() const;
 
-   void randomize_data_uniform(const double& minimum = -1.0, const double& maximum = 1.0);
-   void randomize_data_normal(const double& mean = 0.0, const double& standard_deviation = 1.0);
+  Eigen::MatrixXd calculate_columns_descriptives_eigen() const;
 
-   // Descriptives methods
+  Vector<Descriptives> calculate_columns_descriptives_positive_instances() const;
+  Vector<Descriptives> calculate_columns_descriptives_negative_instances() const;
+  Vector<Descriptives> calculate_columns_descriptives_classes(const size_t&) const;
 
-   Vector<Descriptives> calculate_columns_descriptives() const;
+  Vector<Descriptives> calculate_columns_descriptives_training_instances() const;
+  Vector<Descriptives> calculate_columns_descriptives_selection_instances() const;
+  Vector<Descriptives> calculate_columns_descriptives_testing_instances() const;
 
-   Matrix<double> calculate_columns_descriptives_matrix() const;
+  Vector<Descriptives> calculate_input_variables_descriptives() const;
+  Vector<Descriptives> calculate_target_variables_descriptives() const;
 
-   Eigen::MatrixXd calculate_columns_descriptives_eigen() const;
+  Vector<double> calculate_variables_means(const Vector<size_t>&) const;
 
-   Vector<Descriptives> calculate_columns_descriptives_positive_instances() const;
-   Vector<Descriptives> calculate_columns_descriptives_negative_instances() const;
-   Vector<Descriptives> calculate_columns_descriptives_classes(const size_t&) const;
+  Descriptives calculate_inputs_descriptives(const size_t&) const;
 
-   Vector<Descriptives> calculate_columns_descriptives_training_instances() const;
-   Vector<Descriptives> calculate_columns_descriptives_selection_instances() const;
-   Vector<Descriptives> calculate_columns_descriptives_testing_instances() const;
+  Vector<double> calculate_training_targets_mean() const;
+  Vector<double> calculate_selection_targets_mean() const;
+  Vector<double> calculate_testing_targets_mean() const;
 
-   Vector<Descriptives> calculate_input_variables_descriptives() const;
-   Vector<Descriptives> calculate_target_variables_descriptives() const;
+  size_t calculate_training_negatives(const size_t&) const;
+  size_t calculate_selection_negatives(const size_t&) const;
+  size_t calculate_testing_negatives(const size_t&) const;
 
-   Vector<double> calculate_variables_means(const Vector<size_t>&) const;
+  // Histrogram methods
 
-   Descriptives calculate_inputs_descriptives(const size_t&) const;
+  Vector<Histogram> calculate_columns_histograms(const size_t& = 10) const;
 
-   Vector<double> calculate_training_targets_mean() const;
-   Vector<double> calculate_selection_targets_mean() const;
-   Vector<double> calculate_testing_targets_mean() const;
+  // Box and whiskers
 
-   size_t calculate_training_negatives(const size_t&) const;
-   size_t calculate_selection_negatives(const size_t&) const;
-   size_t calculate_testing_negatives(const size_t&) const;
+  Vector<BoxPlot> calculate_columns_box_plots() const;
 
-   // Histrogram methods
+  // Inputs correlations
 
-   Vector<Histogram> calculate_columns_histograms(const size_t& = 10) const;
+  Matrix<double> calculate_inputs_correlations() const;
 
-   // Box and whiskers
+  void print_inputs_correlations() const;
 
-   Vector<BoxPlot> calculate_columns_box_plots() const;
+  void print_top_inputs_correlations(const size_t& = 10) const;
 
-   // Inputs correlations
+  // Inputs-targets correlations
 
-   Matrix<double> calculate_inputs_correlations() const;
+  Matrix<CorrelationResults> calculate_input_target_columns_correlations() const;
+  Matrix<double> calculate_input_target_columns_correlations_double() const;
 
-   void print_inputs_correlations() const;
+  Eigen::MatrixXd calculate_input_target_columns_correlations_eigen() const;
 
-   void print_top_inputs_correlations(const size_t& = 10) const;
+  void print_input_target_columns_correlations() const;
 
-   // Inputs-targets correlations
+  void print_top_input_target_columns_correlations(const size_t& = 10) const;
 
-   Matrix<CorrelationResults> calculate_input_target_columns_correlations() const;
-   Matrix<double> calculate_input_target_columns_correlations_double() const;
+  // Principal components
 
-   Eigen::MatrixXd calculate_input_target_columns_correlations_eigen() const;
+  Matrix<double> calculate_covariance_matrix() const;
 
-   void print_input_target_columns_correlations() const;
+  Matrix<double> perform_principal_components_analysis(const double& = 0.0);
 
-   void print_top_input_target_columns_correlations(const size_t& = 10) const;
+  Matrix<double> perform_principal_components_analysis(const Matrix<double>&, const Vector<double>&, const double& = 0.0);
 
-   // Principal components
+  void transform_principal_components_data(const Matrix<double>&);
 
-   Matrix<double> calculate_covariance_matrix() const;
+  void subtract_inputs_mean();
 
-   Matrix<double> perform_principal_components_analysis(const double& = 0.0);
+  // Filtering methods
 
-   Matrix<double> perform_principal_components_analysis(const Matrix<double>&, const Vector<double>&, const double& = 0.0);
+  Vector<size_t> filter_column(const size_t&, const double&, const double&);
+  Vector<size_t> filter_column(const string&, const double&, const double&);
 
-   void transform_principal_components_data(const Matrix<double>&);
+  Vector<size_t> filter_data(const Vector<double>&, const Vector<double>&);
 
-   void subtract_inputs_mean();
+  // Data scaling
 
-   // Filtering methods
+  Vector<string> calculate_default_scaling_methods() const;
+  void scale_data_minimum_maximum(const Vector<Descriptives>&);
+  void scale_data_mean_standard_deviation(const Vector<Descriptives>&);
+  Vector<Descriptives> scale_data_minimum_maximum();
+  Vector<Descriptives> scale_data_mean_standard_deviation();
 
-   Vector<size_t> filter_column(const size_t&, const double&, const double&);
-   Vector<size_t> filter_column(const string&, const double&, const double&);
+  // Input variables scaling
 
-   Vector<size_t> filter_data(const Vector<double>&, const Vector<double>&);
+  void scale_inputs_mean_standard_deviation(const Vector<Descriptives>&);
+  Vector<Descriptives> scale_inputs_mean_standard_deviation();
 
-   // Data scaling
+  void scale_input_mean_standard_deviation(const Descriptives&, const size_t&);
+  Descriptives scale_input_mean_standard_deviation(const size_t&);
 
-   Vector<string> calculate_default_scaling_methods() const;
-   void scale_data_minimum_maximum(const Vector<Descriptives>&);
-   void scale_data_mean_standard_deviation(const Vector<Descriptives>&);
-   Vector<Descriptives> scale_data_minimum_maximum();
-   Vector<Descriptives> scale_data_mean_standard_deviation();
+  void scale_input_standard_deviation(const Descriptives&, const size_t&);
+  Descriptives scale_input_standard_deviation(const size_t&);
 
-   // Input variables scaling
+  void scale_inputs_minimum_maximum(const Vector<Descriptives>&);
+  Vector<Descriptives> scale_inputs_minimum_maximum();
 
-   void scale_inputs_mean_standard_deviation(const Vector<Descriptives>&);
-   Vector<Descriptives> scale_inputs_mean_standard_deviation();
+  Eigen::MatrixXd scale_inputs_minimum_maximum_eigen();
+  Eigen::MatrixXd scale_targets_minimum_maximum_eigen();
 
-   void scale_input_mean_standard_deviation(const Descriptives&, const size_t&);
-   Descriptives scale_input_mean_standard_deviation(const size_t&);
+  void scale_input_minimum_maximum(const Descriptives&, const size_t&);
+  Descriptives scale_input_minimum_maximum(const size_t&);
 
-   void scale_input_standard_deviation(const Descriptives&, const size_t&);
-   Descriptives scale_input_standard_deviation(const size_t&);
+  Vector<Descriptives> scale_inputs(const string&);
+  void scale_inputs(const string&, const Vector<Descriptives>&);
+  void scale_inputs(const Vector<string>&, const Vector<Descriptives>&);
 
-   void scale_inputs_minimum_maximum(const Vector<Descriptives>&);
-   Vector<Descriptives> scale_inputs_minimum_maximum();
+  // Target variables scaling
 
-   Eigen::MatrixXd scale_inputs_minimum_maximum_eigen();
-   Eigen::MatrixXd scale_targets_minimum_maximum_eigen();
+  void scale_targets_minimum_maximum(const Vector<Descriptives>&);
+  Vector<Descriptives> scale_targets_minimum_maximum();
 
-   void scale_input_minimum_maximum(const Descriptives&, const size_t&);
-   Descriptives scale_input_minimum_maximum(const size_t&);
+  void scale_targets_mean_standard_deviation(const Vector<Descriptives>&);
+  Vector<Descriptives> scale_targets_mean_standard_deviation();
 
-   Vector<Descriptives> scale_inputs(const string&);
-   void scale_inputs(const string&, const Vector<Descriptives>&);
-   void scale_inputs(const Vector<string>&, const Vector<Descriptives>&);
+  void scale_targets_logarithmic(const Vector<Descriptives>&);
+  Vector<Descriptives> scale_targets_logarithmic();
 
-   // Target variables scaling
+  Vector<Descriptives> scale_targets(const string&);
+  void scale_targets(const string&, const Vector<Descriptives>&);
 
-   void scale_targets_minimum_maximum(const Vector<Descriptives>&);
-   Vector<Descriptives> scale_targets_minimum_maximum();
+  // Data unscaling
 
-   void scale_targets_mean_standard_deviation(const Vector<Descriptives>&);
-   Vector<Descriptives> scale_targets_mean_standard_deviation();
+  void unscale_data_minimum_maximum(const Vector<Descriptives>&);
+  void unscale_data_mean_standard_deviation(const Vector<Descriptives>&);
 
-   void scale_targets_logarithmic(const Vector<Descriptives>&);
-   Vector<Descriptives> scale_targets_logarithmic();
+  // Input variables unscaling
 
-   Vector<Descriptives> scale_targets(const string&);
-   void scale_targets(const string&, const Vector<Descriptives>&);
+  void unscale_inputs_minimum_maximum(const Vector<Descriptives>&);
+  void unscale_inputs_mean_standard_deviation(const Vector<Descriptives>&);
 
-   // Data unscaling
+  // Target variables unscaling
 
-   void unscale_data_minimum_maximum(const Vector<Descriptives>&);
-   void unscale_data_mean_standard_deviation(const Vector<Descriptives>&);
+  void unscale_targets_minimum_maximum(const Vector<Descriptives>&);
+  void unscale_targets_mean_standard_deviation(const Vector<Descriptives>&);
 
-   // Input variables unscaling
+  // Classification methods
 
-   void unscale_inputs_minimum_maximum(const Vector<Descriptives>&);
-   void unscale_inputs_mean_standard_deviation(const Vector<Descriptives>&);
+  Vector<size_t> calculate_target_distribution() const;
 
-   // Target variables unscaling
+  Vector<size_t> balance_binary_targets_distribution(const double& = 100.0);
+  Vector<size_t> balance_multiple_targets_distribution();
 
-   void unscale_targets_minimum_maximum(const Vector<Descriptives>&);
-   void unscale_targets_mean_standard_deviation(const Vector<Descriptives>&);
+  Vector<size_t> balance_approximation_targets_distribution(const double& = 10.0);
 
-   // Classification methods
+  // Outlier detection
 
-   Vector<size_t> calculate_target_distribution() const;
+  Vector<size_t> calculate_Tukey_outliers(const size_t&, const double& = 1.5) const;
 
-   Vector<size_t> balance_binary_targets_distribution(const double& = 100.0);
-   Vector<size_t> balance_multiple_targets_distribution();
+  Vector<Vector<size_t>> calculate_Tukey_outliers(const double& = 1.5) const;
 
+  void unuse_Tukey_outliers(const double& = 1.5);
 
-   Vector<size_t> balance_approximation_targets_distribution(const double& = 10.0);
+  // Time series methods
 
-   // Outlier detection
+  void transform_columns_time_series();
 
-   Vector<size_t> calculate_Tukey_outliers(const size_t&, const double& = 1.5) const;
+  Matrix<double> calculate_autocorrelations(const size_t& = 10) const;
+  Matrix<Vector<double>> calculate_cross_correlations(const size_t& = 10) const;
 
-   Vector<Vector<size_t>> calculate_Tukey_outliers(const double& = 1.5) const;
+  Matrix<double> calculate_lag_plot() const;
+  Matrix<double> calculate_lag_plot(const size_t&);
 
-   void unuse_Tukey_outliers(const double& = 1.5);
+  // Data generation
 
-   // Time series methods
+  void generate_constant_data(const size_t&, const size_t&);
+  void generate_random_data(const size_t&, const size_t&);
+  void generate_sequential_data(const size_t&, const size_t&);
+  void generate_paraboloid_data(const size_t&, const size_t&);
+  void generate_Rosenbrock_data(const size_t&, const size_t&);
+  void generate_inputs_selection_data(const size_t&, const size_t&);
+  void generate_sum_data(const size_t&, const size_t&);
 
-   void transform_columns_time_series();
+  void generate_data_binary_classification(const size_t&, const size_t&);
+  void generate_data_multiple_classification(const size_t&, const size_t&, const size_t&);
 
-   Matrix<double> calculate_autocorrelations(const size_t& = 10) const;
-   Matrix<Vector<double>> calculate_cross_correlations(const size_t& = 10) const;
+  // Serialization methods
 
-   Matrix<double> calculate_lag_plot() const;
-   Matrix<double> calculate_lag_plot(const size_t&);
+  string object_to_string() const;
 
-   // Data generation
+  void print() const;
+  void print_summary() const;
 
-   void generate_constant_data(const size_t&, const size_t&);
-   void generate_random_data(const size_t&, const size_t&);
-   void generate_sequential_data(const size_t&, const size_t&);
-   void generate_paraboloid_data(const size_t&, const size_t&);
-   void generate_Rosenbrock_data(const size_t&, const size_t&);
-   void generate_inputs_selection_data(const size_t&, const size_t&);
-   void generate_sum_data(const size_t&, const size_t&);
+  tinyxml2::XMLDocument* to_XML() const;
 
-   void generate_data_binary_classification(const size_t&, const size_t&);
-   void generate_data_multiple_classification(const size_t&, const size_t&, const size_t&);
+  void from_XML(const tinyxml2::XMLDocument&);
+  void write_XML(tinyxml2::XMLPrinter&) const;
 
-   // Serialization methods
+  void save(const string&) const;
+  void load(const string&);
 
-   string object_to_string() const;
+  void print_columns_types() const;
 
-   void print() const;
-   void print_summary() const;
+  void print_data() const;
+  void print_data_preview() const;
 
-   tinyxml2::XMLDocument* to_XML() const;
+  void print_data_file_preview() const;
 
-   void from_XML(const tinyxml2::XMLDocument&);
-   void write_XML(tinyxml2::XMLPrinter&) const;
+  void save_data() const;
 
-   void save(const string&) const;
-   void load(const string&);
+  // Data load methods
 
-   void print_columns_types() const;
+  void read_csv();
 
-   void print_data() const;
-   void print_data_preview() const;
+  void load_data_binary();
+  void load_time_series_data_binary();
 
-   void print_data_file_preview() const;
+  // Trasform methods
 
-   void save_data() const;
+  void transform_time_series();
+  void transform_association();
 
-   // Data load methods
+  void fill_time_series(const size_t&);
 
-   void read_csv();
+  void delete_unused_instances();
 
-   void load_data_binary();
-   void load_time_series_data_binary();
+  void numeric_to_categorical(const size_t&);
 
-   // Trasform methods
+  // Missing values
 
-   void transform_time_series();
-   void transform_association();
+  void print_missing_values_information() const;
 
-   void fill_time_series(const size_t&);
+  void impute_missing_values_unuse();
+  void impute_missing_values_mean();
+  void impute_missing_values_median();
 
-   void delete_unused_instances();
+  void scrub_missing_values();
 
-   void numeric_to_categorical(const size_t&);
+  Vector<string> unuse_columns_missing_values(const double&);
 
-   // Missing values
+ private:
+  /// Data file name.
 
-   void print_missing_values_information() const;
+  string data_file_name;
 
-   void impute_missing_values_unuse();
-   void impute_missing_values_mean();
-   void impute_missing_values_median();
+  /// Separator character.
 
-   void scrub_missing_values();
+  Separator separator = Comma;
 
-   Vector<string> unuse_columns_missing_values(const double&);
+  /// Missing values label.
 
-private:
+  string missing_values_label = "NA";
 
-   /// Data file name.
+  /// Number of lags.
 
-   string data_file_name;
+  size_t lags_number;
 
-   /// Separator character.
+  /// Number of steps ahead.
 
-   Separator separator = Comma;
+  size_t steps_ahead;
 
-   /// Missing values label.
+  /// Data Matrix.
+  /// The number of rows is the number of instances.
+  /// The number of columns is the number of variables.
 
-   string missing_values_label = "NA";
+  Matrix<double> data;
 
-   /// Number of lags.
+  /// Time series data matrix.
+  /// The number of rows is the number of instances before time series transfomration.
+  /// The number of columns is the number of variables before time series transformation.
 
-   size_t lags_number;
+  Matrix<double> time_series_data;
 
-   /// Number of steps ahead.
+  Vector<Column> time_series_columns;
 
-   size_t steps_ahead;
+  /// Display messages to screen.
 
-   /// Data Matrix.
-   /// The number of rows is the number of instances.
-   /// The number of columns is the number of variables.
+  bool display = true;
 
-   Matrix<double> data;
+  /// Index where time variable is located for forecasting applications.
 
-   /// Time series data matrix.
-   /// The number of rows is the number of instances before time series transfomration.
-   /// The number of columns is the number of variables before time series transformation.
+  size_t time_index;
 
-   Matrix<double> time_series_data;
+  /// Missing values method object.
 
-   Vector<Column> time_series_columns;
+  MissingValuesMethod missing_values_method = Unuse;
 
-   /// Display messages to screen.
+  // Instances
 
-   bool display = true;
+  Vector<InstanceUse> instances_uses;
 
-   /// Index where time variable is located for forecasting applications.
+  /// Number of batch instances. It is used to optimized the training strategy.
 
-   size_t time_index;
+  size_t batch_instances_number = 1000;
 
-   /// Missing values method object.
+  // Variables
 
-   MissingValuesMethod missing_values_method = Unuse;
+  // Reader
 
-   // Instances
+  void read_csv_1();
 
-   Vector<InstanceUse> instances_uses;
+  void read_csv_2_simple();
+  void read_csv_3_simple();
 
-   /// Number of batch instances. It is used to optimized the training strategy.
+  void read_csv_2_complete();
+  void read_csv_3_complete();
 
-   size_t batch_instances_number = 1000;
+  void check_separators(const string&) const;
 
-   // Variables
+  /// Header which contains variables name.
 
-   // Reader
+  bool has_columns_names = false;
 
-   void read_csv_1();
+  /// Dimensions of the tensor input.
 
-   void read_csv_2_simple();
-   void read_csv_3_simple();
+  Vector<size_t> inputs_dimensions;
 
-   void read_csv_2_complete();
-   void read_csv_3_complete();
+  /// Dimensions of the tensor target.
 
-   void check_separators(const string&) const;
+  Vector<size_t> targets_dimensions;
 
-   /// Header which contains variables name.
+  /// Vector which contains the columns of the dataset.
 
-   bool has_columns_names = false;
+  Vector<Column> columns;
 
-   /// Dimensions of the tensor input.
+  /// Header wihch contains the rows label.
 
-   Vector<size_t> inputs_dimensions;
+  bool has_rows_labels = false;
 
-   /// Dimensions of the tensor target.
+  /// Vector which contains the labels of the rows.
 
-   Vector<size_t> targets_dimensions;
+  Vector<string> rows_labels;
 
-   /// Vector which contains the columns of the dataset.
+  /// Greenwich Mean Time, to transform human date into timpestamp.
 
-   Vector<Column> columns;
+  int gmt = 0;
 
-   /// Header wihch contains the rows label.
+  Vector<Vector<string>> data_file_preview;
 
-   bool has_rows_labels = false;
-
-   /// Vector which contains the labels of the rows.
-
-   Vector<string> rows_labels;
-
-   /// Greenwich Mean Time, to transform human date into timpestamp.
-
-   int gmt = 0;
-
-   Vector<Vector<string>> data_file_preview;
-
-//   bool shuffle_batches_instances = false;
+  //   bool shuffle_batches_instances = false;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
 

@@ -13,147 +13,141 @@
 
 #include <cmath>
 #include <cstdlib>
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <sstream>
 #include <string>
 
 // OpenNN includes
 
-#include "../../utilities/vector.h"
-#include "../../utilities/matrix.h"
 #include "../../neural_network/main/layer.h"
 #include "../../utilities/functions.h"
+#include "../../utilities/matrix.h"
 #include "../../utilities/tinyxml2.h"
+#include "../../utilities/vector.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
-/// This class represents a layer of bounding neurons. 
+/// This class represents a layer of bounding neurons.
 
-/// A bounding layer is used to ensure that variables will never fall below or above given values. 
+/// A bounding layer is used to ensure that variables will never fall below or above given values.
 
-class BoundingLayer : public Layer
-{
+class BoundingLayer : public Layer {
+ public:
+  // Constructors
 
-public:
+  explicit BoundingLayer();
 
-   // Constructors
+  explicit BoundingLayer(const size_t&);
 
-   explicit BoundingLayer();
+  explicit BoundingLayer(const tinyxml2::XMLDocument&);
 
-   explicit BoundingLayer(const size_t&);
+  BoundingLayer(const BoundingLayer&);
 
-   explicit BoundingLayer(const tinyxml2::XMLDocument&);
+  // Destructor
 
-   BoundingLayer(const BoundingLayer&);
+  virtual ~BoundingLayer();
 
-   // Destructor
-   
-   virtual ~BoundingLayer();
+  // Enumerations
 
-   // Enumerations
+  /// Enumeration of available methods for bounding the output variables.
 
-   /// Enumeration of available methods for bounding the output variables.
+  enum BoundingMethod { NoBounding,
+                        Bounding };
 
-   enum BoundingMethod{NoBounding, Bounding};
+  // Check methods
 
-   // Check methods
+  bool is_empty() const;
 
-   bool is_empty() const;
+  // Get methods
 
-   // Get methods
+  Vector<size_t> get_input_variables_dimensions() const;
+  size_t get_inputs_number() const;
+  size_t get_neurons_number() const;
 
-   Vector<size_t> get_input_variables_dimensions() const;
-   size_t get_inputs_number() const;
-   size_t get_neurons_number() const;
+  const BoundingMethod& get_bounding_method() const;
 
-   const BoundingMethod& get_bounding_method() const;
+  string write_bounding_method() const;
 
-   string write_bounding_method() const;
+  const Vector<double>& get_lower_bounds() const;
+  double get_lower_bound(const size_t&) const;
 
-   const Vector<double>& get_lower_bounds() const;
-   double get_lower_bound(const size_t&) const;
+  const Vector<double>& get_upper_bounds() const;
+  double get_upper_bound(const size_t&) const;
 
-   const Vector<double>& get_upper_bounds() const;
-   double get_upper_bound(const size_t&) const;
+  Vector<Vector<double>> get_bounds();
 
-   Vector<Vector<double>> get_bounds();
+  // Variables bounds
 
-   // Variables bounds
+  void set();
+  void set(const size_t&);
+  void set(const tinyxml2::XMLDocument&);
+  void set(const BoundingLayer&);
 
-   void set();
-   void set(const size_t&);
-   void set(const tinyxml2::XMLDocument&);
-   void set(const BoundingLayer&);
+  void set_inputs_number(const size_t&);
+  void set_neurons_number(const size_t&);
 
-   void set_inputs_number(const size_t&);
-   void set_neurons_number(const size_t&);
+  void set_bounding_method(const BoundingMethod&);
+  void set_bounding_method(const string&);
 
+  void set_lower_bounds(const Vector<double>&);
+  void set_lower_bound(const size_t&, const double&);
 
-   void set_bounding_method(const BoundingMethod&);
-   void set_bounding_method(const string&);
+  void set_upper_bounds(const Vector<double>&);
+  void set_upper_bound(const size_t&, const double&);
 
-   void set_lower_bounds(const Vector<double>&);
-   void set_lower_bound(const size_t&, const double&);
+  void set_bounds(const Vector<Vector<double>>&);
 
-   void set_upper_bounds(const Vector<double>&);
-   void set_upper_bound(const size_t&, const double&);
+  void set_display(const bool&);
 
-   void set_bounds(const Vector<Vector<double>>&);
+  void set_default();
 
-   void set_display(const bool&);
+  // Pruning and growing
 
-   void set_default();
+  void prune_neuron(const size_t&);
 
-   // Pruning and growing
+  // Lower and upper bounds
 
-   void prune_neuron(const size_t&);
+  Tensor<double> calculate_outputs(const Tensor<double>&);
 
-   // Lower and upper bounds
+  // Expression methods
 
-   Tensor<double> calculate_outputs(const Tensor<double>&);
+  string write_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_expression_php(const Vector<string>&, const Vector<string>&) const;
 
-   // Expression methods
+  // Serialization methods
 
-   string write_expression(const Vector<string>&, const Vector<string>&) const;
-   string write_expression_php(const Vector<string>&, const Vector<string>&) const;
+  string object_to_string() const;
 
-   // Serialization methods
+  tinyxml2::XMLDocument* to_XML() const;
+  void from_XML(const tinyxml2::XMLDocument&);
 
-   string object_to_string() const;
+  void write_XML(tinyxml2::XMLPrinter&) const;
+  // void read_XML( );
 
-   tinyxml2::XMLDocument* to_XML() const;
-   void from_XML(const tinyxml2::XMLDocument&);
+ protected:
+  // MEMBERS
 
-   void write_XML(tinyxml2::XMLPrinter&) const;
-   //void read_XML( );
+  /// Method used to bound the values.
 
-protected:
+  BoundingMethod bounding_method;
 
-   // MEMBERS
+  /// Lower bounds of output variables
 
-   /// Method used to bound the values.
+  Vector<double> lower_bounds;
 
-   BoundingMethod bounding_method;
+  /// Upper bounds of output variables
 
-   /// Lower bounds of output variables
+  Vector<double> upper_bounds;
 
-   Vector<double> lower_bounds;
+  /// Display messages to screen.
 
-   /// Upper bounds of output variables
-
-   Vector<double> upper_bounds;
-
-   /// Display messages to screen. 
-
-   bool display;
+  bool display;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
-
 
 // OpenNN: Open Neural Networks Library.
 // Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.
@@ -172,4 +166,3 @@ protected:
 // License along with this library; if not, write to the Free Software
 
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-

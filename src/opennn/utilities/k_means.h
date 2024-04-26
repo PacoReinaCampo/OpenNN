@@ -1,7 +1,7 @@
 //   OpenNN: Open Neural Networks Library
 //   www.opennn.net
 //
-//   K - M E A N S   H E A D E R                                           
+//   K - M E A N S   H E A D E R
 //
 //   Artificial Intelligence Techniques SL
 //   artelnics@artelnics.com
@@ -11,50 +11,41 @@
 
 // System includes
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
 #include <cstdlib>
-#include <stdexcept>
 #include <ctime>
 #include <exception>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <stdexcept>
+#include <string>
 
 // OpenNN includes
 
 //#include "../top/opennn.h"
 
-#include "../utilities/vector.h"
 #include "../utilities/matrix.h"
-#include "../utilities/tensor.h"
 #include "../utilities/statistics.h"
-
-
-
+#include "../utilities/tensor.h"
 #include "../utilities/tinyxml2.h"
+#include "../utilities/vector.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
-class KMeans
-{
+class KMeans {
+ public:
+  struct Results {
+    Vector<Vector<size_t>> clusters;
+  };
 
-public:
+  Results calculate_k_means(const Matrix<double>&, const size_t&) const;
 
-    struct Results
-    {
-      Vector<Vector<size_t>> clusters;
-    };
-
-
-    Results calculate_k_means(const Matrix<double>&, const size_t&) const;
-
-    size_t calculate_sample_index_proportional_probability(const Vector<double>&) const;
+  size_t calculate_sample_index_proportional_probability(const Vector<double>&) const;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
 

@@ -11,130 +11,120 @@
 
 // System includes
 
-#include <string>
-#include <sstream>
-
-#include <iostream>
-#include <fstream>
-#include <limits>
 #include <cmath>
+#include <fstream>
+#include <iostream>
+#include <limits>
+#include <sstream>
+#include <string>
 
 // OpenNN includes
 
-#include "../training_strategy/loss_index.h"
 #include "../data_set/data_set.h"
-
-
-
+#include "../training_strategy/loss_index.h"
 #include "../utilities/tinyxml2.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
-/// This class represents the normalized squared error term. 
+/// This class represents the normalized squared error term.
 
 ///
 /// This error term is used in data modeling problems.
 /// If it has a value of unity then the neural network is predicting the data "in the mean",
 /// A value of zero means perfect prediction of data.
 
-class NormalizedSquaredError : public LossIndex
-{
+class NormalizedSquaredError : public LossIndex {
+ public:
+  explicit NormalizedSquaredError(NeuralNetwork*, DataSet*);
 
-public:
+  // NEURAL NETWORK CONSTRUCTOR
 
-   explicit NormalizedSquaredError(NeuralNetwork*, DataSet*);
+  explicit NormalizedSquaredError(NeuralNetwork*);
 
-   // NEURAL NETWORK CONSTRUCTOR
+  // DATA SET CONSTRUCTOR
 
-   explicit NormalizedSquaredError(NeuralNetwork*);
+  explicit NormalizedSquaredError(DataSet*);
 
-   // DATA SET CONSTRUCTOR
+  // DEFAULT CONSTRUCTOR
 
-   explicit NormalizedSquaredError(DataSet*);
+  explicit NormalizedSquaredError();
 
-   // DEFAULT CONSTRUCTOR
+  // XML CONSTRUCTOR
 
-   explicit NormalizedSquaredError();
+  explicit NormalizedSquaredError(const tinyxml2::XMLDocument&);
 
-   // XML CONSTRUCTOR
+  virtual ~NormalizedSquaredError();
 
-   explicit NormalizedSquaredError(const tinyxml2::XMLDocument&);
+  // Get methods
 
-   virtual ~NormalizedSquaredError();
+  double get_normalization_coefficient() const;
 
-   // Get methods
+  // Set methods
 
-    double get_normalization_coefficient() const;
+  void set_normalization_coefficient();
+  void set_normalization_coefficient(const double&);
 
-   // Set methods
+  void set_selection_normalization_coefficient();
+  void set_selection_normalization_coefficient(const double&);
 
-    void set_normalization_coefficient();
-    void set_normalization_coefficient(const double&);
+  void set_default();
 
-    void set_selection_normalization_coefficient();
-    void set_selection_normalization_coefficient(const double&);
+  // Normalization coefficients
 
-    void set_default();
+  double calculate_normalization_coefficient(const Matrix<double>&, const Vector<double>&) const;
 
-   // Normalization coefficients 
+  // Error methods
 
-   double calculate_normalization_coefficient(const Matrix<double>&, const Vector<double>&) const;
+  double calculate_training_error() const;
+  double calculate_training_error(const Vector<double>&) const;
 
-   // Error methods
+  double calculate_selection_error() const;
 
-   double calculate_training_error() const;
-   double calculate_training_error(const Vector<double>&) const;
+  double calculate_batch_error(const Vector<size_t>&) const;
+  double calculate_batch_error(const Vector<size_t>&, const Vector<double>&) const;
 
-   double calculate_selection_error() const;
+  // Gradient methods
 
-   double calculate_batch_error(const Vector<size_t>&) const;
-   double calculate_batch_error(const Vector<size_t>&, const Vector<double>&) const;
+  Tensor<double> calculate_output_gradient(const Tensor<double>&, const Tensor<double>&) const;
 
-   // Gradient methods
+  LossIndex::FirstOrderLoss calculate_first_order_loss() const;
 
-   Tensor<double> calculate_output_gradient(const Tensor<double>&, const Tensor<double>&) const;
+  LossIndex::FirstOrderLoss calculate_batch_first_order_loss(const Vector<size_t>&) const;
 
-   LossIndex::FirstOrderLoss calculate_first_order_loss() const;
+  // Error terms methods
 
-   LossIndex::FirstOrderLoss calculate_batch_first_order_loss(const Vector<size_t>&) const;
+  Vector<double> calculate_training_error_terms(const Tensor<double>&, const Tensor<double>&) const;
+  Vector<double> calculate_training_error_terms(const Vector<double>&) const;
 
-   // Error terms methods
+  // Squared errors methods
 
-   Vector<double> calculate_training_error_terms(const Tensor<double>&, const Tensor<double>&) const;
-   Vector<double> calculate_training_error_terms(const Vector<double>&) const;
+  Vector<double> calculate_squared_errors() const;
 
-   // Squared errors methods
+  Vector<size_t> calculate_maximal_errors(const size_t& = 10) const;
 
-   Vector<double> calculate_squared_errors() const;
+  LossIndex::SecondOrderLoss calculate_terms_second_order_loss() const;
 
-   Vector<size_t> calculate_maximal_errors(const size_t& = 10) const;
+  string get_error_type() const;
+  string get_error_type_text() const;
 
-   LossIndex::SecondOrderLoss calculate_terms_second_order_loss() const;
+  // Serialization methods
 
-   string get_error_type() const;
-   string get_error_type_text() const;
+  tinyxml2::XMLDocument* to_XML() const;
+  void from_XML(const tinyxml2::XMLDocument&);
 
-   // Serialization methods
+  void write_XML(tinyxml2::XMLPrinter&) const;
 
-   tinyxml2::XMLDocument* to_XML() const;   
-   void from_XML(const tinyxml2::XMLDocument&);
+ private:
+  /// Coefficient of normalization for the calculation of the training error.
 
-   void write_XML(tinyxml2::XMLPrinter&) const;
+  double normalization_coefficient;
 
-private:
-
-   /// Coefficient of normalization for the calculation of the training error.
-
-   double normalization_coefficient;
-
-   double selection_normalization_coefficient;
+  double selection_normalization_coefficient;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
-
 
 // OpenNN: Open Neural Networks Library.
 // Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.
@@ -152,4 +142,3 @@ private:
 // You should have received a copy of the GNU Lesser General Public
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-

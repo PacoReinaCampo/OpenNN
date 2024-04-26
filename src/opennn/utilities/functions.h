@@ -15,213 +15,209 @@
 
 // OpenNN includes
 
-#include "../utilities/vector.h"
 #include "../utilities/matrix.h"
-#include "../utilities/tensor.h"
-#include "../utilities/statistics.h"
 #include "../utilities/metrics.h"
+#include "../utilities/statistics.h"
+#include "../utilities/tensor.h"
+#include "../utilities/vector.h"
 
 using namespace std;
 
-namespace OpenNN
-{
+namespace OpenNN {
 
-    double random_uniform(const double & = -1.0, const double & = 1.0);
+double random_uniform(const double & = -1.0, const double & = 1.0);
 
-    double random_normal(const double & = 0.0, const double & = 1.0);
+double random_normal(const double & = 0.0, const double & = 1.0);
 
-    size_t factorial(const size_t&);
+size_t factorial(const size_t &);
 
-    Vector<double> exponential(const Vector<double>&);
+Vector<double> exponential(const Vector<double> &);
 
-    Vector<double> logarithm(const Vector<double>&);
+Vector<double> logarithm(const Vector<double> &);
 
-    Vector<double> power(const Vector<double>&, const double&);
+Vector<double> power(const Vector<double> &, const double &);
 
-    Tensor<double> competitive(const Tensor<double>&);
+Tensor<double> competitive(const Tensor<double> &);
 
-    Vector<bool> binary(const Vector<double>&);
+Vector<bool> binary(const Vector<double> &);
 
-    Vector<double> square_root(const Vector<double>&);
+Vector<double> square_root(const Vector<double> &);
 
-    Vector<double> cumulative(const Vector<double>&);
+Vector<double> cumulative(const Vector<double> &);
 
-    Vector<double> lower_bounded(const Vector<double>&, const double &);
+Vector<double> lower_bounded(const Vector<double> &, const double &);
 
-    Vector<double> lower_bounded(const Vector<double>&, const Vector<double>&);
+Vector<double> lower_bounded(const Vector<double> &, const Vector<double> &);
 
-    Vector<double> upper_bounded(const Vector<double>&, const double &);
+Vector<double> upper_bounded(const Vector<double> &, const double &);
 
-    Vector<double> upper_bounded(const Vector<double>&, const Vector<double>&);
+Vector<double> upper_bounded(const Vector<double> &, const Vector<double> &);
 
-    Vector<double> lower_upper_bounded(const Vector<double>&, const double &, const double &);
+Vector<double> lower_upper_bounded(const Vector<double> &, const double &, const double &);
 
-    Vector<double> lower_upper_bounded(const Vector<double>&, const Vector<double>&, const Vector<double>&);
+Vector<double> lower_upper_bounded(const Vector<double> &, const Vector<double> &, const Vector<double> &);
 
-    Matrix<double> lower_bounded(const Matrix<double>&, const double&);
-    Matrix<double> upper_bounded(const Matrix<double>&, const double&);
+Matrix<double> lower_bounded(const Matrix<double> &, const double &);
+Matrix<double> upper_bounded(const Matrix<double> &, const double &);
 
-    Matrix<double> lower_upper_bounded(const Matrix<double>&, const Vector<double>&, const Vector<double>&);
-    Tensor<double> lower_upper_bounded(const Tensor<double>&, const Vector<double>&, const Vector<double>&);
+Matrix<double> lower_upper_bounded(const Matrix<double> &, const Vector<double> &, const Vector<double> &);
+Tensor<double> lower_upper_bounded(const Tensor<double> &, const Vector<double> &, const Vector<double> &);
 
-    Vector<double> hard_sigmoid(const Vector<double>&);
-    Vector<double> hyperbolic_tangent(const Vector<double>&);
-    Vector<double> logistic(const Vector<double>&);
-    Vector<double> logistic_function(const Vector<double>&, const double&, const double&);
+Vector<double> hard_sigmoid(const Vector<double> &);
+Vector<double> hyperbolic_tangent(const Vector<double> &);
+Vector<double> logistic(const Vector<double> &);
+Vector<double> logistic_function(const Vector<double> &, const double &, const double &);
 
-    Vector<double> linear(const Vector<double>&);
-    Vector<double> threshold(const Vector<double>&);
-    Vector<double> symmetric_threshold(const Vector<double>&);
-    Vector<double> rectified_linear(const Vector<double>&);
+Vector<double> linear(const Vector<double> &);
+Vector<double> threshold(const Vector<double> &);
+Vector<double> symmetric_threshold(const Vector<double> &);
+Vector<double> rectified_linear(const Vector<double> &);
 
-    Vector<double> scaled_exponential_linear(const Vector<double>&);
-    Vector<double> soft_plus(const Vector<double>&);
-    Vector<double> soft_sign(const Vector<double>&);
-    Vector<double> exponential_linear(const Vector<double>&);
+Vector<double> scaled_exponential_linear(const Vector<double> &);
+Vector<double> soft_plus(const Vector<double> &);
+Vector<double> soft_sign(const Vector<double> &);
+Vector<double> exponential_linear(const Vector<double> &);
 
-    Vector<double> logistic_derivatives(const Vector<double>&);
-    Vector<double> threshold_derivatives(const Vector<double>&);
-    Vector<double> symmetric_threshold_derivatives(const Vector<double>&);
+Vector<double> logistic_derivatives(const Vector<double> &);
+Vector<double> threshold_derivatives(const Vector<double> &);
+Vector<double> symmetric_threshold_derivatives(const Vector<double> &);
 
+Vector<double> linear_derivatives(const Vector<double> &);
+Vector<double> hyperbolic_tangent_derivatives(const Vector<double> &);
+Vector<double> rectified_linear_derivatives(const Vector<double> &);
+Vector<double> scaled_exponential_linear_derivatives(const Vector<double> &);
+Vector<double> soft_plus_derivatives(const Vector<double> &);
+Vector<double> soft_sign_derivatives(const Vector<double> &);
+Vector<double> hard_sigmoid_derivatives(const Vector<double> &);
+Vector<double> exponential_linear_derivatives(const Vector<double> &);
+Vector<double> softmax_derivatives(const Vector<double> &);
 
-    Vector<double> linear_derivatives(const Vector<double>&);
-    Vector<double> hyperbolic_tangent_derivatives(const Vector<double>&);
-    Vector<double> rectified_linear_derivatives(const Vector<double>&);
-    Vector<double> scaled_exponential_linear_derivatives(const Vector<double>&);
-    Vector<double> soft_plus_derivatives(const Vector<double>&);
-    Vector<double> soft_sign_derivatives(const Vector<double>&);
-    Vector<double> hard_sigmoid_derivatives(const Vector<double>&);
-    Vector<double> exponential_linear_derivatives(const Vector<double>&);
-    Vector<double> softmax_derivatives(const Vector<double>&);
+// SINE FUNCTIONS
 
+Vector<double> sine(const Vector<double> &);
 
-    // SINE FUNCTIONS
+Matrix<double> sine(const Matrix<double> &);
 
-    Vector<double> sine(const Vector<double>&);
+// COSINE FUNCTIONS
 
-    Matrix<double> sine(const Matrix<double>&);
+Vector<double> cosine(const Vector<double> &);
 
+Matrix<double> cosine(const Matrix<double> &);
 
-    // COSINE FUNCTIONS
+// LINEAR
 
-    Vector<double> cosine(const Vector<double>&);
+Tensor<double> linear(const Tensor<double> &);
 
-    Matrix<double> cosine(const Matrix<double>&);
+// HYPERBOLIC TANGENT
 
-    // LINEAR
+Tensor<double> hyperbolic_tangent(const Tensor<double> &);
 
-    Tensor<double> linear(const Tensor<double>&);
+// LOGISTIC
 
-    // HYPERBOLIC TANGENT
+Tensor<double> logistic(const Tensor<double> &);
+Tensor<double> logistic_second_derivatives(const Tensor<double> &);
 
-    Tensor<double> hyperbolic_tangent(const Tensor<double>&);
+// BINARY
 
-    // LOGISTIC
+Tensor<double> binary(const Tensor<double> &);
 
-    Tensor<double> logistic(const Tensor<double>&);
-    Tensor<double> logistic_second_derivatives(const Tensor<double>&);
+// THRESHOLD
 
-    // BINARY
+Tensor<double> threshold(const Tensor<double> &);
 
-    Tensor<double> binary(const Tensor<double>&);
+// SYMMETRIC THRESHOLD
 
-    // THRESHOLD
+Tensor<double> symmetric_threshold(const Tensor<double> &);
 
-    Tensor<double> threshold(const Tensor<double>&);
+// RECTIFIED LINEAR
 
-    // SYMMETRIC THRESHOLD
+Tensor<double> rectified_linear(const Tensor<double> &);
 
-    Tensor<double> symmetric_threshold(const Tensor<double>&);
+// SCALED EXPONENTIAL LINEAR
 
-    // RECTIFIED LINEAR
+Tensor<double> scaled_exponential_linear(const Tensor<double> &);
 
-    Tensor<double> rectified_linear(const Tensor<double>&);
+// SOFT PLUS
 
-    // SCALED EXPONENTIAL LINEAR
+Tensor<double> soft_plus(const Tensor<double> &);
 
-    Tensor<double> scaled_exponential_linear(const Tensor<double>&);
+// SOFT SIGN
 
-    // SOFT PLUS
+Tensor<double> soft_sign(const Tensor<double> &);
 
-    Tensor<double> soft_plus(const Tensor<double>&);
+// HARD SIGMOID
 
-    // SOFT SIGN
+Tensor<double> hard_sigmoid(const Tensor<double> &);
 
-    Tensor<double> soft_sign(const Tensor<double>&);
+// EXPONENTIAL LINEAR
 
-    // HARD SIGMOID
+Tensor<double> exponential_linear(const Tensor<double> &);
 
-    Tensor<double> hard_sigmoid(const Tensor<double>&);
+// SOFTMAX
 
-    // EXPONENTIAL LINEAR
+Tensor<double> softmax(const Tensor<double> &);
 
-    Tensor<double> exponential_linear(const Tensor<double>&);
+Tensor<double> softmax_rows(const Tensor<double> &);
 
-    // SOFTMAX
+Matrix<double> softmax_columns(const Matrix<double> &);
 
-    Tensor<double> softmax(const Tensor<double>&);
+// LINEAR DERIVATIVES
 
-    Tensor<double> softmax_rows(const Tensor<double>&);
+Tensor<double> linear_derivatives(const Tensor<double> &);
 
-    Matrix<double> softmax_columns(const Matrix<double>&);
+// HYPERBOLIC TANGENT DERIVATIVES
 
-    // LINEAR DERIVATIVES
+Tensor<double> hyperbolic_tangent_derivatives(const Tensor<double> &);
 
-    Tensor<double> linear_derivatives(const Tensor<double>&);
+// LOGISTIC DERIVATIVES
 
-    // HYPERBOLIC TANGENT DERIVATIVES
+Tensor<double> logistic_derivatives(const Tensor<double> &);
 
-    Tensor<double> hyperbolic_tangent_derivatives(const Tensor<double>&);
+// THRESHOLD DERIVATIVES
 
-    // LOGISTIC DERIVATIVES
+Tensor<double> threshold_derivatives(const Tensor<double> &);
 
-    Tensor<double> logistic_derivatives(const Tensor<double>&);
+// SYMMETRIC THRESHOLD DERIVATIVES
 
-    // THRESHOLD DERIVATIVES
+Tensor<double> symmetric_threshold_derivatives(const Tensor<double> &);
 
-    Tensor<double> threshold_derivatives(const Tensor<double>&);
+// RECTIFIED LINEAR DERIVATIVES
 
-    // SYMMETRIC THRESHOLD DERIVATIVES
+Tensor<double> rectified_linear_derivatives(const Tensor<double> &);
 
-    Tensor<double> symmetric_threshold_derivatives(const Tensor<double>&);
+// SCALED EXPONENTIAL LINEAR DERIVATIVES
 
-    // RECTIFIED LINEAR DERIVATIVES
+Tensor<double> scaled_exponential_linear_derivatives(const Tensor<double> &);
 
-    Tensor<double> rectified_linear_derivatives(const Tensor<double>&);
+// SOFT PLUS DERIVATIVES
 
-    // SCALED EXPONENTIAL LINEAR DERIVATIVES
+Tensor<double> soft_plus_derivatives(const Tensor<double> &);
 
-    Tensor<double> scaled_exponential_linear_derivatives(const Tensor<double>&);
+// SOFT SIGN DERIVATIVES
 
-    //SOFT PLUS DERIVATIVES
+Tensor<double> soft_sign_derivatives(const Tensor<double> &);
 
-    Tensor<double> soft_plus_derivatives(const Tensor<double>&);
+// HARD SIGMOID DERIVATIVES
 
-    // SOFT SIGN DERIVATIVES
+Tensor<double> hard_sigmoid_derivatives(const Tensor<double> &);
 
-    Tensor<double> soft_sign_derivatives(const Tensor<double>&);
+// EXPONENTIAL LINEAR DERIVATIVES
 
-    // HARD SIGMOID DERIVATIVES
+Tensor<double> exponential_linear_derivatives(const Tensor<double> &);
 
-    Tensor<double> hard_sigmoid_derivatives(const Tensor<double>&);
+// SOFTMAX DERIVATIVES
 
-    // EXPONENTIAL LINEAR DERIVATIVES
+Tensor<double> softmax_derivatives(const Tensor<double> &);
 
-    Tensor<double> exponential_linear_derivatives(const Tensor<double>&);
+Vector<double> sign(const Vector<double> &);
 
-    // SOFTMAX DERIVATIVES
+Vector<double> normalized(const Vector<double> &);
 
-    Tensor<double> softmax_derivatives(const Tensor<double>&);
+Vector<double> absolute_value(const Vector<double> &);
 
-    Vector<double> sign(const Vector<double>&);
+Matrix<double> normalized_columns(const Matrix<double> &);
 
-    Vector<double> normalized(const Vector<double>&);
+Matrix<double> absolute_value(const Matrix<double> &);
+}  // namespace OpenNN
 
-    Vector<double> absolute_value(const Vector<double>&);
-
-    Matrix<double> normalized_columns(const Matrix<double>&);
-
-    Matrix<double> absolute_value(const Matrix<double>&);
-}
-
-#endif // __FUNCTIONS_H
+#endif  // __FUNCTIONS_H

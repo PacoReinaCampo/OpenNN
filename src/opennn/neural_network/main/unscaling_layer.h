@@ -1,7 +1,7 @@
 //   OpenNN: Open Neural Networks Library
 //   www.opennn.net
 //
-//   U N S C A L I N G   L A Y E R   C L A S S   H E A D E R               
+//   U N S C A L I N G   L A Y E R   C L A S S   H E A D E R
 //
 //   Artificial Intelligence Techniques SL
 //   artelnics@artelnics.com
@@ -15,26 +15,22 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 // OpenNN includes
 
-#include "../../utilities/vector.h"
-#include "../../utilities/matrix.h"
 #include "../../neural_network/main/layer.h"
+#include "../../utilities/matrix.h"
 #include "../../utilities/statistics.h"
-
-
-
 #include "../../utilities/tinyxml2.h"
+#include "../../utilities/vector.h"
 
 // Eigen includes
 
 #include "../../../eigen/Eigen"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This class represents a layer of unscaling neurons.
 
@@ -42,149 +38,147 @@ namespace OpenNN
 /// Unscaling layers are included in the definition of a neural network.
 /// They are used to unnormalize variables so they are in the original range after computer processing.
 
-class UnscalingLayer : public Layer
-{
+class UnscalingLayer : public Layer {
+ public:
+  // Constructors
 
-public:
+  explicit UnscalingLayer();
 
-   // Constructors
+  explicit UnscalingLayer(const size_t&);
 
-   explicit UnscalingLayer();
+  explicit UnscalingLayer(const Vector<Descriptives>&);
 
-   explicit UnscalingLayer(const size_t&);
+  explicit UnscalingLayer(const tinyxml2::XMLDocument&);
 
-   explicit UnscalingLayer(const Vector<Descriptives>&);
+  UnscalingLayer(const UnscalingLayer&);
 
-   explicit UnscalingLayer(const tinyxml2::XMLDocument&);
+  // Destructor
 
-   UnscalingLayer(const UnscalingLayer&);
+  virtual ~UnscalingLayer();
 
-   // Destructor
+  // Enumerations
 
-   virtual ~UnscalingLayer();
+  /// Enumeration of available methods for input variables, output variables and independent parameters scaling.
 
-   // Enumerations
+  enum UnscalingMethod { NoUnscaling,
+                         MinimumMaximum,
+                         MeanStandardDeviation,
+                         Logarithmic };
 
-   /// Enumeration of available methods for input variables, output variables and independent parameters scaling.  
-   
-   enum UnscalingMethod{NoUnscaling, MinimumMaximum, MeanStandardDeviation, Logarithmic};
+  // Get methods
 
-   // Get methods
+  Vector<size_t> get_input_variables_dimensions() const;
 
-   Vector<size_t> get_input_variables_dimensions() const;
+  size_t get_inputs_number() const;
+  size_t get_neurons_number() const;
 
-   size_t get_inputs_number() const;
-   size_t get_neurons_number() const;
+  Vector<Descriptives> get_descriptives() const;
 
-   Vector<Descriptives> get_descriptives() const;
+  Matrix<double> get_descriptives_matrix() const;
+  Vector<double> get_minimums() const;
+  Vector<double> get_maximums() const;
 
-   Matrix<double> get_descriptives_matrix() const;
-   Vector<double> get_minimums() const;
-   Vector<double> get_maximums() const;
+  const UnscalingMethod& get_unscaling_method() const;
 
-   const UnscalingMethod& get_unscaling_method() const;
+  string write_unscaling_method() const;
+  string write_unscaling_method_text() const;
 
-   string write_unscaling_method() const;
-   string write_unscaling_method_text() const;
+  const bool& get_display() const;
 
-   const bool& get_display() const;
+  // Set methods
 
-   // Set methods
+  void set();
+  void set(const size_t&);
+  void set(const Vector<Descriptives>&);
+  void set(const tinyxml2::XMLDocument&);
+  void set(const UnscalingLayer&);
 
-   void set();
-   void set(const size_t&);
-   void set(const Vector<Descriptives>&);
-   void set(const tinyxml2::XMLDocument&);
-   void set(const UnscalingLayer&);
+  void set_inputs_number(const size_t&);
+  void set_neurons_number(const size_t&);
 
-   void set_inputs_number(const size_t&);
-   void set_neurons_number(const size_t&);
+  virtual void set_default();
 
-   virtual void set_default();
+  // Output variables descriptives
 
-   // Output variables descriptives
+  void set_descriptives(const Vector<Descriptives>&);
+  void set_descriptives_eigen(const Eigen::MatrixXd&);
 
-   void set_descriptives(const Vector<Descriptives>&);
-   void set_descriptives_eigen(const Eigen::MatrixXd&);
+  void set_item_descriptives(const size_t&, const Descriptives&);
 
-   void set_item_descriptives(const size_t&, const Descriptives&);
+  void set_minimum(const size_t&, const double&);
+  void set_maximum(const size_t&, const double&);
+  void set_mean(const size_t&, const double&);
+  void set_standard_deviation(const size_t&, const double&);
 
-   void set_minimum(const size_t&, const double&);
-   void set_maximum(const size_t&, const double&);
-   void set_mean(const size_t&, const double&);
-   void set_standard_deviation(const size_t&, const double&);
+  // Outputs unscaling method
 
-   // Outputs unscaling method
+  void set_unscaling_method(const UnscalingMethod&);
+  void set_unscaling_method(const string&);
 
-   void set_unscaling_method(const UnscalingMethod&);
-   void set_unscaling_method(const string&);
+  // Display messages
 
-   // Display messages
+  void set_display(const bool&);
 
-   void set_display(const bool&);
+  // Pruning and growing
 
-   // Pruning and growing
+  void prune_neuron(const size_t&);
 
-   void prune_neuron(const size_t&);
+  // Check methods
 
-   // Check methods
+  bool is_empty() const;
 
-   bool is_empty() const;
-  
-   Tensor<double> calculate_outputs(const Tensor<double>&);
+  Tensor<double> calculate_outputs(const Tensor<double>&);
 
-   Tensor<double> calculate_minimum_maximum_outputs(const Tensor<double>&) const;
+  Tensor<double> calculate_minimum_maximum_outputs(const Tensor<double>&) const;
 
-   Tensor<double> calculate_mean_standard_deviation_outputs(const Tensor<double>&) const;
+  Tensor<double> calculate_mean_standard_deviation_outputs(const Tensor<double>&) const;
 
-   Tensor<double> calculate_logarithmic_outputs(const Tensor<double>&) const;
+  Tensor<double> calculate_logarithmic_outputs(const Tensor<double>&) const;
 
-   void check_range(const Vector<double>&) const;
+  void check_range(const Vector<double>&) const;
 
-   // Serialization methods
+  // Serialization methods
 
-   string object_to_string() const;
+  string object_to_string() const;
 
-   tinyxml2::XMLDocument* to_XML() const;
-   void from_XML(const tinyxml2::XMLDocument&);
+  tinyxml2::XMLDocument* to_XML() const;
+  void from_XML(const tinyxml2::XMLDocument&);
 
-   void write_XML(tinyxml2::XMLPrinter&) const;
+  void write_XML(tinyxml2::XMLPrinter&) const;
 
-   // Expression methods
+  // Expression methods
 
-   string write_none_expression(const Vector<string>&, const Vector<string>&) const;
-   string write_minimum_maximum_expression(const Vector<string>&, const Vector<string>&) const;
-   string write_mean_standard_deviation_expression(const Vector<string>&, const Vector<string>&) const;
-   string write_logarithmic_expression(const Vector<string>&, const Vector<string>&) const;
-   string write_none_expression_php(const Vector<string>&, const Vector<string>&) const;
-   string write_minimum_maximum_expression_php(const Vector<string>&, const Vector<string>&) const;
-   string write_mean_standard_deviation_expression_php(const Vector<string>&, const Vector<string>&) const;
-   string write_logarithmic_expression_php(const Vector<string>&, const Vector<string>&) const;
+  string write_none_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_minimum_maximum_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_mean_standard_deviation_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_logarithmic_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_none_expression_php(const Vector<string>&, const Vector<string>&) const;
+  string write_minimum_maximum_expression_php(const Vector<string>&, const Vector<string>&) const;
+  string write_mean_standard_deviation_expression_php(const Vector<string>&, const Vector<string>&) const;
+  string write_logarithmic_expression_php(const Vector<string>&, const Vector<string>&) const;
 
-   string write_expression(const Vector<string>&, const Vector<string>&) const;
-   string write_expression_php(const Vector<string>&, const Vector<string>&) const;
+  string write_expression(const Vector<string>&, const Vector<string>&) const;
+  string write_expression_php(const Vector<string>&, const Vector<string>&) const;
 
-protected:
+ protected:
+  // MEMBERS
 
-   // MEMBERS
+  /// Descriptives of output variables.
 
-   /// Descriptives of output variables.
+  Vector<Descriptives> descriptives;
 
-   Vector<Descriptives> descriptives;
+  /// Unscaling method for the output variables.
 
-   /// Unscaling method for the output variables.
+  UnscalingMethod unscaling_method;
 
-   UnscalingMethod unscaling_method;
+  /// Display warning messages to screen.
 
-   /// Display warning messages to screen. 
-
-   bool display;
+  bool display;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
-
 
 // OpenNN: Open Neural Networks Library.
 // Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.
@@ -203,4 +197,3 @@ protected:
 // License along with this library; if not, write to the Free Software
 
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-

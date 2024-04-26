@@ -8,12 +8,13 @@
 
 // System includes
 
-#include <iostream>
+#include <time.h>
+
+#include <cstring>
 #include <fstream>
+#include <iostream>
 #include <sstream>
 #include <string>
-#include <cstring>
-#include <time.h>
 
 // OpenNN includes
 
@@ -21,119 +22,113 @@
 
 using namespace OpenNN;
 
-int main(void)
-{
-    try
-    {
-        cout << "OpenNN. Temperature Forecasting Example." << endl;
+int main(void) {
+  try {
+    cout << "OpenNN. Temperature Forecasting Example." << endl;
 
-        srand(static_cast<unsigned>(time(nullptr)));
+    srand(static_cast<unsigned>(time(nullptr)));
 
-        //Data Set
+    // Data Set
 
-        DataSet data_set("data/temperature.csv", ',', true);
+    DataSet data_set("data/temperature.csv", ',', true);
 
-        Vector<Descriptives> columns_statistics = data_set.calculate_columns_descriptives();
+    Vector<Descriptives> columns_statistics = data_set.calculate_columns_descriptives();
 
-        Vector<Histogram> columns_histograms = data_set.calculate_columns_histograms();
+    Vector<Histogram> columns_histograms = data_set.calculate_columns_histograms();
 
-        cout << "Converting to time series" << endl;
+    cout << "Converting to time series" << endl;
 
-        data_set.set_lags_number(12);
-        data_set.set_steps_ahead_number(1);
-        data_set.transform_time_series();
+    data_set.set_lags_number(12);
+    data_set.set_steps_ahead_number(1);
+    data_set.transform_time_series();
 
-        cout << "Correlations" << endl;
+    cout << "Correlations" << endl;
 
-        // Missing values
+    // Missing values
 
-        data_set.impute_missing_values_mean();
+    data_set.impute_missing_values_mean();
 
-        // Instances
+    // Instances
 
-        data_set.split_instances_sequential();
+    data_set.split_instances_sequential();
 
-        const Vector<Descriptives> inputs_descriptives = data_set.scale_inputs_minimum_maximum();
-        const Vector<Descriptives> targets_descriptives = data_set.scale_targets_minimum_maximum();
+    const Vector<Descriptives> inputs_descriptives = data_set.scale_inputs_minimum_maximum();
+    const Vector<Descriptives> targets_descriptives = data_set.scale_targets_minimum_maximum();
 
-        // Neural network
+    // Neural network
 
-        cout << "Neural network" << endl;
+    cout << "Neural network" << endl;
 
-        const size_t inputs_number = data_set.get_input_variables_number();
-        const size_t hidden_perceptrons_number = 6;
-        const size_t outputs_number = data_set.get_target_variables_number();
+    const size_t inputs_number = data_set.get_input_variables_number();
+    const size_t hidden_perceptrons_number = 6;
+    const size_t outputs_number = data_set.get_target_variables_number();
 
-        NeuralNetwork neural_network(NeuralNetwork::Forecasting, {inputs_number, hidden_perceptrons_number, outputs_number});
+    NeuralNetwork neural_network(NeuralNetwork::Forecasting, {inputs_number, hidden_perceptrons_number, outputs_number});
 
-        ScalingLayer* scaling_layer_pointer = neural_network.get_scaling_layer_pointer();
-        scaling_layer_pointer->set_descriptives(inputs_descriptives);
-        scaling_layer_pointer->set_scaling_methods(ScalingLayer::NoScaling);
+    ScalingLayer* scaling_layer_pointer = neural_network.get_scaling_layer_pointer();
+    scaling_layer_pointer->set_descriptives(inputs_descriptives);
+    scaling_layer_pointer->set_scaling_methods(ScalingLayer::NoScaling);
 
+    UnscalingLayer* unscaling_layer_pointer = neural_network.get_unscaling_layer_pointer();
+    unscaling_layer_pointer->set_descriptives(targets_descriptives);
+    unscaling_layer_pointer->set_unscaling_method(UnscalingLayer::NoUnscaling);
 
-        UnscalingLayer* unscaling_layer_pointer = neural_network.get_unscaling_layer_pointer();
-        unscaling_layer_pointer->set_descriptives(targets_descriptives);
-        unscaling_layer_pointer->set_unscaling_method(UnscalingLayer::NoUnscaling);
+    // Training strategy object
 
-        // Training strategy object
+    TrainingStrategy training_strategy;
+    QuasiNewtonMethod* quasi_Newton_method_pointer = training_strategy.get_quasi_Newton_method_pointer();
+    quasi_Newton_method_pointer->set_maximum_epochs_number(10000);
+    quasi_Newton_method_pointer->set_maximum_time(250);
+    quasi_Newton_method_pointer->set_display_period(10);
+    quasi_Newton_method_pointer->set_minimum_loss_decrease(0.0);
+    quasi_Newton_method_pointer->set_reserve_training_error_history(true);
+    quasi_Newton_method_pointer->set_reserve_selection_error_history(true);
 
-        TrainingStrategy training_strategy;
-        QuasiNewtonMethod* quasi_Newton_method_pointer = training_strategy.get_quasi_Newton_method_pointer();
-        quasi_Newton_method_pointer->set_maximum_epochs_number(10000);
-        quasi_Newton_method_pointer->set_maximum_time(250);
-        quasi_Newton_method_pointer->set_display_period(10);
-        quasi_Newton_method_pointer->set_minimum_loss_decrease(0.0);
-        quasi_Newton_method_pointer->set_reserve_training_error_history(true);
-        quasi_Newton_method_pointer->set_reserve_selection_error_history(true);
+    const OptimizationAlgorithm::Results training_strategy_results = training_strategy.perform_training();
 
-        const OptimizationAlgorithm::Results training_strategy_results = training_strategy.perform_training();
+    // Testing analysis
 
-        // Testing analysis
+    cout << "Testing" << endl;
 
-        cout << "Testing" << endl;
+    TestingAnalysis testing_analysis(&neural_network, &data_set);
+    TestingAnalysis::LinearRegressionAnalysis linear_regression_analysis = testing_analysis.perform_linear_regression_analysis()[0];
+    Vector<Vector<double> > error_autocorrelation = testing_analysis.calculate_error_autocorrelation();
+    Vector<Vector<double> > error_crosscorrelation = testing_analysis.calculate_inputs_errors_cross_correlation();
+    Vector<Matrix<double> > error_data = testing_analysis.calculate_error_data();
+    Vector<Vector<Descriptives> > error_data_statistics = testing_analysis.calculate_error_data_statistics();
 
-        TestingAnalysis testing_analysis(&neural_network, &data_set);
-        TestingAnalysis::LinearRegressionAnalysis linear_regression_analysis = testing_analysis.perform_linear_regression_analysis()[0];
-        Vector< Vector<double> > error_autocorrelation = testing_analysis.calculate_error_autocorrelation();
-        Vector< Vector<double> > error_crosscorrelation = testing_analysis.calculate_inputs_errors_cross_correlation();
-        Vector< Matrix<double> > error_data = testing_analysis.calculate_error_data();
-        Vector< Vector<Descriptives> > error_data_statistics = testing_analysis.calculate_error_data_statistics();
+    // Save results
 
-        // Save results
+    data_set.save("data/data_set.xml");
 
-        data_set.save("data/data_set.xml");
+    neural_network.save("data/neural_network.xml");
+    neural_network.save_expression("data/expression.txt");
 
-        neural_network.save("data/neural_network.xml");
-        neural_network.save_expression("data/expression.txt");
+    training_strategy.save("data/training_strategy.xml");
 
-        training_strategy.save("data/training_strategy.xml");
+    training_strategy.save("data/training_strategy.xml");
+    training_strategy_results.save("data/training_strategy_results.dat");
 
-        training_strategy.save("data/training_strategy.xml");
-        training_strategy_results.save("data/training_strategy_results.dat");
+    linear_regression_analysis.save("data/linear_regression_analysis.dat");
+    error_autocorrelation.save("data/error_autocorrelation.dat");
+    error_crosscorrelation.save("data/error_crosscorrelation.dat");
+    error_data.save("data/error_data.dat");
 
-        linear_regression_analysis.save("data/linear_regression_analysis.dat");
-        error_autocorrelation.save("data/error_autocorrelation.dat");
-        error_crosscorrelation.save("data/error_crosscorrelation.dat");
-        error_data.save("data/error_data.dat");
+    // Deployment
 
-        // Deployment
+    scaling_layer_pointer->set_scaling_methods(ScalingLayer::MinimumMaximum);
+    unscaling_layer_pointer->set_unscaling_method(UnscalingLayer::MinimumMaximum);
 
-        scaling_layer_pointer->set_scaling_methods(ScalingLayer::MinimumMaximum);
-        unscaling_layer_pointer->set_unscaling_method(UnscalingLayer::MinimumMaximum);
+    scaling_layer_pointer->set_scaling_methods(ScalingLayer::MinimumMaximum);
+    unscaling_layer_pointer->set_unscaling_method(UnscalingLayer::MinimumMaximum);
 
-        scaling_layer_pointer->set_scaling_methods(ScalingLayer::MinimumMaximum);
-        unscaling_layer_pointer->set_unscaling_method(UnscalingLayer::MinimumMaximum);
+    return 0;
+  } catch (exception& e) {
+    cerr << e.what() << endl;
 
-        return 0;
-    }
-    catch(exception& e)
-    {
-        cerr << e.what() << endl;
-
-        return 1;
-    }
+    return 1;
+  }
 }
-
 
 // OpenNN: Open Neural Networks Library.
 // Copyright (C) 2005-2019 Artificial Intelligence Techniques SL

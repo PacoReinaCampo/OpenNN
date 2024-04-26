@@ -1,7 +1,7 @@
 //   OpenNN: Open Neural Networks Library
 //   www.opennn.net
 //
-//   S U M   S Q U A R E D   E R R O R   C L A S S   H E A D E R           
+//   S U M   S Q U A R E D   E R R O R   C L A S S   H E A D E R
 //
 //   Artificial Intelligence Techniques SL
 //   artelnics@artelnics.com
@@ -11,101 +11,92 @@
 
 // System includes
 
-#include <iostream>
-#include <fstream>
 #include <cmath>
+#include <fstream>
+#include <iostream>
+#include <limits>
 #include <sstream>
 #include <string>
-#include <limits>
 
 // OpenNN includes
 
-#include "../utilities/metrics.h"
-#include "../training_strategy/loss_index.h"
 #include "../data_set/data_set.h"
-
-
-
+#include "../training_strategy/loss_index.h"
+#include "../utilities/metrics.h"
 #include "../utilities/tinyxml2.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
-/// This class represents the sum squared peformance term functional. 
+/// This class represents the sum squared peformance term functional.
 
 ///
-/// This is used as the error term in data modeling problems, such as function regression, 
+/// This is used as the error term in data modeling problems, such as function regression,
 /// classification or time series prediction.
 
-class SumSquaredError : public LossIndex
-{
+class SumSquaredError : public LossIndex {
+ public:
+  // DEFAULT CONSTRUCTOR
 
-public:
+  explicit SumSquaredError();
 
-   // DEFAULT CONSTRUCTOR
+  // NEURAL NETWORK CONSTRUCTOR
 
-   explicit SumSquaredError();
+  explicit SumSquaredError(NeuralNetwork*);
 
-   // NEURAL NETWORK CONSTRUCTOR
+  // DATA SET CONSTRUCTOR
 
-   explicit SumSquaredError(NeuralNetwork*);
+  explicit SumSquaredError(DataSet*);
 
-   // DATA SET CONSTRUCTOR
+  explicit SumSquaredError(NeuralNetwork*, DataSet*);
 
-   explicit SumSquaredError(DataSet*);
+  // XML CONSTRUCTOR
 
-   explicit SumSquaredError(NeuralNetwork*, DataSet*);
+  explicit SumSquaredError(const tinyxml2::XMLDocument&);
 
-   // XML CONSTRUCTOR
+  // COPY CONSTRUCTOR
 
-   explicit SumSquaredError(const tinyxml2::XMLDocument&);
+  SumSquaredError(const SumSquaredError&);
 
-   // COPY CONSTRUCTOR
+  virtual ~SumSquaredError();
 
-   SumSquaredError(const SumSquaredError&);
+  // Error methods
 
-   virtual ~SumSquaredError();    
+  double calculate_batch_error(const Vector<size_t>&) const;
+  double calculate_batch_error(const Vector<size_t>&, const Vector<double>&) const;
 
-   // Error methods
+  // Gradient methods
 
-   double calculate_batch_error(const Vector<size_t>&) const;
-   double calculate_batch_error(const Vector<size_t>&, const Vector<double>&) const;
+  LossIndex::FirstOrderLoss calculate_first_order_loss() const;
+  LossIndex::FirstOrderLoss calculate_batch_first_order_loss(const Vector<size_t>&) const;
 
-   // Gradient methods
+  // Terms methods
 
-   LossIndex::FirstOrderLoss calculate_first_order_loss() const;
-   LossIndex::FirstOrderLoss calculate_batch_first_order_loss(const Vector<size_t>&) const;
+  Vector<double> calculate_training_error_terms(const Vector<double>&) const;
+  Vector<double> calculate_training_error_terms(const Tensor<double>&, const Tensor<double>&) const;
 
-   // Terms methods
+  // Serialization methods
 
-   Vector<double> calculate_training_error_terms(const Vector<double>&) const;
-   Vector<double> calculate_training_error_terms(const Tensor<double>&, const Tensor<double>&) const;
+  string get_error_type() const;
+  string get_error_type_text() const;
 
-   // Serialization methods
+  tinyxml2::XMLDocument* to_XML() const;
+  void from_XML(const tinyxml2::XMLDocument&);
 
-   string get_error_type() const;
-   string get_error_type_text() const;
+  void write_XML(tinyxml2::XMLPrinter&) const;
 
-   tinyxml2::XMLDocument* to_XML() const;   
-   void from_XML(const tinyxml2::XMLDocument&);
+  Tensor<double> calculate_output_gradient(const Tensor<double>&, const Tensor<double>&) const;
 
-   void write_XML(tinyxml2::XMLPrinter&) const;
+  LossIndex::SecondOrderLoss calculate_terms_second_order_loss() const;
 
-   Tensor<double> calculate_output_gradient(const Tensor<double>&, const Tensor<double>&) const;
+ private:
+  // Squared errors methods
 
-   LossIndex::SecondOrderLoss calculate_terms_second_order_loss() const;
-
-private:
-
-   // Squared errors methods
-
-   Vector<double> calculate_squared_errors() const;
+  Vector<double> calculate_squared_errors() const;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
-
 
 // OpenNN: Open Neural Networks Library.
 // Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.

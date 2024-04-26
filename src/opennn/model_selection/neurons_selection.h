@@ -11,24 +11,21 @@
 
 // System includes
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
 #include <cmath>
 #include <ctime>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <string>
 
 // OpenNN includes
 
-#include "../utilities/vector.h"
-#include "../utilities/matrix.h"
-
 #include "../training_strategy/training_strategy.h"
-
+#include "../utilities/matrix.h"
 #include "../utilities/tinyxml2.h"
+#include "../utilities/vector.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This abstract class represents the concept of neurons selection algorithm for a ModelSelection[1].
 
@@ -37,213 +34,212 @@ namespace OpenNN
 ///
 /// [1] Neural Designer "Model Selection Algorithms in Predictive Analytics." \ref https://www.neuraldesigner.com/blog/model-selection
 
-class NeuronsSelection
-{
-public:
+class NeuronsSelection {
+ public:
+  // Constructors
 
-    // Constructors
+  explicit NeuronsSelection();
 
-    explicit NeuronsSelection();
+  explicit NeuronsSelection(TrainingStrategy*);
 
-    explicit NeuronsSelection(TrainingStrategy*);
+  explicit NeuronsSelection(const string&);
 
-    explicit NeuronsSelection(const string&);
+  explicit NeuronsSelection(const tinyxml2::XMLDocument&);
 
-    explicit NeuronsSelection(const tinyxml2::XMLDocument&);
+  // Destructor
 
-    // Destructor
+  virtual ~NeuronsSelection();
 
-    virtual ~NeuronsSelection();
+  // Enumerators
 
-    // Enumerators
+  /// Enumeration of all possibles condition of stop for the algorithms.
 
-    /// Enumeration of all possibles condition of stop for the algorithms.
+  enum StoppingCondition { MaximumTime,
+                           SelectionErrorGoal,
+                           MaximumIterations,
+                           MaximumSelectionFailures,
+                           AlgorithmFinished };
 
-    enum StoppingCondition{MaximumTime, SelectionErrorGoal, MaximumIterations, MaximumSelectionFailures, AlgorithmFinished};
+  // Structures
 
-    // Structures
+  /// This structure contains the results from the order selection.
 
-    /// This structure contains the results from the order selection.
+  struct Results {
+    explicit Results() {}
 
-    struct Results
-    {
-       explicit Results() {}
+    virtual ~Results() {}
 
-       virtual ~Results() {}
+    string write_stopping_condition() const;
 
-       string write_stopping_condition() const;
+    string object_to_string() const;
 
-       string object_to_string() const;
+    /// Order of the diferent neural networks.
 
-       /// Order of the diferent neural networks.
+    Vector<size_t> neurons_data;
 
-       Vector<size_t> neurons_data;
+    /// Performance of the different neural networks.
 
-       /// Performance of the different neural networks.
+    Vector<double> training_loss_data;
 
-       Vector<double> training_loss_data;
+    /// Selection loss of the different neural networks.
 
-       /// Selection loss of the different neural networks.
+    Vector<double> selection_error_data;
 
-       Vector<double> selection_error_data;
+    /// Vector of parameters for the neural network with minimum selection error.
 
-       /// Vector of parameters for the neural network with minimum selection error.
+    Vector<double> minimal_parameters;
 
-       Vector<double> minimal_parameters;
+    /// Value of minimum selection error.
 
-       /// Value of minimum selection error.
+    double final_selection_error;
 
-       double final_selection_error;
+    /// Value of loss for the neural network with minimum selection error.
 
-       /// Value of loss for the neural network with minimum selection error.
+    double final_training_loss;
 
-       double final_training_loss;
+    /// Order of the neural network with minimum selection error.
 
-       /// Order of the neural network with minimum selection error.
+    size_t optimal_neurons_number;
 
-       size_t optimal_neurons_number;
+    /// Number of iterations to perform the order selection.
 
-       /// Number of iterations to perform the order selection.
+    size_t iterations_number;
 
-       size_t iterations_number;
+    /// Stopping condition of the algorithm.
 
-       /// Stopping condition of the algorithm.
+    StoppingCondition stopping_condition;
 
-       StoppingCondition stopping_condition;
+    /// Elapsed time during the loss of the algortihm.
 
-       /// Elapsed time during the loss of the algortihm.
+    double elapsed_time;
+  };
 
-       double elapsed_time;
-    };
+  // Get methods
 
-    // Get methods
+  TrainingStrategy* get_training_strategy_pointer() const;
 
-    TrainingStrategy* get_training_strategy_pointer() const;
+  bool has_training_strategy() const;
 
-    bool has_training_strategy() const;
+  const size_t& get_maximum_order() const;
+  const size_t& get_minimum_order() const;
+  const size_t& get_trials_number() const;
 
-    const size_t& get_maximum_order() const;
-    const size_t& get_minimum_order() const;
-    const size_t& get_trials_number() const;
+  const bool& get_reserve_error_data() const;
+  const bool& get_reserve_selection_error_data() const;
+  const bool& get_reserve_minimal_parameters() const;
 
-    const bool& get_reserve_error_data() const;
-    const bool& get_reserve_selection_error_data() const;
-    const bool& get_reserve_minimal_parameters() const;
+  const bool& get_display() const;
 
-    const bool& get_display() const;
+  const double& get_selection_error_goal() const;
+  const size_t& get_maximum_iterations_number() const;
+  const double& get_maximum_time() const;
+  const double& get_tolerance() const;
 
-    const double& get_selection_error_goal() const;
-    const size_t& get_maximum_iterations_number() const;
-    const double& get_maximum_time() const;
-    const double& get_tolerance() const;
+  // Set methods
 
-    // Set methods
+  void set_training_strategy_pointer(TrainingStrategy*);
 
-    void set_training_strategy_pointer(TrainingStrategy*);
+  void set_default();
 
-    void set_default();
+  void set_maximum_order(const size_t&);
+  void set_minimum_order(const size_t&);
+  void set_trials_number(const size_t&);
 
-    void set_maximum_order(const size_t&);
-    void set_minimum_order(const size_t&);
-    void set_trials_number(const size_t&);
+  void set_reserve_error_data(const bool&);
+  void set_reserve_selection_error_data(const bool&);
+  void set_reserve_minimal_parameters(const bool&);
 
-    void set_reserve_error_data(const bool&);
-    void set_reserve_selection_error_data(const bool&);
-    void set_reserve_minimal_parameters(const bool&);
+  void set_display(const bool&);
 
-    void set_display(const bool&);
+  void set_selection_error_goal(const double&);
+  void set_maximum_iterations_number(const size_t&);
+  void set_maximum_time(const double&);
+  void set_tolerance(const double&);
 
-    void set_selection_error_goal(const double&);
-    void set_maximum_iterations_number(const size_t&);
-    void set_maximum_time(const double&);
-    void set_tolerance(const double&);
+  // Loss calculation methods
 
-    // Loss calculation methods
+  Vector<double> calculate_losses(const size_t&, NeuralNetwork&);
 
-    Vector<double> calculate_losses(const size_t&, NeuralNetwork&);
+  string write_stopping_condition(const OptimizationAlgorithm::Results&) const;
 
-    string write_stopping_condition(const OptimizationAlgorithm::Results&) const;
+  // order order selection methods
 
-    // order order selection methods
+  void delete_selection_history();
+  void delete_training_loss_history();
+  void check() const;
 
-    void delete_selection_history();
-    void delete_training_loss_history();
-    void check() const;
+  /// Performs the order selection for a neural network.
 
-    /// Performs the order selection for a neural network.
+  virtual Results* perform_neurons_selection() = 0;
 
-    virtual Results* perform_neurons_selection() = 0;
+ protected:
+  /// Pointer to a training strategy object.
 
-protected:
+  TrainingStrategy* training_strategy_pointer = nullptr;
 
-    /// Pointer to a training strategy object.
+  /// Order of all the neural networks trained.
 
-    TrainingStrategy* training_strategy_pointer = nullptr;
+  Vector<size_t> order_history;
 
-    /// Order of all the neural networks trained.
+  /// Selection loss of all the neural networks trained.
 
-    Vector<size_t> order_history;
+  Vector<double> selection_error_history;
 
-    /// Selection loss of all the neural networks trained.
+  /// Performance of all the neural networks trained.
 
-    Vector<double> selection_error_history;
+  Vector<double> training_loss_history;
 
-    /// Performance of all the neural networks trained.
+  Vector<Vector<double>> parameters_history;
 
-    Vector<double> training_loss_history;
+  /// Minimum number of hidden neurons.
 
-    Vector<Vector<double>> parameters_history;
+  size_t minimum_order;
 
-    /// Minimum number of hidden neurons.
+  /// Maximum number of hidden neurons.
 
-    size_t minimum_order;
+  size_t maximum_order;
 
-    /// Maximum number of hidden neurons.
+  /// Number of trials for each neural network.
 
-    size_t maximum_order;
+  size_t trials_number;
 
-    /// Number of trials for each neural network.
+  // Order selection results
 
-    size_t trials_number;
+  /// True if the loss of all neural networks are to be reserved.
 
-    // Order selection results
+  bool reserve_error_data;
 
-    /// True if the loss of all neural networks are to be reserved.
+  /// True if the selection error of all neural networks are to be reserved.
 
-    bool reserve_error_data;
+  bool reserve_selection_error_data;
 
-    /// True if the selection error of all neural networks are to be reserved.
+  /// True if the vector parameters of the neural network presenting minimum selection error is to be reserved.
 
-    bool reserve_selection_error_data;
+  bool reserve_minimal_parameters;
 
-    /// True if the vector parameters of the neural network presenting minimum selection error is to be reserved.
+  /// Display messages to screen.
 
-    bool reserve_minimal_parameters;
+  bool display;
 
-    /// Display messages to screen.
+  /// Goal value for the selection error. It is used as a stopping criterion.
 
-    bool display;
+  double selection_error_goal;
 
-    /// Goal value for the selection error. It is used as a stopping criterion.
+  /// Maximum number of iterations to perform_neurons_selection. It is used as a stopping criterion.
 
-    double selection_error_goal;
+  size_t maximum_iterations_number;
 
-    /// Maximum number of iterations to perform_neurons_selection. It is used as a stopping criterion.
+  /// Maximum selection algorithm time. It is used as a stopping criterion.
 
-    size_t maximum_iterations_number;
+  double maximum_time;
 
-    /// Maximum selection algorithm time. It is used as a stopping criterion.
+  /// Tolerance for the error in the trainings of the algorithm.
 
-    double maximum_time;
-
-    /// Tolerance for the error in the trainings of the algorithm.
-
-    double tolerance;
+  double tolerance;
 };
-}
+}  // namespace OpenNN
 
 #endif
-
 
 // OpenNN: Open Neural Networks Library.
 // Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.

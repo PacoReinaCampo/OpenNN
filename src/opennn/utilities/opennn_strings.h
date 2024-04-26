@@ -12,6 +12,7 @@
 // System includes
 
 #include <math.h>
+
 #include <regex>
 
 // OpenNN includes
@@ -20,39 +21,38 @@
 
 using namespace std;
 
-namespace OpenNN
-{
-    size_t count_tokens(const string&, const char&);
+namespace OpenNN {
+size_t count_tokens(const string&, const char&);
 
-    Vector<string> get_tokens(const string&, const char&);
+Vector<string> get_tokens(const string&, const char&);
 
 //    inline bool is_digit_string(const char str) {return std::isdigit(str);}
-    bool is_numeric_string(const string&);
-    bool is_date_time_string(const string&);
+bool is_numeric_string(const string&);
+bool is_date_time_string(const string&);
 
-    time_t date_to_timestamp(const string& date, const int& gmt = 0);
+time_t date_to_timestamp(const string& date, const int& gmt = 0);
 
-    Vector<double> to_double_vector(const string& , const char&);
+Vector<double> to_double_vector(const string&, const char&);
 
-    bool contains_substring(const string&, const string&);
+bool contains_substring(const string&, const string&);
 
-    void trim(string&);
-    void erase(string&, const char&);
+void trim(string&);
+void erase(string&, const char&);
 
-    string get_trimmed(const string&);
+string get_trimmed(const string&);
 
-    string prepend(const string&, const string&);
+string prepend(const string&, const string&);
 
-    bool has_numbers(const Vector<string>&);
-    bool has_strings(const Vector<string>&);
+bool has_numbers(const Vector<string>&);
+bool has_strings(const Vector<string>&);
 
-    bool is_numeric_string_vector(const Vector<string>&);
+bool is_numeric_string_vector(const Vector<string>&);
 
-    bool is_not_numeric(const Vector<string>&);
-    bool is_mixed(const Vector<string>&);
+bool is_not_numeric(const Vector<string>&);
+bool is_mixed(const Vector<string>&);
 
-    void replace(string& source, const string& find, const string& replace);
-    void replace_substring(Vector<string>&, const string& , const string& );
-}
+void replace(string& source, const string& find, const string& replace);
+void replace_substring(Vector<string>&, const string&, const string&);
+}  // namespace OpenNN
 
-#endif // OPENNNSTRINGS_H
+#endif  // OPENNNSTRINGS_H

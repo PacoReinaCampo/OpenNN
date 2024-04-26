@@ -1,7 +1,7 @@
 //   OpenNN: Open Neural Networks Library
 //   www.opennn.net
 //
-//   T E S T I N G   A N A L Y S I S   C L A S S   H E A D E R             
+//   T E S T I N G   A N A L Y S I S   C L A S S   H E A D E R
 //
 //   Artificial Intelligence Techniques SL
 //   artelnics@artelnics.com
@@ -11,24 +11,21 @@
 
 // System includes
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
 #include <cmath>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <string>
 
 // OpenNN includes
 
-#include "../utilities/vector.h"
-#include "../utilities/matrix.h"
-#include "../utilities/correlations.h"
-
 #include "../data_set/data_set.h"
-
 #include "../neural_network/main/neural_network.h"
+#include "../utilities/correlations.h"
+#include "../utilities/matrix.h"
+#include "../utilities/vector.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This class contains tools for testing neural networks in different learning tasks.
 
@@ -36,283 +33,271 @@ namespace OpenNN
 /// In particular, it can be used for testing function regression, classification
 /// or time series prediction problems.
 
-class TestingAnalysis
-{
+class TestingAnalysis {
+ public:
+  // Constructors
 
-public:  
+  explicit TestingAnalysis();
 
-   // Constructors
+  explicit TestingAnalysis(NeuralNetwork*);
 
-   explicit TestingAnalysis();
+  explicit TestingAnalysis(DataSet*);
 
-   explicit TestingAnalysis(NeuralNetwork*);
+  explicit TestingAnalysis(NeuralNetwork*, DataSet*);
 
-   explicit TestingAnalysis(DataSet*);
+  explicit TestingAnalysis(const tinyxml2::XMLDocument&);
 
-   explicit TestingAnalysis(NeuralNetwork*, DataSet*);
+  explicit TestingAnalysis(const string&);
 
-   explicit TestingAnalysis(const tinyxml2::XMLDocument&);
+  // Destructor
 
-   explicit TestingAnalysis(const string&);
+  virtual ~TestingAnalysis();
 
-    // Destructor
+  /// Structure with the results from a linear regression analysis.
 
-   virtual ~TestingAnalysis();
+  struct LinearRegressionAnalysis {
+    /// Target data from data set and output data from neural network.
 
-    /// Structure with the results from a linear regression analysis.
+    double correlation = 0.0;
 
-    struct LinearRegressionAnalysis
-    {
-       /// Target data from data set and output data from neural network.
+    double intercept = 0.0;
 
-       double correlation = 0.0;
+    double slope = 0.0;
 
-       double intercept = 0.0;
+    Vector<double> targets;
+    Vector<double> outputs;
 
-       double slope = 0.0;
+    void save(const string&) const;
+  };
 
-       Vector<double> targets;
-       Vector<double> outputs;
+  /// Structure with the results from a roc curve analysis.
 
-       void save(const string&) const;
-    };
+  struct RocAnalysisResults {
+    /// Matrix containing the data of a ROC curve.
 
+    Matrix<double> roc_curve;
 
-    /// Structure with the results from a roc curve analysis.
+    /// Area under a ROC curve.
 
-    struct RocAnalysisResults
-    {
-        /// Matrix containing the data of a ROC curve.
+    double area_under_curve;
 
-        Matrix<double> roc_curve;
+    /// Confidence limit
 
-        /// Area under a ROC curve.
+    double confidence_limit;
 
-        double area_under_curve;
+    /// Optimal threshold of a ROC curve.
 
-        /// Confidence limit
+    double optimal_threshold;
+  };
 
-        double confidence_limit;
+  /// Structure with the results from Kolmogorov-Smirnov analysis.
 
-        /// Optimal threshold of a ROC curve.
+  struct KolmogorovSmirnovResults {
+    /// Matrix containing the data of a positive cumulative gain
 
-        double optimal_threshold;
-    };
+    Matrix<double> positive_cumulative_gain;
 
+    /// Matrix containing the data of a negative cumulative gain.
 
-    /// Structure with the results from Kolmogorov-Smirnov analysis.
+    Matrix<double> negative_cumulative_gain;
 
-    struct KolmogorovSmirnovResults
-    {
-        /// Matrix containing the data of a positive cumulative gain
+    /// Maximum gain of the cumulative gain analysis
 
-        Matrix<double> positive_cumulative_gain;
+    Vector<double> maximum_gain;
+  };
 
-        /// Matrix containing the data of a negative cumulative gain.
+  /// Structure with the binary classification rates
 
-        Matrix<double> negative_cumulative_gain;
+  struct BinaryClassifcationRates {
+    /// Vector with the indices of the instances which are true positive.
 
-        /// Maximum gain of the cumulative gain analysis
+    Vector<size_t> true_positives_indices;
 
-        Vector<double> maximum_gain;
-    };
+    /// Vector with the indices of the instances which are false positive.
 
+    Vector<size_t> false_positives_indices;
 
-    /// Structure with the binary classification rates
+    /// Vector with the indices of the instances which are false negative.
 
-    struct BinaryClassifcationRates
-    {
-        /// Vector with the indices of the instances which are true positive.
+    Vector<size_t> false_negatives_indices;
 
-        Vector<size_t> true_positives_indices;
+    /// Vector with the indices of the instances which are true negative.
 
-        /// Vector with the indices of the instances which are false positive.
+    Vector<size_t> true_negatives_indices;
+  };
 
-        Vector<size_t> false_positives_indices;
+  // Get methods
 
-        /// Vector with the indices of the instances which are false negative.
+  NeuralNetwork* get_neural_network_pointer() const;
+  DataSet* get_data_set_pointer() const;
 
-        Vector<size_t> false_negatives_indices;
+  const bool& get_display() const;
 
-        /// Vector with the indices of the instances which are true negative.
+  // Set methods
 
-        Vector<size_t> true_negatives_indices;
-    };
+  void set_neural_network_pointer(NeuralNetwork*);
+  void set_data_set_pointer(DataSet*);
 
-   // Get methods
+  void set_display(const bool&);
 
-   NeuralNetwork* get_neural_network_pointer() const;
-   DataSet* get_data_set_pointer() const;
+  void set_default();
 
-   const bool& get_display() const;
+  // Checking methods
 
-   // Set methods
+  void check() const;
 
-   void set_neural_network_pointer(NeuralNetwork*);
-   void set_data_set_pointer(DataSet*);
+  // Error data methods
 
-   void set_display(const bool&);
+  Vector<Matrix<double>> calculate_error_data() const;
+  Vector<Vector<double>> calculate_percentage_error_data() const;
 
-   void set_default();
+  Vector<Descriptives> calculate_absolute_errors_statistics() const;
+  Vector<Descriptives> calculate_absolute_errors_statistics(const Tensor<double>&, const Tensor<double>&) const;
 
-   // Checking methods
+  Vector<Descriptives> calculate_percentage_errors_statistics() const;
+  Vector<Descriptives> calculate_percentage_errors_statistics(const Tensor<double>&, const Tensor<double>&) const;
 
-   void check() const;
+  Vector<Vector<Descriptives>> calculate_error_data_statistics() const;
+  void print_error_data_statistics() const;
 
-   // Error data methods
+  Vector<Matrix<double>> calculate_error_data_statistics_matrices() const;
 
-   Vector<Matrix<double>> calculate_error_data() const;
-   Vector<Vector<double>> calculate_percentage_error_data() const;
+  Vector<Histogram> calculate_error_data_histograms(const size_t& = 10) const;
 
-   Vector<Descriptives> calculate_absolute_errors_statistics() const;
-   Vector<Descriptives> calculate_absolute_errors_statistics(const Tensor<double>&, const Tensor<double>&) const;
+  Vector<Vector<size_t>> calculate_maximal_errors(const size_t& = 10) const;
 
-   Vector<Descriptives> calculate_percentage_errors_statistics() const;
-   Vector<Descriptives> calculate_percentage_errors_statistics(const Tensor<double>&, const Tensor<double>&) const;
+  Matrix<double> calculate_errors() const;
+  Matrix<double> calculate_binary_classification_errors() const;
+  Matrix<double> calculate_multiple_classification_errors() const;
 
-   Vector<Vector<Descriptives>> calculate_error_data_statistics() const;
-   void print_error_data_statistics() const;
+  Vector<double> calculate_training_errors() const;
+  Vector<double> calculate_binary_classification_training_errors() const;
+  Vector<double> calculate_multiple_classification_training_errors() const;
 
-   Vector<Matrix<double>> calculate_error_data_statistics_matrices() const;
+  Vector<double> calculate_selection_errors() const;
+  Vector<double> calculate_binary_classification_selection_errors() const;
+  Vector<double> calculate_multiple_classification_selection_errors() const;
 
-   Vector<Histogram> calculate_error_data_histograms(const size_t& = 10) const;
+  Vector<double> calculate_testing_errors() const;
+  Vector<double> calculate_binary_classification_testing_errors() const;
+  Vector<double> calculate_multiple_classification_testing_errors() const;
 
-   Vector<Vector<size_t>> calculate_maximal_errors(const size_t& = 10) const;
+  double calculate_testing_normalized_squared_error(const Tensor<double>&, const Tensor<double>&) const;
+  double calculate_testing_cross_entropy_error(const Tensor<double>&, const Tensor<double>&) const;
+  double calculate_testing_weighted_squared_error(const Tensor<double>&, const Tensor<double>&, const Vector<double>& = Vector<double>()) const;
 
-   Matrix<double> calculate_errors() const;
-   Matrix<double> calculate_binary_classification_errors() const;
-   Matrix<double> calculate_multiple_classification_errors() const;
+  // Linear regression analysis methods
 
-   Vector<double> calculate_training_errors() const;
-   Vector<double> calculate_binary_classification_training_errors() const;
-   Vector<double> calculate_multiple_classification_training_errors() const;
+  Vector<RegressionResults> linear_regression() const;
+  Vector<RegressionResults> linear_regression(const Tensor<double>&, const Tensor<double>&) const;
 
-   Vector<double> calculate_selection_errors() const;
-   Vector<double> calculate_binary_classification_selection_errors() const;
-   Vector<double> calculate_multiple_classification_selection_errors() const;
+  void print_linear_regression_correlations() const;
+  vector<double> get_linear_regression_correlations_std() const;
 
-   Vector<double> calculate_testing_errors() const;
-   Vector<double> calculate_binary_classification_testing_errors() const;
-   Vector<double> calculate_multiple_classification_testing_errors() const;
+  Vector<LinearRegressionAnalysis> perform_linear_regression_analysis() const;
+  void perform_linear_regression_analysis_void() const;
 
-   double calculate_testing_normalized_squared_error(const Tensor<double>&, const Tensor<double>&) const;
-   double calculate_testing_cross_entropy_error(const Tensor<double>&, const Tensor<double>&) const;
-   double calculate_testing_weighted_squared_error(const Tensor<double>&, const Tensor<double>&, const Vector<double>& = Vector<double>()) const;
+  // Binary classifcation methods
 
-   // Linear regression analysis methods
+  Vector<double> calculate_binary_classification_tests() const;
 
-   Vector<RegressionResults> linear_regression() const;
-   Vector<RegressionResults> linear_regression(const Tensor<double>&, const Tensor<double>&) const;
+  double calculate_logloss() const;
 
-   void print_linear_regression_correlations() const;
-   vector<double> get_linear_regression_correlations_std() const;
+  // Confusion methods
 
-   Vector<LinearRegressionAnalysis> perform_linear_regression_analysis() const;
-   void perform_linear_regression_analysis_void() const;
+  Matrix<size_t> calculate_confusion_binary_classification(const Tensor<double>&, const Tensor<double>&, const double&) const;
+  Matrix<size_t> calculate_confusion_multiple_classification(const Tensor<double>&, const Tensor<double>&) const;
 
-   // Binary classifcation methods
+  Vector<size_t> calculate_positives_negatives_rate(const Tensor<double>&, const Tensor<double>&) const;
 
-   Vector<double> calculate_binary_classification_tests() const;
+  Matrix<size_t> calculate_confusion(const Matrix<double>&, const Matrix<double>&) const;
+  Matrix<size_t> calculate_confusion() const;
 
-   double calculate_logloss() const;
+  // ROC curve
 
-   // Confusion methods
+  RocAnalysisResults perform_roc_analysis() const;
 
-   Matrix<size_t> calculate_confusion_binary_classification(const Tensor<double>&, const Tensor<double>&, const double&) const;
-   Matrix<size_t> calculate_confusion_multiple_classification(const Tensor<double>&, const Tensor<double>&) const;
+  double calculate_Wilcoxon_parameter(const double&, const double&) const;
 
-   Vector<size_t> calculate_positives_negatives_rate(const Tensor<double>&, const Tensor<double>&) const;
+  Matrix<double> calculate_roc_curve(const Tensor<double>&, const Tensor<double>&) const;
+  double calculate_area_under_curve(const Tensor<double>&, const Tensor<double>&) const;
+  double calculate_area_under_curve_confidence_limit(const Tensor<double>&, const Tensor<double>&) const;
+  double calculate_area_under_curve_confidence_limit(const Tensor<double>&, const Tensor<double>&, const double&) const;
+  double calculate_optimal_threshold(const Tensor<double>&, const Tensor<double>&) const;
+  double calculate_optimal_threshold(const Tensor<double>&, const Tensor<double>&, const Matrix<double>&) const;
 
-   Matrix<size_t> calculate_confusion(const Matrix<double>&, const Matrix<double>&) const;
-   Matrix<size_t> calculate_confusion() const;
+  // Lift Chart
 
-   // ROC curve
+  Matrix<double> perform_cumulative_gain_analysis() const;
+  Matrix<double> calculate_cumulative_gain(const Tensor<double>&, const Tensor<double>&) const;
+  Matrix<double> calculate_negative_cumulative_gain(const Tensor<double>&, const Tensor<double>&) const;
 
-   RocAnalysisResults perform_roc_analysis() const;
+  Matrix<double> perform_lift_chart_analysis() const;
+  Matrix<double> calculate_lift_chart(const Matrix<double>&) const;
 
-   double calculate_Wilcoxon_parameter(const double&, const double&) const;
+  KolmogorovSmirnovResults perform_Kolmogorov_Smirnov_analysis() const;
+  Vector<double> calculate_maximum_gain(const Matrix<double>&, const Matrix<double>&) const;
 
-   Matrix<double> calculate_roc_curve(const Tensor<double>& ,const Tensor<double>&) const;
-   double calculate_area_under_curve(const Tensor<double>& ,const Tensor<double>&) const;
-   double calculate_area_under_curve_confidence_limit(const Tensor<double>&, const Tensor<double>&) const;
-   double calculate_area_under_curve_confidence_limit(const Tensor<double>&, const Tensor<double>&, const double&) const;
-   double calculate_optimal_threshold(const Tensor<double>& ,const Tensor<double>&) const;
-   double calculate_optimal_threshold(const Tensor<double>& ,const Tensor<double>&, const Matrix<double>&) const;
+  // Calibration plot
 
-   // Lift Chart
+  Matrix<double> perform_calibration_plot_analysis() const;
 
-   Matrix<double> perform_cumulative_gain_analysis() const;
-   Matrix<double> calculate_cumulative_gain(const Tensor<double>& ,const Tensor<double>&) const;
-   Matrix<double> calculate_negative_cumulative_gain(const Tensor<double>&, const Tensor<double>&)const;
+  Matrix<double> calculate_calibration_plot(const Tensor<double>&, const Tensor<double>&) const;
 
-   Matrix<double> perform_lift_chart_analysis() const;
-   Matrix<double> calculate_lift_chart(const Matrix<double>&) const;
+  // Output histogram
 
-   KolmogorovSmirnovResults perform_Kolmogorov_Smirnov_analysis() const;
-   Vector<double> calculate_maximum_gain(const Matrix<double>&, const Matrix<double>&) const;
+  Vector<Histogram> calculate_output_histogram(const Tensor<double>&, const size_t& = 10) const;
 
-   // Calibration plot
+  // Binary classification rates
 
-   Matrix<double> perform_calibration_plot_analysis() const;
+  BinaryClassifcationRates calculate_binary_classification_rates() const;
 
-   Matrix<double> calculate_calibration_plot(const Tensor<double>&, const Tensor<double>&) const;
+  Vector<size_t> calculate_true_positive_instances(const Tensor<double>&, const Tensor<double>&, const Vector<size_t>&, const double&) const;
+  Vector<size_t> calculate_false_positive_instances(const Tensor<double>&, const Tensor<double>&, const Vector<size_t>&, const double&) const;
+  Vector<size_t> calculate_false_negative_instances(const Tensor<double>&, const Tensor<double>&, const Vector<size_t>&, const double&) const;
+  Vector<size_t> calculate_true_negative_instances(const Tensor<double>&, const Tensor<double>&, const Vector<size_t>&, const double&) const;
 
-   // Output histogram
+  // Multiple classification rates
 
-   Vector<Histogram> calculate_output_histogram(const Tensor<double>&, const size_t& = 10) const;
+  Matrix<Vector<size_t>> calculate_multiple_classification_rates() const;
 
-   // Binary classification rates
+  Matrix<Vector<size_t>> calculate_multiple_classification_rates(const Tensor<double>&, const Tensor<double>&, const Vector<size_t>&) const;
 
-   BinaryClassifcationRates calculate_binary_classification_rates() const;
+  // Forecasting methods
 
-   Vector<size_t> calculate_true_positive_instances(const Tensor<double>&, const Tensor<double>&, const Vector<size_t>&, const double&) const;
-   Vector<size_t> calculate_false_positive_instances(const Tensor<double>&, const Tensor<double>&, const Vector<size_t>&, const double& ) const;
-   Vector<size_t> calculate_false_negative_instances(const Tensor<double>&, const Tensor<double>&, const Vector<size_t>&, const double& ) const;
-   Vector<size_t> calculate_true_negative_instances(const Tensor<double>&, const Tensor<double>&, const Vector<size_t>&, const double& ) const;
+  Vector<Vector<double>> calculate_error_autocorrelation(const size_t& = 10) const;
 
-   // Multiple classification rates
+  Vector<Vector<double>> calculate_inputs_errors_cross_correlation(const size_t& = 10) const;
 
-   Matrix<Vector<size_t>> calculate_multiple_classification_rates() const;
+  // Serialization methods
 
-   Matrix<Vector<size_t>> calculate_multiple_classification_rates(const Tensor<double>&, const Tensor<double>&, const Vector<size_t>&) const;
+  string object_to_string() const;
 
-   // Forecasting methods
+  void print() const;
 
-   Vector<Vector<double>> calculate_error_autocorrelation(const size_t& = 10) const;
+  virtual tinyxml2::XMLDocument* to_XML() const;
+  virtual void from_XML(const tinyxml2::XMLDocument&);
 
-   Vector<Vector<double>> calculate_inputs_errors_cross_correlation(const size_t& = 10) const;
+  virtual void write_XML(tinyxml2::XMLPrinter&) const;
 
-   // Serialization methods
+  void save(const string&) const;
+  void load(const string&);
 
-   string object_to_string() const;
+ private:
+  /// Pointer to the neural network object to be tested.
 
-   void print() const;
+  NeuralNetwork* neural_network_pointer = nullptr;
 
-   virtual tinyxml2::XMLDocument* to_XML() const;
-   virtual void from_XML(const tinyxml2::XMLDocument&);
+  /// Pointer to a data set object.
 
-   virtual void write_XML(tinyxml2::XMLPrinter&) const;
+  DataSet* data_set_pointer = nullptr;
 
-   void save(const string&) const;
-   void load(const string&);
+  /// Display messages to screen.
 
-
-private: 
-
-   /// Pointer to the neural network object to be tested. 
-
-   NeuralNetwork* neural_network_pointer = nullptr;
-
-   /// Pointer to a data set object.
-
-   DataSet* data_set_pointer = nullptr;
-
-   /// Display messages to screen.
-   
-   bool display;
+  bool display;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
 

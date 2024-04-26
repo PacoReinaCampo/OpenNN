@@ -11,165 +11,161 @@
 
 // System includes
 
+#include <ctype.h>
+
 #include <cmath>
 #include <cstdlib>
-#include <ctype.h>
 #include <fstream>
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 // OpenNN includes
 
 #include "../../neural_network/main/layer.h"
+#include "../../neural_network/pnn/perceptron_layer.h"
+#include "../../utilities/functions.h"
 #include "../../utilities/matrix.h"
 #include "../../utilities/statistics.h"
 #include "../../utilities/tinyxml2.h"
 #include "../../utilities/vector.h"
-#include "../../utilities/functions.h"
-#include "../../neural_network/pnn/perceptron_layer.h"
 //#include "../../neural_network/main/probabilistic_layer.h"
 #include "../../neural_network/cnn/convolutional_layer.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This class is used to store information about the Pooling Layer in Convolutional Neural Network(CNN).
 
 ///
 /// Pooling: is the procees of merging, ie, reducing the size of the data and remove some noise by different processes.
 
-class PoolingLayer : public Layer
-{
+class PoolingLayer : public Layer {
+ public:
+  /// Enumeration of available methods for pooling data.
 
-public:
+  enum PoolingMethod { NoPooling,
+                       MaxPooling,
+                       AveragePooling };
 
-    /// Enumeration of available methods for pooling data.
+  // Constructors
 
-    enum PoolingMethod {NoPooling, MaxPooling, AveragePooling};
+  explicit PoolingLayer();
 
-    // Constructors
+  explicit PoolingLayer(const Vector<size_t>&);
 
-    explicit PoolingLayer();
+  explicit PoolingLayer(const Vector<size_t>&, const Vector<size_t>&);
 
-    explicit PoolingLayer(const Vector<size_t>&);
+  // Destructor
 
-    explicit PoolingLayer(const Vector<size_t>&, const Vector<size_t>&);
+  virtual ~PoolingLayer();
 
-    // Destructor
+  // Get methods
 
-    virtual ~PoolingLayer();
+  Vector<size_t> get_input_variables_dimensions() const;
+  Vector<size_t> get_outputs_dimensions() const;
 
-     // Get methods
+  size_t get_inputs_number() const;
 
-     Vector<size_t> get_input_variables_dimensions() const;
-     Vector<size_t> get_outputs_dimensions() const;
+  size_t get_inputs_channels_number() const;
 
-     size_t get_inputs_number() const;
+  size_t get_inputs_rows_number() const;
 
-     size_t get_inputs_channels_number() const;
+  size_t get_inputs_columns_number() const;
 
-     size_t get_inputs_rows_number() const;
+  size_t get_neurons_number() const;
 
-     size_t get_inputs_columns_number() const;
+  size_t get_outputs_rows_number() const;
 
-     size_t get_neurons_number() const;
+  size_t get_outputs_columns_number() const;
 
-     size_t get_outputs_rows_number() const;
+  size_t get_padding_width() const;
 
-     size_t get_outputs_columns_number() const;
+  size_t get_row_stride() const;
 
-     size_t get_padding_width() const;
+  size_t get_column_stride() const;
 
-     size_t get_row_stride() const;
+  size_t get_pool_rows_number() const;
 
-     size_t get_column_stride() const;
+  size_t get_pool_columns_number() const;
 
-     size_t get_pool_rows_number() const;
+  size_t get_parameters_number() const;
 
-     size_t get_pool_columns_number() const;
+  Vector<double> get_parameters() const;
 
-     size_t get_parameters_number() const;
+  Vector<size_t> get_inputs_indices(const size_t&) const;
 
-     Vector<double> get_parameters() const;
+  PoolingMethod get_pooling_method() const;
 
-     Vector<size_t> get_inputs_indices(const size_t&) const;
+  // Set methods
 
-     PoolingMethod get_pooling_method() const;
+  void set_inputs_number(const size_t&) {}
+  void set_neurons_number(const size_t&) {}
 
-     // Set methods
+  void set_inputs_dimensions(const Vector<size_t>&);
 
-     void set_inputs_number(const size_t&) {}
-     void set_neurons_number(const size_t&) {}
+  void set_padding_width(const size_t&);
 
-     void set_inputs_dimensions(const Vector<size_t>&);
+  void set_row_stride(const size_t&);
 
-    void set_padding_width(const size_t&);
+  void set_column_stride(const size_t&);
 
-    void set_row_stride(const size_t&);
+  void set_pool_size(const size_t&, const size_t&);
 
-    void set_column_stride(const size_t&);
+  void set_pooling_method(const PoolingMethod&);
 
-    void set_pool_size(const size_t&, const size_t&);
+  void set_default();
 
-    void set_pooling_method(const PoolingMethod&);
+  // Outputs
 
-    void set_default();
+  Tensor<double> calculate_outputs(const Tensor<double>&);
 
-    // Outputs
+  Tensor<double> calculate_no_pooling_outputs(const Tensor<double>&) const;
 
-    Tensor<double> calculate_outputs(const Tensor<double>&);
+  Tensor<double> calculate_max_pooling_outputs(const Tensor<double>&) const;
 
-    Tensor<double> calculate_no_pooling_outputs(const Tensor<double>&) const;
+  Tensor<double> calculate_average_pooling_outputs(const Tensor<double>&) const;
 
-    Tensor<double> calculate_max_pooling_outputs(const Tensor<double>&) const;
+  FirstOrderActivations calculate_first_order_activations(const Tensor<double>&);
 
-    Tensor<double> calculate_average_pooling_outputs(const Tensor<double>&) const;
+  // Activations derivatives
 
-    FirstOrderActivations calculate_first_order_activations(const Tensor<double>&);
+  Tensor<double> calculate_activations_derivatives(const Tensor<double>&) const;
 
-    // Activations derivatives
+  Tensor<double> calculate_no_pooling_activations_derivatives(const Tensor<double>&) const;
 
-    Tensor<double> calculate_activations_derivatives(const Tensor<double>&) const;
+  Tensor<double> calculate_average_pooling_activations_derivatives(const Tensor<double>&) const;
 
-    Tensor<double> calculate_no_pooling_activations_derivatives(const Tensor<double>&) const;
+  Tensor<double> calculate_max_pooling_activations_derivatives(const Tensor<double>&) const;
 
-    Tensor<double> calculate_average_pooling_activations_derivatives(const Tensor<double>&) const;
+  // Delta methods
 
-    Tensor<double> calculate_max_pooling_activations_derivatives(const Tensor<double>&) const;
+  Tensor<double> calculate_output_delta(const Tensor<double>&, const Tensor<double>&) const;
 
-    // Delta methods
+  Tensor<double> calculate_hidden_delta(Layer*, const Tensor<double>&, const Tensor<double>&, const Tensor<double>&) const;
 
-    Tensor<double> calculate_output_delta(const Tensor<double>&, const Tensor<double>&) const;
+  Tensor<double> calculate_average_pooling_delta(Layer*, const Tensor<double>&, const Tensor<double>&, const Tensor<double>&) const;
 
-    Tensor<double> calculate_hidden_delta(Layer*, const Tensor<double>&, const Tensor<double>&, const Tensor<double>&) const;
+  Tensor<double> calculate_max_pooling_delta(const Layer*, const Tensor<double>&, const Tensor<double>&, const Tensor<double>&) const;
 
-    Tensor<double> calculate_average_pooling_delta(Layer*, const Tensor<double>&, const Tensor<double>&, const Tensor<double>&) const;
+  // Gradient methods
 
-    Tensor<double> calculate_max_pooling_delta(const Layer*, const Tensor<double>&, const Tensor<double>&, const Tensor<double>&) const;
+  Vector<double> calculate_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
 
-    // Gradient methods
+ protected:
+  Vector<size_t> inputs_dimensions;
 
-    Vector<double> calculate_error_gradient(const Tensor<double>&, const Layer::FirstOrderActivations&, const Tensor<double>&);
+  size_t pool_rows_number = 2;
 
-protected:
+  size_t pool_columns_number = 2;
 
-    Vector<size_t> inputs_dimensions;
+  size_t padding_width = 0;
 
-    size_t pool_rows_number = 2;
+  size_t row_stride = 1;
 
-    size_t pool_columns_number = 2;
+  size_t column_stride = 1;
 
-    size_t padding_width = 0;
-
-    size_t row_stride = 1;
-
-    size_t column_stride = 1;
-
-    PoolingMethod pooling_method = AveragePooling;
-
+  PoolingMethod pooling_method = AveragePooling;
 };
-}
+}  // namespace OpenNN
 
-#endif // POOLING_LAYER_H
-
+#endif  // POOLING_LAYER_H

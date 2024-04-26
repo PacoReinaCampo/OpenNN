@@ -6,13 +6,14 @@
 //   Artificial Intelligence Techniques SL (Artelnics)
 //   artelnics@artelnics.com
 
-// This is a pattern recognition problem. 
+// This is a pattern recognition problem.
 
 // System includes
 
+#include <time.h>
+
 #include <iostream>
 #include <sstream>
-#include <time.h>
 #include <stdexcept>
 
 // OpenNN includes
@@ -21,78 +22,73 @@
 
 using namespace OpenNN;
 
-int main(void)
-{
-    try
-    {
-        cout << "OpenNN. Simple classification example." << endl;
+int main(void) {
+  try {
+    cout << "OpenNN. Simple classification example." << endl;
 
-        // Data set
+    // Data set
 
-        DataSet data_set("data/simple_pattern_recognition.csv", ';', true);
+    DataSet data_set("data/simple_pattern_recognition.csv", ';', true);
 
-        // Variables
+    // Variables
 
-        data_set.set_training();
+    data_set.set_training();
 
-        const Vector<string> inputs_names = data_set.get_input_variables_names();
-        const Vector<string> targets_names = data_set.get_target_variables_names();
+    const Vector<string> inputs_names = data_set.get_input_variables_names();
+    const Vector<string> targets_names = data_set.get_target_variables_names();
 
-        const Vector<Descriptives> inputs_descriptives = data_set.scale_inputs_minimum_maximum();
+    const Vector<Descriptives> inputs_descriptives = data_set.scale_inputs_minimum_maximum();
 
-        // Neural network
+    // Neural network
 
-        NeuralNetwork neural_network(NeuralNetwork::Classification, {2, 2, 1});
+    NeuralNetwork neural_network(NeuralNetwork::Classification, {2, 2, 1});
 
-        neural_network.set_inputs_names(inputs_names);
+    neural_network.set_inputs_names(inputs_names);
 
-        ScalingLayer* scaling_layer_pointer = neural_network.get_scaling_layer_pointer();
+    ScalingLayer* scaling_layer_pointer = neural_network.get_scaling_layer_pointer();
 
-        scaling_layer_pointer->set_descriptives(inputs_descriptives);
+    scaling_layer_pointer->set_descriptives(inputs_descriptives);
 
-        neural_network.set_outputs_names(targets_names);
+    neural_network.set_outputs_names(targets_names);
 
-        // Training strategy
+    // Training strategy
 
-        TrainingStrategy training_strategy(&neural_network, &data_set);
+    TrainingStrategy training_strategy(&neural_network, &data_set);
 
-        QuasiNewtonMethod* quasi_Newton_method_pointer = training_strategy.get_quasi_Newton_method_pointer();
+    QuasiNewtonMethod* quasi_Newton_method_pointer = training_strategy.get_quasi_Newton_method_pointer();
 
-        const OptimizationAlgorithm::Results training_strategy_results = training_strategy.perform_training();
+    const OptimizationAlgorithm::Results training_strategy_results = training_strategy.perform_training();
 
-        // Testing analysis
+    // Testing analysis
 
-        data_set.set_testing();
+    data_set.set_testing();
 
-        TestingAnalysis testing_analysis(&neural_network, &data_set);
+    TestingAnalysis testing_analysis(&neural_network, &data_set);
 
-        Vector<double> binary_classification_tests = testing_analysis.calculate_binary_classification_tests();
+    Vector<double> binary_classification_tests = testing_analysis.calculate_binary_classification_tests();
 
-        Matrix<size_t> confusion = testing_analysis.calculate_confusion();
+    Matrix<size_t> confusion = testing_analysis.calculate_confusion();
 
-        // Save results
+    // Save results
 
-        data_set.save("data/data_set.xml");
+    data_set.save("data/data_set.xml");
 
-        neural_network.save("data/neural_network.xml");
+    neural_network.save("data/neural_network.xml");
 
-        training_strategy.save("data/training_strategy.xml");
-        training_strategy_results.save("data/training_strategy_results.dat");
+    training_strategy.save("data/training_strategy.xml");
+    training_strategy_results.save("data/training_strategy_results.dat");
 
-        binary_classification_tests.save("data/binary_classification_tests.dat");
+    binary_classification_tests.save("data/binary_classification_tests.dat");
 
-        cout << "Bye" << endl;
+    cout << "Bye" << endl;
 
-        return 0;
-    }
-    catch(exception& e)
-    {
-        cerr << e.what() << endl;
+    return 0;
+  } catch (exception& e) {
+    cerr << e.what() << endl;
 
-        return 1;
-    }
-}  
-
+    return 1;
+  }
+}
 
 // OpenNN: Open Neural Networks Library.
 // Copyright (C) 2005-2019 Artificial Intelligence Techniques SL

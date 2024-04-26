@@ -1,7 +1,7 @@
 //   OpenNN: Open Neural Networks Library
 //   www.opennn.net
 //
-//   M E A N   S Q U A R E D   E R R O R    C L A S S   H E A D E R        
+//   M E A N   S Q U A R E D   E R R O R    C L A S S   H E A D E R
 //
 //   Artificial Intelligence Techniques SL
 //   artelnics@artelnics.com
@@ -11,102 +11,95 @@
 
 // System includes
 
-#include <string>
-#include <sstream>
-#include <iostream>
-#include <fstream>
-#include <limits>
 #include <math.h>
+
+#include <fstream>
+#include <iostream>
+#include <limits>
+#include <sstream>
+#include <string>
 
 // OpenNN includes
 
-#include "../training_strategy/loss_index.h"
 #include "../data_set/data_set.h"
-
-
-
+#include "../training_strategy/loss_index.h"
 #include "../utilities/tinyxml2.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This class represents the mean squared error term.
 
 ///
-/// The mean squared error measures the difference between the outputs from a neural network and the targets in a data set. 
-/// This functional is used in data modeling problems, such as function regression, 
+/// The mean squared error measures the difference between the outputs from a neural network and the targets in a data set.
+/// This functional is used in data modeling problems, such as function regression,
 /// classification and time series prediction.
 
-class MeanSquaredError : public LossIndex
-{
+class MeanSquaredError : public LossIndex {
+ public:
+  // DEFAULT CONSTRUCTOR
 
-public:
+  explicit MeanSquaredError();
 
-   // DEFAULT CONSTRUCTOR
+  // NEURAL NETWORK CONSTRUCTOR
 
-   explicit MeanSquaredError();
+  explicit MeanSquaredError(NeuralNetwork*);
 
-   // NEURAL NETWORK CONSTRUCTOR
+  // DATA SET CONSTRUCTOR
 
-   explicit MeanSquaredError(NeuralNetwork*);
+  explicit MeanSquaredError(DataSet*);
 
-   // DATA SET CONSTRUCTOR
+  explicit MeanSquaredError(NeuralNetwork*, DataSet*);
 
-   explicit MeanSquaredError(DataSet*);
-   
-   explicit MeanSquaredError(NeuralNetwork*, DataSet*);
+  // XML CONSTRUCTOR
 
-   // XML CONSTRUCTOR
+  explicit MeanSquaredError(const tinyxml2::XMLDocument&);
 
-   explicit MeanSquaredError(const tinyxml2::XMLDocument&);
+  // COPY CONSTRUCTOR
 
-   // COPY CONSTRUCTOR
+  MeanSquaredError(const MeanSquaredError&);
 
-   MeanSquaredError(const MeanSquaredError&);
+  // Destructor
 
-   // Destructor
+  virtual ~MeanSquaredError();
 
-   virtual ~MeanSquaredError(); 
+  // Error methods
 
-   // Error methods
+  double calculate_training_error() const;
+  double calculate_training_error(const Vector<double>&) const;
 
-   double calculate_training_error() const;
-   double calculate_training_error(const Vector<double>&) const;
+  double calculate_selection_error() const;
 
-   double calculate_selection_error() const;
+  double calculate_batch_error(const Vector<size_t>&) const;
+  double calculate_batch_error(const Vector<size_t>&, const Vector<double>&) const;
 
-   double calculate_batch_error(const Vector<size_t>&) const;
-   double calculate_batch_error(const Vector<size_t>&, const Vector<double>&) const;
+  // Gradient methods
 
-   // Gradient methods
+  FirstOrderLoss calculate_first_order_loss() const;
 
-   FirstOrderLoss calculate_first_order_loss() const;
+  FirstOrderLoss calculate_batch_first_order_loss(const Vector<size_t>&) const;
 
-   FirstOrderLoss calculate_batch_first_order_loss(const Vector<size_t>&) const;
+  // Error terms methods
 
-   // Error terms methods
+  Vector<double> calculate_training_error_terms(const Tensor<double>&, const Tensor<double>&) const;
+  Vector<double> calculate_training_error_terms(const Vector<double>&) const;
 
-   Vector<double> calculate_training_error_terms(const Tensor<double>&, const Tensor<double>&) const;
-   Vector<double> calculate_training_error_terms(const Vector<double>&) const;
+  string get_error_type() const;
+  string get_error_type_text() const;
 
-   string get_error_type() const;
-   string get_error_type_text() const;
+  Tensor<double> calculate_output_gradient(const Tensor<double>&, const Tensor<double>&) const;
 
-   Tensor<double> calculate_output_gradient(const Tensor<double>&, const Tensor<double>&) const;
+  LossIndex::SecondOrderLoss calculate_terms_second_order_loss() const;
 
-   LossIndex::SecondOrderLoss calculate_terms_second_order_loss() const;
+  // Serialization methods
 
-   // Serialization methods
+  tinyxml2::XMLDocument* to_XML() const;
 
-   tinyxml2::XMLDocument* to_XML() const;   
-
-   void write_XML(tinyxml2::XMLPrinter &) const;
+  void write_XML(tinyxml2::XMLPrinter&) const;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
-
 
 // OpenNN: Open Neural Networks Library.
 // Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.

@@ -11,147 +11,135 @@
 
 // System includes
 
-#include <string>
-#include <sstream>
-#include <iostream>
-#include <fstream>
-#include <limits>
 #include <math.h>
+
+#include <fstream>
+#include <iostream>
+#include <limits>
+#include <sstream>
+#include <string>
 
 // OpenNN includes
 
-#include "../training_strategy/loss_index.h"
 #include "../data_set/data_set.h"
-
-
-
+#include "../training_strategy/loss_index.h"
 #include "../utilities/tinyxml2.h"
 
-namespace OpenNN
-{
+namespace OpenNN {
 
 /// This class represents the weighted squared error term.
 
 ///
 /// The weighted squared error measures the difference between the outputs from a neural network and the targets in a data set.
-/// This functional is used in data modeling problems, such as function regression, 
+/// This functional is used in data modeling problems, such as function regression,
 /// classification and time series prediction.
 
-class WeightedSquaredError : public LossIndex
-{
+class WeightedSquaredError : public LossIndex {
+ public:
+  // DEFAULT CONSTRUCTOR
 
-public:
+  explicit WeightedSquaredError();
 
-   // DEFAULT CONSTRUCTOR
+  // NEURAL NETWORK CONSTRUCTOR
 
-   explicit WeightedSquaredError();
+  explicit WeightedSquaredError(NeuralNetwork*);
 
-   // NEURAL NETWORK CONSTRUCTOR
+  // DATA SET CONSTRUCTOR
 
-   explicit WeightedSquaredError(NeuralNetwork*);
+  explicit WeightedSquaredError(DataSet*);
 
-   // DATA SET CONSTRUCTOR
+  // DATA SET & NEURAL NETWORK CONSTRUCTOR
+  explicit WeightedSquaredError(NeuralNetwork*, DataSet*);
 
-   explicit WeightedSquaredError(DataSet*);
+  // XML CONSTRUCTOR
 
-   // DATA SET & NEURAL NETWORK CONSTRUCTOR
-   explicit WeightedSquaredError(NeuralNetwork*, DataSet*);
+  explicit WeightedSquaredError(const tinyxml2::XMLDocument&);
 
-   // XML CONSTRUCTOR
+  // COPY CONSTRUCTOR
 
-   explicit WeightedSquaredError(const tinyxml2::XMLDocument&);
+  WeightedSquaredError(const WeightedSquaredError&);
 
-   // COPY CONSTRUCTOR
+  virtual ~WeightedSquaredError();
 
-   WeightedSquaredError(const WeightedSquaredError&);
+  // STRUCTURES
 
-   
+  // Get methods
 
-   virtual ~WeightedSquaredError();
+  double get_positives_weight() const;
+  double get_negatives_weight() const;
 
-   // STRUCTURES
+  double get_training_normalization_coefficient() const;
+  double get_selection_normalization_coefficient() const;
 
-   
+  // Set methods
 
-   // Get methods
+  // Error methods
 
-   double get_positives_weight() const;
-   double get_negatives_weight() const;
+  void set_default();
 
-   double get_training_normalization_coefficient() const;
-   double get_selection_normalization_coefficient() const;
+  void set_positives_weight(const double&);
+  void set_negatives_weight(const double&);
 
-   // Set methods
+  void set_training_normalization_coefficient(const double&);
+  void set_selection_normalization_coefficient(const double&);
 
-   // Error methods
+  void set_weights(const double&, const double&);
 
-   void set_default();
+  void set_weights();
 
-   void set_positives_weight(const double&);
-   void set_negatives_weight(const double&);
+  void set_training_normalization_coefficient();
+  void set_selection_normalization_coefficient();
 
-   void set_training_normalization_coefficient(const double&);
-   void set_selection_normalization_coefficient(const double&);
+  double calculate_batch_error(const Vector<size_t>&) const;
+  double calculate_batch_error(const Vector<size_t>&, const Vector<double>&) const;
 
-   void set_weights(const double&, const double&);
+  Vector<double> calculate_training_error_gradient() const;
 
-   void set_weights();
+  LossIndex::FirstOrderLoss calculate_first_order_loss() const;
+  LossIndex::FirstOrderLoss calculate_batch_first_order_loss(const Vector<size_t>&) const;
 
-   void set_training_normalization_coefficient();
-   void set_selection_normalization_coefficient();
+  Tensor<double> calculate_output_gradient(const Tensor<double>&, const Tensor<double>&) const;
 
-   double calculate_batch_error(const Vector<size_t>&) const;
-   double calculate_batch_error(const Vector<size_t>&, const Vector<double>&) const;
+  // Error terms methods
 
-   Vector<double> calculate_training_error_gradient() const;
+  Vector<double> calculate_training_error_terms(const Vector<double>&) const;
+  Vector<double> calculate_training_error_terms(const Tensor<double>&, const Tensor<double>&) const;
 
-   LossIndex::FirstOrderLoss calculate_first_order_loss() const;
-   LossIndex::FirstOrderLoss calculate_batch_first_order_loss(const Vector<size_t>&) const;
+  LossIndex::SecondOrderLoss calculate_terms_second_order_loss() const;
 
-   Tensor<double> calculate_output_gradient(const Tensor<double>&, const Tensor<double>&) const;
+  string get_error_type() const;
+  string get_error_type_text() const;
 
-   // Error terms methods
+  // Serialization methods
 
-   Vector<double> calculate_training_error_terms(const Vector<double>&) const;
-   Vector<double> calculate_training_error_terms(const Tensor<double>&, const Tensor<double>&) const;
+  tinyxml2::XMLDocument* to_XML() const;
+  void from_XML(const tinyxml2::XMLDocument&);
 
-   LossIndex::SecondOrderLoss calculate_terms_second_order_loss() const;
+  void write_XML(tinyxml2::XMLPrinter&) const;
 
-   string get_error_type() const;
-   string get_error_type_text() const;
+  string object_to_string() const;
 
-   // Serialization methods
+ private:
+  /// Weight for the positives for the calculation of the error.
 
-   tinyxml2::XMLDocument* to_XML() const;   
-   void from_XML(const tinyxml2::XMLDocument&);
+  double positives_weight;
 
-   void write_XML(tinyxml2::XMLPrinter&) const;
+  /// Weight for the negatives for the calculation of the error.
 
-   string object_to_string() const;
+  double negatives_weight;
 
-private:
+  /// Coefficient of normalization for the calculation of the training error.
 
-   /// Weight for the positives for the calculation of the error.
+  double training_normalization_coefficient;
 
-   double positives_weight;
+  /// Coefficient of normalization for the calculation of the selection error.
 
-   /// Weight for the negatives for the calculation of the error.
-
-   double negatives_weight;
-
-   /// Coefficient of normalization for the calculation of the training error.
-
-   double training_normalization_coefficient;
-
-   /// Coefficient of normalization for the calculation of the selection error.
-
-   double selection_normalization_coefficient;
+  double selection_normalization_coefficient;
 };
 
-}
+}  // namespace OpenNN
 
 #endif
-
 
 // OpenNN: Open Neural Networks Library.
 // Copyright(C) 2005-2019 Artificial Intelligence Techniques, SL.
