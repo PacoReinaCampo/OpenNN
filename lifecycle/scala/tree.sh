@@ -44,6 +44,6 @@
 
 tree -P '*.scala' library > TREE-SCALA.txt
 
-tree -f -i -P '*.java' library > CREATE-SCALA.sh
-sed -i '/.java/!d' CREATE-SCALA.sh
+tree -f -i -P '*.scala' library > CREATE-SCALA.sh
+sed -i '/\.scala/!d' CREATE-SCALA.sh
 sed -i 's/^/touch /g' CREATE-SCALA.sh
