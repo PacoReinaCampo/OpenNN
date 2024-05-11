@@ -9,13 +9,16 @@ library
 │   └── vector
 │       └── ntm_vector_algebra.java
 ├── arithmetic
+│   ├── test_matrix_arithmetic.java
+│   ├── test_scalar_arithmetic.java
+│   ├── test_tensor_arithmetic.java
+│   ├── test_vector_arithmetic.java
 │   ├── matrix
 │   │   └── ntm_matrix_arithmetic.java
 │   ├── scalar
 │   │   └── ntm_scalar_arithmetic.java
 │   ├── tensor
 │   │   └── ntm_tensor_arithmetic.java
-│   ├── test_scalar_arithmetic.java
 │   └── vector
 │       └── ntm_vector_arithmetic.java
 ├── math
@@ -171,4 +174,4 @@ library
             ├── ntm_lstm_output_v_trainer.java
             └── ntm_lstm_output_w_trainer.java
 
-53 directories, 118 files
+53 directories, 121 files

@@ -42,31 +42,31 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-package pkg;
+package matrix
 
-class peripheral_design {
-  def ntm_scalar_adder(data_a_in: Double, data_b_in: Double) {
+object ntm_matrix_arithmetic {
+  def ntm_matrix_adder(data_a_in: Double, data_b_in: Double): Double = {
  
     val data_out = data_a_in + data_b_in
  
     data_out
   }
 
-  def ntm_scalar_subtractor(data_a_in: Double, data_b_in: Double) {
+  def ntm_matrix_subtractor(data_a_in: Double, data_b_in: Double): Double = {
  
     val data_out = data_a_in - data_b_in;
  
     data_out
   }
 
-  def ntm_scalar_multiplier(data_a_in: Double, data_b_in: Double) {
+  def ntm_matrix_multiplier(data_a_in: Double, data_b_in: Double): Double = {
  
     val data_out = data_a_in * data_b_in;
  
     data_out
   }
 
-  def ntm_scalar_divider(data_a_in: Double, data_b_in: Double) {
+  def ntm_matrix_divider(data_a_in: Double, data_b_in: Double): Double = {
  
     val data_out = data_a_in / data_b_in;
  

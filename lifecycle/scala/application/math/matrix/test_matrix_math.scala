@@ -42,34 +42,19 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-package pkg;
+import matrix.ntm_matrix_algebra
 
-class peripheral_design {
-  def ntm_scalar_adder(data_a_in: Double, data_b_in: Double) {
- 
-    val data_out = data_a_in + data_b_in
- 
-    data_out
-  }
+object test_matrix_algebra {
+  def main(args: Array[String]): Unit = {
+    val data_a_in: Double = 20.0
+    val data_b_in: Double = 10.0
 
-  def ntm_scalar_subtractor(data_a_in: Double, data_b_in: Double) {
- 
-    val data_out = data_a_in - data_b_in;
- 
-    data_out
-  }
+    assert(ntm_matrix_algebra.ntm_matrix_adder(data_a_in, data_b_in) == data_a_in + data_b_in)
 
-  def ntm_scalar_multiplier(data_a_in: Double, data_b_in: Double) {
- 
-    val data_out = data_a_in * data_b_in;
- 
-    data_out
-  }
+    assert(ntm_matrix_algebra.ntm_matrix_subtractor(data_a_in, data_b_in) == data_a_in - data_b_in)
 
-  def ntm_scalar_divider(data_a_in: Double, data_b_in: Double) {
- 
-    val data_out = data_a_in / data_b_in;
- 
-    data_out
+    assert(ntm_matrix_algebra.ntm_matrix_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in)
+
+    assert(ntm_matrix_algebra.ntm_matrix_divider(data_a_in, data_b_in) == data_a_in / data_b_in)
   }
 }

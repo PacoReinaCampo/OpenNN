@@ -42,8 +42,7 @@
 ##                                                                               ##
 ###################################################################################
 
-javac scalar/ntm_scalar_arithmetic.java; javac test_scalar_arithmetic.java; java test_scalar_arithmetic
-javac vector/ntm_vector_arithmetic.java
-javac matrix/ntm_matrix_arithmetic.java
-javac tensor/ntm_tensor_arithmetic.java
-javac scalar/ntm_scalar_arithmetic.java
+scalac scalar/ntm_scalar_arithmetic.scala; scalac test_scalar_arithmetic.scala; scala test_scalar_arithmetic
+scalac vector/ntm_vector_arithmetic.scala; scalac test_vector_arithmetic.scala; scala test_vector_arithmetic
+scalac matrix/ntm_matrix_arithmetic.scala; scalac test_matrix_arithmetic.scala; scala test_matrix_arithmetic
+scalac tensor/ntm_tensor_arithmetic.scala; scalac test_tensor_arithmetic.scala; scala test_tensor_arithmetic

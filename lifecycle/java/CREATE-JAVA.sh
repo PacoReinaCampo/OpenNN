@@ -5,7 +5,6 @@ touch library/algebra/vector/ntm_vector_algebra.java
 touch library/arithmetic/matrix/ntm_matrix_arithmetic.java
 touch library/arithmetic/scalar/ntm_scalar_arithmetic.java
 touch library/arithmetic/tensor/ntm_tensor_arithmetic.java
-touch library/arithmetic/test_scalar_arithmetic.java
 touch library/arithmetic/vector/ntm_vector_arithmetic.java
 touch library/math/matrix/ntm_matrix_math.java
 touch library/math/scalar/ntm_scalar_math.java

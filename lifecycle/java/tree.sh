@@ -42,8 +42,8 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.java' library > TREE-JAVA.txt
+tree --filesfirst -P '*.java' library > TREE-JAVA.txt
 
-tree -f -i -P '*.java' library > CREATE-JAVA.sh
+tree -f -i -P '*.java' -I 'test_*' library > CREATE-JAVA.sh
 sed -i '/.java/!d' CREATE-JAVA.sh
 sed -i 's/^/touch /g' CREATE-JAVA.sh
