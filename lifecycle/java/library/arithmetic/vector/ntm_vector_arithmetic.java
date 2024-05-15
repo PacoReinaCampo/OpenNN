@@ -45,7 +45,7 @@
 package vector;
 
 public class ntm_vector_arithmetic {
-  public static double[] ntm_vector_adder(double data_a_in[], double data_b_in[]) {
+  public static double[] ntm_vector_adder(double[] data_a_in, double[] data_b_in) {
     int i;
 
     double data_out[] = new double[data_a_in.length];
@@ -56,7 +56,7 @@ public class ntm_vector_arithmetic {
     return data_out;
   }
 
-  public static double[] ntm_vector_subtractor(double data_a_in[], double data_b_in[]) {
+  public static double[] ntm_vector_subtractor(double[] data_a_in, double[] data_b_in) {
     int i;
 
     double data_out[] = new double[data_a_in.length];
@@ -67,7 +67,7 @@ public class ntm_vector_arithmetic {
     return data_out;
   }
 
-  public static double[] ntm_vector_multiplier(double data_a_in[], double data_b_in[]) {
+  public static double[] ntm_vector_multiplier(double[] data_a_in, double[] data_b_in) {
     int i;
 
     double data_out[] = new double[data_a_in.length];
@@ -78,7 +78,7 @@ public class ntm_vector_arithmetic {
     return data_out;
   }
 
-  public static double[] ntm_vector_divider(double data_a_in[], double data_b_in[]) {
+  public static double[] ntm_vector_divider(double[] data_a_in, double[] data_b_in) {
     int i;
 
     double data_out[] = new double[data_a_in.length];

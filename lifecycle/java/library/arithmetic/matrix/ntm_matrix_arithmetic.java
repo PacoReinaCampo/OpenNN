@@ -45,7 +45,7 @@
 package matrix;
 
 public class ntm_matrix_arithmetic {
-  public static double[][] ntm_matrix_adder(double data_a_in[][], double data_b_in[][]) {
+  public static double[][] ntm_matrix_adder(double[][] data_a_in, double[][] data_b_in) {
     int i, j;
 
     double data_out[][] = new double[data_a_in.length][data_a_in[0].length];
@@ -57,7 +57,7 @@ public class ntm_matrix_arithmetic {
     return data_out;
   }
 
-  public static double[][] ntm_matrix_subtractor(double data_a_in[][], double data_b_in[][]) {
+  public static double[][] ntm_matrix_subtractor(double[][] data_a_in, double[][] data_b_in) {
     int i, j;
 
     double data_out[][] = new double[data_a_in.length][data_a_in[0].length];
@@ -69,7 +69,7 @@ public class ntm_matrix_arithmetic {
     return data_out;
   }
 
-  public static double[][] ntm_matrix_multiplier(double data_a_in[][], double data_b_in[][]) {
+  public static double[][] ntm_matrix_multiplier(double[][] data_a_in, double[][] data_b_in) {
     int i, j;
 
     double data_out[][] = new double[data_a_in.length][data_a_in[0].length];
@@ -81,7 +81,7 @@ public class ntm_matrix_arithmetic {
     return data_out;
   }
 
-  public static double[][] ntm_matrix_divider(double data_a_in[][], double data_b_in[][]) {
+  public static double[][] ntm_matrix_divider(double[][] data_a_in, double[][] data_b_in) {
     int i, j;
 
     double data_out[][] = new double[data_a_in.length][data_a_in[0].length];

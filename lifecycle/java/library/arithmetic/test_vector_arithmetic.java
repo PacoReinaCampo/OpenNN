@@ -42,19 +42,39 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
+import java.util.Arrays;
+import java.util.Random;
+
 import vector.ntm_vector_arithmetic;
 
 class test_vector_arithmetic {
   public static void main(String[] args) {
-    double data_a_in = 20.0;
-    double data_b_in = 10.0;
+    Random random = new Random();
 
-    assert ntm_vector_arithmetic.ntm_vector_adder(data_a_in, data_b_in) == data_a_in + data_b_in;
+    double[] data_a_in = new double[3];
+    Arrays.setAll(data_a_in, i -> random.nextDouble());
 
-    assert ntm_vector_arithmetic.ntm_vector_subtractor(data_a_in, data_b_in) == data_a_in - data_b_in;
+    double[] data_b_in = new double[3];
+    Arrays.setAll(data_b_in, i -> random.nextDouble());
 
-    assert ntm_vector_arithmetic.ntm_vector_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in;
+    double[] addition = new double[data_a_in.length];
+    Arrays.setAll(addition, i -> data_a_in[i] + data_b_in[i]);
 
-    assert ntm_vector_arithmetic.ntm_vector_divider(data_a_in, data_b_in) == data_a_in / data_b_in;
+    assert Arrays.equals(ntm_vector_arithmetic.ntm_vector_adder(data_a_in, data_b_in), addition) : "Incorrect Addition";
+
+    double[] subtraction = new double[data_a_in.length];
+    Arrays.setAll(subtraction, i -> data_a_in[i] - data_b_in[i]);
+
+    assert Arrays.equals(ntm_vector_arithmetic.ntm_vector_subtractor(data_a_in, data_b_in), subtraction) : "Incorrect Subtraction";
+
+    double[] multiplication = new double[data_a_in.length];
+    Arrays.setAll(multiplication, i -> data_a_in[i] * data_b_in[i]);
+
+    assert Arrays.equals(ntm_vector_arithmetic.ntm_vector_multiplier(data_a_in, data_b_in), multiplication) : "Incorrect Multiplication";
+
+    double[] division = new double[data_a_in.length];
+    Arrays.setAll(division, i -> data_a_in[i] / data_b_in[i]);
+
+    assert Arrays.equals(ntm_vector_arithmetic.ntm_vector_divider(data_a_in, data_b_in), division) : "Incorrect Division";
   }
 }

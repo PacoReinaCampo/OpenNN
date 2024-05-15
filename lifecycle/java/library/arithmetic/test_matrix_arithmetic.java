@@ -42,19 +42,57 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
+import java.util.Arrays;
+import java.util.Random;
+
 import matrix.ntm_matrix_arithmetic;
 
 class test_matrix_arithmetic {
   public static void main(String[] args) {
-    double data_a_in = 20.0;
-    double data_b_in = 10.0;
+    Random random = new Random();
 
-    assert ntm_matrix_arithmetic.ntm_matrix_adder(data_a_in, data_b_in) == data_a_in + data_b_in;
+    double[][] data_a_in = new double[3][3];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i;
+      Arrays.setAll(data_a_in[row], j -> random.nextDouble());
+    }
 
-    assert ntm_matrix_arithmetic.ntm_matrix_subtractor(data_a_in, data_b_in) == data_a_in - data_b_in;
+    double[][] data_b_in = new double[3][3];
+    for (int i = 0; i < data_b_in.length; i++) {
+      final int row = i;
+      Arrays.setAll(data_b_in[row], j -> random.nextDouble());
+    }
 
-    assert ntm_matrix_arithmetic.ntm_matrix_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in;
+    double[][] addition = new double[data_a_in.length][data_a_in[0].length];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i;
+      Arrays.setAll(addition[row], j -> data_a_in[row][j] + data_b_in[row][j]);
+    }
 
-    assert ntm_matrix_arithmetic.ntm_matrix_divider(data_a_in, data_b_in) == data_a_in / data_b_in;
+    assert Arrays.deepEquals(ntm_matrix_arithmetic.ntm_matrix_adder(data_a_in, data_b_in), addition) : "Incorrect Addition";
+
+    double[][] subtraction = new double[data_a_in.length][data_a_in[0].length];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i;
+      Arrays.setAll(subtraction[row], j -> data_a_in[row][j] - data_b_in[row][j]);
+    }
+
+    assert Arrays.deepEquals(ntm_matrix_arithmetic.ntm_matrix_subtractor(data_a_in, data_b_in), subtraction) : "Incorrect Subtraction";
+
+    double[][] multiplication = new double[data_a_in.length][data_a_in[0].length];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i;
+      Arrays.setAll(multiplication[row], j -> data_a_in[row][j] * data_b_in[row][j]);
+    }
+
+    assert Arrays.deepEquals(ntm_matrix_arithmetic.ntm_matrix_multiplier(data_a_in, data_b_in), multiplication) : "Incorrect Multiplication";
+
+    double[][] division = new double[data_a_in.length][data_a_in[0].length];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i;
+      Arrays.setAll(division[row], j -> data_a_in[row][j] / data_b_in[row][j]);
+    }
+
+    assert Arrays.deepEquals(ntm_matrix_arithmetic.ntm_matrix_divider(data_a_in, data_b_in), division) : "Incorrect Division";
   }
 }

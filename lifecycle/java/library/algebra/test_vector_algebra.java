@@ -42,23 +42,39 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
+import java.util.Arrays;
 import java.util.Random;
 
-import scalar.ntm_scalar_arithmetic;
+import vector.ntm_vector_algebra;
 
-class test_scalar_arithmetic {
+class test_vector_algebra {
   public static void main(String[] args) {
     Random random = new Random();
 
-    double data_a_in = random.nextDouble();
-    double data_b_in = random.nextDouble();
+    double[] data_a_in = new double[3];
+    Arrays.setAll(data_a_in, i -> random.nextDouble());
 
-    assert ntm_scalar_arithmetic.ntm_scalar_adder(data_a_in, data_b_in) == data_a_in + data_b_in;
+    double[] data_b_in = new double[3];
+    Arrays.setAll(data_b_in, i -> random.nextDouble());
 
-    assert ntm_scalar_arithmetic.ntm_scalar_subtractor(data_a_in, data_b_in) == data_a_in - data_b_in;
+    double[] addition = new double[data_a_in.length];
+    Arrays.setAll(addition, i -> data_a_in[i] + data_b_in[i]);
 
-    assert ntm_scalar_arithmetic.ntm_scalar_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in;
+    assert Arrays.equals(ntm_vector_algebra.ntm_vector_adder(data_a_in, data_b_in), addition) : "Incorrect Addition";
 
-    assert ntm_scalar_arithmetic.ntm_scalar_divider(data_a_in, data_b_in) == data_a_in / data_b_in;
+    double[] subtraction = new double[data_a_in.length];
+    Arrays.setAll(subtraction, i -> data_a_in[i] - data_b_in[i]);
+
+    assert Arrays.equals(ntm_vector_algebra.ntm_vector_subtractor(data_a_in, data_b_in), subtraction) : "Incorrect Subtraction";
+
+    double[] multiplication = new double[data_a_in.length];
+    Arrays.setAll(multiplication, i -> data_a_in[i] * data_b_in[i]);
+
+    assert Arrays.equals(ntm_vector_algebra.ntm_vector_multiplier(data_a_in, data_b_in), multiplication) : "Incorrect Multiplication";
+
+    double[] division = new double[data_a_in.length];
+    Arrays.setAll(division, i -> data_a_in[i] / data_b_in[i]);
+
+    assert Arrays.equals(ntm_vector_algebra.ntm_vector_divider(data_a_in, data_b_in), division) : "Incorrect Division";
   }
 }

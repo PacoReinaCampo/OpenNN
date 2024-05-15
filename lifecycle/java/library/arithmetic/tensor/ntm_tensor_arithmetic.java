@@ -45,8 +45,8 @@
 package tensor;
 
 public class ntm_tensor_arithmetic {
-  public static double[][][] ntm_tensor_adder(double data_a_in[][][], double data_b_in[][][]) {
-    int i, j;
+  public static double[][][] ntm_tensor_adder(double[][][] data_a_in, double[][][] data_b_in) {
+    int i, j, k;
 
     double data_out[][][] = new double[data_a_in.length][data_a_in[0].length][data_a_in[0][0].length];
  
@@ -58,8 +58,8 @@ public class ntm_tensor_arithmetic {
     return data_out;
   }
 
-  public static double[][][] ntm_tensor_subtractor(double data_a_in[][][], double data_b_in[][][]) {
-    int i, j;
+  public static double[][][] ntm_tensor_subtractor(double[][][] data_a_in, double[][][] data_b_in) {
+    int i, j, k;
 
     double data_out[][][] = new double[data_a_in.length][data_a_in[0].length][data_a_in[0][0].length];
  
@@ -71,8 +71,8 @@ public class ntm_tensor_arithmetic {
     return data_out;
   }
 
-  public static double[][][] ntm_tensor_multiplier(double data_a_in[][][], double data_b_in[][][]) {
-    int i, j;
+  public static double[][][] ntm_tensor_multiplier(double[][][] data_a_in, double[][][] data_b_in) {
+    int i, j, k;
 
     double data_out[][][] = new double[data_a_in.length][data_a_in[0].length][data_a_in[0][0].length];
  
@@ -84,8 +84,8 @@ public class ntm_tensor_arithmetic {
     return data_out;
   }
 
-  public static double[][][] ntm_tensor_divider(double data_a_in[][][], double data_b_in[][][]) {
-    int i, j;
+  public static double[][][] ntm_tensor_divider(double[][][] data_a_in, double[][][] data_b_in) {
+    int i, j, k;
 
     double data_out[][][] = new double[data_a_in.length][data_a_in[0].length][data_a_in[0][0].length];
  

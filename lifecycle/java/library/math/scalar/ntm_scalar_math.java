@@ -42,8 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-class ScalarMathFunction {
-  static double ntm_scalar_logistic_function(double data_a_in, double data_b_in) {
+package scalar;
+
+public class ntm_scalar_math {
+  public static double ntm_scalar_logistic_function(double data_a_in, double data_b_in) {
     double data_out;
  
     data_out = data_a_in + data_b_in;
@@ -51,10 +53,26 @@ class ScalarMathFunction {
     return data_out;
   }
 
-  static double ntm_scalar_oneplus_function(double data_a_in, double data_b_in) {
+  public static double ntm_scalar_oneplus_function(double data_a_in, double data_b_in) {
+    double data_out;
+ 
+    data_out = data_a_in - data_b_in;
+ 
+    return data_out;
+  }
+
+  public static double ntm_scalar_mean_function(double data_a_in, double data_b_in) {
     double data_out;
  
     data_out = data_a_in * data_b_in;
+ 
+    return data_out;
+  }
+
+  public static double ntm_scalar_deviation_function(double data_a_in, double data_b_in) {
+    double data_out;
+ 
+    data_out = data_a_in / data_b_in;
  
     return data_out;
   }

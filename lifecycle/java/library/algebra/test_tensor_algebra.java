@@ -42,23 +42,74 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
+import java.util.Arrays;
 import java.util.Random;
 
-import scalar.ntm_scalar_arithmetic;
+import tensor.ntm_tensor_algebra;
 
-class test_scalar_arithmetic {
+class test_tensor_algebra {
   public static void main(String[] args) {
     Random random = new Random();
 
-    double data_a_in = random.nextDouble();
-    double data_b_in = random.nextDouble();
+    double[][][] data_a_in = new double[3][3][3];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i;
+      for (int j = 0; j < data_a_in[0].length; j++) {
+        final int column = j;
+        Arrays.setAll(data_a_in[row][column], k -> random.nextDouble());
+      }
+    }
 
-    assert ntm_scalar_arithmetic.ntm_scalar_adder(data_a_in, data_b_in) == data_a_in + data_b_in;
+    double[][][] data_b_in = new double[3][3][3];
+    for (int i = 0; i < data_b_in.length; i++) {
+      final int row = i;
+      for (int j = 0; j < data_b_in[0].length; j++) {
+        final int column = j;
+        Arrays.setAll(data_b_in[row][column], k -> random.nextDouble());
+      }
+    }
 
-    assert ntm_scalar_arithmetic.ntm_scalar_subtractor(data_a_in, data_b_in) == data_a_in - data_b_in;
+    double[][][] addition = new double[data_a_in.length][data_a_in[0].length][data_a_in[0][0].length];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i; 
+      for (int j = 0; j < data_a_in[0].length; j++) {
+        final int column = j; 
+        Arrays.setAll(addition[row][column], k -> data_a_in[row][column][k] + data_b_in[row][column][k]);
+      }
+    }
 
-    assert ntm_scalar_arithmetic.ntm_scalar_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in;
+    assert Arrays.deepEquals(ntm_tensor_algebra.ntm_tensor_adder(data_a_in, data_b_in), addition) : "Incorrect Addition";
 
-    assert ntm_scalar_arithmetic.ntm_scalar_divider(data_a_in, data_b_in) == data_a_in / data_b_in;
+    double[][][] subtraction = new double[data_a_in.length][data_a_in[0].length][data_a_in[0][0].length];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i; 
+      for (int j = 0; j < data_a_in[0].length; j++) {
+        final int column = j; 
+        Arrays.setAll(subtraction[row][column], k -> data_a_in[row][column][k] - data_b_in[row][column][k]);
+      }
+    }
+    assert Arrays.deepEquals(ntm_tensor_algebra.ntm_tensor_subtractor(data_a_in, data_b_in), subtraction) : "Incorrect Subtraction";
+
+    double[][][] multiplication = new double[data_a_in.length][data_a_in[0].length][data_a_in[0][0].length];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i; 
+      for (int j = 0; j < data_a_in[0].length; j++) {
+        final int column = j; 
+        Arrays.setAll(multiplication[row][column], k -> data_a_in[row][column][k] * data_b_in[row][column][k]);
+      }
+    }
+
+    assert Arrays.deepEquals(ntm_tensor_algebra.ntm_tensor_multiplier(data_a_in, data_b_in), multiplication) : "Incorrect Multiplication";
+
+    double[][][] division = new double[data_a_in.length][data_a_in[0].length][data_a_in[0][0].length];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i; 
+      for (int j = 0; j < data_a_in[0].length; j++) {
+        final int column = j; 
+        Arrays.setAll(division[row][column], k -> data_a_in[row][column][k] / data_b_in[row][column][k]);
+      }
+    }
+
+    assert Arrays.deepEquals(ntm_tensor_algebra.ntm_tensor_divider(data_a_in, data_b_in), division) : "Incorrect Division";
   }
 }

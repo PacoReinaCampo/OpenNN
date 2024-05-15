@@ -42,8 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-class MatrixMathFunction {
-  static double[][] ntm_matrix_logistic_function(double data_a_in[][], double data_b_in[][]) {
+package matrix;
+
+public class ntm_matrix_math {
+  public static double[][] ntm_matrix_logistic_function(double[][] data_a_in, double[][] data_b_in) {
     int i, j;
 
     double data_out[][] = new double[data_a_in.length][data_a_in[0].length];
@@ -55,7 +57,19 @@ class MatrixMathFunction {
     return data_out;
   }
 
-  static double[][] ntm_matrix_oneplus_function(double data_a_in[][], double data_b_in[][]) {
+  public static double[][] ntm_matrix_oneplus_function(double[][] data_a_in, double[][] data_b_in) {
+    int i, j;
+
+    double data_out[][] = new double[data_a_in.length][data_a_in[0].length];
+ 
+    for (i = 0; i < data_a_in.length; i++)
+      for (j = 0; j < data_a_in[0].length; j++)
+        data_out[i][j] = data_a_in[i][j] - data_b_in[i][j];
+ 
+    return data_out;
+  }
+
+  public static double[][] ntm_matrix_mean_function(double[][] data_a_in, double[][] data_b_in) {
     int i, j;
 
     double data_out[][] = new double[data_a_in.length][data_a_in[0].length];
@@ -63,6 +77,18 @@ class MatrixMathFunction {
     for (i = 0; i < data_a_in.length; i++)
       for (j = 0; j < data_a_in[0].length; j++)
         data_out[i][j] = data_a_in[i][j] * data_b_in[i][j];
+ 
+    return data_out;
+  }
+
+  public static double[][] ntm_matrix_deviation_function(double[][] data_a_in, double[][] data_b_in) {
+    int i, j;
+
+    double data_out[][] = new double[data_a_in.length][data_a_in[0].length];
+ 
+    for (i = 0; i < data_a_in.length; i++)
+      for (j = 0; j < data_a_in[0].length; j++)
+        data_out[i][j] = data_a_in[i][j] / data_b_in[i][j];
  
     return data_out;
   }

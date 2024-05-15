@@ -42,23 +42,57 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
+import java.util.Arrays;
 import java.util.Random;
 
-import scalar.ntm_scalar_arithmetic;
+import matrix.ntm_matrix_math;
 
-class test_scalar_arithmetic {
+class test_matrix_math {
   public static void main(String[] args) {
     Random random = new Random();
 
-    double data_a_in = random.nextDouble();
-    double data_b_in = random.nextDouble();
+    double[][] data_a_in = new double[3][3];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i;
+      Arrays.setAll(data_a_in[row], j -> random.nextDouble());
+    }
 
-    assert ntm_scalar_arithmetic.ntm_scalar_adder(data_a_in, data_b_in) == data_a_in + data_b_in;
+    double[][] data_b_in = new double[3][3];
+    for (int i = 0; i < data_b_in.length; i++) {
+      final int row = i;
+      Arrays.setAll(data_b_in[row], j -> random.nextDouble());
+    }
 
-    assert ntm_scalar_arithmetic.ntm_scalar_subtractor(data_a_in, data_b_in) == data_a_in - data_b_in;
+    double[][] logistic_function = new double[data_a_in.length][data_a_in[0].length];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i;
+      Arrays.setAll(logistic_function[row], j -> data_a_in[row][j] + data_b_in[row][j]);
+    }
 
-    assert ntm_scalar_arithmetic.ntm_scalar_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in;
+    assert Arrays.deepEquals(ntm_matrix_math.ntm_matrix_logistic_function(data_a_in, data_b_in), logistic_function) : "Incorrect Logistic Function";
 
-    assert ntm_scalar_arithmetic.ntm_scalar_divider(data_a_in, data_b_in) == data_a_in / data_b_in;
+    double[][] oneplus_function = new double[data_a_in.length][data_a_in[0].length];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i;
+      Arrays.setAll(oneplus_function[row], j -> data_a_in[row][j] - data_b_in[row][j]);
+    }
+
+    assert Arrays.deepEquals(ntm_matrix_math.ntm_matrix_oneplus_function(data_a_in, data_b_in), oneplus_function) : "Incorrect Oneplus Function";
+
+    double[][] mean_function = new double[data_a_in.length][data_a_in[0].length];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i;
+      Arrays.setAll(mean_function[row], j -> data_a_in[row][j] * data_b_in[row][j]);
+    }
+
+    assert Arrays.deepEquals(ntm_matrix_math.ntm_matrix_mean_function(data_a_in, data_b_in), mean_function) : "Incorrect Mean Function";
+
+    double[][] deviation_function = new double[data_a_in.length][data_a_in[0].length];
+    for (int i = 0; i < data_a_in.length; i++) {
+      final int row = i;
+      Arrays.setAll(deviation_function[row], j -> data_a_in[row][j] / data_b_in[row][j]);
+    }
+
+    assert Arrays.deepEquals(ntm_matrix_math.ntm_matrix_deviation_function(data_a_in, data_b_in), deviation_function) : "Incorrect Deviation Function";
   }
 }

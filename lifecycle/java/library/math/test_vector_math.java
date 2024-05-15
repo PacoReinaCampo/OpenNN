@@ -42,23 +42,39 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
+import java.util.Arrays;
 import java.util.Random;
 
-import scalar.ntm_scalar_arithmetic;
+import vector.ntm_vector_math;
 
-class test_scalar_arithmetic {
+class test_vector_math {
   public static void main(String[] args) {
     Random random = new Random();
 
-    double data_a_in = random.nextDouble();
-    double data_b_in = random.nextDouble();
+    double[] data_a_in = new double[3];
+    Arrays.setAll(data_a_in, i -> random.nextDouble());
 
-    assert ntm_scalar_arithmetic.ntm_scalar_adder(data_a_in, data_b_in) == data_a_in + data_b_in;
+    double[] data_b_in = new double[3];
+    Arrays.setAll(data_b_in, i -> random.nextDouble());
 
-    assert ntm_scalar_arithmetic.ntm_scalar_subtractor(data_a_in, data_b_in) == data_a_in - data_b_in;
+    double[] logistic_function = new double[data_a_in.length];
+    Arrays.setAll(logistic_function, i -> data_a_in[i] + data_b_in[i]);
 
-    assert ntm_scalar_arithmetic.ntm_scalar_multiplier(data_a_in, data_b_in) == data_a_in * data_b_in;
+    assert Arrays.equals(ntm_vector_math.ntm_vector_logistic_function(data_a_in, data_b_in), logistic_function) : "Incorrect Logistic Function";
 
-    assert ntm_scalar_arithmetic.ntm_scalar_divider(data_a_in, data_b_in) == data_a_in / data_b_in;
+    double[] oneplus_function = new double[data_a_in.length];
+    Arrays.setAll(oneplus_function, i -> data_a_in[i] - data_b_in[i]);
+
+    assert Arrays.equals(ntm_vector_math.ntm_vector_oneplus_function(data_a_in, data_b_in), oneplus_function) : "Incorrect Oneplus Function";
+
+    double[] mean_function = new double[data_a_in.length];
+    Arrays.setAll(mean_function, i -> data_a_in[i] * data_b_in[i]);
+
+    assert Arrays.equals(ntm_vector_math.ntm_vector_mean_function(data_a_in, data_b_in), mean_function) : "Incorrect Mean Function";
+
+    double[] deviation_function = new double[data_a_in.length];
+    Arrays.setAll(deviation_function, i -> data_a_in[i] / data_b_in[i]);
+
+    assert Arrays.equals(ntm_vector_math.ntm_vector_deviation_function(data_a_in, data_b_in), deviation_function) : "Incorrect Deviation Function";
   }
 }
