@@ -14,60 +14,62 @@ namespace Eigen {
 
 namespace internal {
 
-template<>
+template <>
 struct scalar_cast_op<float, Eigen::half> {
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cast_op)
   typedef Eigen::half result_type;
-  EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE Eigen::half operator() (const float& a) const {
-    #if defined(EIGEN_HAS_CUDA_FP16) && defined(__CUDA_ARCH__) && __CUDA_ARCH__ >= 300
-      return __float2half(a);
-    #else
-      return Eigen::half(a);
-    #endif
+  EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE Eigen::half operator()(const float& a) const {
+#if defined(EIGEN_HAS_CUDA_FP16) && defined(__CUDA_ARCH__) && __CUDA_ARCH__ >= 300
+    return __float2half(a);
+#else
+    return Eigen::half(a);
+#endif
   }
 };
 
-template<>
-struct functor_traits<scalar_cast_op<float, Eigen::half> >
-{ enum { Cost = NumTraits<float>::AddCost, PacketAccess = false }; };
+template <>
+struct functor_traits<scalar_cast_op<float, Eigen::half> > {
+  enum { Cost = NumTraits<float>::AddCost,
+         PacketAccess = false };
+};
 
-
-template<>
+template <>
 struct scalar_cast_op<int, Eigen::half> {
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cast_op)
   typedef Eigen::half result_type;
-  EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE Eigen::half operator() (const int& a) const {
-    #if defined(EIGEN_HAS_CUDA_FP16) && defined(__CUDA_ARCH__) && __CUDA_ARCH__ >= 300
-      return __float2half(static_cast<float>(a));
-    #else
-      return Eigen::half(static_cast<float>(a));
-    #endif
+  EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE Eigen::half operator()(const int& a) const {
+#if defined(EIGEN_HAS_CUDA_FP16) && defined(__CUDA_ARCH__) && __CUDA_ARCH__ >= 300
+    return __float2half(static_cast<float>(a));
+#else
+    return Eigen::half(static_cast<float>(a));
+#endif
   }
 };
 
-template<>
-struct functor_traits<scalar_cast_op<int, Eigen::half> >
-{ enum { Cost = NumTraits<float>::AddCost, PacketAccess = false }; };
+template <>
+struct functor_traits<scalar_cast_op<int, Eigen::half> > {
+  enum { Cost = NumTraits<float>::AddCost,
+         PacketAccess = false };
+};
 
-
-template<>
+template <>
 struct scalar_cast_op<Eigen::half, float> {
   EIGEN_EMPTY_STRUCT_CTOR(scalar_cast_op)
   typedef float result_type;
-  EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE float operator() (const Eigen::half& a) const {
-    #if defined(EIGEN_HAS_CUDA_FP16) && defined(__CUDA_ARCH__) && __CUDA_ARCH__ >= 300
-      return __half2float(a);
-    #else
-      return static_cast<float>(a);
-    #endif
+  EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE float operator()(const Eigen::half& a) const {
+#if defined(EIGEN_HAS_CUDA_FP16) && defined(__CUDA_ARCH__) && __CUDA_ARCH__ >= 300
+    return __half2float(a);
+#else
+    return static_cast<float>(a);
+#endif
   }
 };
 
-template<>
-struct functor_traits<scalar_cast_op<Eigen::half, float> >
-{ enum { Cost = NumTraits<float>::AddCost, PacketAccess = false }; };
-
-
+template <>
+struct functor_traits<scalar_cast_op<Eigen::half, float> > {
+  enum { Cost = NumTraits<float>::AddCost,
+         PacketAccess = false };
+};
 
 #if defined(EIGEN_HAS_CUDA_FP16) && defined(__CUDA_ARCH__) && __CUDA_ARCH__ >= 300
 
@@ -80,7 +82,8 @@ struct type_casting_traits<Eigen::half, float> {
   };
 };
 
-template<> EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE float4 pcast<half2, float4>(const half2& a, const half2& b) {
+template <>
+EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE float4 pcast<half2, float4>(const half2& a, const half2& b) {
   float2 r1 = __half22float2(a);
   float2 r2 = __half22float2(b);
   return make_float4(r1.x, r1.y, r2.x, r2.y);
@@ -95,7 +98,8 @@ struct type_casting_traits<float, Eigen::half> {
   };
 };
 
-template<> EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE half2 pcast<float4, half2>(const float4& a) {
+template <>
+EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE half2 pcast<float4, half2>(const float4& a) {
   // Simply discard the second half of the input
   return __floats2half2_rn(a.x, a.y);
 }
@@ -110,7 +114,8 @@ struct type_casting_traits<half, float> {
   };
 };
 
-template<> EIGEN_STRONG_INLINE Packet16f pcast<Packet16h, Packet16f>(const Packet16h& a) {
+template <>
+EIGEN_STRONG_INLINE Packet16f pcast<Packet16h, Packet16f>(const Packet16h& a) {
   return half2float(a);
 }
 
@@ -123,7 +128,8 @@ struct type_casting_traits<float, half> {
   };
 };
 
-template<> EIGEN_STRONG_INLINE Packet16h pcast<Packet16f, Packet16h>(const Packet16f& a) {
+template <>
+EIGEN_STRONG_INLINE Packet16h pcast<Packet16f, Packet16h>(const Packet16f& a) {
   return float2half(a);
 }
 
@@ -138,7 +144,8 @@ struct type_casting_traits<Eigen::half, float> {
   };
 };
 
-template<> EIGEN_STRONG_INLINE Packet8f pcast<Packet8h, Packet8f>(const Packet8h& a) {
+template <>
+EIGEN_STRONG_INLINE Packet8f pcast<Packet8h, Packet8f>(const Packet8h& a) {
   return half2float(a);
 }
 
@@ -151,7 +158,8 @@ struct type_casting_traits<float, Eigen::half> {
   };
 };
 
-template<> EIGEN_STRONG_INLINE Packet8h pcast<Packet8f, Packet8h>(const Packet8f& a) {
+template <>
+EIGEN_STRONG_INLINE Packet8h pcast<Packet8f, Packet8h>(const Packet8f& a) {
   return float2half(a);
 }
 
@@ -168,7 +176,8 @@ struct type_casting_traits<Eigen::half, float> {
   };
 };
 
-template<> EIGEN_STRONG_INLINE Packet4f pcast<Packet4h, Packet4f>(const Packet4h& a) {
+template <>
+EIGEN_STRONG_INLINE Packet4f pcast<Packet4h, Packet4f>(const Packet4h& a) {
   __int64_t a64 = _mm_cvtm64_si64(a.x);
   Eigen::half h = raw_uint16_to_half(static_cast<unsigned short>(a64));
   float f1 = static_cast<float>(h);
@@ -190,7 +199,8 @@ struct type_casting_traits<float, Eigen::half> {
   };
 };
 
-template<> EIGEN_STRONG_INLINE Packet4h pcast<Packet4f, Packet4h>(const Packet4f& a) {
+template <>
+EIGEN_STRONG_INLINE Packet4h pcast<Packet4f, Packet4h>(const Packet4f& a) {
   EIGEN_ALIGN16 float aux[4];
   pstore(aux, a);
   Eigen::half h0(aux[0]);
@@ -205,8 +215,8 @@ template<> EIGEN_STRONG_INLINE Packet4h pcast<Packet4f, Packet4h>(const Packet4f
 
 #endif
 
-} // end namespace internal
+}  // end namespace internal
 
-} // end namespace Eigen
+}  // end namespace Eigen
 
-#endif // EIGEN_TYPE_CASTING_CUDA_H
+#endif  // EIGEN_TYPE_CASTING_CUDA_H

@@ -16,16 +16,17 @@ namespace Eigen {
 
 namespace internal {
 
-template<> EIGEN_DEFINE_FUNCTION_ALLOWING_MULTIPLE_DEFINITIONS EIGEN_UNUSED
-Packet4f pexp<Packet4f>(const Packet4f& _x)
-{
+template <>
+EIGEN_DEFINE_FUNCTION_ALLOWING_MULTIPLE_DEFINITIONS EIGEN_UNUSED
+    Packet4f
+    pexp<Packet4f>(const Packet4f& _x) {
   Packet4f x = _x;
   Packet4f tmp, fx;
 
-  _EIGEN_DECLARE_CONST_Packet4f(1 , 1.0f);
+  _EIGEN_DECLARE_CONST_Packet4f(1, 1.0f);
   _EIGEN_DECLARE_CONST_Packet4f(half, 0.5f);
   _EIGEN_DECLARE_CONST_Packet4i(0x7f, 0x7f);
-  _EIGEN_DECLARE_CONST_Packet4f(exp_hi,  88.3762626647950f);
+  _EIGEN_DECLARE_CONST_Packet4f(exp_hi, 88.3762626647950f);
   _EIGEN_DECLARE_CONST_Packet4f(exp_lo, -88.3762626647949f);
   _EIGEN_DECLARE_CONST_Packet4f(cephes_LOG2EF, 1.44269504088896341f);
   _EIGEN_DECLARE_CONST_Packet4f(cephes_exp_C1, 0.693359375f);
@@ -84,8 +85,8 @@ Packet4f pexp<Packet4f>(const Packet4f& _x)
   return y;
 }
 
-} // end namespace internal
+}  // end namespace internal
 
-} // end namespace Eigen
+}  // end namespace Eigen
 
-#endif // EIGEN_MATH_FUNCTIONS_NEON_H
+#endif  // EIGEN_MATH_FUNCTIONS_NEON_H

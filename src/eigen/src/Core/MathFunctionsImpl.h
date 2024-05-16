@@ -22,9 +22,8 @@ namespace internal {
 
     This implementation works on both scalars and packets.
 */
-template<typename T>
-T generic_fast_tanh_float(const T& a_x)
-{
+template <typename T>
+T generic_fast_tanh_float(const T& a_x) {
   // Clamp the inputs to the range [-9, 9] since anything outside
   // this range is +/-1.0f in single-precision.
   const T plus_9 = pset1<T>(9.f);
@@ -34,7 +33,7 @@ T generic_fast_tanh_float(const T& a_x)
   //      and tanh will return 1 or -1 instead of nan.
   //      This is supposed to be fixed in gcc6.3,
   //      see: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=72867
-  const T x = pmax(minus_9,pmin(plus_9,a_x));
+  const T x = pmax(minus_9, pmin(plus_9, a_x));
   // The monomial coefficients of the numerator polynomial (odd).
   const T alpha_1 = pset1<T>(4.89352455891786e-03f);
   const T alpha_3 = pset1<T>(6.37261928875436e-04f);
@@ -71,31 +70,29 @@ T generic_fast_tanh_float(const T& a_x)
   return pdiv(p, q);
 }
 
-template<typename RealScalar>
+template <typename RealScalar>
 EIGEN_STRONG_INLINE
-RealScalar positive_real_hypot(const RealScalar& x, const RealScalar& y)
-{
+    RealScalar
+    positive_real_hypot(const RealScalar& x, const RealScalar& y) {
   EIGEN_USING_STD_MATH(sqrt);
   RealScalar p, qp;
-  p = numext::maxi(x,y);
-  if(p==RealScalar(0)) return RealScalar(0);
-  qp = numext::mini(y,x) / p;    
-  return p * sqrt(RealScalar(1) + qp*qp);
+  p = numext::maxi(x, y);
+  if (p == RealScalar(0)) return RealScalar(0);
+  qp = numext::mini(y, x) / p;
+  return p * sqrt(RealScalar(1) + qp * qp);
 }
 
-template<typename Scalar>
-struct hypot_impl
-{
+template <typename Scalar>
+struct hypot_impl {
   typedef typename NumTraits<Scalar>::Real RealScalar;
-  static inline RealScalar run(const Scalar& x, const Scalar& y)
-  {
+  static inline RealScalar run(const Scalar& x, const Scalar& y) {
     EIGEN_USING_STD_MATH(abs);
     return positive_real_hypot<RealScalar>(abs(x), abs(y));
   }
 };
 
-} // end namespace internal
+}  // end namespace internal
 
-} // end namespace Eigen
+}  // end namespace Eigen
 
-#endif // EIGEN_MATHFUNCTIONSIMPL_H
+#endif  // EIGEN_MATHFUNCTIONSIMPL_H

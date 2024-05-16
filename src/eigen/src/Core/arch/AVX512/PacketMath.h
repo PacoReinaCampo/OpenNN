@@ -19,7 +19,7 @@ namespace internal {
 #endif
 
 #ifndef EIGEN_ARCH_DEFAULT_NUMBER_OF_REGISTERS
-#define EIGEN_ARCH_DEFAULT_NUMBER_OF_REGISTERS (2*sizeof(void*))
+#define EIGEN_ARCH_DEFAULT_NUMBER_OF_REGISTERS (2 * sizeof(void*))
 #endif
 
 #ifdef __FMA__
@@ -45,8 +45,8 @@ struct is_arithmetic<__m512d> {
   enum { value = true };
 };
 
-template<> struct packet_traits<float>  : default_packet_traits
-{
+template <>
+struct packet_traits<float> : default_packet_traits {
   typedef Packet16f type;
   typedef Packet8f half;
   enum {
@@ -64,9 +64,9 @@ template<> struct packet_traits<float>  : default_packet_traits
 #endif
     HasDiv = 1
   };
- };
-template<> struct packet_traits<double> : default_packet_traits
-{
+};
+template <>
+struct packet_traits<double> : default_packet_traits {
   typedef Packet8d type;
   typedef Packet4d half;
   enum {
@@ -98,19 +98,22 @@ template <>
 struct unpacket_traits<Packet16f> {
   typedef float type;
   typedef Packet8f half;
-  enum { size = 16, alignment=Aligned64 };
+  enum { size = 16,
+         alignment = Aligned64 };
 };
 template <>
 struct unpacket_traits<Packet8d> {
   typedef double type;
   typedef Packet4d half;
-  enum { size = 8, alignment=Aligned64 };
+  enum { size = 8,
+         alignment = Aligned64 };
 };
 template <>
 struct unpacket_traits<Packet16i> {
   typedef int type;
   typedef Packet8i half;
-  enum { size = 16, alignment=Aligned64 };
+  enum { size = 16,
+         alignment = Aligned64 };
 };
 
 template <>
@@ -464,8 +467,7 @@ EIGEN_STRONG_INLINE Packet16f ploaddup<Packet16f>(const float* from) {
   Packet8f lane0 = _mm256_broadcast_ps((const __m128*)(const void*)from);
   // mimic an "inplace" permutation of the lower 128bits using a blend
   lane0 = _mm256_blend_ps(
-      lane0, _mm256_castps128_ps256(_mm_permute_ps(
-                 _mm256_castps256_ps128(lane0), _MM_SHUFFLE(1, 0, 1, 0))),
+      lane0, _mm256_castps128_ps256(_mm_permute_ps(_mm256_castps256_ps128(lane0), _MM_SHUFFLE(1, 0, 1, 0))),
       15);
   // then we can perform a consistent permutation on the global register to get
   // everything in shape:
@@ -474,8 +476,7 @@ EIGEN_STRONG_INLINE Packet16f ploaddup<Packet16f>(const float* from) {
   Packet8f lane1 = _mm256_broadcast_ps((const __m128*)(const void*)(from + 4));
   // mimic an "inplace" permutation of the lower 128bits using a blend
   lane1 = _mm256_blend_ps(
-      lane1, _mm256_castps128_ps256(_mm_permute_ps(
-                 _mm256_castps256_ps128(lane1), _MM_SHUFFLE(1, 0, 1, 0))),
+      lane1, _mm256_castps128_ps256(_mm_permute_ps(_mm256_castps256_ps128(lane1), _MM_SHUFFLE(1, 0, 1, 0))),
       15);
   // then we can perform a consistent permutation on the global register to get
   // everything in shape:
@@ -618,9 +619,12 @@ EIGEN_STRONG_INLINE void pstore1<Packet16i>(int* to, const int& a) {
   pstore(to, pa);
 }
 
-template<> EIGEN_STRONG_INLINE void prefetch<float>(const float*   addr) { _mm_prefetch((SsePrefetchPtrType)(addr), _MM_HINT_T0); }
-template<> EIGEN_STRONG_INLINE void prefetch<double>(const double* addr) { _mm_prefetch((SsePrefetchPtrType)(addr), _MM_HINT_T0); }
-template<> EIGEN_STRONG_INLINE void prefetch<int>(const int*       addr) { _mm_prefetch((SsePrefetchPtrType)(addr), _MM_HINT_T0); }
+template <>
+EIGEN_STRONG_INLINE void prefetch<float>(const float* addr) { _mm_prefetch((SsePrefetchPtrType)(addr), _MM_HINT_T0); }
+template <>
+EIGEN_STRONG_INLINE void prefetch<double>(const double* addr) { _mm_prefetch((SsePrefetchPtrType)(addr), _MM_HINT_T0); }
+template <>
+EIGEN_STRONG_INLINE void prefetch<int>(const int* addr) { _mm_prefetch((SsePrefetchPtrType)(addr), _MM_HINT_T0); }
 
 template <>
 EIGEN_STRONG_INLINE float pfirst<Packet16f>(const Packet16f& a) {
@@ -635,18 +639,18 @@ EIGEN_STRONG_INLINE int pfirst<Packet16i>(const Packet16i& a) {
   return _mm_extract_epi32(_mm512_extracti32x4_epi32(a, 0), 0);
 }
 
-template<> EIGEN_STRONG_INLINE Packet16f preverse(const Packet16f& a)
-{
+template <>
+EIGEN_STRONG_INLINE Packet16f preverse(const Packet16f& a) {
   return _mm512_permutexvar_ps(_mm512_set_epi32(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15), a);
 }
 
-template<> EIGEN_STRONG_INLINE Packet8d preverse(const Packet8d& a)
-{
+template <>
+EIGEN_STRONG_INLINE Packet8d preverse(const Packet8d& a) {
   return _mm512_permutexvar_pd(_mm512_set_epi32(0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7), a);
 }
 
-template<> EIGEN_STRONG_INLINE Packet16f pabs(const Packet16f& a)
-{
+template <>
+EIGEN_STRONG_INLINE Packet16f pabs(const Packet16f& a) {
   // _mm512_abs_ps intrinsic not found, so hack around it
   return _mm512_castsi512_ps(_mm512_and_si512(_mm512_castps_si512(a), _mm512_set1_epi32(0x7fffffff)));
 }
@@ -654,7 +658,7 @@ template <>
 EIGEN_STRONG_INLINE Packet8d pabs(const Packet8d& a) {
   // _mm512_abs_ps intrinsic not found, so hack around it
   return _mm512_castsi512_pd(_mm512_and_si512(_mm512_castpd_si512(a),
-                                   _mm512_set1_epi64(0x7fffffffffffffff)));
+                                              _mm512_set1_epi64(0x7fffffffffffffff)));
 }
 
 #ifdef EIGEN_VECTORIZE_AVX512DQ
@@ -683,9 +687,9 @@ EIGEN_STRONG_INLINE Packet8d pabs(const Packet8d& a) {
   OUTPUT = _mm512_insertf32x4(OUTPUT, _mm256_extractf128_ps(INPUTB, 0), 2); \
   OUTPUT = _mm512_insertf32x4(OUTPUT, _mm256_extractf128_ps(INPUTB, 1), 3);
 #endif
-template<> EIGEN_STRONG_INLINE Packet16f preduxp<Packet16f>(const Packet16f*
-vecs)
-{
+template <>
+EIGEN_STRONG_INLINE Packet16f preduxp<Packet16f>(const Packet16f*
+                                                     vecs) {
   EIGEN_EXTRACT_8f_FROM_16f(vecs[0], vecs0);
   EIGEN_EXTRACT_8f_FROM_16f(vecs[1], vecs1);
   EIGEN_EXTRACT_8f_FROM_16f(vecs[2], vecs2);
@@ -809,8 +813,8 @@ vecs)
   return final_output;
 }
 
-template<> EIGEN_STRONG_INLINE Packet8d preduxp<Packet8d>(const Packet8d* vecs)
-{
+template <>
+EIGEN_STRONG_INLINE Packet8d preduxp<Packet8d>(const Packet8d* vecs) {
   Packet4d vecs0_0 = _mm512_extractf64x4_pd(vecs[0], 0);
   Packet4d vecs0_1 = _mm512_extractf64x4_pd(vecs[0], 1);
 
@@ -1041,7 +1045,6 @@ struct palign_impl<Offset, Packet8d> {
     }
   }
 };
-
 
 #define PACK_OUTPUT(OUTPUT, INPUT, INDEX, STRIDE) \
   EIGEN_INSERT_8f_INTO_16f(OUTPUT[INDEX], INPUT[INDEX], INPUT[INDEX + STRIDE]);
@@ -1309,8 +1312,8 @@ EIGEN_STRONG_INLINE Packet8d pblend(const Selector<8>& /*ifPacket*/,
   return Packet8d();
 }
 
-} // end namespace internal
+}  // end namespace internal
 
-} // end namespace Eigen
+}  // end namespace Eigen
 
-#endif // EIGEN_PACKET_MATH_AVX512_H
+#endif  // EIGEN_PACKET_MATH_AVX512_H
