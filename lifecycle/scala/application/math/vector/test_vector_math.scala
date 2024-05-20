@@ -42,12 +42,14 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
+import scala.util.Random
+
 import vector.ntm_vector_algebra
 
 object test_vector_algebra {
   def main(args: Array[String]): Unit = {
-    val data_a_in: Double = 20.0
-    val data_b_in: Double = 10.0
+    val data_a_in: Double = Random.nextDouble()
+    val data_b_in: Double = Random.nextDouble()
 
     assert(ntm_vector_algebra.ntm_vector_adder(data_a_in, data_b_in) == data_a_in + data_b_in)
 

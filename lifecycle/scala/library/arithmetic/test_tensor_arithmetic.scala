@@ -42,12 +42,14 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
+import scala.util.Random
+
 import tensor.ntm_tensor_arithmetic
 
 object test_tensor_arithmetic {
   def main(args: Array[String]): Unit = {
-    val data_a_in: Double = 20.0
-    val data_b_in: Double = 10.0
+    val data_a_in: Double = Random.nextDouble()
+    val data_b_in: Double = Random.nextDouble()
 
     assert(ntm_tensor_arithmetic.ntm_tensor_adder(data_a_in, data_b_in) == data_a_in + data_b_in)
 
