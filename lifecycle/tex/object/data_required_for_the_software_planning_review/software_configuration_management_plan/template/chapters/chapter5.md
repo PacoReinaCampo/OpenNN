@@ -1,1 +1,0 @@
-# Software Acceptance Test Criteria
