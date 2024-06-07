@@ -48,52 +48,6 @@ In DO-178C, software plans are critical documents that outline the strategies, m
   * HDL
   * Problem Reports
 
-* Data Required for the Final Certification Software
-  * Software Accomplishment Summary
-  * Software Configuration Index
-  * Software Configuration Management Records
-  * Software Life Cycle Environment Configuration Index
-  * Software Process Assurance Records
-  * Software Verification Results
-  * Problem Reports
-* Data Required for the Software Development
-  * Software Configuration Management Records
-  * Software Design Data
-  * Software Design Schematics
-  * Software Life Cycle Environment Configuration Index
-  * Software Process Assurance Records
-  * Software Requirements
-  * Software Requirements Design and HDL Code Standards
-  * Software Review and Analysis Procedures
-  * Software Review and Analysis Results
-  * Software Tool Qualification Data
-  * Software Traceability Data
-  * HDL
-  * Problem Reports
-* Data Required for the Software Planning Review
-  * Software Configuration Management Plan
-  * Software Design Plan
-  * Software Process Assurance Plan
-  * Software Process Assurance Records
-  * Software Requirements Design HDL Code Validation and Verification and Archive Standards
-  * Software Validation Plan
-  * Software Verification Plan
-  * Plan for Software Aspects of Certification
-  * Supplier Management Plan
-  * Tool Qualification Plans
-* Data Required for the Software Verification
-  * Software Configuration Management Records
-  * Software Design Representation Data
-  * Software Design Schematics
-  * Software Life Cycle Environment Configuration Index
-  * Software Process Assurance Records
-  * Software Requirements Data
-  * Software Tool Qualification Data
-  * Software Verification Procedures
-  * Software Verification Results
-  * HDL
-  * Problem Reports
-
 | Data Required for the Software Planning Review                                            |
 |:------------------------------------------------------------------------------------------|
 | Plan for Software Aspects of Certification                                                |

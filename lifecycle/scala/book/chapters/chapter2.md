@@ -1,1 +1,1 @@
-# Programming a Guessing Game
+# Identifiers, Names and Scopes
