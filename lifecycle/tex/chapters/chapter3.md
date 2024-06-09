@@ -41,6 +41,7 @@ Software design data encompasses all the information generated and used during t
 **Description**: Software requirements are the documented specifications that the software must meet. These requirements cover functional, performance, environmental, and regulatory aspects.
 
 **Key Elements**:
+
 - **Functional Requirements**: Define what the software must do, including specific functions, features, and behaviors.
 - **Performance Requirements**: Specify the performance criteria the software must achieve, such as speed, efficiency, and accuracy.
 - **Environmental Requirements**: Outline the environmental conditions the software must withstand, such as temperature, humidity, and vibration.
@@ -56,6 +57,7 @@ Software design data encompasses all the information generated and used during t
 **Description**: Conceptual design data provide an initial representation of the software, focusing on high-level architecture and major components.
 
 **Key Elements**:
+
 - **Block Diagrams**: High-level diagrams showing the main components and their interactions.
 - **Functional Allocation**: Mapping of functional requirements to specific software components or subsystems.
 - **Preliminary Design Specifications**: Initial specifications for major components, interfaces, and systems.
@@ -72,6 +74,7 @@ Software design data encompasses all the information generated and used during t
 **Description**: The top-level drawing is a comprehensive schematic that shows the overall layout of the software, including all major components and their interconnections.
 
 **Key Elements**:
+
 - **System Layout**: Overall arrangement of the software components and subsystems.
 - **Interconnections**: Detailed depiction of how components are interconnected, including wiring and signal paths.
 - **Interfaces**: Definition of interfaces between software components and other systems.
@@ -83,6 +86,7 @@ Software design data encompasses all the information generated and used during t
 **Description**: Assembly drawings provide detailed instructions on how to assemble the software, including the placement and connection of components.
 
 **Key Elements**:
+
 - **Component Placement**: Precise locations where each component should be placed.
 - **Assembly Sequence**: Step-by-step instructions for assembling the software.
 - **Connection Details**: Specifics on how components are connected, including soldering, bolting, and wiring.
@@ -95,6 +99,7 @@ Software design data encompasses all the information generated and used during t
 **Description**: Installation control drawings provide detailed instructions for installing the software in its intended operational environment.
 
 **Key Elements**:
+
 - **Mounting Instructions**: Directions for mounting the software, including alignment and securing methods.
 - **Environmental Integration**: Details on integrating the software with environmental systems, such as cooling and ventilation.
 - **Clearance Requirements**: Specifications for required clearances around the software for operation and maintenance.
@@ -107,6 +112,7 @@ Software design data encompasses all the information generated and used during t
 **Description**: Software/software interface data define the interactions between the software and software components, ensuring compatibility and proper integration.
 
 **Key Elements**:
+
 - **Interface Specifications**: Detailed descriptions of the interfaces, including data formats, protocols, and timing.
 - **Communication Requirements**: Requirements for communication between software and software, including bandwidth and latency.
 - **Control Signals**: Definition of control signals used for software/software interactions.
