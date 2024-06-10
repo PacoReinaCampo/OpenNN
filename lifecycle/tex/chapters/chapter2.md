@@ -1,8 +1,8 @@
-# Software Design Standards and Guidance
+# SOFTWARE DESIGN STANDARDS AND GUIDANCE
 
 In DO-178C, software design standards and guidance are crucial for ensuring consistency, quality, and compliance throughout the software development lifecycle. These standards provide a structured framework for capturing requirements, designing software, performing validation and verification, and archiving software data.
 
-## Requirements Standards
+## REQUIREMENTS STANDARDS
 
 **Description**: Requirements standards define how to capture, document, and manage software requirements throughout the development lifecycle.
 
@@ -15,7 +15,7 @@ In DO-178C, software design standards and guidance are crucial for ensuring cons
 
 **Importance**: Requirements standards ensure that all software requirements are accurately captured, documented, and managed, forming a solid foundation for design and development.
 
-## Software Design Standards
+## SOFTWARE DESIGN STANDARDS
 
 **Description**: Software design standards provide guidelines for the design process, ensuring consistency, quality, and compliance with regulatory requirements and industry best practices.
 
@@ -28,7 +28,7 @@ In DO-178C, software design standards and guidance are crucial for ensuring cons
 
 **Importance**: Software design standards ensure that all design activities are performed consistently and meet required quality and performance standards.
 
-## Validation and Verification Standards
+## VALIDATION AND VERIFICATION STANDARDS
 
 **Description**: Validation and verification (V&V) standards outline the processes and methodologies for validating and verifying that the software meets its specified requirements and performs as intended.
 
@@ -42,7 +42,7 @@ In DO-178C, software design standards and guidance are crucial for ensuring cons
 
 **Importance**: V&V standards provide a systematic approach to ensuring that software meets all specified requirements, enhancing reliability and safety.
 
-## Software Archive Standards
+## SOFTWARE ARCHIVE STANDARDS
 
 **Description**: Software archive standards define the processes and requirements for archiving software data and documentation throughout and after the development lifecycle.
 

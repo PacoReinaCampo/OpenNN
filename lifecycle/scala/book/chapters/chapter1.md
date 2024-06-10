@@ -1,7 +1,7 @@
-# Lexical Syntax
-## Identifiers
-## Newline Characters
-## Literals
+# LEXICAL SYNTAX
+## IDENTIFIERS
+## NEWLINE CHARACTERS
+## LITERALS
 ### Integer Literals
 ### Floating Point Literals
 ### Boolean Literals
@@ -9,8 +9,8 @@
 ### String Literals
 ### Escape Sequences
 ### Symbol literals
-## Whitespace and Comments
-## XML mode
+## WHITESPACE AND COMMENTS
+## XML MODE
 
 
 

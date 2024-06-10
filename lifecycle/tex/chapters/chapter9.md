@@ -1,4 +1,4 @@
-# Software Accomplishment Summary
+# SOFTWARE ACCOMPLISHMENT SUMMARY
 
 The Software Accomplishment Summary (HAS) is a comprehensive document that provides an overview of the software development lifecycle, summarizing all significant activities, processes, and results. It serves as a key deliverable to demonstrate that the software has been developed in accordance with applicable standards, requirements, and regulatory guidelines, such as DO-178C.
 
@@ -24,7 +24,7 @@ The Software Accomplishment Summary (HAS) is a comprehensive document that provi
 | Software Accomplishment Summary                           |
 :Data Required for the Final Certification Software Object
 
-## Purpose of the Software Accomplishment Summary
+## PURPOSE OF THE SOFTWARE ACCOMPLISHMENT SUMMARY
 
 **Description**: The primary purpose of the HAS is to provide a clear and concise summary of the software development process, ensuring that all necessary steps were followed and that the software meets its intended requirements and regulatory standards.
 
@@ -35,7 +35,7 @@ The Software Accomplishment Summary (HAS) is a comprehensive document that provi
 - **Stakeholder Communication**: Communicates the development process and outcomes to stakeholders, including regulatory authorities, customers, and internal teams.
 - **Project Documentation**: Serves as a comprehensive record of the software development project for future reference and audits.
 
-## Key Elements of the Software Accomplishment Summary
+## KEY ELEMENTS OF THE SOFTWARE ACCOMPLISHMENT SUMMARY
 
 ### Project Overview
 
@@ -116,6 +116,6 @@ The Software Accomplishment Summary (HAS) is a comprehensive document that provi
 - **Approval**: Documentation of approvals from relevant stakeholders, including project managers, quality assurance, and regulatory authorities.
 - **Certification**: Evidence of certification or compliance with regulatory requirements.
 
-## Conclusion
+## CONCLUSION
 
 The Software Accomplishment Summary (HAS) is a vital document that encapsulates the entire software development lifecycle, demonstrating that all necessary steps and standards have been adhered to. It provides a clear and concise record of the project's objectives, processes, and outcomes, ensuring transparency, traceability, and compliance. By maintaining a comprehensive HAS, organizations can effectively communicate the success and quality of their software development projects to stakeholders and regulatory bodies.

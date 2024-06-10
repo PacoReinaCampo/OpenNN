@@ -1,5 +1,5 @@
-# Pattern Matching
-## Patterns
+# PATTERN MATCHING
+## PATTERNS
 ### Variable Patterns
 ### Typed Patterns
 ### Pattern Binders
@@ -14,7 +14,7 @@
 ### XML Patterns
 ### Regular Expression Patterns
 ### Irrefutable Patterns
-## Type Patterns
-## Type Parameter Inference in Patterns
-## Pattern Matching Expressions
-## Pattern Matching Anonymous Functions
+## TYPE PATTERNS
+## TYPE PARAMETER INFERENCE IN PATTERNS
+## PATTERN MATCHING EXPRESSIONS
+## PATTERN MATCHING ANONYMOUS FUNCTIONS

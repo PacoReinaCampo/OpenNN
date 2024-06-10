@@ -1,6 +1,6 @@
-# Top-Level Definitions
-## Compilation Units
-## Packagings
-## Package Objects
-## Package References
-## Programs
+# TOP-LEVEL DEFINITIONS
+## COMPILATION UNITS
+## PACKAGINGS
+## PACKAGE OBJECTS
+## PACKAGE REFERENCES
+## PROGRAMS

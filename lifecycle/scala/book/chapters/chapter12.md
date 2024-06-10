@@ -1,14 +1,14 @@
-# The Scala Standard Library
-## Root Classes
-## Value Classes
+# THE SCALA STANDARD LIBRARY
+## ROOT CLASSES
+## VALUE CLASSES
 ### Numeric Value Types
 ### Class Boolean
 ### Class Unit
-## Standard Reference Classes
+## STANDARD REFERENCE CLASSES
 ### Class String
 ### The Tuple classes
 ### The Function Classes
 ### Class Array
-## Class Node
-## The Predef Object
+## CLASS NODE
+## THE PREDEF OBJECT
 ### Predefined Implicit Definitions

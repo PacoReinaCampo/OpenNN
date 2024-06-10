@@ -1,35 +1,35 @@
-# Expressions
-## Expression Typing
-## Literals
-## The Null Value
-## Designators
-## This and Super
-## Function Applications
+# EXPRESSIONS
+## EXPRESSION TYPING
+## LITERALS
+## THE NULL VALUE
+## DESIGNATORS
+## THIS AND SUPER
+## FUNCTION APPLICATIONS
 ### Named and Default Arguments
-## Method Values
-## Type Applications
-## Tuples
-## Instance Creation Expressions
-## Blocks
-## Prefix, Infix, and Postfix Operations
+## METHOD VALUES
+## TYPE APPLICATIONS
+## TUPLES
+## INSTANCE CREATION EXPRESSIONS
+## BLOCKS
+## PREFIX, INFIX, AND POSTFIX OPERATIONS
 ### Prefix Operations
 ### Postfix Operations
 ### Infix Operations
 ### Assignment Operators
-## Typed Expressions
-## Annotated Expressions
-## Assignments
-## Conditional Expressions
-## While Loop Expressions
-## Do Loop Expressions
-## For Comprehensions and For Loops
-## Return Expressions
-## Throw Expressions
-## Try Expressions
-## Anonymous Functions
-## Constant Expressions
-## Statements
-## Implicit Conversions
+## TYPED EXPRESSIONS
+## ANNOTATED EXPRESSIONS
+## ASSIGNMENTS
+## CONDITIONAL EXPRESSIONS
+## WHILE LOOP EXPRESSIONS
+## DO LOOP EXPRESSIONS
+## FOR COMPREHENSIONS AND FOR LOOPS
+## RETURN EXPRESSIONS
+## THROW EXPRESSIONS
+## TRY EXPRESSIONS
+## ANONYMOUS FUNCTIONS
+## CONSTANT EXPRESSIONS
+## STATEMENTS
+## IMPLICIT CONVERSIONS
 ### Value Conversions
 ### Method Conversions
 ### Overloading Resolution

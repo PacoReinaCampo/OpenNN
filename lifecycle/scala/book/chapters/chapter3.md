@@ -1,6 +1,6 @@
-# Types
-## Paths
-## Value Types
+# TYPES
+## PATHS
+## VALUE TYPES
 ### Singleton Types
 ### Type Projection
 ### Type Designators
@@ -11,14 +11,14 @@
 ### Infix Types
 ### Function Types
 ### Existential Types
-## Non-Value Types
+## NON-VALUE TYPES
 ### Method Types
 ### Polymorphic Method Types
 ### Type Constructors
-## Base Types and Member Definitions
-## Relations between types
+## BASE TYPES AND MEMBER DEFINITIONS
+## RELATIONS BETWEEN TYPES
 ### Type Equivalence
 ### Conformance
 ### Weak Conformance
-## Volatile Types
-## Type Erasure
+## VOLATILE TYPES
+## TYPE ERASURE

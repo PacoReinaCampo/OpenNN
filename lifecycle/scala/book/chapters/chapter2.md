@@ -1,1 +1,1 @@
-# Identifiers, Names and Scopes
+# IDENTIFIERS, NAMES AND SCOPES

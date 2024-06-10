@@ -1,4 +1,4 @@
-# Software Plans
+# SOFTWARE PLANS
 
 In DO-178C, software plans are critical documents that outline the strategies, methodologies, resources, and schedules for various aspects of the software development lifecycle. These plans ensure that all activities are carried out systematically and in compliance with regulatory requirements.
 
@@ -76,7 +76,7 @@ In DO-178C, software plans are critical documents that outline the strategies, m
 | Supplier Management Plan                                                                  |
 :Data Required for the Software Planning Object
 
-## Plan for Software Aspects of Certification (PHAC)
+## PLAN FOR SOFTWARE ASPECTS OF CERTIFICATION (PHAC)
 
 **Description**: The PHAC is a comprehensive document that outlines the approach to achieving certification for airborne electronic software.
 
@@ -90,7 +90,7 @@ In DO-178C, software plans are critical documents that outline the strategies, m
 
 **Importance**: The PHAC ensures a clear and structured approach to certification, aligning all stakeholders on objectives and processes to achieve regulatory approval.
 
-## Software Design Plan (HDP)
+## SOFTWARE DESIGN PLAN (HDP)
 
 **Description**: The HDP details the approach to designing the software, including methodologies, tools, and techniques.
 
@@ -103,7 +103,7 @@ In DO-178C, software plans are critical documents that outline the strategies, m
 
 **Importance**: The HDP provides a roadmap for the design phase, ensuring that all design activities are planned and executed systematically.
 
-## Software Validation Plan (HValP)
+## SOFTWARE VALIDATION PLAN (HVALP)
 
 **Description**: The HValP outlines the strategy for validating that the software meets its intended requirements and functions correctly in its operational environment.
 
@@ -117,7 +117,7 @@ In DO-178C, software plans are critical documents that outline the strategies, m
 
 **Importance**: The HValP ensures that the software is thoroughly validated against its requirements, confirming its suitability for the intended operational environment.
 
-## Software Verification Plan (HVerP)
+## SOFTWARE VERIFICATION PLAN (HVERP)
 
 **Description**: The HVerP details the approach to verifying that the software design meets its specified requirements and design criteria.
 
@@ -131,7 +131,7 @@ In DO-178C, software plans are critical documents that outline the strategies, m
 
 **Importance**: The HVerP ensures that the software design is verified to meet all specified requirements, thereby ensuring the quality and reliability of the software.
 
-## Software Configuration Management Plan (HCMP)
+## SOFTWARE CONFIGURATION MANAGEMENT PLAN (HCMP)
 
 **Description**: The HCMP outlines the processes and procedures for managing the configuration of software throughout its lifecycle.
 
@@ -144,7 +144,7 @@ In DO-178C, software plans are critical documents that outline the strategies, m
 
 **Importance**: The HCMP ensures that all changes to the software are systematically managed and documented, maintaining the integrity and traceability of the software configuration.
 
-## Software Process Assurance Plan (HPAP)
+## SOFTWARE PROCESS ASSURANCE PLAN (HPAP)
 
 **Description**: The HPAP outlines the processes and activities to ensure that all software development processes meet quality standards and regulatory requirements.
 

@@ -1,12 +1,12 @@
-# Basic Declarations and Definitions
-## Value Declarations and Definitions
-## Variable Declarations and Definitions
-## Type Declarations and Type Aliases
-## Type Parameters
-## Variance Annotations
-## Function Declarations and Definitions
+# BASIC DECLARATIONS AND DEFINITIONS
+## VALUE DECLARATIONS AND DEFINITIONS
+## VARIABLE DECLARATIONS AND DEFINITIONS
+## TYPE DECLARATIONS AND TYPE ALIASES
+## TYPE PARAMETERS
+## VARIANCE ANNOTATIONS
+## FUNCTION DECLARATIONS AND DEFINITIONS
 ### By-Name Parameters
 ### Repeated Parameters
 ### Procedures
 ### Method Return Type Inference
-## Import Clauses
+## IMPORT CLAUSES

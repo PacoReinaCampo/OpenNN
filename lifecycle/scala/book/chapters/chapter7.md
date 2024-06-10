@@ -1,6 +1,6 @@
-# Implicit Parameters and Views
-## The Implicit Modifier
-## Implicit Parameters
-## Views
-## Context Bounds and View Bounds
-## Manifests
+# IMPLICIT PARAMETERS AND VIEWS
+## THE IMPLICIT MODIFIER
+## IMPLICIT PARAMETERS
+## VIEWS
+## CONTEXT BOUNDS AND VIEW BOUNDS
+## MANIFESTS

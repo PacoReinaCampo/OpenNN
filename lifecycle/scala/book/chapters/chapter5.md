@@ -1,14 +1,14 @@
-# Classes and Objects
-## Templates
+# CLASSES AND OBJECTS
+## TEMPLATES
 ### Constructor Invocations
 ### Class Linearization
 ### Class Members
 ### Overriding
 ### Inheritance Closure
 ### Early Definitions CONTENTS
-## Modifiers
-## Class Definitions
+## MODIFIERS
+## CLASS DEFINITIONS
 ### Constructor Definitions
 ### Case Classes
 ### Traits
-## Object Definitions
+## OBJECT DEFINITIONS

@@ -1,3 +1,3 @@
-# XML expressions and patterns
-## XML expressions
-## XML patterns
+# XML EXPRESSIONS AND PATTERNS
+## XML EXPRESSIONS
+## XML PATTERNS
