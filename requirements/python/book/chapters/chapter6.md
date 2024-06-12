@@ -83,7 +83,7 @@ async def example():
     await asyncio.sleep(1)
     return "Done"
 
-# RUNNING THE COROUTINE
+# Running the coroutine
 asyncio.run(example())
 ```
 
@@ -237,16 +237,16 @@ result = square(5)  # result is 25
 Expression lists are used in various constructs, such as function arguments, tuple packing, and unpacking.
 
 ```python
-# FUNCTION ARGUMENTS
+# Function arguments
 def func(a, b, c):
     return a + b + c
 
 result = func(1, 2, 3)  # result is 6
 
-# TUPLE PACKING
+# Tuple packing
 my_tuple = 1, 2, 3
 
-# TUPLE UNPACKING
+# Tuple unpacking
 a, b, c = my_tuple
 ```
 
@@ -281,7 +281,7 @@ Example:
 
 ```python
 result = 3 + 4 * 2 ** 2 / (1 - 5) // 2
-# EVALUATES AS:
+# Evaluates as:
 # 3 + 4 * 4 / (-4) // 2
 # 3 + 16 / -4 // 2
 # 3 + -4 // 2

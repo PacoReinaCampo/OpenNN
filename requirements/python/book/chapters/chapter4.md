@@ -15,14 +15,14 @@ A Python program consists of various components organized in a specific manner. 
 ### Example of Program Structure
 
 ```python
-# MODULE-LEVEL VARIABLES AND IMPORTS
+# Module-level variables and imports
 import math
 
-# FUNCTION DEFINITION
+# Function definition
 def calculate_area(radius):
     return math.pi * radius * radius
 
-# CLASS DEFINITION
+# Class definition
 class Circle:
     def __init__(self, radius):
         self.radius = radius
@@ -30,7 +30,7 @@ class Circle:
     def area(self):
         return calculate_area(self.radius)
 
-# MAIN BLOCK
+# Main block
 if __name__ == "__main__":
     circle = Circle(5)
     print(f"Area of the circle: {circle.area()}")
