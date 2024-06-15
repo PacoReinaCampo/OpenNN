@@ -71,11 +71,25 @@ The planning process in DO-178C is a critical phase that establishes the foundat
 | Software Verification Plan                                                                |
 | Software Configuration Management Plan                                                    |
 | Software Process Assurance Plan                                                           |
-| Software Process Assurance Records                           |                            |
+| Software Process Assurance Records                                                        |
 | Software Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
 :Data Required for the Software Planning Review
+
+| Data Required for the Hardware Planning Object                                            |
+|:------------------------------------------------------------------------------------------|
+| Plan for Software Aspects of Certification                                                |
+| Software Design Plan                                                                      |
+| Software Validation Plan                                                                  |
+| Software Verification Plan                                                                |
+| Software Configuration Management Plan                                                    |
+| Software Process Assurance Plan                                                           |
+| Software Process Assurance Records                                                        |
+| Software Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
+| Tool Qualification Plans                                                                  |
+| Supplier Management Plan                                                                  |
+:Data Required for the Software Planning Object
 
 ### Planning Process Objectives
 
@@ -360,26 +374,32 @@ Validation and verification are critical processes in the development of airborn
 Key Activities:
 
 1. **Requirements Validation**: Ensure that all software requirements are correctly derived from the system requirements and reflect the intended functionality.
+
    - Review requirements documentation.
    - Conduct stakeholder reviews to confirm requirements accuracy.
 
 2. **Validation Planning**: Develop a detailed validation plan that outlines the scope, objectives, methods, and criteria for validation.
+
    - Define validation goals and success criteria.
    - Identify validation tasks, resources, and schedules.
 
 3. **Integration Testing**: Conduct tests to ensure that the software works correctly within the overall system and interfaces properly with other components.
+
    - Perform software-in-the-loop (HIL) testing.
    - Verify correct integration with software and other software components.
 
 4. **Operational Environment Testing**: Validate the software in conditions that simulate its actual operational environment.
+
    - Perform environmental testing to assess performance under various conditions (e.g., temperature, humidity, vibration).
    - Conduct field tests or simulations to evaluate operational effectiveness.
 
 5. **End-User Evaluation**: Obtain feedback from end-users to ensure that the software meets their needs and expectations.
+
    - Conduct usability tests and gather feedback.
    - Perform operational trials with end-users.
 
 6. **Validation Reporting**: Document the results of the validation activities, including any issues found and corrective actions taken.
+
    - Compile validation test reports.
    - Document validation outcomes and lessons learned.
 
@@ -390,26 +410,32 @@ Key Activities:
 Key Activities:
 
 1. **Requirements Verification**: Confirm that the software requirements are correctly and completely implemented.
+
    - Trace software requirements to design and test cases.
    - Perform requirements reviews to ensure completeness and accuracy.
 
 2. **Design Verification**: Verify that the detailed design meets the specified requirements and design constraints.
+
    - Conduct design reviews and inspections.
    - Perform analysis and simulations to verify design performance.
 
 3. **Component Testing**: Test individual software components to ensure they meet their specifications and function correctly.
+
    - Develop and execute component test plans.
    - Perform tests such as functional testing, performance testing, and stress testing.
 
 4. **Integration Testing**: Verify that integrated software components work together as intended.
+
    - Conduct integration tests to ensure correct interactions between components.
    - Validate communication interfaces and data flows.
 
 5. **System Testing**: Perform comprehensive testing on the complete software system to ensure it meets all requirements.
+
    - Execute system-level test plans.
    - Perform tests such as functional testing, reliability testing, and safety testing.
 
 6. **Verification Reporting**: Document the results of verification activities, including any issues found and corrective actions taken.
+
    - Compile verification test reports.
    - Document verification outcomes and ensure traceability to requirements.
 
@@ -418,31 +444,37 @@ Key Activities:
 Key Methods:
 
 1. **Inspection**:
+
    - **Purpose**: Identify defects by visually examining software components and documentation.
    - **Application**: Used in design reviews, code inspections, and software inspections.
    - **Example**: Reviewing schematics for compliance with design standards.
 
 2. **Analysis**:
+
    - **Purpose**: Evaluate the software using mathematical and logical techniques.
    - **Application**: Used in requirements analysis, design analysis, and safety analysis.
    - **Example**: Performing worst-case circuit analysis to ensure performance under extreme conditions.
 
 3. **Simulation**:
+
    - **Purpose**: Model the software's behavior in a simulated environment to predict performance.
    - **Application**: Used for design verification and system validation.
    - **Example**: Simulating thermal performance of an electronic component under varying temperatures.
 
 4. **Testing**:
+
    - **Purpose**: Execute the software in controlled conditions to verify functionality and performance.
    - **Application**: Used throughout the software development lifecycle, from component testing to system testing.
    - **Example**: Conducting environmental tests to validate software reliability in different climatic conditions.
 
 5. **Review**:
+
    - **Purpose**: Evaluate documentation, processes, and work products through structured reviews.
    - **Application**: Used in requirements reviews, design reviews, and test plan reviews.
    - **Example**: Reviewing the software verification plan to ensure all requirements are covered.
 
 6. **Prototyping**:
+
    - **Purpose**: Create early versions of the software to evaluate design choices and functionality.
    - **Application**: Used in conceptual and detailed design phases.
    - **Example**: Building and testing a prototype to validate design concepts and identify potential issues.

@@ -12,7 +12,7 @@
 | doc           | IEEE STD 1685-2014   | IP-XACT       |
 |               | IEEE STD 1735-2014   | IP-Manager    |
 |               | IEEE STD 1801-2013   | Low Power     |
-|               | IEEE STD 754-2019    | Float Point   |
+|               | IEEE STD 0754-2019   | Float Point   |
 |               | IEEE STD 1754-1994   | RISC 32 Bit   |
 | source        | IEEE STD 1666-2011   | SystemC       |
 | model         | IEEE STD 1076-2019   | VHDL          |
@@ -26,18 +26,17 @@
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-## SOFTWARE PLANS
-
-In DO-178C, software plans are critical documents that outline the strategies, methodologies, resources, and schedules for various aspects of the software development lifecycle. These plans ensure that all activities are carried out systematically and in compliance with regulatory requirements.
-
-* Data Required for the Final Certification Software
-  * Software Accomplishment Summary
-  * Software Configuration Index
-  * Software Configuration Management Records
-  * Software Life Cycle Environment Configuration Index
+* Data Required for the Software Planning
+  * Software Configuration Management Plan
+  * Software Design Plan
+  * Software Process Assurance Plan
   * Software Process Assurance Records
-  * Software Verification Results
-  * Problem Reports
+  * Software Requirements Design HDL Code Validation and Verification and Archive Standards
+  * Software Validation Plan
+  * Software Verification Plan
+  * Plan for Software Aspects of Certification
+  * Supplier Management Plan
+  * Tool Qualification Plans
 * Data Required for the Software Development
   * Software Configuration Management Records
   * Software Design Data
@@ -52,17 +51,6 @@ In DO-178C, software plans are critical documents that outline the strategies, m
   * Software Traceability Data
   * HDL
   * Problem Reports
-* Data Required for the Software Planning Review
-  * Software Configuration Management Plan
-  * Software Design Plan
-  * Software Process Assurance Plan
-  * Software Process Assurance Records
-  * Software Requirements Design HDL Code Validation and Verification and Archive Standards
-  * Software Validation Plan
-  * Software Verification Plan
-  * Plan for Software Aspects of Certification
-  * Supplier Management Plan
-  * Tool Qualification Plans
 * Data Required for the Software Verification
   * Software Configuration Management Records
   * Software Design Representation Data
@@ -75,6 +63,20 @@ In DO-178C, software plans are critical documents that outline the strategies, m
   * Software Verification Results
   * HDL
   * Problem Reports
+* Data Required for the Final Certification Software
+  * Software Accomplishment Summary
+  * Software Configuration Index
+  * Software Configuration Management Records
+  * Software Life Cycle Environment Configuration Index
+  * Software Process Assurance Records
+  * Software Verification Results
+  * Problem Reports
+
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
+
+## SOFTWARE PLANS
+
+In DO-178C, software plans are critical documents that outline the strategies, methodologies, resources, and schedules for various aspects of the software development lifecycle. These plans ensure that all activities are carried out systematically and in compliance with regulatory requirements.
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
