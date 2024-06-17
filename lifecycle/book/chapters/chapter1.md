@@ -1,84 +1,10 @@
-# SOFTWARE PLANS
+# HARDWARE PLANS
 
-In DO-178C, software plans are critical documents that outline the strategies, methodologies, resources, and schedules for various aspects of the software development lifecycle. These plans ensure that all activities are carried out systematically and in compliance with regulatory requirements.
+In DO-254, hardware plans are critical documents that outline the strategies, methodologies, resources, and schedules for various aspects of the hardware development lifecycle. These plans ensure that all activities are carried out systematically and in compliance with regulatory requirements.
 
-* Data Required for the Software Planning Review
-  * Software Configuration Management Plan
-  * Software Design Plan
-  * Software Process Assurance Plan
-  * Software Process Assurance Records
-  * Software Requirements Design HDL Code Validation and Verification and Archive Standards
-  * Software Validation Plan
-  * Software Verification Plan
-  * Plan for Software Aspects of Certification
-  * Supplier Management Plan
-  * Tool Qualification Plans
-* Data Required for the Software Development
-  * Software Configuration Management Records
-  * Software Design Data
-  * Software Design Schematics
-  * Software Life Cycle Environment Configuration Index
-  * Software Process Assurance Records
-  * Software Requirements
-  * Software Requirements Design and HDL Code Standards
-  * Software Review and Analysis Procedures
-  * Software Review and Analysis Results
-  * Software Tool Qualification Data
-  * Software Traceability Data
-  * HDL
-  * Problem Reports
-* Data Required for the Software Verification
-  * Software Configuration Management Records
-  * Software Design Representation Data
-  * Software Design Schematics
-  * Software Life Cycle Environment Configuration Index
-  * Software Process Assurance Records
-  * Software Requirements Data
-  * Software Tool Qualification Data
-  * Software Verification Procedures
-  * Software Verification Results
-  * HDL
-  * Problem Reports
-* Data Required for the Final Certification Software
-  * Software Accomplishment Summary
-  * Software Configuration Index
-  * Software Configuration Management Records
-  * Software Life Cycle Environment Configuration Index
-  * Software Process Assurance Records
-  * Software Verification Results
-  * Problem Reports
+## PLAN FOR HARDWARE ASPECTS OF CERTIFICATION (PHAC)
 
-| Data Required for the Software Planning Review                                            |
-|:------------------------------------------------------------------------------------------|
-| Plan for Software Aspects of Certification                                                |
-| Software Design Plan                                                                      |
-| Software Validation Plan                                                                  |
-| Software Verification Plan                                                                |
-| Software Configuration Management Plan                                                    |
-| Software Process Assurance Plan                                                           |
-| Software Process Assurance Records                                                        |
-| Software Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
-| Tool Qualification Plans                                                                  |
-| Supplier Management Plan                                                                  |
-:Data Required for the Software Planning Review
-
-| Data Required for the Software Planning Object                                            |
-|:------------------------------------------------------------------------------------------|
-| Plan for Software Aspects of Certification                                                |
-| Software Design Plan                                                                      |
-| Software Validation Plan                                                                  |
-| Software Verification Plan                                                                |
-| Software Configuration Management Plan                                                    |
-| Software Process Assurance Plan                                                           |
-| Software Process Assurance Records                                                        |
-| Software Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
-| Tool Qualification Plans                                                                  |
-| Supplier Management Plan                                                                  |
-:Data Required for the Software Planning Object
-
-## PLAN FOR SOFTWARE ASPECTS OF CERTIFICATION (PHAC)
-
-**Description**: The PHAC is a comprehensive document that outlines the approach to achieving certification for airborne electronic software.
+**Description**: The PHAC is a comprehensive document that outlines the approach to achieving certification for airborne electronic hardware.
 
 **Key Elements**:
 
@@ -90,22 +16,22 @@ In DO-178C, software plans are critical documents that outline the strategies, m
 
 **Importance**: The PHAC ensures a clear and structured approach to certification, aligning all stakeholders on objectives and processes to achieve regulatory approval.
 
-## SOFTWARE DESIGN PLAN (HDP)
+## HARDWARE DESIGN PLAN (HDP)
 
-**Description**: The HDP details the approach to designing the software, including methodologies, tools, and techniques.
+**Description**: The HDP details the approach to designing the hardware, including methodologies, tools, and techniques.
 
 **Key Elements**:
 
-- **Design Objectives**: Outline the goals and requirements of the software design.
+- **Design Objectives**: Outline the goals and requirements of the hardware design.
 - **Design Methodology**: Describe the processes and techniques used in the design, including modeling, simulation, and analysis.
-- **Tools and Environment**: Identify the design tools, software, and software used in the design process.
+- **Tools and Environment**: Identify the design tools, software, and hardware used in the design process.
 - **Design Reviews**: Schedule for design reviews and checkpoints to ensure design quality and progress.
 
 **Importance**: The HDP provides a roadmap for the design phase, ensuring that all design activities are planned and executed systematically.
 
-## SOFTWARE VALIDATION PLAN (HVALP)
+## HARDWARE VALIDATION PLAN (HVALP)
 
-**Description**: The HValP outlines the strategy for validating that the software meets its intended requirements and functions correctly in its operational environment.
+**Description**: The HValP outlines the strategy for validating that the hardware meets its intended requirements and functions correctly in its operational environment.
 
 **Key Elements**:
 
@@ -115,11 +41,11 @@ In DO-178C, software plans are critical documents that outline the strategies, m
 - **Validation Schedule**: Provide a timeline for validation activities and milestones.
 - **Data Collection and Analysis**: Outline procedures for collecting and analyzing validation data.
 
-**Importance**: The HValP ensures that the software is thoroughly validated against its requirements, confirming its suitability for the intended operational environment.
+**Importance**: The HValP ensures that the hardware is thoroughly validated against its requirements, confirming its suitability for the intended operational environment.
 
-## SOFTWARE VERIFICATION PLAN (HVERP)
+## HARDWARE VERIFICATION PLAN (HVERP)
 
-**Description**: The HVerP details the approach to verifying that the software design meets its specified requirements and design criteria.
+**Description**: The HVerP details the approach to verifying that the hardware design meets its specified requirements and design criteria.
 
 **Key Elements**:
 
@@ -129,11 +55,11 @@ In DO-178C, software plans are critical documents that outline the strategies, m
 - **Verification Schedule**: Provide a timeline for verification activities and milestones.
 - **Documentation**: Outline the documentation required to support verification activities and results.
 
-**Importance**: The HVerP ensures that the software design is verified to meet all specified requirements, thereby ensuring the quality and reliability of the software.
+**Importance**: The HVerP ensures that the hardware design is verified to meet all specified requirements, thereby ensuring the quality and reliability of the hardware.
 
-## SOFTWARE CONFIGURATION MANAGEMENT PLAN (HCMP)
+## HARDWARE CONFIGURATION MANAGEMENT PLAN (HCMP)
 
-**Description**: The HCMP outlines the processes and procedures for managing the configuration of software throughout its lifecycle.
+**Description**: The HCMP outlines the processes and procedures for managing the configuration of hardware throughout its lifecycle.
 
 **Key Elements**:
 
@@ -142,11 +68,11 @@ In DO-178C, software plans are critical documents that outline the strategies, m
 - **Configuration Status Accounting**: Track and report the status of configuration items and changes.
 - **Configuration Audits**: Plan and conduct audits to ensure compliance with configuration management procedures.
 
-**Importance**: The HCMP ensures that all changes to the software are systematically managed and documented, maintaining the integrity and traceability of the software configuration.
+**Importance**: The HCMP ensures that all changes to the hardware are systematically managed and documented, maintaining the integrity and traceability of the hardware configuration.
 
-## SOFTWARE PROCESS ASSURANCE PLAN (HPAP)
+## HARDWARE PROCESS ASSURANCE PLAN (HPAP)
 
-**Description**: The HPAP outlines the processes and activities to ensure that all software development processes meet quality standards and regulatory requirements.
+**Description**: The HPAP outlines the processes and activities to ensure that all hardware development processes meet quality standards and regulatory requirements.
 
 **Key Elements**:
 
@@ -156,6 +82,6 @@ In DO-178C, software plans are critical documents that outline the strategies, m
 - **Corrective Actions**: Define procedures for identifying and addressing process deficiencies.
 - **Documentation and Reporting**: Outline the documentation required to support process assurance activities and results.
 
-**Importance**: The HPAP ensures that all software development processes are performed correctly and consistently, supporting the quality and reliability of the software.
+**Importance**: The HPAP ensures that all hardware development processes are performed correctly and consistently, supporting the quality and reliability of the hardware.
 
-By developing and implementing these software plans, organizations can ensure a structured, systematic, and compliant approach to software development, verification, validation, configuration management, and certification.
+By developing and implementing these hardware plans, organizations can ensure a structured, systematic, and compliant approach to hardware development, verification, validation, configuration management, and certification.

@@ -1,24 +1,24 @@
-# SOFTWARE CONFIGURATION MANAGEMENT RECORDS
+# HARDWARE CONFIGURATION MANAGEMENT RECORDS
 
-Software Configuration Management (CM) Records are essential documents that capture the detailed information and history of all configuration items (CIs) within a software project. These records ensure that the software development and maintenance processes are controlled, tracked, and documented, enabling effective management of changes, versions, and statuses throughout the software lifecycle.
+Hardware Configuration Management (CM) Records are essential documents that capture the detailed information and history of all configuration items (CIs) within a hardware project. These records ensure that the hardware development and maintenance processes are controlled, tracked, and documented, enabling effective management of changes, versions, and statuses throughout the hardware lifecycle.
 
-## PURPOSE OF SOFTWARE CONFIGURATION MANAGEMENT RECORDS
+## PURPOSE OF HARDWARE CONFIGURATION MANAGEMENT RECORDS
 
-**Description**: The primary purpose of software CM records is to maintain comprehensive documentation of the configuration items, their versions, changes, and the status of each item throughout the software lifecycle.
+**Description**: The primary purpose of hardware CM records is to maintain comprehensive documentation of the configuration items, their versions, changes, and the status of each item throughout the hardware lifecycle.
 
 **Importance**:
 
-- **Change Control**: Facilitates the management and control of changes to the software.
-- **Traceability**: Ensures that every change and version of the software can be traced back to its source.
-- **Consistency**: Maintains consistency in software design and documentation.
+- **Change Control**: Facilitates the management and control of changes to the hardware.
+- **Traceability**: Ensures that every change and version of the hardware can be traced back to its source.
+- **Consistency**: Maintains consistency in hardware design and documentation.
 - **Compliance**: Helps meet regulatory and industry standards for configuration management.
-- **Historical Record**: Provides a historical record of the software's development and changes for future reference and analysis.
+- **Historical Record**: Provides a historical record of the hardware's development and changes for future reference and analysis.
 
-## KEY ELEMENTS OF SOFTWARE CONFIGURATION MANAGEMENT RECORDS
+## KEY ELEMENTS OF HARDWARE CONFIGURATION MANAGEMENT RECORDS
 
 ### Configuration Item Identification
 
-**Description**: Information that uniquely identifies each configuration item within the software project.
+**Description**: Information that uniquely identifies each configuration item within the hardware project.
 
 **Key Elements**:
 
@@ -34,9 +34,9 @@ Software Configuration Management (CM) Records are essential documents that capt
 **Key Elements**:
 
 - **Change Request**: Detailed information about the change request, including the requestor, description, and justification for the change.
-- **Impact Analysis**: Assessment of the potential impact of the change on other configuration items and the overall software system.
+- **Impact Analysis**: Assessment of the potential impact of the change on other configuration items and the overall hardware system.
 - **Approval Records**: Documentation of the approval process, including sign-offs from relevant stakeholders.
-- **Change Implementation**: Details of how the change was implemented, including any modifications to the software, documentation, or processes.
+- **Change Implementation**: Details of how the change was implemented, including any modifications to the hardware, documentation, or processes.
 
 ### Version Control
 
@@ -70,7 +70,7 @@ Software Configuration Management (CM) Records are essential documents that capt
 
 ### Documentation and Reporting
 
-**Description**: Comprehensive documentation and reporting related to the configuration management of software.
+**Description**: Comprehensive documentation and reporting related to the configuration management of hardware.
 
 **Key Elements**:
 
@@ -80,4 +80,4 @@ Software Configuration Management (CM) Records are essential documents that capt
 
 ## CONCLUSION
 
-Software Configuration Management Records are vital for maintaining control and traceability over the software development and maintenance processes. By meticulously documenting and managing configuration items, changes, versions, and statuses, organizations can ensure that their software products are developed consistently, meet quality standards, and comply with regulatory requirements. These records provide a clear and comprehensive history of the software's evolution, supporting effective management and continuous improvement.
+Hardware Configuration Management Records are vital for maintaining control and traceability over the hardware development and maintenance processes. By meticulously documenting and managing configuration items, changes, versions, and statuses, organizations can ensure that their hardware products are developed consistently, meet quality standards, and comply with regulatory requirements. These records provide a clear and comprehensive history of the hardware's evolution, supporting effective management and continuous improvement.

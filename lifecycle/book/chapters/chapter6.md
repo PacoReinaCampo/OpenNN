@@ -1,17 +1,17 @@
 # PROBLEM REPORTS
 
-Problem reports are crucial documents in the software development and maintenance lifecycle. They record any issues, defects, or anomalies discovered during the design, testing, production, or operational phases of software. Effective problem reporting is essential for identifying, tracking, resolving, and preventing issues, ensuring the reliability and quality of the software.
+Problem reports are crucial documents in the hardware development and maintenance lifecycle. They record any issues, defects, or anomalies discovered during the design, testing, production, or operational phases of hardware. Effective problem reporting is essential for identifying, tracking, resolving, and preventing issues, ensuring the reliability and quality of the hardware.
 
 ## PURPOSE OF PROBLEM REPORTS
 
-**Description**: The primary purpose of problem reports is to systematically document issues encountered with the software, facilitate their resolution, and prevent recurrence. They serve as a tool for continuous improvement and quality assurance.
+**Description**: The primary purpose of problem reports is to systematically document issues encountered with the hardware, facilitate their resolution, and prevent recurrence. They serve as a tool for continuous improvement and quality assurance.
 
 **Importance**:
 
 - **Issue Identification**: Allows for the clear identification and documentation of problems.
 - **Resolution Tracking**: Tracks the progress of issue resolution, ensuring accountability and timely fixes.
 - **Root Cause Analysis**: Facilitates analysis to identify the underlying causes of problems.
-- **Quality Assurance**: Helps maintain the quality and reliability of the software by addressing defects and issues promptly.
+- **Quality Assurance**: Helps maintain the quality and reliability of the hardware by addressing defects and issues promptly.
 - **Regulatory Compliance**: Ensures compliance with industry standards and regulatory requirements for documentation and issue management.
 
 ## KEY ELEMENTS OF PROBLEM REPORTS
@@ -25,7 +25,7 @@ Problem reports are crucial documents in the software development and maintenanc
 - **Report ID**: A unique identifier for the problem report.
 - **Date Reported**: The date when the problem was reported.
 - **Reporter**: The individual or team who reported the problem.
-- **Affected Software**: Identification of the software component(s) affected by the problem.
+- **Affected Hardware**: Identification of the hardware component(s) affected by the problem.
 
 ### Problem Description
 
@@ -35,7 +35,7 @@ Problem reports are crucial documents in the software development and maintenanc
 
 - **Summary**: A brief summary of the problem.
 - **Detailed Description**: An in-depth description of the issue, including what was observed, under what conditions it occurred, and how it manifests.
-- **Severity and Impact**: Assessment of the problem's severity and its impact on the software's functionality, performance, or safety.
+- **Severity and Impact**: Assessment of the problem's severity and its impact on the hardware's functionality, performance, or safety.
 - **Steps to Reproduce**: Detailed steps to replicate the problem, if applicable.
 
 ### Root Cause Analysis
@@ -82,4 +82,4 @@ Problem reports are crucial documents in the software development and maintenanc
 
 ## CONCLUSION
 
-Problem reports are an essential part of the software development and maintenance process. They ensure that issues are systematically identified, tracked, resolved, and documented. By maintaining comprehensive and detailed problem reports, organizations can enhance the quality and reliability of their software products, facilitate continuous improvement, and ensure compliance with industry standards and regulatory requirements.
+Problem reports are an essential part of the hardware development and maintenance process. They ensure that issues are systematically identified, tracked, resolved, and documented. By maintaining comprehensive and detailed problem reports, organizations can enhance the quality and reliability of their hardware products, facilitate continuous improvement, and ensure compliance with industry standards and regulatory requirements.
