@@ -7,11 +7,13 @@ Expressions in Python are constructs that can be evaluated to produce a value. T
 Python performs implicit type conversions (also known as coercion) in arithmetic operations involving different numeric types (int, float, complex).
 
 - **Integer and Float**: When an integer is combined with a float, the result is a float.
+ 
     ```python
     result = 5 + 3.0  # result is 8.0
     ```
 
 - **Float and Complex**: When a float is combined with a complex number, the result is a complex number.
+ 
     ```python
     result = 2.0 + 3j  # result is (2+3j)
     ```
@@ -21,17 +23,20 @@ Python performs implicit type conversions (also known as coercion) in arithmetic
 Atoms are the most basic elements of expressions. They include identifiers, literals, parenthesized expressions, list displays, dictionary displays, set displays, and generator expressions.
 
 - **Identifiers**: Names for variables, functions, etc.
+ 
     ```python
     variable = 42
     ```
 
 - **Literals**: Fixed values like numbers, strings.
+ 
     ```python
     num = 10
     text = "Hello"
     ```
 
 - **Parenthesized Expressions**: Expressions within parentheses.
+ 
     ```python
     value = (5 + 3) * 2  # value is 16
     ```
@@ -53,16 +58,19 @@ Atoms are the most basic elements of expressions. They include identifiers, lite
 Primaries are the most tightly bound operations in Python. They include attribute references, subscriptions, slicing, and function calls.
 
 - **Attribute References**: Accessing an attribute of an object.
+ 
     ```python
     obj.attribute
     ```
 
 - **Subscriptions**: Accessing elements of a sequence by index.
+ 
     ```python
     my_list[0]
     ```
 
 - **Slicing**: Extracting a part of a sequence.
+ 
     ```python
     my_list[1:3]
     ```

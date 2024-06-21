@@ -6,7 +6,7 @@
 |--------------:|:---------------------|:--------------|
 | requirements  | IEEE STD 1850-2010   | PSL           |
 |               | OMG-2.5.1.           | UML           |
-| certification | RTCA DO-254          | Software      |
+| certification | RTCA DO-254          | Hardware      |
 |               | RTCA DO-178C         | Software      |
 | quality       | ISO 9001-2015        | Management    |
 | doc           | IEEE STD 1685-2014   | IP-XACT       |
