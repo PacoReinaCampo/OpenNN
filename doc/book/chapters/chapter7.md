@@ -81,102 +81,102 @@ The planning process involves several key activities to achieve its objectives:
 
 1. **Develop the Software Development Plan (HDP)**
 
-**Activity**: Create a comprehensive Software Development Plan that outlines the overall strategy for software development.
+   **Activity**: Create a comprehensive Software Development Plan that outlines the overall strategy for software development.
 
-**Key Elements**:
+   **Key Elements**:
 
-- Project scope and objectives
-- Development methodologies and processes
-- Roles and responsibilities of team members
-- Milestones, schedules, and deliverables
+   - Project scope and objectives
+   - Development methodologies and processes
+   - Roles and responsibilities of team members
+   - Milestones, schedules, and deliverables
 
 2. **Establish the Software Verification Plan (HVP)**
 
-**Activity**: Define the verification activities, methodologies, and criteria to ensure that the software meets all specified requirements.
+   **Activity**: Define the verification activities, methodologies, and criteria to ensure that the software meets all specified requirements.
 
-**Key Elements**:
+   **Key Elements**:
 
-- Verification objectives and scope
-- Test plans and procedures
-- Verification tools and environments
-- Criteria for successful verification
+   - Verification objectives and scope
+   - Test plans and procedures
+   - Verification tools and environments
+   - Criteria for successful verification
 
 3. **Create the Software Configuration Management Plan (HCMP)**
 
-**Activity**: Develop a plan to manage and control changes to the software design and associated documentation.
+   **Activity**: Develop a plan to manage and control changes to the software design and associated documentation.
 
-**Key Elements**:
+   **Key Elements**:
 
-- Configuration identification and control processes
-- Change management procedures
-- Version control and tracking mechanisms
-- Roles and responsibilities for configuration management
+   - Configuration identification and control processes
+   - Change management procedures
+   - Version control and tracking mechanisms
+   - Roles and responsibilities for configuration management
 
 4. **Formulate the Software Process Assurance Plan (HPAP)**
 
-**Activity**: Define the processes and activities to ensure that the software development adheres to the defined plans and standards.
+   **Activity**: Define the processes and activities to ensure that the software development adheres to the defined plans and standards.
 
-**Key Elements**:
+   **Key Elements**:
 
-- Process assurance objectives and scope
-- Auditing and review processes
-- Non-compliance handling procedures
-- Documentation and reporting requirements
+   - Process assurance objectives and scope
+   - Auditing and review processes
+   - Non-compliance handling procedures
+   - Documentation and reporting requirements
 
 5. **Risk Management Planning**
 
-**Activity**: Identify potential risks to the project and develop strategies to mitigate them.
+   **Activity**: Identify potential risks to the project and develop strategies to mitigate them.
 
-**Key Elements**:
+   **Key Elements**:
 
-- Risk identification and assessment
-- Risk mitigation strategies and actions
-- Monitoring and reporting mechanisms
-- Contingency plans
+   - Risk identification and assessment
+   - Risk mitigation strategies and actions
+   - Monitoring and reporting mechanisms
+   - Contingency plans
 
 6. **Resource Planning and Allocation**
 
-**Activity**: Identify and allocate the necessary resources, including personnel, tools, and facilities.
+   **Activity**: Identify and allocate the necessary resources, including personnel, tools, and facilities.
 
-**Key Elements**:
+   **Key Elements**:
 
-- Resource requirements and availability
-- Budget and cost estimates
-- Resource scheduling and allocation
-- Training and development needs
+   - Resource requirements and availability
+   - Budget and cost estimates
+   - Resource scheduling and allocation
+   - Training and development needs
 
 7. **Define Performance Metrics and Criteria**
 
-**Activity**: Establish metrics and criteria to monitor project progress and ensure that objectives are met.
+   **Activity**: Establish metrics and criteria to monitor project progress and ensure that objectives are met.
 
-**Key Elements**:
+   **Key Elements**:
 
-- Key performance indicators (KPIs)
-- Success criteria for milestones and deliverables
-- Monitoring and reporting processes
-- Feedback and improvement mechanisms
+   - Key performance indicators (KPIs)
+   - Success criteria for milestones and deliverables
+   - Monitoring and reporting processes
+   - Feedback and improvement mechanisms
 
 8. **Documentation and Reporting**
 
-**Activity**: Ensure comprehensive documentation of all planning activities and maintain regular reporting to stakeholders.
+   **Activity**: Ensure comprehensive documentation of all planning activities and maintain regular reporting to stakeholders.
 
-**Key Elements**:
+   **Key Elements**:
 
-- Documentation standards and templates
-- Regular progress reports and reviews
-- Communication protocols
-- Archiving and retrieval processes
+   - Documentation standards and templates
+   - Regular progress reports and reviews
+   - Communication protocols
+   - Archiving and retrieval processes
 
 9. **Review and Approval**
 
-**Activity**: Conduct reviews and obtain approvals for all planning documents and plans.
+   **Activity**: Conduct reviews and obtain approvals for all planning documents and plans.
 
-**Key Elements**:
+   **Key Elements**:
 
-- Review procedures and criteria
-- Approval workflows
-- Stakeholder engagement
-- Documentation of review and approval outcomes
+   - Review procedures and criteria
+   - Approval workflows
+   - Stakeholder engagement
+   - Documentation of review and approval outcomes
 
 By carefully executing these planning process activities, organizations can lay a solid foundation for the successful development and assurance of airborne electronic software, ensuring that all safety, performance, and reliability requirements are met.
 
@@ -410,7 +410,7 @@ The main objectives of the configuration management process are:
 
 Configuration management involves several key activities to achieve its objectives:
 
-#### 1. Configuration Identification
+1. Configuration Identification
 
 **Objective**: Identify and document the configuration items (CIs) that need to be controlled throughout the software lifecycle.
 
@@ -420,7 +420,7 @@ Configuration management involves several key activities to achieve its objectiv
 - Assign unique identifiers to each CI.
 - Establish baselines for each stage of the development process, capturing the state of CIs at specific points in time.
 
-#### 2. Configuration Control
+2. Configuration Control
 
 **Objective**: Manage changes to the CIs to ensure that modifications are made systematically and approved appropriately.
 
@@ -431,7 +431,7 @@ Configuration management involves several key activities to achieve its objectiv
 - Document change requests, impact assessments, approvals, and implementation actions.
 - Track and manage changes to ensure they are accurately reflected in the design data and documentation.
 
-#### 3. Configuration Status Accounting
+3. Configuration Status Accounting
 
 **Objective**: Record and report the status of CIs and changes throughout the software lifecycle.
 
@@ -441,7 +441,7 @@ Configuration management involves several key activities to achieve its objectiv
 - Provide regular reports on the status of configurations, changes, and baselines.
 - Ensure that configuration records are updated and accurate.
 
-#### 4. Configuration Audits
+4. Configuration Audits
 
 **Objective**: Verify that the CIs conform to their documented requirements and that configuration management processes are being followed.
 
@@ -451,7 +451,7 @@ Configuration management involves several key activities to achieve its objectiv
 - Perform functional and physical configuration audits to verify that the software and documentation match the approved configurations.
 - Document audit findings and ensure that any discrepancies are resolved.
 
-#### 5. Configuration Documentation
+5. Configuration Documentation
 
 **Objective**: Ensure that all configuration management activities and CI information are thoroughly documented.
 
@@ -514,82 +514,82 @@ Process assurance involves a range of activities to achieve its objectives:
 
 1. **Planning and Documentation**
 
-**Objective**: Develop comprehensive plans that outline the process assurance activities and ensure they are documented effectively.
+   **Objective**: Develop comprehensive plans that outline the process assurance activities and ensure they are documented effectively.
 
-**Key Activities**:
+   **Key Activities**:
 
-- Develop a Process Assurance Plan (PAP) that outlines the scope, objectives, activities, responsibilities, and schedules.
-- Ensure that all process documentation, including plans, procedures, and standards, is complete, accurate, and up-to-date.
+   - Develop a Process Assurance Plan (PAP) that outlines the scope, objectives, activities, responsibilities, and schedules.
+   - Ensure that all process documentation, including plans, procedures, and standards, is complete, accurate, and up-to-date.
 
 2. **Process Reviews and Audits**
 
-**Objective**: Conduct reviews and audits to verify that processes are being followed correctly and consistently.
+   **Objective**: Conduct reviews and audits to verify that processes are being followed correctly and consistently.
 
-**Key Activities**:
+   **Key Activities**:
 
-- Perform regular process reviews to ensure compliance with plans, standards, and regulations.
-- Conduct internal and external audits to assess the effectiveness and compliance of processes.
-- Document audit findings and ensure that any non-conformances are addressed and corrected.
+   - Perform regular process reviews to ensure compliance with plans, standards, and regulations.
+   - Conduct internal and external audits to assess the effectiveness and compliance of processes.
+   - Document audit findings and ensure that any non-conformances are addressed and corrected.
 
 3. **Process Monitoring and Control**
 
-**Objective**: Monitor and control processes to ensure they are performed correctly and efficiently.
+   **Objective**: Monitor and control processes to ensure they are performed correctly and efficiently.
 
-**Key Activities**:
+   **Key Activities**:
 
-- Implement process monitoring mechanisms to track the performance and adherence of processes.
-- Use key performance indicators (KPIs) and metrics to evaluate process effectiveness.
-- Identify any deviations from the defined processes and implement corrective actions.
+   - Implement process monitoring mechanisms to track the performance and adherence of processes.
+   - Use key performance indicators (KPIs) and metrics to evaluate process effectiveness.
+   - Identify any deviations from the defined processes and implement corrective actions.
 
 4. **Verification of Process Implementation**
 
-**Objective**: Verify that all defined processes are implemented correctly and achieve their intended outcomes.
+   **Objective**: Verify that all defined processes are implemented correctly and achieve their intended outcomes.
 
-**Key Activities**:
+   **Key Activities**:
 
-- Perform process verification activities to ensure that processes are executed as planned.
-- Use checklists and verification criteria to assess process implementation.
-- Document the results of process verification and address any discrepancies.
+   - Perform process verification activities to ensure that processes are executed as planned.
+   - Use checklists and verification criteria to assess process implementation.
+   - Document the results of process verification and address any discrepancies.
 
 5. **Training and Awareness**
 
-**Objective**: Ensure that all personnel involved in software development are aware of the processes and trained in their implementation.
+   **Objective**: Ensure that all personnel involved in software development are aware of the processes and trained in their implementation.
 
-**Key Activities**:
+   **Key Activities**:
 
-- Develop and deliver training programs to educate team members on process assurance activities and requirements.
-- Maintain training records and ensure that all personnel are up-to-date with their training.
-- Promote awareness of process assurance practices and their importance.
+   - Develop and deliver training programs to educate team members on process assurance activities and requirements.
+   - Maintain training records and ensure that all personnel are up-to-date with their training.
+   - Promote awareness of process assurance practices and their importance.
 
 6. **Risk Management**
 
-**Objective**: Identify and manage risks associated with the processes to ensure the quality and reliability of the software.
+   **Objective**: Identify and manage risks associated with the processes to ensure the quality and reliability of the software.
 
-**Key Activities**:
+   **Key Activities**:
 
-- Perform risk assessments to identify potential process-related risks.
-- Develop and implement risk mitigation strategies to address identified risks.
-- Monitor and review risks throughout the software development lifecycle.
+   - Perform risk assessments to identify potential process-related risks.
+   - Develop and implement risk mitigation strategies to address identified risks.
+   - Monitor and review risks throughout the software development lifecycle.
 
 7. **Continuous Improvement**
 
-**Objective**: Continuously improve processes to enhance their effectiveness and efficiency.
+   **Objective**: Continuously improve processes to enhance their effectiveness and efficiency.
 
-**Key Activities**:
+   **Key Activities**:
 
-- Collect feedback from process participants and stakeholders to identify areas for improvement.
-- Implement process improvements based on feedback and lessons learned.
-- Review and update process documentation to reflect improvements and changes.
+   - Collect feedback from process participants and stakeholders to identify areas for improvement.
+   - Implement process improvements based on feedback and lessons learned.
+   - Review and update process documentation to reflect improvements and changes.
 
 8. **Documentation and Reporting**
 
-**Objective**: Maintain thorough documentation of all process assurance activities and report on their outcomes.
+   **Objective**: Maintain thorough documentation of all process assurance activities and report on their outcomes.
 
-**Key Activities**:
+   **Key Activities**:
 
-- Document all process assurance activities, including reviews, audits, monitoring, and verification.
-- Prepare and distribute regular reports on process assurance findings, including compliance status, issues identified, and corrective actions taken.
-- Ensure that all documentation is accessible and organized to facilitate audits and reviews.
+   - Document all process assurance activities, including reviews, audits, monitoring, and verification.
+   - Prepare and distribute regular reports on process assurance findings, including compliance status, issues identified, and corrective actions taken.
+   - Ensure that all documentation is accessible and organized to facilitate audits and reviews.
 
 By implementing these process assurance activities, organizations can ensure that their software development processes are robust, compliant, and effective. This, in turn, helps to ensure the safety, reliability, and certification of the airborne electronic software.
 
