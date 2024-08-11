@@ -6382,7 +6382,7 @@ MATLAB provides various tools and settings to customize your development environ
 
 By leveraging these environment and settings options in MATLAB, you can tailor your development environment to suit your preferences, manage add-ons and licenses efficiently, and access a wealth of resources for help and support.
 
-## SOURCE
+## CONFIGURATION
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
