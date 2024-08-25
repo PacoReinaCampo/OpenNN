@@ -119,7 +119,11 @@ sudo make install
 type:
 
 ```
-sudo apt install device-tree-compiler libboost-all-dev libglib2.0-dev libpixman-1-dev pkg-config
+sudo apt -y install device-tree-compiler
+sudo apt -y install libboost-all-dev
+sudo apt -y install libglib2.0-dev
+sudo apt -y install libpixman-1-dev
+sudo apt -y install pkg-config
 ```
 
 #### Hardware Engineers Compiler: Spike
@@ -190,7 +194,25 @@ sudo make install
 type:
 
 ```
-sudo apt install autoconf automake autotools-dev curl python3 libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev
+sudo apt -y install autoconf
+sudo apt -y install automake
+sudo apt -y install autotools-dev
+sudo apt -y install curl
+sudo apt -y install python3
+sudo apt -y install libmpc-dev
+sudo apt -y install libmpfr-dev
+sudo apt -y install libgmp-dev
+sudo apt -y install gawk
+sudo apt -y install build-essential
+sudo apt -y install bison
+sudo apt -y install flex
+sudo apt -y install texinfo
+sudo apt -y install gperf
+sudo apt -y install libtool
+sudo apt -y install patchutils
+sudo apt -y install bc
+sudo apt -y install zlib1g-dev
+sudo apt -y install libexpat-dev
 ```
 
 .. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
