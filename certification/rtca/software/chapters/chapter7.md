@@ -1,14 +1,10 @@
-# CONFIGURATION
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-## SOFTWARE CONFIGURATION MANAGEMENT PROCESS
+# SOFTWARE CONFIGURATION MANAGEMENT PROCESS
 
 This section discusses the objectives and activities of the software configuration management (SCM process. The SCM process is applied as defined by the software planning process (section 4) and the Software Configuration Management Plan (subsection 11.4). Outputs of the SCM process are recorded in Software Configuration Management Records (subsection 11.18) or in other software life cycle data.
 
 Table A-8 of Annex A is a summary of the objectives and outputs of the SCM process.
 
-### Software Configuration Management Process Objectives
+## Software Configuration Management Process Objectives
 
 The SCM process, working in cooperation with the other software life cycle processes, assists in satisfying general objectives to:
 
@@ -21,11 +17,11 @@ The SCM process, working in cooperation with the other software life cycle proce
    g. Aid the assessment of the software product compliance with requirements.
    h. Ensure that secure physical archiving, recovery and control are maintained for the configuration items. The objectives for SCM are independent of software level. However, two categories of software life cycle data may exist based on the SCM controls applied to the data (subsection 7.3).
 
-### Software Configuration Management Process Activities
+## Software Configuration Management Process Activities
 
 The SCM process includes the activities of configuration identification, change control, baseline establishment, and archiving of the software product, including the related software life cycle data. The following guidelines define the objectives for each SCM process activity. The SCM process does not stop when the software product is accepted by the certification authority, but continues throughout the service life of the airborne system or equipment.
 
-#### Configuration Identification.
+### Configuration Identification.
 
 The objective of the configuration identification activity is to label unambiguously each configuration item (and its successive versions) so that a basis is established for the control and reference of configuration items. Guidance includes:
 
@@ -39,7 +35,7 @@ The objective of the configuration identification activity is to label unambiguo
 
    e. If the software product identification cannot be determined by physical examination (for example, part number plate examination), then the Executable Object Code should contain configuration identification which can be accessed by other parts of the airborne system or equipment. This may be applicable for field-loadable software (subsection 2.5).
 
-#### Baselines and Traceability
+### Baselines and Traceability
 
 The objective of baseline establishment is to define a basis for further software life cycle process activity and allow reference to. control of, and traceability between configuration items. Guidance includes:
 
@@ -59,7 +55,7 @@ The objective of baseline establishment is to define a basis for further softwar
 
    g. A baseline or configuration item should be traceable either to the output it identifies or to the process with which it is associated.
 
-#### Problem Reporting, Tracking and Corrective Action
+### Problem Reporting, Tracking and Corrective Action
 
 The objective of problem reporting, tracking and corrective action is to record process non-compliance with software plans and standards, to record deficiencies of outputs of software life cycle processes, to record anomalous behavior of software products, and to ensure resolution of these problems.
 
@@ -75,7 +71,7 @@ Guidance includes:
 
    Note: The problem reporting and change control activities are related.
 
-#### Change Control.
+### Change Control.
 
 The objective of the change control activity is to provide for recording, evaluation, resolution and approval of changes throughout the software life cycle. Guidance includes:
 
@@ -85,7 +81,7 @@ The objective of the change control activity is to provide for recording, evalua
    d. Software changes should be traced to their origin and the software life cycle processes repeated from the point at which the change affects their outputs. For example, an error discovered at hardware/software integration, that is shown to result from an incorrect design, should result in design correction, code correction and repetition of the associated integral process activities.
    e. Throughout the change activity, software life cycle data affected by the change should be updated and records should be maintained for the change control activity. The change control activity is aided by the change review activity.
 
-#### Change Review
+### Change Review.
 
 The objective of the change review activity is to ensure problems and changes are assessed, approved or disapproved, approved changes are implemented, and feedback is provided to affected processes through problem reporting and change control methods defined during the software planning process. The change review activity should include:
 
@@ -94,7 +90,7 @@ The objective of the change review activity is to ensure problems and changes ar
    c. Assessment of the problem or change, with decisions for action to be taken.
    d. Feedback of problem report or change impact and decisions to affected processes.
 
-#### Configuration Status Accounting
+### Configuration Status Accounting
 
 The objective of the status accounting activity is to provide data for the configuration management of software life cycle processes with respect to configuration identification, baselines, problem reports, and change control. The status accounting activity should include:
 
@@ -102,7 +98,7 @@ The objective of the status accounting activity is to provide data for the confi
 
    b. Definition of the data to be maintained and the means of recording and reporting status of this data.
 
-#### A rchive, Retrieval and Release
+### A rchive, Retrieval and Release
 
 The objective of the archive and retrieval activity is to ensure that the software life cycle data associated with the software product can be retrieved in case of a need to duplicate, regenerate, retest or modify the software product. The objective of the release activity is to ensure that only authorized software is used, especially for software manufacturing, in addition to being archived and retrievable. Guidance includes:
 
@@ -126,17 +122,16 @@ The objective of the archive and retrieval activity is to ensure that the softwa
 
    Note: Additional data retention considerations may include items such as business needs and future certification authority reviews, which are outside the scope of this document.
 
-#### Software Load Control
+### Software Load Control
 
 The objective of the software load control activity is to ensure that the Executable Object Code is loaded into the airborne system or equipment with appropriate safeguards. Software load control refers to the process by which programmed instructions and data are transferred from a master memory device into the airborne system or equipment. For example, methods may include (subject to approval by the certification authority) the installation of factory per-programmed memory devices or in situ re-programming of the airborne system or equipment using a field loading device. Whichever method is used, software load control should include:
 
    a. Procedures for part numbering and media identification that identify software configurations that are intended to be approved for loading into the airborne system or equipment.
-
    b. Whether the software is delivered as an end item or is delivered installed in the airborne system or equipment, records should be kept that confirm software compatibility with the airborne system or equipment hardware.
 
    Note: Additional guidance on software load control is provided in subsection 2.5.
 
-#### Software Life Cycle Environment Control
+### Software Life Cycle Environment Control
 
 The objective of software fife cycle environment control is to ensure that the tools used to produce the software are identified, controlled, and retrievable. The software life cycle environment tools are defined by the software planning process and identified in the Software Life Cycle Environment Configuration Index (subsection 11.15). Guidance includes:
 
@@ -144,7 +139,7 @@ The objective of software fife cycle environment control is to ensure that the t
    b. The SCM process for controlling qualified tools, should comply with the objectives associated with Control Category I or 2 data (subsection 7.3), as specified in paragraph 12.2.3, item b.
    c. Unless 7.2.9 item b applies, the SCM process for controlling the Executable Object Code (or equivalent) of tools used to build and load the software (for example, compilers, assemblers, linkage editors) should comply with the objectives associated with Control Category 2 data, as a minimum.
 
-### Data Control Categories
+## Data Control Categories
 
 Software life cycle data can be assigned to one of two categories: Control Category 1 (CC1) and Control Category 2 (CC2). These categories are related to the configuration management controls placed on the data. Table 7-1 defines the set of SCM process objectives associated with each control category, where · indicates that the objectives apply for software life cycle data of that category.
 
@@ -152,25 +147,3 @@ The tables of Annex A specify the control category for each software life cycle 
 
    a. The SCM process objectives for software life cycle data categorized as CC should be applied according to Table 7-1.
    b. The SCM process objectives for software life cycle data categorized as C should be applied according to Table 7-1 as a minimum.
-   
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-## LANGUAGES
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-### C Language
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-### C++ Language
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-### GO Language
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
-
-### RUST Language
-
-.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....

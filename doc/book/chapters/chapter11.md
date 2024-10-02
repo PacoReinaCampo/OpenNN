@@ -42,7 +42,7 @@ Guidance for validation process activities includes:
 
    c. The review, analysis or test results associated with the validation of each requirement are correct and that discrepancies between actual and expected results are explained. When expected results are not pre-defined as may be the case for reviews and analyses, the results of the validation activity should be consistent with the requirement, especially with respect to safety requirements.
 
-Note: Validation completion criteria may be based on requirements, safety considerations, operational mode or implementation.
+   Note: Validation completion criteria may be based on requirements, safety considerations, operational mode or implementation.
 
 3. The derived requirements should be evaluated for their impact on safety. 
 

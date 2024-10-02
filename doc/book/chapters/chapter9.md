@@ -1,72 +1,45 @@
 # REQUIREMENTS
 
-## REQUIREMENTS CAPTURE PROCESS
+.. ....... ........ ........ ....... .. ........... ...... .... .. ...... ..... .. ..... .... ........ ... ...... . ... .... .. ......... ........... .... .... ........ .. .... . ..... ....... .... ... ........ .... ............ .. ... ... ....... .. ...... .... ... .... ....... .. ..... ... .... ....... ... ....... ......... ..... .......... ....... ..... ....... ... ....... ... ....... ..... ..... .... . ........ .. ... ..... ......... .. ........ ..... ....... .......... .......... ... ........ .. ... ..... .. ........ ..... .......... .... ... ...... .. .....
 
-The requirements capture process identifies and records the hardware item requirements. This includes those derived requirements imposed by the proposed hardware item architecture, choice of technology, the basic and optional functionality, environmental, and performance requirements as well as the requirements imposed by the system safety assessment. This process may be iterative since additional requirements may become known during design.
+## SOFTWARE REQUIREMENTS PROCESS
 
-### Requirements Capture Objectives
+The software requirements process uses the outputs of the system life cycle process to develop the software high-level requirements. These high-level requirements include functional, performance, interface and safety-related requirements.
 
-The objectives for the requirements capture process are:
+### Software Requirements Process Objectives
 
-1. Requirements are identified, defined and documented. This includes allocated requirements from the PSSA and derived requirements from the hardware safety assessment.
+The objectives of the software requirements process are:
 
-Note: Traceability of verification results to the hardware requirements is addressed in Section 6. It is desirable to establish this method of traceability during the requirement capture process.
+   a. High-level requirements are developed.
+   b. Derived high-level requirements are indicated to the system safety assessment process.
 
-2. Derived requirements produced are fed back to the appropriate process.
+### Software Requirements Process Activities
 
-3. Requirement omissions and errors are provided to the appropriate process for resolution.
+Inputs to the software requirements process include the system requirements, the hardware interface and system architecture (if not included in the requirements) from the system life cycle process, and the Software Development Plan and the Software Requirements Standards from the software planning process. When the planned transition criteria have been satisfied, these inputs are used to develop the software high-level requirements.
 
-### Requirements Capture Activities
+The primary output of this process is the Software Requirements Data (subsection 11.9).
 
-The requirements capture activities form an iterative process which helps assure consistency of the requirements with the design implementation, the system requirements and the software requirements.
+The software requirements process is complete when its objectives and the objectives of the integral processes associated with it are satisfied. Guidance for this process includes:
 
-Guidance for the requirements capture activities includes:
+   a. The system functional and interface requirements that are allocated to software should be analyze for ambiguities, inconsistencies and undefined conditions.
 
-1. The system requirements allocated to the hardware item should be documented. These may include identifying requirements, such as functionality and performance, and architectural considerations, such as segregation, Built-In-Test, testability, external interfaces, environment, test and maintenance considerations, power, and physical characteristics.
+   b. Inputs to the software requirements process detected as inadequate or incorrect should be reported as feedback to the input source processes for clarification or correction.
 
-2. The safety requirements from the PSSA related to the hardware item should be identified. These may include:
+   c. Each system requirement that is allocated to software should be specified in the high-level requirements.
 
-   a. Design assurance levels imposed on the functions to be implemented in the hardware.
+   d. High-level requirements that address system requirements allocated to software to preclude system hazards should be defined.
 
-   b. Probabilistic requirements for malfunctions or loss of function.
+   e. The high-level requirements should conform to the Software Requirements Standards, and be verifiable and consistent.
 
-   c. Hardware architectural and functional safety attributes, such as those outlined in Section 2.3.1, selected to meet the functional allocation.
+   f. The high-level requirements should be stated in quantitative terms with tolerances where applicable.
 
-3. Design constraints due to production processes, standards, procedures, technology, design environment and design guidance should be identified.
+   g. The high-level requirements should not describe design or verification detail except for specified and justified design constraints.
 
-4. Derived requirements necessary for implementation should be determined. Requirements derived from the hardware safety assessment that have safety implications should be uniquely identified.
+   h. Each system requirement allocated to software should be traceable to one or more software high-level requirements.
 
-Note: Derived requirements may address conditions, such as:
+   i. Each high-level requirement should be traceable to one or more system requirements, except for derived requirements.
 
-   a. Specific constraints to ensure that functions of a higher design assurance level can withstand anomalies of functions of a lower design assurance level as seen at the interface of the function with the lower design assurance level.
-
-   b. The range of data inputs considering typical and full-scale data values as well as the high and low states of bits in data words or control registers.
-
-   c. Power-up reset or other reset states.
-
-   d. Supply voltage and current demands.
-
-   e. Performance of time-related functions, such as filters, integrators and delays.
-
-   f. State machine transitions that are possible, whether they are anticipated or not.
-
-   g. Signal timing relationships or electrical conditions under normal and worst-case conditions.
-
-   h. Signal noise and cross-talk.
-
-   i. Signal glitches in asynchronous logic circuits.
-
-   j. Specific constraints to control unused functions.
-
-5. Derived requirements should be fed back to the SSA process so that the effects on the system requirements can be assessed.
-
-6. The requirement data should be documented in quantitative terms, with tolerances where applicable. This does not include the description of design or verification solutions.
-
-7. Requirement omissions or errors discovered during this process should be provided to the system development process.
-
-8. The requirements, including those generated to meet the PSSA requirements, should be traceable to the next higher hierarchical level of requirements. Derived requirements should be identified and traced as far as possible through the hierarchical levels.
-
-Note: System level validation of allocated hardware safety requirements may occur during the requirement capture process. Validation of derived hardware requirements is described in Section 6.1.
+   j. Derived high-level requirements should be provided to the system safety assessment process.
 
 ## LANGUAGES
 
