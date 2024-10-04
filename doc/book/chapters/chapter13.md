@@ -21,8 +21,11 @@ Note 2: Informal testing outside the documented verification process is recommen
 The objectives of the verification process are:
 
 1. Evidence is provided that the hardware implementation meets the requirements.
+
 2. Traceability is established between hardware requirements, the implementation, and the verification procedures and results.
+
 3. Acceptance test criteria are identified, can be implemented and are consistent with the hardware design assurance levels of the hardware functions.
+
 4. Omissions and errors are fed back to the appropriate processes for resolution.
 
 ### Verification Process Activities

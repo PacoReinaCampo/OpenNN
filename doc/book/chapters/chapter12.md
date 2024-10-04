@@ -11,6 +11,7 @@ The software high-level requirements are refined through one or more iterations 
 The objectives of the software design process are:
 
    a. The software architecture and low-level requirements are developed from the high-level requirements.
+
    b. Derived low-level requirements are provided to the system safety assessment process.
 
 ### Software Design Process Activities

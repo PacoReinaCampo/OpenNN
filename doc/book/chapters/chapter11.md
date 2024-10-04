@@ -23,7 +23,9 @@ Another example of a design decision that becomes a derived requirement is the m
 The objectives of the validation process for derived hardware requirements are:
 
 1. Derived hardware requirements against which the hardware item is to be verified are correct and complete.
+
 2. Derived requirements are evaluated for impact on safety.
+
 3. Omissions and errors are fed back to the appropriate processes for resolution.
 
 ### Validation Process Activities

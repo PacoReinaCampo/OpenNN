@@ -11,6 +11,7 @@ The software requirements process uses the outputs of the system life cycle proc
 The objectives of the software requirements process are:
 
    a. High-level requirements are developed.
+
    b. Derived high-level requirements are indicated to the system safety assessment process.
 
 ### Software Requirements Process Activities
