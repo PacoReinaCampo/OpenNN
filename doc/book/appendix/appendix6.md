@@ -22,6 +22,7 @@
 |               | IEEE STD 1364-2005   | Verilog       |
 | verification  | IEEE STD 1800.2-2020 | UVM           |
 | lifecycle     | IEEE STD 2675-2021   | DevOps        |
+
 : Project Folder
 
 ## DESIGN LIFECYCLE DATA TEMPLATES
@@ -89,6 +90,7 @@
 | Software Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Software Planning Review
 
 | Data Required for the Software Planning Object                                            |
@@ -103,6 +105,7 @@
 | Software Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Software Planning Object
 
 #### Software Configuration Management Plan
@@ -390,6 +393,7 @@
 | Software Configuration Management Records            |
 | Software Process Assurance Records                   |
 | Software Tool Qualification Data                     |
+
 :Data Required for the Software Development Review
 
 | Data Required for the Software Development Object    |
@@ -407,6 +411,7 @@
 | Software Configuration Management Records            |
 | Software Process Assurance Records                   |
 | Software Tool Qualification Data                     |
+
 :Data Required for the Software Development Object
 
 #### Software Configuration Management Records
@@ -810,6 +815,7 @@
 | Software Configuration Management Records           |
 | Software Process Assurance Records                  |
 | Software Tool Qualification Data                    |
+
 :Data Required for the Software Verification Review
 
 | Data Required for the Software Verification Object  |
@@ -825,6 +831,7 @@
 | Software Configuration Management Records           |
 | Software Process Assurance Records                  |
 | Software Tool Qualification Data                    |
+
 :Data Required for the Software Verification Object
 
 #### Software Configuration Management Records
@@ -1168,6 +1175,7 @@
 | Software Configuration Management Records                 |
 | Software Process Assurance Records                        |
 | Software Accomplishment Summary                           |
+
 :Data Required for the Final Certification Software Review
 
 | Data Required for the Final Certification Software Object |
@@ -1179,6 +1187,7 @@
 | Software Configuration Management Records                 |
 | Software Process Assurance Records                        |
 | Software Accomplishment Summary                           |
+
 :Data Required for the Final Certification Software Object
 
 #### Software Accomplishment Summary

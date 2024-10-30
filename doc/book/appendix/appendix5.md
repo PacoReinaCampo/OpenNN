@@ -786,6 +786,7 @@ In the context of airborne electronic software development governed by DO-178C, 
 | Software Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Software Planning Review
 
 | Data Required for the Software Planning Object                                            |
@@ -800,6 +801,7 @@ In the context of airborne electronic software development governed by DO-178C, 
 | Software Requirements, Design, HDL Code, Validation & Verification, and Archive Standards |
 | Tool Qualification Plans                                                                  |
 | Supplier Management Plan                                                                  |
+
 :Data Required for the Software Planning Object
 
 ##### Software Configuration Management Plan
@@ -1163,6 +1165,7 @@ In the context of airborne electronic software development governed by DO-178C, 
 | Software Configuration Management Records            |
 | Software Process Assurance Records                   |
 | Software Tool Qualification Data                     |
+
 :Data Required for the Software Development Review
 
 | Data Required for the Software Development Object    |
@@ -1180,6 +1183,7 @@ In the context of airborne electronic software development governed by DO-178C, 
 | Software Configuration Management Records            |
 | Software Process Assurance Records                   |
 | Software Tool Qualification Data                     |
+
 :Data Required for the Software Development Object
 
 ##### Software Configuration Management Records
@@ -1609,6 +1613,7 @@ In the context of airborne electronic software development governed by DO-178C, 
 | Software Configuration Management Records           |
 | Software Process Assurance Records                  |
 | Software Tool Qualification Data                    |
+
 :Data Required for the Software Verification Review
 
 | Data Required for the Software Verification Object  |
@@ -1624,6 +1629,7 @@ In the context of airborne electronic software development governed by DO-178C, 
 | Software Configuration Management Records           |
 | Software Process Assurance Records                  |
 | Software Tool Qualification Data                    |
+
 :Data Required for the Software Verification Object
 
 ##### Software Configuration Management Records
@@ -1989,6 +1995,7 @@ In the context of airborne electronic software development governed by DO-178C, 
 | Software Configuration Management Records                 |
 | Software Process Assurance Records                        |
 | Software Accomplishment Summary                           |
+
 :Data Required for the Final Certification Software Review
 
 | Data Required for the Final Certification Software Object |
@@ -2000,6 +2007,7 @@ In the context of airborne electronic software development governed by DO-178C, 
 | Software Configuration Management Records                 |
 | Software Process Assurance Records                        |
 | Software Accomplishment Summary                           |
+
 :Data Required for the Final Certification Software Object
 
 ##### Software Accomplishment Summary
