@@ -9,14 +9,14 @@
 ##                  |_|                                                          ##
 ##                                                                               ##
 ##                                                                               ##
-##              QueenField                                                       ##
-##              Multi-Processor System on Chip                                   ##
+##              Neural Turing Machine                                            ##
+##              Software                                                         ##
 ##                                                                               ##
 ###################################################################################
 
 ###################################################################################
 ##                                                                               ##
-## Copyright (c) 2022-2025 by the author(s)                                      ##
+## Copyright (c) 2020-2021 by the author(s)                                      ##
 ##                                                                               ##
 ## Permission is hereby granted, free of charge, to any person obtaining a copy  ##
 ## of this software and associated documentation files (the "Software"), to deal ##
@@ -42,10 +42,40 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.h' eigen > TREE-EIGEN.txt
+##########################################################################
+# Includes
+##########################################################################
+-include include.txt
 
-tree -P '*.cpp' opennn > TREE-CPP.txt
+TARGET=simple_function_regression
 
-tree -f -i -P '*.cpp' opennn > CREATE-CPP.sh
-sed -i '/.cpp/!d' CREATE-CPP.sh
-sed -i 's/^/touch /g' CREATE-CPP.sh
+##########################################################################
+# Targets
+##########################################################################
+all: x86 riscv or1k
+
+x86:
+	g++ main.cpp ${SOURCES} -o ${TARGET}-x86.run
+
+riscv:
+	# Compilation. From OpenNN source code to ELF
+	riscv64-unknown-elf-g++ -std=c++11 -o ${TARGET}-riscv.elf main.cpp ${SOURCES}
+	# Conversion. From ELF to HEX
+	riscv64-unknown-elf-objcopy -O ihex ${TARGET}-riscv.elf ${TARGET}-riscv.hex
+
+riscv-simulation:
+	# Baremetal simulation
+	spike pk ${TARGET}-riscv.elf
+
+or1k:
+	# Compilation. From OpenNN source code to ELF
+	or1k-elf-g++ -std=c++11 -o ${TARGET}-or1k.elf main.cpp ${SOURCES}
+	# Conversion. From ELF to HEX
+	or1k-elf-objcopy -O ihex ${TARGET}-or1k.elf ${TARGET}-or1k.hex
+
+clean:
+	rm -rf *.run
+	rm -rf *.elf
+	rm -rf *.hex
+	rm -rf data/*.dat
+	rm -rf data/*.xml

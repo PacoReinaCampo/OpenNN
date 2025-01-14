@@ -1,0 +1,315 @@
+eigen
+└── src
+    ├── Cholesky
+    │   ├── LDLT.h
+    │   ├── LLT.h
+    │   └── LLT_LAPACKE.h
+    ├── CholmodSupport
+    │   └── CholmodSupport.h
+    ├── Core
+    │   ├── arch
+    │   │   ├── AltiVec
+    │   │   │   ├── Complex.h
+    │   │   │   ├── MathFunctions.h
+    │   │   │   └── PacketMath.h
+    │   │   ├── AVX
+    │   │   │   ├── Complex.h
+    │   │   │   ├── MathFunctions.h
+    │   │   │   ├── PacketMath.h
+    │   │   │   └── TypeCasting.h
+    │   │   ├── AVX512
+    │   │   │   ├── MathFunctions.h
+    │   │   │   └── PacketMath.h
+    │   │   ├── CUDA
+    │   │   │   ├── Complex.h
+    │   │   │   ├── Half.h
+    │   │   │   ├── MathFunctions.h
+    │   │   │   ├── PacketMath.h
+    │   │   │   ├── PacketMathHalf.h
+    │   │   │   └── TypeCasting.h
+    │   │   ├── Default
+    │   │   │   ├── ConjHelper.h
+    │   │   │   └── Settings.h
+    │   │   ├── NEON
+    │   │   │   ├── Complex.h
+    │   │   │   ├── MathFunctions.h
+    │   │   │   └── PacketMath.h
+    │   │   ├── SSE
+    │   │   │   ├── Complex.h
+    │   │   │   ├── MathFunctions.h
+    │   │   │   ├── PacketMath.h
+    │   │   │   └── TypeCasting.h
+    │   │   └── ZVector
+    │   │       ├── Complex.h
+    │   │       ├── MathFunctions.h
+    │   │       └── PacketMath.h
+    │   ├── ArrayBase.h
+    │   ├── Array.h
+    │   ├── ArrayWrapper.h
+    │   ├── AssignEvaluator.h
+    │   ├── Assign.h
+    │   ├── Assign_MKL.h
+    │   ├── BandMatrix.h
+    │   ├── Block.h
+    │   ├── BooleanRedux.h
+    │   ├── CommaInitializer.h
+    │   ├── ConditionEstimator.h
+    │   ├── CoreEvaluators.h
+    │   ├── CoreIterators.h
+    │   ├── CwiseBinaryOp.h
+    │   ├── CwiseNullaryOp.h
+    │   ├── CwiseTernaryOp.h
+    │   ├── CwiseUnaryOp.h
+    │   ├── CwiseUnaryView.h
+    │   ├── DenseBase.h
+    │   ├── DenseCoeffsBase.h
+    │   ├── DenseStorage.h
+    │   ├── Diagonal.h
+    │   ├── DiagonalMatrix.h
+    │   ├── DiagonalProduct.h
+    │   ├── Dot.h
+    │   ├── EigenBase.h
+    │   ├── ForceAlignedAccess.h
+    │   ├── functors
+    │   │   ├── AssignmentFunctors.h
+    │   │   ├── BinaryFunctors.h
+    │   │   ├── NullaryFunctors.h
+    │   │   ├── StlFunctors.h
+    │   │   ├── TernaryFunctors.h
+    │   │   └── UnaryFunctors.h
+    │   ├── Fuzzy.h
+    │   ├── GeneralProduct.h
+    │   ├── GenericPacketMath.h
+    │   ├── GlobalFunctions.h
+    │   ├── Inverse.h
+    │   ├── IO.h
+    │   ├── MapBase.h
+    │   ├── Map.h
+    │   ├── MathFunctions.h
+    │   ├── MathFunctionsImpl.h
+    │   ├── MatrixBase.h
+    │   ├── Matrix.h
+    │   ├── NestByValue.h
+    │   ├── NoAlias.h
+    │   ├── NumTraits.h
+    │   ├── PermutationMatrix.h
+    │   ├── PlainObjectBase.h
+    │   ├── ProductEvaluators.h
+    │   ├── Product.h
+    │   ├── products
+    │   │   ├── GeneralBlockPanelKernel.h
+    │   │   ├── GeneralMatrixMatrix_BLAS.h
+    │   │   ├── GeneralMatrixMatrix.h
+    │   │   ├── GeneralMatrixMatrixTriangular_BLAS.h
+    │   │   ├── GeneralMatrixMatrixTriangular.h
+    │   │   ├── GeneralMatrixVector_BLAS.h
+    │   │   ├── GeneralMatrixVector.h
+    │   │   ├── Parallelizer.h
+    │   │   ├── SelfadjointMatrixMatrix_BLAS.h
+    │   │   ├── SelfadjointMatrixMatrix.h
+    │   │   ├── SelfadjointMatrixVector_BLAS.h
+    │   │   ├── SelfadjointMatrixVector.h
+    │   │   ├── SelfadjointProduct.h
+    │   │   ├── SelfadjointRank2Update.h
+    │   │   ├── TriangularMatrixMatrix_BLAS.h
+    │   │   ├── TriangularMatrixMatrix.h
+    │   │   ├── TriangularMatrixVector_BLAS.h
+    │   │   ├── TriangularMatrixVector.h
+    │   │   ├── TriangularSolverMatrix_BLAS.h
+    │   │   ├── TriangularSolverMatrix.h
+    │   │   └── TriangularSolverVector.h
+    │   ├── Random.h
+    │   ├── Redux.h
+    │   ├── Ref.h
+    │   ├── Replicate.h
+    │   ├── ReturnByValue.h
+    │   ├── Reverse.h
+    │   ├── Select.h
+    │   ├── SelfAdjointView.h
+    │   ├── SelfCwiseBinaryOp.h
+    │   ├── Solve.h
+    │   ├── SolverBase.h
+    │   ├── SolveTriangular.h
+    │   ├── StableNorm.h
+    │   ├── Stride.h
+    │   ├── Swap.h
+    │   ├── Transpose.h
+    │   ├── Transpositions.h
+    │   ├── TriangularMatrix.h
+    │   ├── util
+    │   │   ├── BlasUtil.h
+    │   │   ├── Constants.h
+    │   │   ├── DisableStupidWarnings.h
+    │   │   ├── ForwardDeclarations.h
+    │   │   ├── Macros.h
+    │   │   ├── Memory.h
+    │   │   ├── Meta.h
+    │   │   ├── MKL_support.h
+    │   │   ├── NonMPL2.h
+    │   │   ├── ReenableStupidWarnings.h
+    │   │   ├── StaticAssert.h
+    │   │   └── XprHelper.h
+    │   ├── VectorBlock.h
+    │   ├── VectorwiseOp.h
+    │   └── Visitor.h
+    ├── Eigenvalues
+    │   ├── ComplexEigenSolver.h
+    │   ├── ComplexSchur.h
+    │   ├── ComplexSchur_LAPACKE.h
+    │   ├── EigenSolver.h
+    │   ├── GeneralizedEigenSolver.h
+    │   ├── GeneralizedSelfAdjointEigenSolver.h
+    │   ├── HessenbergDecomposition.h
+    │   ├── MatrixBaseEigenvalues.h
+    │   ├── RealQZ.h
+    │   ├── RealSchur.h
+    │   ├── RealSchur_LAPACKE.h
+    │   ├── SelfAdjointEigenSolver.h
+    │   ├── SelfAdjointEigenSolver_LAPACKE.h
+    │   └── Tridiagonalization.h
+    ├── Geometry
+    │   ├── AlignedBox.h
+    │   ├── AngleAxis.h
+    │   ├── arch
+    │   │   └── Geometry_SSE.h
+    │   ├── EulerAngles.h
+    │   ├── Homogeneous.h
+    │   ├── Hyperplane.h
+    │   ├── OrthoMethods.h
+    │   ├── ParametrizedLine.h
+    │   ├── Quaternion.h
+    │   ├── Rotation2D.h
+    │   ├── RotationBase.h
+    │   ├── Scaling.h
+    │   ├── Transform.h
+    │   ├── Translation.h
+    │   └── Umeyama.h
+    ├── Householder
+    │   ├── BlockHouseholder.h
+    │   ├── Householder.h
+    │   └── HouseholderSequence.h
+    ├── IterativeLinearSolvers
+    │   ├── BasicPreconditioners.h
+    │   ├── BiCGSTAB.h
+    │   ├── ConjugateGradient.h
+    │   ├── IncompleteCholesky.h
+    │   ├── IncompleteLUT.h
+    │   ├── IterativeSolverBase.h
+    │   ├── LeastSquareConjugateGradient.h
+    │   └── SolveWithGuess.h
+    ├── Jacobi
+    │   └── Jacobi.h
+    ├── LU
+    │   ├── arch
+    │   │   └── Inverse_SSE.h
+    │   ├── Determinant.h
+    │   ├── FullPivLU.h
+    │   ├── InverseImpl.h
+    │   ├── PartialPivLU.h
+    │   └── PartialPivLU_LAPACKE.h
+    ├── MetisSupport
+    │   └── MetisSupport.h
+    ├── misc
+    │   ├── blas.h
+    │   ├── Image.h
+    │   ├── Kernel.h
+    │   ├── lapacke.h
+    │   ├── lapacke_mangling.h
+    │   ├── lapack.h
+    │   └── RealSvd2x2.h
+    ├── OrderingMethods
+    │   ├── Amd.h
+    │   ├── Eigen_Colamd.h
+    │   └── Ordering.h
+    ├── PardisoSupport
+    │   └── PardisoSupport.h
+    ├── PaStiXSupport
+    │   └── PaStiXSupport.h
+    ├── plugins
+    │   ├── ArrayCwiseBinaryOps.h
+    │   ├── ArrayCwiseUnaryOps.h
+    │   ├── BlockMethods.h
+    │   ├── CommonCwiseBinaryOps.h
+    │   ├── CommonCwiseUnaryOps.h
+    │   ├── MatrixCwiseBinaryOps.h
+    │   └── MatrixCwiseUnaryOps.h
+    ├── QR
+    │   ├── ColPivHouseholderQR.h
+    │   ├── ColPivHouseholderQR_LAPACKE.h
+    │   ├── CompleteOrthogonalDecomposition.h
+    │   ├── FullPivHouseholderQR.h
+    │   ├── HouseholderQR.h
+    │   └── HouseholderQR_LAPACKE.h
+    ├── SparseCholesky
+    │   ├── SimplicialCholesky.h
+    │   └── SimplicialCholesky_impl.h
+    ├── SparseCore
+    │   ├── AmbiVector.h
+    │   ├── CompressedStorage.h
+    │   ├── ConservativeSparseSparseProduct.h
+    │   ├── MappedSparseMatrix.h
+    │   ├── SparseAssign.h
+    │   ├── SparseBlock.h
+    │   ├── SparseColEtree.h
+    │   ├── SparseCompressedBase.h
+    │   ├── SparseCwiseBinaryOp.h
+    │   ├── SparseCwiseUnaryOp.h
+    │   ├── SparseDenseProduct.h
+    │   ├── SparseDiagonalProduct.h
+    │   ├── SparseDot.h
+    │   ├── SparseFuzzy.h
+    │   ├── SparseMap.h
+    │   ├── SparseMatrixBase.h
+    │   ├── SparseMatrix.h
+    │   ├── SparsePermutation.h
+    │   ├── SparseProduct.h
+    │   ├── SparseRedux.h
+    │   ├── SparseRef.h
+    │   ├── SparseSelfAdjointView.h
+    │   ├── SparseSolverBase.h
+    │   ├── SparseSparseProductWithPruning.h
+    │   ├── SparseTranspose.h
+    │   ├── SparseTriangularView.h
+    │   ├── SparseUtil.h
+    │   ├── SparseVector.h
+    │   ├── SparseView.h
+    │   └── TriangularSolver.h
+    ├── SparseLU
+    │   ├── SparseLU_column_bmod.h
+    │   ├── SparseLU_column_dfs.h
+    │   ├── SparseLU_copy_to_ucol.h
+    │   ├── SparseLU_gemm_kernel.h
+    │   ├── SparseLU.h
+    │   ├── SparseLU_heap_relax_snode.h
+    │   ├── SparseLUImpl.h
+    │   ├── SparseLU_kernel_bmod.h
+    │   ├── SparseLU_Memory.h
+    │   ├── SparseLU_panel_bmod.h
+    │   ├── SparseLU_panel_dfs.h
+    │   ├── SparseLU_pivotL.h
+    │   ├── SparseLU_pruneL.h
+    │   ├── SparseLU_relax_snode.h
+    │   ├── SparseLU_Structs.h
+    │   ├── SparseLU_SupernodalMatrix.h
+    │   └── SparseLU_Utils.h
+    ├── SparseQR
+    │   └── SparseQR.h
+    ├── SPQRSupport
+    │   └── SuiteSparseQRSupport.h
+    ├── StlSupport
+    │   ├── details.h
+    │   ├── StdDeque.h
+    │   ├── StdList.h
+    │   └── StdVector.h
+    ├── SuperLUSupport
+    │   └── SuperLUSupport.h
+    ├── SVD
+    │   ├── BDCSVD.h
+    │   ├── JacobiSVD.h
+    │   ├── JacobiSVD_LAPACKE.h
+    │   ├── SVDBase.h
+    │   └── UpperBidiagonalization.h
+    └── UmfPackSupport
+        └── UmfPackSupport.h
+
+41 directories, 272 files
