@@ -29,6 +29,25 @@ int main(void) {
 
     srand(static_cast<unsigned>(time(nullptr)));
 
+    // Define two 2x2 matrices
+    Eigen::Matrix2d matA;
+    Eigen::Matrix2d matB;
+
+    // Initialize the matrices
+    matA << 1, 2,
+            3, 4;
+    
+    matB << 5, 6,
+            7, 8;
+
+    // Multiply the matrices
+    Eigen::Matrix2d result = matA * matB;
+
+    // Print the matrices and the result
+    cout << "Matrix A:" << endl << matA << endl;
+    cout << "Matrix B:" << endl << matB << endl;
+    cout << "Result of A * B:" << endl << result << endl;
+
     return 0;
   } catch (exception& e) {
     cerr << e.what() << endl;
