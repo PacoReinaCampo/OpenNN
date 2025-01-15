@@ -45,22 +45,12 @@
 #####################################################################
 # OpenNN Sources
 #####################################################################
-SOURCES =	../../../../src/opennn/data_set/data_set.cpp \
-		../../../../src/opennn/data_set/data_set.h \
-		../../../../src/opennn/utilities/correlations.cpp \
-		../../../../src/opennn/utilities/correlations.h \
-		../../../../src/opennn/utilities/functions.cpp \
+SOURCES =	../../../../src/opennn/utilities/functions.cpp \
 		../../../../src/opennn/utilities/functions.h \
 		../../../../src/opennn/utilities/matrix.h \
 		../../../../src/opennn/utilities/metrics.cpp \
 		../../../../src/opennn/utilities/metrics.h \
-		../../../../src/opennn/utilities/opennn_strings.cpp \
-		../../../../src/opennn/utilities/opennn_strings.h \
 		../../../../src/opennn/utilities/statistics.cpp \
 		../../../../src/opennn/utilities/statistics.h \
 		../../../../src/opennn/utilities/tensor.h \
-		../../../../src/opennn/utilities/tinyxml2.cpp \
-		../../../../src/opennn/utilities/tinyxml2.h \
-		../../../../src/opennn/utilities/transformations.cpp \
-		../../../../src/opennn/utilities/transformations.h \
 		../../../../src/opennn/utilities/vector.h

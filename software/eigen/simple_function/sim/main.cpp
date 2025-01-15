@@ -18,7 +18,7 @@
 
 // OpenNN includes
 
-#include "../../../../src/opennn/data_set/data_set.h"
+#include "../../../../src/opennn/utilities/metrics.h"
 
 using namespace std;
 using namespace OpenNN;
@@ -28,10 +28,6 @@ int main(void) {
     cout << "OpenNN. Simple Function Example." << endl;
 
     srand(static_cast<unsigned>(time(nullptr)));
-
-    // Data set
-
-    DataSet data_set("data/simple_function.csv", ';', true);
 
     return 0;
   } catch (exception& e) {
