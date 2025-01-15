@@ -42,7 +42,7 @@
 ##                                                                               ##
 ###################################################################################
 
-tree -P '*.h' eigen > TREE-EIGEN.txt
+tree --filesfirst -P '*.h' eigen > TREE-EIGEN.txt
 
 tree -P '*.cpp' opennn > TREE-CPP.txt
 

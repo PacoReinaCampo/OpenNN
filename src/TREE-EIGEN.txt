@@ -7,6 +7,73 @@ eigen
     ├── CholmodSupport
     │   └── CholmodSupport.h
     ├── Core
+    │   ├── ArrayBase.h
+    │   ├── Array.h
+    │   ├── ArrayWrapper.h
+    │   ├── AssignEvaluator.h
+    │   ├── Assign.h
+    │   ├── Assign_MKL.h
+    │   ├── BandMatrix.h
+    │   ├── Block.h
+    │   ├── BooleanRedux.h
+    │   ├── CommaInitializer.h
+    │   ├── ConditionEstimator.h
+    │   ├── CoreEvaluators.h
+    │   ├── CoreIterators.h
+    │   ├── CwiseBinaryOp.h
+    │   ├── CwiseNullaryOp.h
+    │   ├── CwiseTernaryOp.h
+    │   ├── CwiseUnaryOp.h
+    │   ├── CwiseUnaryView.h
+    │   ├── DenseBase.h
+    │   ├── DenseCoeffsBase.h
+    │   ├── DenseStorage.h
+    │   ├── Diagonal.h
+    │   ├── DiagonalMatrix.h
+    │   ├── DiagonalProduct.h
+    │   ├── Dot.h
+    │   ├── EigenBase.h
+    │   ├── ForceAlignedAccess.h
+    │   ├── Fuzzy.h
+    │   ├── GeneralProduct.h
+    │   ├── GenericPacketMath.h
+    │   ├── GlobalFunctions.h
+    │   ├── Inverse.h
+    │   ├── IO.h
+    │   ├── MapBase.h
+    │   ├── Map.h
+    │   ├── MathFunctions.h
+    │   ├── MathFunctionsImpl.h
+    │   ├── MatrixBase.h
+    │   ├── Matrix.h
+    │   ├── NestByValue.h
+    │   ├── NoAlias.h
+    │   ├── NumTraits.h
+    │   ├── PermutationMatrix.h
+    │   ├── PlainObjectBase.h
+    │   ├── ProductEvaluators.h
+    │   ├── Product.h
+    │   ├── Random.h
+    │   ├── Redux.h
+    │   ├── Ref.h
+    │   ├── Replicate.h
+    │   ├── ReturnByValue.h
+    │   ├── Reverse.h
+    │   ├── Select.h
+    │   ├── SelfAdjointView.h
+    │   ├── SelfCwiseBinaryOp.h
+    │   ├── Solve.h
+    │   ├── SolverBase.h
+    │   ├── SolveTriangular.h
+    │   ├── StableNorm.h
+    │   ├── Stride.h
+    │   ├── Swap.h
+    │   ├── Transpose.h
+    │   ├── Transpositions.h
+    │   ├── TriangularMatrix.h
+    │   ├── VectorBlock.h
+    │   ├── VectorwiseOp.h
+    │   ├── Visitor.h
     │   ├── arch
     │   │   ├── AltiVec
     │   │   │   ├── Complex.h
@@ -43,33 +110,6 @@ eigen
     │   │       ├── Complex.h
     │   │       ├── MathFunctions.h
     │   │       └── PacketMath.h
-    │   ├── ArrayBase.h
-    │   ├── Array.h
-    │   ├── ArrayWrapper.h
-    │   ├── AssignEvaluator.h
-    │   ├── Assign.h
-    │   ├── Assign_MKL.h
-    │   ├── BandMatrix.h
-    │   ├── Block.h
-    │   ├── BooleanRedux.h
-    │   ├── CommaInitializer.h
-    │   ├── ConditionEstimator.h
-    │   ├── CoreEvaluators.h
-    │   ├── CoreIterators.h
-    │   ├── CwiseBinaryOp.h
-    │   ├── CwiseNullaryOp.h
-    │   ├── CwiseTernaryOp.h
-    │   ├── CwiseUnaryOp.h
-    │   ├── CwiseUnaryView.h
-    │   ├── DenseBase.h
-    │   ├── DenseCoeffsBase.h
-    │   ├── DenseStorage.h
-    │   ├── Diagonal.h
-    │   ├── DiagonalMatrix.h
-    │   ├── DiagonalProduct.h
-    │   ├── Dot.h
-    │   ├── EigenBase.h
-    │   ├── ForceAlignedAccess.h
     │   ├── functors
     │   │   ├── AssignmentFunctors.h
     │   │   ├── BinaryFunctors.h
@@ -77,25 +117,6 @@ eigen
     │   │   ├── StlFunctors.h
     │   │   ├── TernaryFunctors.h
     │   │   └── UnaryFunctors.h
-    │   ├── Fuzzy.h
-    │   ├── GeneralProduct.h
-    │   ├── GenericPacketMath.h
-    │   ├── GlobalFunctions.h
-    │   ├── Inverse.h
-    │   ├── IO.h
-    │   ├── MapBase.h
-    │   ├── Map.h
-    │   ├── MathFunctions.h
-    │   ├── MathFunctionsImpl.h
-    │   ├── MatrixBase.h
-    │   ├── Matrix.h
-    │   ├── NestByValue.h
-    │   ├── NoAlias.h
-    │   ├── NumTraits.h
-    │   ├── PermutationMatrix.h
-    │   ├── PlainObjectBase.h
-    │   ├── ProductEvaluators.h
-    │   ├── Product.h
     │   ├── products
     │   │   ├── GeneralBlockPanelKernel.h
     │   │   ├── GeneralMatrixMatrix_BLAS.h
@@ -118,40 +139,19 @@ eigen
     │   │   ├── TriangularSolverMatrix_BLAS.h
     │   │   ├── TriangularSolverMatrix.h
     │   │   └── TriangularSolverVector.h
-    │   ├── Random.h
-    │   ├── Redux.h
-    │   ├── Ref.h
-    │   ├── Replicate.h
-    │   ├── ReturnByValue.h
-    │   ├── Reverse.h
-    │   ├── Select.h
-    │   ├── SelfAdjointView.h
-    │   ├── SelfCwiseBinaryOp.h
-    │   ├── Solve.h
-    │   ├── SolverBase.h
-    │   ├── SolveTriangular.h
-    │   ├── StableNorm.h
-    │   ├── Stride.h
-    │   ├── Swap.h
-    │   ├── Transpose.h
-    │   ├── Transpositions.h
-    │   ├── TriangularMatrix.h
-    │   ├── util
-    │   │   ├── BlasUtil.h
-    │   │   ├── Constants.h
-    │   │   ├── DisableStupidWarnings.h
-    │   │   ├── ForwardDeclarations.h
-    │   │   ├── Macros.h
-    │   │   ├── Memory.h
-    │   │   ├── Meta.h
-    │   │   ├── MKL_support.h
-    │   │   ├── NonMPL2.h
-    │   │   ├── ReenableStupidWarnings.h
-    │   │   ├── StaticAssert.h
-    │   │   └── XprHelper.h
-    │   ├── VectorBlock.h
-    │   ├── VectorwiseOp.h
-    │   └── Visitor.h
+    │   └── util
+    │       ├── BlasUtil.h
+    │       ├── Constants.h
+    │       ├── DisableStupidWarnings.h
+    │       ├── ForwardDeclarations.h
+    │       ├── Macros.h
+    │       ├── Memory.h
+    │       ├── Meta.h
+    │       ├── MKL_support.h
+    │       ├── NonMPL2.h
+    │       ├── ReenableStupidWarnings.h
+    │       ├── StaticAssert.h
+    │       └── XprHelper.h
     ├── Eigenvalues
     │   ├── ComplexEigenSolver.h
     │   ├── ComplexSchur.h
@@ -170,8 +170,6 @@ eigen
     ├── Geometry
     │   ├── AlignedBox.h
     │   ├── AngleAxis.h
-    │   ├── arch
-    │   │   └── Geometry_SSE.h
     │   ├── EulerAngles.h
     │   ├── Homogeneous.h
     │   ├── Hyperplane.h
@@ -183,7 +181,9 @@ eigen
     │   ├── Scaling.h
     │   ├── Transform.h
     │   ├── Translation.h
-    │   └── Umeyama.h
+    │   ├── Umeyama.h
+    │   └── arch
+    │       └── Geometry_SSE.h
     ├── Householder
     │   ├── BlockHouseholder.h
     │   ├── Householder.h
@@ -200,13 +200,13 @@ eigen
     ├── Jacobi
     │   └── Jacobi.h
     ├── LU
-    │   ├── arch
-    │   │   └── Inverse_SSE.h
     │   ├── Determinant.h
     │   ├── FullPivLU.h
     │   ├── InverseImpl.h
     │   ├── PartialPivLU.h
-    │   └── PartialPivLU_LAPACKE.h
+    │   ├── PartialPivLU_LAPACKE.h
+    │   └── arch
+    │       └── Inverse_SSE.h
     ├── MetisSupport
     │   └── MetisSupport.h
     ├── misc
@@ -312,4 +312,4 @@ eigen
     └── UmfPackSupport
         └── UmfPackSupport.h
 
-41 directories, 272 files
+40 directories, 272 files
