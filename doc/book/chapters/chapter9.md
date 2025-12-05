@@ -10,9 +10,9 @@ The software requirements process uses the outputs of the system life cycle proc
 
 The objectives of the software requirements process are:
 
-   a. High-level requirements are developed.
+   1. High-level requirements are developed.
 
-   b. Derived high-level requirements are indicated to the system safety assessment process.
+   2. Derived high-level requirements are indicated to the system safety assessment process.
 
 ### Software Requirements Process Activities
 
@@ -22,25 +22,25 @@ The primary output of this process is the Software Requirements Data (subsection
 
 The software requirements process is complete when its objectives and the objectives of the integral processes associated with it are satisfied. Guidance for this process includes:
 
-   a. The system functional and interface requirements that are allocated to software should be analyze for ambiguities, inconsistencies and undefined conditions.
+   1. The system functional and interface requirements that are allocated to software should be analyze for ambiguities, inconsistencies and undefined conditions.
 
-   b. Inputs to the software requirements process detected as inadequate or incorrect should be reported as feedback to the input source processes for clarification or correction.
+   2. Inputs to the software requirements process detected as inadequate or incorrect should be reported as feedback to the input source processes for clarification or correction.
 
-   c. Each system requirement that is allocated to software should be specified in the high-level requirements.
+   3. Each system requirement that is allocated to software should be specified in the high-level requirements.
 
-   d. High-level requirements that address system requirements allocated to software to preclude system hazards should be defined.
+   4. High-level requirements that address system requirements allocated to software to preclude system hazards should be defined.
 
-   e. The high-level requirements should conform to the Software Requirements Standards, and be verifiable and consistent.
+   5. The high-level requirements should conform to the Software Requirements Standards, and be verifiable and consistent.
 
-   f. The high-level requirements should be stated in quantitative terms with tolerances where applicable.
+   6. The high-level requirements should be stated in quantitative terms with tolerances where applicable.
 
-   g. The high-level requirements should not describe design or verification detail except for specified and justified design constraints.
+   7. The high-level requirements should not describe design or verification detail except for specified and justified design constraints.
 
-   h. Each system requirement allocated to software should be traceable to one or more software high-level requirements.
+   8. Each system requirement allocated to software should be traceable to one or more software high-level requirements.
 
-   i. Each high-level requirement should be traceable to one or more system requirements, except for derived requirements.
+   9. Each high-level requirement should be traceable to one or more system requirements, except for derived requirements.
 
-   j. Derived high-level requirements should be provided to the system safety assessment process.
+   10. Derived high-level requirements should be provided to the system safety assessment process.
 
 ## LANGUAGES
 
@@ -48,7 +48,7 @@ The Software Project Workflow outlines the sequence of phases involved in creati
 
 * Software Project Workflow
 
-![Software Project Workflow](assets/chapter9/software-project.svg)
+  ![Software Project Workflow](assets/chapter9/software-project.svg)
 
 DevOps, often represented in a similar structure to the Hardware DevOps table shown, integrates software development (Dev) and IT operations (Ops) to shorten the systems development life cycle and provide continuous delivery with high software quality. It emphasizes automation, collaboration, and monitoring throughout all software lifecycle phases, from initial coding and testing through deployment and infrastructure management, aiming for faster, more reliable software releases.
 
@@ -93,7 +93,7 @@ The Unified Modeling Language (UML) is a widely adopted standard in software eng
 
 Structural UML diagrams focus on the static organization of a software system. Class diagrams model the classes, attributes, operations, and relationships between them. Component diagrams show the modular parts of the system and their dependencies. Deployment diagrams illustrate the physical deployment of software artifacts onto hardware nodes. These diagrams are essential for defining the software architecture and interfaces between different parts of the system.
 
-   * **Behavioral UML diagrams** (for Functionality and Registers and Interrptions)
+   * **Behavioral UML diagrams** (for Functionality and Registers and Interruptions)
       - Activity diagram
       - Communication diagram
       - Interaction diagram
