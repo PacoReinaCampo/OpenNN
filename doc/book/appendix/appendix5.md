@@ -919,7 +919,7 @@ In the context of airborne electronic software development governed by DO-178C, 
 
 5. **Record Review and Approval**
    * Review Procedures
-   * Approval Workflow
+   * Approval WorkFlow
 
 6. **Record Access**
    * Access Control
@@ -1146,7 +1146,7 @@ In the context of airborne electronic software development governed by DO-178C, 
 
 6. **Design Review**
    * Review Process
-   * Approval Workflow
+   * Approval WorkFlow
 
 #### Data Required for the Software Development
 

@@ -44,11 +44,11 @@ The software requirements process is complete when its objectives and the object
 
 ## LANGUAGES
 
-The Software Project Workflow outlines the sequence of phases involved in creating and maintaining software. Common workflows like Waterfall, Agile (Scrum, Kanban), or Spiral models typically include stages such as requirements gathering and analysis, system design, implementation (coding), testing (unit, integration, system), deployment, and maintenance. The choice of workflow depends on project complexity, team size, and the need for flexibility or rigorous control.
+The Software Project WorkFlow outlines the sequence of phases involved in creating and maintaining software. Common workflows like Waterfall, Agile (Scrum, Kanban), or Spiral models typically include stages such as requirements gathering and analysis, system design, implementation (coding), testing (unit, integration, system), deployment, and maintenance. The choice of workflow depends on project complexity, team size, and the need for flexibility or rigorous control.
 
-* Software Project Workflow
+* Software Project WorkFlow
 
-  ![Software Project Workflow](assets/chapter9/software-project.svg)
+  ![Software Project WorkFlow](assets/chapter9/software-project.svg){height=7cm}
 
 DevOps, often represented in a similar structure to the Hardware DevOps table shown, integrates software development (Dev) and IT operations (Ops) to shorten the systems development life cycle and provide continuous delivery with high software quality. It emphasizes automation, collaboration, and monitoring throughout all software lifecycle phases, from initial coding and testing through deployment and infrastructure management, aiming for faster, more reliable software releases.
 
@@ -62,13 +62,13 @@ DevOps, often represented in a similar structure to the Hardware DevOps table sh
 
 :Hardware DevOps
 
-The Front-End CoDesign Project Workflow, when applied to systems involving both hardware and software, focuses on the initial design stages where decisions about partitioning functionality between hardware and software are critical. For the software aspect, this involves defining high-level software architecture, specifying interfaces with hardware components, developing behavioral models, and performing early simulations or analysis to ensure the software components will meet system-level requirements in conjunction with the hardware.
+The Front-End CoDesign Project WorkFlow, when applied to systems involving both hardware and software, focuses on the initial design stages where decisions about partitioning functionality between hardware and software are critical. For the software aspect, this involves defining high-level software architecture, specifying interfaces with hardware components, developing behavioral models, and performing early simulations or analysis to ensure the software components will meet system-level requirements in conjunction with the hardware.
 
-![Front-End CoDesign Project Workflow](assets/chapter9/front-codesign-project.svg)
+![Front-End CoDesign Project WorkFlow](assets/chapter9/front-codesign-project.svg){height=7cm}
 
-The Back-End CoDesign Project Workflow pertains to the detailed implementation and integration phases following the initial architectural decisions. For software, this involves writing the source code based on the defined architecture and requirements, compiling the code for the target hardware platform, performing unit and integration testing, debugging, and optimizing performance. Close coordination with hardware development is necessary to ensure correct interaction across the hardware-software interface.
+The Back-End CoDesign Project WorkFlow pertains to the detailed implementation and integration phases following the initial architectural decisions. For software, this involves writing the source code based on the defined architecture and requirements, compiling the code for the target hardware platform, performing unit and integration testing, debugging, and optimizing performance. Close coordination with hardware development is necessary to ensure correct interaction across the hardware-software interface.
 
-![Back-End CoDesign Project Workflow](assets/chapter9/back-codesign-project.svg)
+![Back-End CoDesign Project WorkFlow](assets/chapter9/back-codesign-project.svg){height=7cm}
 
 The progression from requirements to final compiled code represents a continuous refinement and increase in detail. Abstract requirements defining user needs and system functions are translated into architectural models, then into specific source code implementing the logic, followed by configuration settings for the compiler and build environment, ultimately resulting in executable machine code or bytecode after compilation. Each step adds concrete implementation details to the preceding abstract description.
 
@@ -104,7 +104,7 @@ Structural UML diagrams focus on the static organization of a software system. C
 
 Behavioral UML diagrams describe the dynamic aspects of a software system. Use Case diagrams capture functional requirements from a user's perspective. Sequence and Communication diagrams illustrate interactions between objects over time. State Machine diagrams model the lifecycle of objects and their responses to events. Activity diagrams represent workflows and operational logic. These diagrams help specify and understand the software's functionality and runtime behavior, including how it handles events or interacts with low-level elements like registers if applicable in embedded contexts.
 
-![UML Diagrams Overview](assets/chapter9/uml_diagrams_overview.svg)
+![UML Diagrams Overview](assets/chapter9/uml_diagrams_overview.svg){height=5cm}
 
 The UML Diagrams Overview provides a conceptual map of the various diagram types available within the UML standard, grouping them into structural and behavioral categories. This helps software engineers select the appropriate modeling tool for the task at hand, whether it's defining the static architecture, detailing object interactions, specifying system functionality, or modeling dynamic behavior, thereby promoting clarity and consistency in software design and documentation.
 

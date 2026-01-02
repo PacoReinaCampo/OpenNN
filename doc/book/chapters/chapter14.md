@@ -1,6 +1,6 @@
 # CONFIGURATION
 
-INSERT HERE
+`INSERT HERE`
 
 ## SOFTWARE CONFIGURATION MANAGEMENT PROCESS
 
@@ -170,24 +170,24 @@ The tables of Annex A specify the control category for each software life cycle 
 
    2. The SCM process objectives for software life cycle data categorized as C should be applied according to Table 7-1 as a minimum.
    
-INSERT HERE
+`INSERT HERE`
 
 ## LANGUAGES
 
-INSERT HERE
+`INSERT HERE`
 
 ### C Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### C++ Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### GO Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### RUST Language
 
-INSERT HERE
+`INSERT HERE`

@@ -1,6 +1,6 @@
 # IMPLEMENTATION
 
-INSERT HERE
+`INSERT HERE`
 
 ## IMPLEMENTATION PROCESS
 
@@ -96,87 +96,87 @@ Considerations include:
 
 2. Updating of all documentation related to changes is performed in compliance with approved configuration management plans.
 
-INSERT HERE
+`INSERT HERE`
 
-![Advanced Workflow](assets/chapter15/advanced-workflow.svg){width=8cm}
+![Advanced WorkFlow](assets/chapter15/advanced-workflow.svg){width=8cm}
 
-INSERT HERE
+`INSERT HERE`
 
 * MODEL
 
-INSERT HERE
+`INSERT HERE`
 
 ![State Space Model](assets/chapter15/state-space-model.svg){width=8cm}
 
-INSERT HERE
+`INSERT HERE`
 
 ${\dot {x} (t) = {A} (t) {x} (t) + {B} (t) {u} (t)}$
 
 ${ {y} (t) = {C} (t) {x} (t) + {D} (t) {u} (t)}$
 
-INSERT HERE
+`INSERT HERE`
 
 ![Feedback State Space Model](assets/chapter15/feedback-state-space-model.svg){width=8cm}
 
-INSERT HERE
+`INSERT HERE`
 
 * HARDWARE/SOFTWARE DESIGN
 
-INSERT HERE
+`INSERT HERE`
 
 * IMPLEMENTATION
 
-INSERT HERE
+`INSERT HERE`
 
 ![Architecture](assets/chapter15/reduced-architecture.svg)
 
-INSERT HERE
+`INSERT HERE`
 
 ![Architecture](assets/chapter15/extended-architecture.svg)
 
-INSERT HERE
+`INSERT HERE`
 
 ## FRONT-END OPEN SOURCE TOOLS
 
-INSERT HERE
+`INSERT HERE`
 
 ### 4004
 
-INSERT HERE
+`INSERT HERE`
 
 #### Hardware Engineers Compiler
 
-INSERT HERE
+`INSERT HERE`
 
 #### Software Engineers Compiler
 
-INSERT HERE
+`INSERT HERE`
 
 ### MSP430
 
-INSERT HERE
+`INSERT HERE`
 
 #### Hardware Engineers Compiler
 
-INSERT HERE
+`INSERT HERE`
 
 #### Software Engineers Compiler
 
-INSERT HERE
+`INSERT HERE`
 
 ### OpenRISC
 
-INSERT HERE
+`INSERT HERE`
 
 #### Hardware Engineers Compiler
 
-INSERT HERE
+`INSERT HERE`
 
 **Building OR1KSIM**
 
 type:
 
-```
+```bash
 export PATH=/opt/or1k-elf-gcc/bin:${PATH}
 
 git clone --recursive https://github.com/openrisc/or1ksim
@@ -188,17 +188,17 @@ make
 sudo make install
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 #### Software Engineers Compiler
 
-INSERT HERE
+`INSERT HERE`
 
 **Building OR1KSIM**
 
 type:
 
-```
+```bash
 export PATH=/opt/or1k-app-gcc/bin:${PATH}
 
 git clone --recursive https://github.com/openrisc/or1ksim
@@ -210,15 +210,15 @@ make
 sudo make install
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### RISC-V
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
-```
+```bash
 sudo apt -y install device-tree-compiler
 sudo apt -y install libboost-all-dev
 sudo apt -y install libglib2.0-dev
@@ -228,13 +228,13 @@ sudo apt -y install pkg-config
 
 #### Hardware Engineers Compiler: Spike
 
-INSERT HERE
+`INSERT HERE`
 
 **Building Proxy Kernel**
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 git clone --recursive https://github.com/riscv/riscv-pk
@@ -247,13 +247,13 @@ make
 sudo make install
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 **Building Spike**
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-elf-gcc/bin:${PATH}
 
 git clone --recursive https://github.com/riscv/riscv-isa-sim
@@ -266,15 +266,15 @@ make
 sudo make install
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 #### Software Engineers Compiler: QEMU
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
-```
+```bash
 export PATH=/opt/riscv-app-gcc/bin:${PATH}
 
 git clone --recursive https://github.com/qemu/qemu
@@ -285,15 +285,15 @@ make
 sudo make install
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ## BACK-END OPEN SOURCE TOOLS
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
-```
+```bash
 sudo apt -y install autoconf
 sudo apt -y install automake
 sudo apt -y install autotools-dev
@@ -315,79 +315,79 @@ sudo apt -y install zlib1g-dev
 sudo apt -y install libexpat-dev
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 ### 4004
 
-INSERT HERE
+`INSERT HERE`
 
 #### 4004 GNU C
 
-INSERT HERE
+`INSERT HERE`
 
 #### 4004 GNU C++
 
-INSERT HERE
+`INSERT HERE`
 
 #### 4004 GNU Go
 
-INSERT HERE
+`INSERT HERE`
 
 #### 4004 GNU Rust
 
-INSERT HERE
+`INSERT HERE`
 
 ### MSP430
 
-INSERT HERE
+`INSERT HERE`
 
 #### MSP430 GNU C
 
-INSERT HERE
+`INSERT HERE`
 
 #### MSP430 GNU C++
 
-INSERT HERE
+`INSERT HERE`
 
 #### MSP430 GNU Go
 
-INSERT HERE
+`INSERT HERE`
 
 #### MSP430 GNU Rust
 
-INSERT HERE
+`INSERT HERE`
 
 ### OpenRISC
 
-INSERT HERE
+`INSERT HERE`
 
 #### OpenRISC GNU C
 
-INSERT HERE
+`INSERT HERE`
 
 #### OpenRISC GNU C++
 
-INSERT HERE
+`INSERT HERE`
 
 #### OpenRISC GNU Go
 
-INSERT HERE
+`INSERT HERE`
 
 #### OpenRISC GNU Rust
 
-INSERT HERE
+`INSERT HERE`
 
 ### RISC-V
 
-INSERT HERE
+`INSERT HERE`
 
 #### RISC-V GNU C
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
-```
+```bash
 git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
 
 cd riscv-gnu-toolchain
@@ -401,15 +401,15 @@ sudo make clean
 sudo make linux
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 #### RISC-V GNU C++
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
-```
+```bash
 git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
 
 cd riscv-gnu-toolchain
@@ -423,15 +423,15 @@ sudo make clean
 sudo make linux
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 #### RISC-V GNU Go
 
-INSERT HERE
+`INSERT HERE`
 
 type:
 
-```
+```bash
 git clone --recursive https://go.googlesource.com/go riscv-go
 cd riscv-go/src
 ./all.bash
@@ -439,8 +439,8 @@ cd ../..
 sudo mv riscv-go /opt
 ```
 
-INSERT HERE
+`INSERT HERE`
 
 #### RISC-V GNU Rust
 
-INSERT HERE
+`INSERT HERE`

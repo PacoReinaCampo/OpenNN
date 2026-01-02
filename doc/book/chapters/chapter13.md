@@ -1,6 +1,6 @@
 # SOFTWARE VERIFICATION
 
-INSERT HERE
+`INSERT HERE`
 
 ## VERIFICATION PROCESS
 
@@ -52,84 +52,84 @@ Verification activities include:
 
 6. Omissions and errors should be fed back to the appropriate process for resolution.
 
-INSERT HERE
+`INSERT HERE`
 
 ## TESTS
 
-INSERT HERE
+`INSERT HERE`
 
 ### C Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### C++ Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### Go Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### Rust Language
 
-INSERT HERE
+`INSERT HERE`
 
 ## BAREMETAL
 
-INSERT HERE
+`INSERT HERE`
 
 ### C Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### C++ Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### Go Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### Rust Language
 
-INSERT HERE
+`INSERT HERE`
 
 ## OPERATING SYSTEM
 
-INSERT HERE
+`INSERT HERE`
 
 ### C Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### C++ Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### Go Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### Rust Language
 
-INSERT HERE
+`INSERT HERE`
 
 ## DISTRIBUTION
 
-INSERT HERE
+`INSERT HERE`
 
 ### C Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### C++ Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### Go Language
 
-INSERT HERE
+`INSERT HERE`
 
 ### Rust Language
 
-INSERT HERE
+`INSERT HERE`
