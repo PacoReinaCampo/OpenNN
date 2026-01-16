@@ -721,7 +721,7 @@ By effectively managing the certification liaison process, organizations can ens
 
 In the context of airborne electronic software development governed by DO-178C, various types of data are generated and managed throughout the software design lifecycle. These data encompass plans, standards, design documents, validation and verification data, test criteria, problem reports, configuration management records, process assurance records, and accomplishment summaries.
 
-### Design Lifecycle Data Templates
+### Design LifeCycle Data Templates
 
 * Data Required for the Software Planning
    * Software Configuration Management Plan

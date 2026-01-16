@@ -1,5 +1,5 @@
 ---
-title: 'Design Lifecycle Data'
+title: 'Design LifeCycle Data'
 subtitle: 'QueenField ![](assets/front/open-source-software.svg){width=17cm}'
 
 author: Paco Reina Campo
