@@ -46,7 +46,7 @@
 
 -include include-lstm.txt
 
-TARGET=ntm_lstm
+TARGET=accelerator_lstm
 
 #########################################################################
 # Targets

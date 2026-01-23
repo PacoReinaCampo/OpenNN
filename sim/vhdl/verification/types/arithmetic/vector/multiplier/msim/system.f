@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/types/application/arithmetic/vector/multiplier/ntm_design.vhd
-../../../../../../../../verification/types/application/arithmetic/vector/multiplier/ntm_design_pkg.vhd
+../../../../../../../../verification/types/application/arithmetic/vector/multiplier/accelerator_design.vhd
+../../../../../../../../verification/types/application/arithmetic/vector/multiplier/accelerator_design_pkg.vhd
 
-../../../../../../../../verification/types/library/arithmetic/vector/multiplier/ntm_model.vhd
-../../../../../../../../verification/types/library/arithmetic/vector/multiplier/ntm_model_pkg.vhd
+../../../../../../../../verification/types/library/arithmetic/vector/multiplier/accelerator_model.vhd
+../../../../../../../../verification/types/library/arithmetic/vector/multiplier/accelerator_model_pkg.vhd
 
-../../../../../../../../verification/types/library/arithmetic/vector/multiplier/ntm_testbench.vhd
+../../../../../../../../verification/types/library/arithmetic/vector/multiplier/accelerator_testbench.vhd

@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/types/application/arithmetic/tensor/subtractor/ntm_design.vhd
-../../../../../../../../validation/types/application/arithmetic/tensor/subtractor/ntm_design_pkg.vhd
+../../../../../../../../validation/types/application/arithmetic/tensor/subtractor/accelerator_design.vhd
+../../../../../../../../validation/types/application/arithmetic/tensor/subtractor/accelerator_design_pkg.vhd
 
-../../../../../../../../validation/types/library/arithmetic/tensor/subtractor/ntm_model.vhd
-../../../../../../../../validation/types/library/arithmetic/tensor/subtractor/ntm_model_pkg.vhd
+../../../../../../../../validation/types/library/arithmetic/tensor/subtractor/accelerator_model.vhd
+../../../../../../../../validation/types/library/arithmetic/tensor/subtractor/accelerator_model_pkg.vhd
 
-../../../../../../../../validation/types/library/arithmetic/tensor/subtractor/ntm_testbench.vhd
+../../../../../../../../validation/types/library/arithmetic/tensor/subtractor/accelerator_testbench.vhd

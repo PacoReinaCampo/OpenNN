@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/types/application/arithmetic/matrix/adder/ntm_design.vhd
-../../../../../../../../verification/types/application/arithmetic/matrix/adder/ntm_design_pkg.vhd
+../../../../../../../../verification/types/application/arithmetic/matrix/adder/accelerator_design.vhd
+../../../../../../../../verification/types/application/arithmetic/matrix/adder/accelerator_design_pkg.vhd
 
-../../../../../../../../verification/types/library/arithmetic/matrix/adder/ntm_model.vhd
-../../../../../../../../verification/types/library/arithmetic/matrix/adder/ntm_model_pkg.vhd
+../../../../../../../../verification/types/library/arithmetic/matrix/adder/accelerator_model.vhd
+../../../../../../../../verification/types/library/arithmetic/matrix/adder/accelerator_model_pkg.vhd
 
-../../../../../../../../verification/types/library/arithmetic/matrix/adder/ntm_testbench.vhd
+../../../../../../../../verification/types/library/arithmetic/matrix/adder/accelerator_testbench.vhd
