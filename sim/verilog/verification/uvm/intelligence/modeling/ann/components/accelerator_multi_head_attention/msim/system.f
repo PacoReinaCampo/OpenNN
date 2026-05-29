@@ -44,6 +44,6 @@
 
 +incdir+../../../../../../../../../verification/uvm/src
 
-../../../../../../../../../verification/uvm/application/nn/ann/components/accelerator_multi_head_attention/accelerator_design.sv
+../../../../../../../../../verification/uvm/application/intelligence/modeling/ann/components/accelerator_multi_head_attention/accelerator_design.sv
 
-../../../../../../../../../verification/uvm/library/nn/ann/components/accelerator_multi_head_attention/accelerator_uvm_testbench.sv
+../../../../../../../../../verification/uvm/library/intelligence/modeling/ann/components/accelerator_multi_head_attention/accelerator_uvm_testbench.sv

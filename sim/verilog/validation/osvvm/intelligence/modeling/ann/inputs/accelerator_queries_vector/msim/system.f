@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/osvvm/application/nn/ann/inputs/accelerator_queries_vector/accelerator_design.vhd
-../../../../../../../../../validation/osvvm/application/nn/ann/inputs/accelerator_queries_vector/accelerator_design_pkg.vhd
+../../../../../../../../../validation/osvvm/application/intelligence/modeling/ann/inputs/accelerator_queries_vector/accelerator_design.vhd
+../../../../../../../../../validation/osvvm/application/intelligence/modeling/ann/inputs/accelerator_queries_vector/accelerator_design_pkg.vhd
 
-../../../../../../../../../validation/osvvm/library/nn/ann/inputs/accelerator_queries_vector/accelerator_model.vhd
-../../../../../../../../../validation/osvvm/library/nn/ann/inputs/accelerator_queries_vector/accelerator_model_pkg.vhd
+../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/inputs/accelerator_queries_vector/accelerator_model.vhd
+../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/inputs/accelerator_queries_vector/accelerator_model_pkg.vhd
 
-../../../../../../../../../validation/osvvm/library/nn/ann/inputs/accelerator_queries_vector/accelerator_testbench.vhd
+../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/inputs/accelerator_queries_vector/accelerator_testbench.vhd

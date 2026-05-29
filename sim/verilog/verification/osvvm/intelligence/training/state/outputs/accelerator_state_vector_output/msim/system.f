@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/osvvm/application/state/outputs/accelerator_state_vector_output/accelerator_design.vhd
-../../../../../../../../verification/osvvm/application/state/outputs/accelerator_state_vector_output/accelerator_design_pkg.vhd
+../../../../../../../../verification/osvvm/application/intelligence/training/outputs/accelerator_state_vector_output/accelerator_design.vhd
+../../../../../../../../verification/osvvm/application/intelligence/training/outputs/accelerator_state_vector_output/accelerator_design_pkg.vhd
 
-../../../../../../../../verification/osvvm/library/state/outputs/accelerator_state_vector_output/accelerator_model.vhd
-../../../../../../../../verification/osvvm/library/state/outputs/accelerator_state_vector_output/accelerator_model_pkg.vhd
+../../../../../../../../verification/osvvm/library/intelligence/training/outputs/accelerator_state_vector_output/accelerator_model.vhd
+../../../../../../../../verification/osvvm/library/intelligence/training/outputs/accelerator_state_vector_output/accelerator_model_pkg.vhd
 
-../../../../../../../../verification/osvvm/library/state/outputs/accelerator_state_vector_output/accelerator_testbench.vhd
+../../../../../../../../verification/osvvm/library/intelligence/training/outputs/accelerator_state_vector_output/accelerator_testbench.vhd

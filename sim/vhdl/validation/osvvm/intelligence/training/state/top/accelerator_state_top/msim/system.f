@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/osvvm/application/state/top/accelerator_state_top/accelerator_design.vhd
-../../../../../../../../validation/osvvm/application/state/top/accelerator_state_top/accelerator_design_pkg.vhd
+../../../../../../../../validation/osvvm/application/intelligence/training/top/accelerator_state_top/accelerator_design.vhd
+../../../../../../../../validation/osvvm/application/intelligence/training/top/accelerator_state_top/accelerator_design_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/state/top/accelerator_state_top/accelerator_model.vhd
-../../../../../../../../validation/osvvm/library/state/top/accelerator_state_top/accelerator_model_pkg.vhd
+../../../../../../../../validation/osvvm/library/intelligence/training/top/accelerator_state_top/accelerator_model.vhd
+../../../../../../../../validation/osvvm/library/intelligence/training/top/accelerator_state_top/accelerator_model_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/state/top/accelerator_state_top/accelerator_testbench.vhd
+../../../../../../../../validation/osvvm/library/intelligence/training/top/accelerator_state_top/accelerator_testbench.vhd

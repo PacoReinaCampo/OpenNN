@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/classes/application/nn/ann/components/accelerator_scaled_dot_product_attention/accelerator_design.sv
+../../../../../../../../../validation/classes/application/intelligence/modeling/ann/components/accelerator_scaled_dot_product_attention/accelerator_design.sv
 
-../../../../../../../../../validation/classes/library/nn/ann/components/accelerator_scaled_dot_product_attention/accelerator_testbench.sv
+../../../../../../../../../validation/classes/library/intelligence/modeling/ann/components/accelerator_scaled_dot_product_attention/accelerator_testbench.sv

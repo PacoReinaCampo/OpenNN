@@ -42,10 +42,10 @@
 //                                                                               //
 ../../../../../../../../../..////////////////////////////////////////////////////////////////////////////////////
 
-vhdl2008 work ../../../../../../../../../../verification/osvvm/application/nn/ann/fnn/accelerator_fnn/accelerator_design.vhd
-vhdl2008 work ../../../../../../../../../../verification/osvvm/application/nn/ann/fnn/accelerator_fnn/accelerator_design_pkg.vhd
+vhdl2008 work ../../../../../../../../../../verification/osvvm/application/intelligence/modeling/ann/fnn/accelerator_fnn/accelerator_design.vhd
+vhdl2008 work ../../../../../../../../../../verification/osvvm/application/intelligence/modeling/ann/fnn/accelerator_fnn/accelerator_design_pkg.vhd
 
-vhdl2008 work ../../../../../../../../../../verification/osvvm/library/nn/ann/fnn/accelerator_fnn/accelerator_model.vhd
-vhdl2008 work ../../../../../../../../../../verification/osvvm/library/nn/ann/fnn/accelerator_fnn/accelerator_model_pkg.vhd
+vhdl2008 work ../../../../../../../../../../verification/osvvm/library/intelligence/modeling/ann/fnn/accelerator_fnn/accelerator_model.vhd
+vhdl2008 work ../../../../../../../../../../verification/osvvm/library/intelligence/modeling/ann/fnn/accelerator_fnn/accelerator_model_pkg.vhd
 
-vhdl2008 work ../../../../../../../../../../verification/osvvm/library/nn/ann/fnn/accelerator_fnn/accelerator_testbench.vhd
+vhdl2008 work ../../../../../../../../../../verification/osvvm/library/intelligence/modeling/ann/fnn/accelerator_fnn/accelerator_testbench.vhd

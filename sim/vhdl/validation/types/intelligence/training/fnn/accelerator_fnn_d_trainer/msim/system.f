@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/types/application/trainer/fnn/accelerator_fnn_d_trainer/accelerator_design.vhd
-../../../../../../../../validation/types/application/trainer/fnn/accelerator_fnn_d_trainer/accelerator_design_pkg.vhd
+../../../../../../../../validation/types/application/intelligence/training/fnn/accelerator_fnn_d_trainer/accelerator_design.vhd
+../../../../../../../../validation/types/application/intelligence/training/fnn/accelerator_fnn_d_trainer/accelerator_design_pkg.vhd
 
-../../../../../../../../validation/types/library/trainer/fnn/accelerator_fnn_d_trainer/accelerator_model.vhd
-../../../../../../../../validation/types/library/trainer/fnn/accelerator_fnn_d_trainer/accelerator_model_pkg.vhd
+../../../../../../../../validation/types/library/intelligence/training/fnn/accelerator_fnn_d_trainer/accelerator_model.vhd
+../../../../../../../../validation/types/library/intelligence/training/fnn/accelerator_fnn_d_trainer/accelerator_model_pkg.vhd
 
-../../../../../../../../validation/types/library/trainer/fnn/accelerator_fnn_d_trainer/accelerator_testbench.vhd
+../../../../../../../../validation/types/library/intelligence/training/fnn/accelerator_fnn_d_trainer/accelerator_testbench.vhd

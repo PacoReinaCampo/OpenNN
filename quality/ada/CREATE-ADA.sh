@@ -109,9 +109,9 @@ touch library/intelligence/training/lstm/output/accelerator_lstm_output_trainer.
 touch library/intelligence/training/lstm/output/accelerator_lstm_output_u_trainer.adb
 touch library/intelligence/training/lstm/output/accelerator_lstm_output_v_trainer.adb
 touch library/intelligence/training/lstm/output/accelerator_lstm_output_w_trainer.adb
-touch library/intelligence/training/state/feedback/accelerator_state_feedback.adb
-touch library/intelligence/training/state/outputs/accelerator_state_outputs.adb
-touch library/intelligence/training/state/top/accelerator_state_top.adb
+touch library/intelligence/training/intelligence/training/state/feedback/accelerator_state_feedback.adb
+touch library/intelligence/training/intelligence/training/state/outputs/accelerator_state_outputs.adb
+touch library/intelligence/training/intelligence/training/state/top/accelerator_state_top.adb
 touch library/math/matrix/accelerator_matrix_math.adb
 touch library/math/scalar/accelerator_scalar_math.adb
 touch library/math/vector/accelerator_vector_math.adb

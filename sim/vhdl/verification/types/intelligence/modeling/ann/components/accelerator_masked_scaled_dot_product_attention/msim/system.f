@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/types/application/nn/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_design.vhd
-../../../../../../../../../verification/types/application/nn/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_design_pkg.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_design.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_design_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_model.vhd
-../../../../../../../../../verification/types/library/nn/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_model_pkg.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_model.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_model_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_testbench.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_testbench.vhd

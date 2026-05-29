@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/types/application/state/feedback/accelerator_state_matrix_state/accelerator_design.vhd
-../../../../../../../../validation/types/application/state/feedback/accelerator_state_matrix_state/accelerator_design_pkg.vhd
+../../../../../../../../validation/types/application/intelligence/training/feedback/accelerator_state_matrix_state/accelerator_design.vhd
+../../../../../../../../validation/types/application/intelligence/training/feedback/accelerator_state_matrix_state/accelerator_design_pkg.vhd
 
-../../../../../../../../validation/types/library/state/feedback/accelerator_state_matrix_state/accelerator_model.vhd
-../../../../../../../../validation/types/library/state/feedback/accelerator_state_matrix_state/accelerator_model_pkg.vhd
+../../../../../../../../validation/types/library/intelligence/training/feedback/accelerator_state_matrix_state/accelerator_model.vhd
+../../../../../../../../validation/types/library/intelligence/training/feedback/accelerator_state_matrix_state/accelerator_model_pkg.vhd
 
-../../../../../../../../validation/types/library/state/feedback/accelerator_state_matrix_state/accelerator_testbench.vhd
+../../../../../../../../validation/types/library/intelligence/training/feedback/accelerator_state_matrix_state/accelerator_testbench.vhd

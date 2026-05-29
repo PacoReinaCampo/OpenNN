@@ -109,9 +109,9 @@ touch library/intelligence/training/lstm/output/accelerator_lstm_output_trainer.
 touch library/intelligence/training/lstm/output/accelerator_lstm_output_u_trainer.java
 touch library/intelligence/training/lstm/output/accelerator_lstm_output_v_trainer.java
 touch library/intelligence/training/lstm/output/accelerator_lstm_output_w_trainer.java
-touch library/intelligence/training/state/feedback/accelerator_state_feedback.java
-touch library/intelligence/training/state/outputs/accelerator_state_outputs.java
-touch library/intelligence/training/state/top/accelerator_state_top.java
+touch library/intelligence/training/intelligence/training/state/feedback/accelerator_state_feedback.java
+touch library/intelligence/training/intelligence/training/state/outputs/accelerator_state_outputs.java
+touch library/intelligence/training/intelligence/training/state/top/accelerator_state_top.java
 touch library/math/matrix/accelerator_matrix_math.java
 touch library/math/scalar/accelerator_scalar_math.java
 touch library/math/vector/accelerator_vector_math.java

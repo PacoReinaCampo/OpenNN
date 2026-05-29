@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/types/application/nn/ann/top/accelerator_encoder/accelerator_design.vhd
-../../../../../../../../../verification/types/application/nn/ann/top/accelerator_encoder/accelerator_design_pkg.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/ann/top/accelerator_encoder/accelerator_design.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/ann/top/accelerator_encoder/accelerator_design_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/ann/top/accelerator_encoder/accelerator_model.vhd
-../../../../../../../../../verification/types/library/nn/ann/top/accelerator_encoder/accelerator_model_pkg.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ann/top/accelerator_encoder/accelerator_model.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ann/top/accelerator_encoder/accelerator_model_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/ann/top/accelerator_encoder/accelerator_testbench.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ann/top/accelerator_encoder/accelerator_testbench.vhd

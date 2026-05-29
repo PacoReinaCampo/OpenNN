@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/types/application/nn/fnn/standard/accelerator_controller/accelerator_design.vhd
-../../../../../../../../../verification/types/application/nn/fnn/standard/accelerator_controller/accelerator_design_pkg.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/fnn/standard/accelerator_controller/accelerator_design.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/fnn/standard/accelerator_controller/accelerator_design_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/fnn/standard/accelerator_controller/accelerator_model.vhd
-../../../../../../../../../verification/types/library/nn/fnn/standard/accelerator_controller/accelerator_model_pkg.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/fnn/standard/accelerator_controller/accelerator_model.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/fnn/standard/accelerator_controller/accelerator_model_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/fnn/standard/accelerator_controller/accelerator_testbench.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/fnn/standard/accelerator_controller/accelerator_testbench.vhd

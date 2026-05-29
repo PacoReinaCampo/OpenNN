@@ -42,10 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-vhdl2008 work ../../../../../../../../verification/types/application/state/outputs/accelerator_state_vector_state/accelerator_design.vhd
-vhdl2008 work ../../../../../../../../verification/types/application/state/outputs/accelerator_state_vector_state/accelerator_design_pkg.vhd
+vhdl2008 work ../../../../../../../../verification/types/application/intelligence/training/outputs/accelerator_state_vector_state/accelerator_design.vhd
+vhdl2008 work ../../../../../../../../verification/types/application/intelligence/training/outputs/accelerator_state_vector_state/accelerator_design_pkg.vhd
 
-vhdl2008 work ../../../../../../../../verification/types/library/state/outputs/accelerator_state_vector_state/accelerator_model.vhd
-vhdl2008 work ../../../../../../../../verification/types/library/state/outputs/accelerator_state_vector_state/accelerator_model_pkg.vhd
+vhdl2008 work ../../../../../../../../verification/types/library/intelligence/training/outputs/accelerator_state_vector_state/accelerator_model.vhd
+vhdl2008 work ../../../../../../../../verification/types/library/intelligence/training/outputs/accelerator_state_vector_state/accelerator_model_pkg.vhd
 
-vhdl2008 work ../../../../../../../../verification/types/library/state/outputs/accelerator_state_vector_state/accelerator_testbench.vhd
+vhdl2008 work ../../../../../../../../verification/types/library/intelligence/training/outputs/accelerator_state_vector_state/accelerator_testbench.vhd

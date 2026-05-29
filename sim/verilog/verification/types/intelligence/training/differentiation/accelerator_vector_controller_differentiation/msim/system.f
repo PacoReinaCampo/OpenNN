@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/types/application/trainer/differentiation/accelerator_vector_controller_differentiation/accelerator_design.vhd
-../../../../../../../../verification/types/application/trainer/differentiation/accelerator_vector_controller_differentiation/accelerator_design_pkg.vhd
+../../../../../../../../verification/types/application/intelligence/training/differentiation/accelerator_vector_controller_differentiation/accelerator_design.vhd
+../../../../../../../../verification/types/application/intelligence/training/differentiation/accelerator_vector_controller_differentiation/accelerator_design_pkg.vhd
 
-../../../../../../../../verification/types/library/trainer/differentiation/accelerator_vector_controller_differentiation/accelerator_model.vhd
-../../../../../../../../verification/types/library/trainer/differentiation/accelerator_vector_controller_differentiation/accelerator_model_pkg.vhd
+../../../../../../../../verification/types/library/intelligence/training/differentiation/accelerator_vector_controller_differentiation/accelerator_model.vhd
+../../../../../../../../verification/types/library/intelligence/training/differentiation/accelerator_vector_controller_differentiation/accelerator_model_pkg.vhd
 
-../../../../../../../../verification/types/library/trainer/differentiation/accelerator_vector_controller_differentiation/accelerator_testbench.vhd
+../../../../../../../../verification/types/library/intelligence/training/differentiation/accelerator_vector_controller_differentiation/accelerator_testbench.vhd

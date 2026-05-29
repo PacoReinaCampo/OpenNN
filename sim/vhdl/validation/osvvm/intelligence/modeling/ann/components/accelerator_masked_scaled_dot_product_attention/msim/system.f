@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/osvvm/application/nn/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_design.vhd
-../../../../../../../../../validation/osvvm/application/nn/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_design_pkg.vhd
+../../../../../../../../../validation/osvvm/application/intelligence/modeling/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_design.vhd
+../../../../../../../../../validation/osvvm/application/intelligence/modeling/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_design_pkg.vhd
 
-../../../../../../../../../validation/osvvm/library/nn/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_model.vhd
-../../../../../../../../../validation/osvvm/library/nn/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_model_pkg.vhd
+../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_model.vhd
+../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_model_pkg.vhd
 
-../../../../../../../../../validation/osvvm/library/nn/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_testbench.vhd
+../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_testbench.vhd

@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/types/application/trainer/lstm/output/accelerator_lstm_output_k_trainer/accelerator_design.vhd
-../../../../../../../../../validation/types/application/trainer/lstm/output/accelerator_lstm_output_k_trainer/accelerator_design_pkg.vhd
+../../../../../../../../../validation/types/application/intelligence/training/lstm/output/accelerator_lstm_output_k_trainer/accelerator_design.vhd
+../../../../../../../../../validation/types/application/intelligence/training/lstm/output/accelerator_lstm_output_k_trainer/accelerator_design_pkg.vhd
 
-../../../../../../../../../validation/types/library/trainer/lstm/output/accelerator_lstm_output_k_trainer/accelerator_model.vhd
-../../../../../../../../../validation/types/library/trainer/lstm/output/accelerator_lstm_output_k_trainer/accelerator_model_pkg.vhd
+../../../../../../../../../validation/types/library/intelligence/training/lstm/output/accelerator_lstm_output_k_trainer/accelerator_model.vhd
+../../../../../../../../../validation/types/library/intelligence/training/lstm/output/accelerator_lstm_output_k_trainer/accelerator_model_pkg.vhd
 
-../../../../../../../../../validation/types/library/trainer/lstm/output/accelerator_lstm_output_k_trainer/accelerator_testbench.vhd
+../../../../../../../../../validation/types/library/intelligence/training/lstm/output/accelerator_lstm_output_k_trainer/accelerator_testbench.vhd

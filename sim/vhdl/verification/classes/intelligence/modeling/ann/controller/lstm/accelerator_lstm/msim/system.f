@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../../verification/classes/application/nn/ann/lstm/accelerator_lstm/accelerator_design.sv
+../../../../../../../../../../verification/classes/application/intelligence/modeling/ann/lstm/accelerator_lstm/accelerator_design.sv
 
-../../../../../../../../../../verification/classes/library/nn/ann/lstm/accelerator_lstm/accelerator_testbench.sv
+../../../../../../../../../../verification/classes/library/intelligence/modeling/ann/lstm/accelerator_lstm/accelerator_testbench.sv

@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/types/application/nn/lstm/convolutional/accelerator_state_gate_vector/accelerator_design.vhd
-../../../../../../../../../verification/types/application/nn/lstm/convolutional/accelerator_state_gate_vector/accelerator_design_pkg.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/lstm/convolutional/accelerator_state_gate_vector/accelerator_design.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/lstm/convolutional/accelerator_state_gate_vector/accelerator_design_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/lstm/convolutional/accelerator_state_gate_vector/accelerator_model.vhd
-../../../../../../../../../verification/types/library/nn/lstm/convolutional/accelerator_state_gate_vector/accelerator_model_pkg.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/lstm/convolutional/accelerator_state_gate_vector/accelerator_model.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/lstm/convolutional/accelerator_state_gate_vector/accelerator_model_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/lstm/convolutional/accelerator_state_gate_vector/accelerator_testbench.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/lstm/convolutional/accelerator_state_gate_vector/accelerator_testbench.vhd

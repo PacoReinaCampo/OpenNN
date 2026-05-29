@@ -44,6 +44,6 @@
 
 +incdir+../../../../../../../../../validation/uvm/src
 
-../../../../../../../../../validation/uvm/application/nn/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_design.sv
+../../../../../../../../../validation/uvm/application/intelligence/modeling/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_design.sv
 
-../../../../../../../../../validation/uvm/library/nn/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_uvm_testbench.sv
+../../../../../../../../../validation/uvm/library/intelligence/modeling/ann/components/accelerator_masked_scaled_dot_product_attention/accelerator_uvm_testbench.sv

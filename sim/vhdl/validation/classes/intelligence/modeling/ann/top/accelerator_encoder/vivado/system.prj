@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../../validation/classes/application/nn/ann/top/accelerator_encoder/accelerator_design.sv
+sv work ../../../../../../../../../validation/classes/application/intelligence/modeling/ann/top/accelerator_encoder/accelerator_design.sv
 
-sv work ../../../../../../../../../validation/classes/library/nn/ann/top/accelerator_encoder/accelerator_testbench.sv
+sv work ../../../../../../../../../validation/classes/library/intelligence/modeling/ann/top/accelerator_encoder/accelerator_testbench.sv

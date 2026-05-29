@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/types/application/nn/ntm/write_heads/accelerator_erasing/accelerator_design.vhd
-../../../../../../../../../validation/types/application/nn/ntm/write_heads/accelerator_erasing/accelerator_design_pkg.vhd
+../../../../../../../../../validation/types/application/intelligence/modeling/ntm/write_heads/accelerator_erasing/accelerator_design.vhd
+../../../../../../../../../validation/types/application/intelligence/modeling/ntm/write_heads/accelerator_erasing/accelerator_design_pkg.vhd
 
-../../../../../../../../../validation/types/library/nn/ntm/write_heads/accelerator_erasing/accelerator_model.vhd
-../../../../../../../../../validation/types/library/nn/ntm/write_heads/accelerator_erasing/accelerator_model_pkg.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ntm/write_heads/accelerator_erasing/accelerator_model.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ntm/write_heads/accelerator_erasing/accelerator_model_pkg.vhd
 
-../../../../../../../../../validation/types/library/nn/ntm/write_heads/accelerator_erasing/accelerator_testbench.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ntm/write_heads/accelerator_erasing/accelerator_testbench.vhd

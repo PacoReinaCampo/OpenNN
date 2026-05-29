@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/classes/application/state/top/accelerator_state_top/accelerator_design.sv
+../../../../../../../../validation/classes/application/intelligence/training/top/accelerator_state_top/accelerator_design.sv
 
-../../../../../../../../validation/classes/library/state/top/accelerator_state_top/accelerator_testbench.sv
+../../../../../../../../validation/classes/library/intelligence/training/top/accelerator_state_top/accelerator_testbench.sv

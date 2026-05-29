@@ -42,10 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-vhdl2008 work ../../../../../../../../verification/types/application/trainer/differentiation/accelerator_vector_controller_differentiation/accelerator_design.vhd
-vhdl2008 work ../../../../../../../../verification/types/application/trainer/differentiation/accelerator_vector_controller_differentiation/accelerator_design_pkg.vhd
+vhdl2008 work ../../../../../../../../verification/types/application/intelligence/training/differentiation/accelerator_vector_controller_differentiation/accelerator_design.vhd
+vhdl2008 work ../../../../../../../../verification/types/application/intelligence/training/differentiation/accelerator_vector_controller_differentiation/accelerator_design_pkg.vhd
 
-vhdl2008 work ../../../../../../../../verification/types/library/trainer/differentiation/accelerator_vector_controller_differentiation/accelerator_model.vhd
-vhdl2008 work ../../../../../../../../verification/types/library/trainer/differentiation/accelerator_vector_controller_differentiation/accelerator_model_pkg.vhd
+vhdl2008 work ../../../../../../../../verification/types/library/intelligence/training/differentiation/accelerator_vector_controller_differentiation/accelerator_model.vhd
+vhdl2008 work ../../../../../../../../verification/types/library/intelligence/training/differentiation/accelerator_vector_controller_differentiation/accelerator_model_pkg.vhd
 
-vhdl2008 work ../../../../../../../../verification/types/library/trainer/differentiation/accelerator_vector_controller_differentiation/accelerator_testbench.vhd
+vhdl2008 work ../../../../../../../../verification/types/library/intelligence/training/differentiation/accelerator_vector_controller_differentiation/accelerator_testbench.vhd

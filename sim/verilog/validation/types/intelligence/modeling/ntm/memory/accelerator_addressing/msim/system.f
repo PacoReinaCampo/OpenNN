@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/types/application/nn/ntm/memory/accelerator_addressing/accelerator_design.vhd
-../../../../../../../../../validation/types/application/nn/ntm/memory/accelerator_addressing/accelerator_design_pkg.vhd
+../../../../../../../../../validation/types/application/intelligence/modeling/ntm/memory/accelerator_addressing/accelerator_design.vhd
+../../../../../../../../../validation/types/application/intelligence/modeling/ntm/memory/accelerator_addressing/accelerator_design_pkg.vhd
 
-../../../../../../../../../validation/types/library/nn/ntm/memory/accelerator_addressing/accelerator_model.vhd
-../../../../../../../../../validation/types/library/nn/ntm/memory/accelerator_addressing/accelerator_model_pkg.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ntm/memory/accelerator_addressing/accelerator_model.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ntm/memory/accelerator_addressing/accelerator_model_pkg.vhd
 
-../../../../../../../../../validation/types/library/nn/ntm/memory/accelerator_addressing/accelerator_testbench.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ntm/memory/accelerator_addressing/accelerator_testbench.vhd

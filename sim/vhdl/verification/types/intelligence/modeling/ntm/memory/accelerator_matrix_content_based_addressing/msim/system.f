@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/types/application/nn/ntm/memory/accelerator_matrix_content_based_addressing/accelerator_design.vhd
-../../../../../../../../../verification/types/application/nn/ntm/memory/accelerator_matrix_content_based_addressing/accelerator_design_pkg.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/ntm/memory/accelerator_matrix_content_based_addressing/accelerator_design.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/ntm/memory/accelerator_matrix_content_based_addressing/accelerator_design_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/ntm/memory/accelerator_matrix_content_based_addressing/accelerator_model.vhd
-../../../../../../../../../verification/types/library/nn/ntm/memory/accelerator_matrix_content_based_addressing/accelerator_model_pkg.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ntm/memory/accelerator_matrix_content_based_addressing/accelerator_model.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ntm/memory/accelerator_matrix_content_based_addressing/accelerator_model_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/ntm/memory/accelerator_matrix_content_based_addressing/accelerator_testbench.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ntm/memory/accelerator_matrix_content_based_addressing/accelerator_testbench.vhd

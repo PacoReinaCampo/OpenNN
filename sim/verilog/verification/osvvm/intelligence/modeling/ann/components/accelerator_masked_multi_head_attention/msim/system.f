@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/osvvm/application/nn/ann/components/accelerator_masked_multi_head_attention/accelerator_design.vhd
-../../../../../../../../../verification/osvvm/application/nn/ann/components/accelerator_masked_multi_head_attention/accelerator_design_pkg.vhd
+../../../../../../../../../verification/osvvm/application/intelligence/modeling/ann/components/accelerator_masked_multi_head_attention/accelerator_design.vhd
+../../../../../../../../../verification/osvvm/application/intelligence/modeling/ann/components/accelerator_masked_multi_head_attention/accelerator_design_pkg.vhd
 
-../../../../../../../../../verification/osvvm/library/nn/ann/components/accelerator_masked_multi_head_attention/accelerator_model.vhd
-../../../../../../../../../verification/osvvm/library/nn/ann/components/accelerator_masked_multi_head_attention/accelerator_model_pkg.vhd
+../../../../../../../../../verification/osvvm/library/intelligence/modeling/ann/components/accelerator_masked_multi_head_attention/accelerator_model.vhd
+../../../../../../../../../verification/osvvm/library/intelligence/modeling/ann/components/accelerator_masked_multi_head_attention/accelerator_model_pkg.vhd
 
-../../../../../../../../../verification/osvvm/library/nn/ann/components/accelerator_masked_multi_head_attention/accelerator_testbench.vhd
+../../../../../../../../../verification/osvvm/library/intelligence/modeling/ann/components/accelerator_masked_multi_head_attention/accelerator_testbench.vhd

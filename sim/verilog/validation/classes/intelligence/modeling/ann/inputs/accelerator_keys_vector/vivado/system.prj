@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../../validation/classes/application/nn/ann/inputs/accelerator_keys_vector/accelerator_design.sv
+sv work ../../../../../../../../../validation/classes/application/intelligence/modeling/ann/inputs/accelerator_keys_vector/accelerator_design.sv
 
-sv work ../../../../../../../../../validation/classes/library/nn/ann/inputs/accelerator_keys_vector/accelerator_testbench.sv
+sv work ../../../../../../../../../validation/classes/library/intelligence/modeling/ann/inputs/accelerator_keys_vector/accelerator_testbench.sv

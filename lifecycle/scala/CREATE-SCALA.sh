@@ -109,9 +109,9 @@ touch library/intelligence/training/lstm/output/accelerator_lstm_output_trainer.
 touch library/intelligence/training/lstm/output/accelerator_lstm_output_u_trainer.scala
 touch library/intelligence/training/lstm/output/accelerator_lstm_output_v_trainer.scala
 touch library/intelligence/training/lstm/output/accelerator_lstm_output_w_trainer.scala
-touch library/intelligence/training/state/feedback/accelerator_state_feedback.scala
-touch library/intelligence/training/state/outputs/accelerator_state_outputs.scala
-touch library/intelligence/training/state/top/accelerator_state_top.scala
+touch library/intelligence/training/intelligence/training/state/feedback/accelerator_state_feedback.scala
+touch library/intelligence/training/intelligence/training/state/outputs/accelerator_state_outputs.scala
+touch library/intelligence/training/intelligence/training/state/top/accelerator_state_top.scala
 touch library/math/matrix/accelerator_matrix_math.scala
 touch library/math/scalar/accelerator_scalar_math.scala
 touch library/math/vector/accelerator_vector_math.scala

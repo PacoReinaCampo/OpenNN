@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/types/application/nn/ntm/trained/accelerator_trained_top/accelerator_design.vhd
-../../../../../../../../../verification/types/application/nn/ntm/trained/accelerator_trained_top/accelerator_design_pkg.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/ntm/trained/accelerator_trained_top/accelerator_design.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/ntm/trained/accelerator_trained_top/accelerator_design_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/ntm/trained/accelerator_trained_top/accelerator_model.vhd
-../../../../../../../../../verification/types/library/nn/ntm/trained/accelerator_trained_top/accelerator_model_pkg.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ntm/trained/accelerator_trained_top/accelerator_model.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ntm/trained/accelerator_trained_top/accelerator_model_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/ntm/trained/accelerator_trained_top/accelerator_testbench.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ntm/trained/accelerator_trained_top/accelerator_testbench.vhd

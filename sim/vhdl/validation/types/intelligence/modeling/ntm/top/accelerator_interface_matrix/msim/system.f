@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/types/application/nn/ntm/top/accelerator_interface_matrix/accelerator_design.vhd
-../../../../../../../../../validation/types/application/nn/ntm/top/accelerator_interface_matrix/accelerator_design_pkg.vhd
+../../../../../../../../../validation/types/application/intelligence/modeling/ntm/top/accelerator_interface_matrix/accelerator_design.vhd
+../../../../../../../../../validation/types/application/intelligence/modeling/ntm/top/accelerator_interface_matrix/accelerator_design_pkg.vhd
 
-../../../../../../../../../validation/types/library/nn/ntm/top/accelerator_interface_matrix/accelerator_model.vhd
-../../../../../../../../../validation/types/library/nn/ntm/top/accelerator_interface_matrix/accelerator_model_pkg.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ntm/top/accelerator_interface_matrix/accelerator_model.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ntm/top/accelerator_interface_matrix/accelerator_model_pkg.vhd
 
-../../../../../../../../../validation/types/library/nn/ntm/top/accelerator_interface_matrix/accelerator_testbench.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ntm/top/accelerator_interface_matrix/accelerator_testbench.vhd

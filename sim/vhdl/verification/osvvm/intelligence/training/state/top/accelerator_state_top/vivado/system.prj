@@ -42,10 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-vhdl2008 work ../../../../../../../../verification/osvvm/application/state/top/accelerator_state_top/accelerator_design.vhd
-vhdl2008 work ../../../../../../../../verification/osvvm/application/state/top/accelerator_state_top/accelerator_design_pkg.vhd
+vhdl2008 work ../../../../../../../../verification/osvvm/application/intelligence/training/top/accelerator_state_top/accelerator_design.vhd
+vhdl2008 work ../../../../../../../../verification/osvvm/application/intelligence/training/top/accelerator_state_top/accelerator_design_pkg.vhd
 
-vhdl2008 work ../../../../../../../../verification/osvvm/library/state/top/accelerator_state_top/accelerator_model.vhd
-vhdl2008 work ../../../../../../../../verification/osvvm/library/state/top/accelerator_state_top/accelerator_model_pkg.vhd
+vhdl2008 work ../../../../../../../../verification/osvvm/library/intelligence/training/top/accelerator_state_top/accelerator_model.vhd
+vhdl2008 work ../../../../../../../../verification/osvvm/library/intelligence/training/top/accelerator_state_top/accelerator_model_pkg.vhd
 
-vhdl2008 work ../../../../../../../../verification/osvvm/library/state/top/accelerator_state_top/accelerator_testbench.vhd
+vhdl2008 work ../../../../../../../../verification/osvvm/library/intelligence/training/top/accelerator_state_top/accelerator_testbench.vhd

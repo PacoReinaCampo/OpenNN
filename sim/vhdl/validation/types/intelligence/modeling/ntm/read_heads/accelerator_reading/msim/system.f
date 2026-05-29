@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/types/application/nn/ntm/read_heads/accelerator_reading/accelerator_design.vhd
-../../../../../../../../../validation/types/application/nn/ntm/read_heads/accelerator_reading/accelerator_design_pkg.vhd
+../../../../../../../../../validation/types/application/intelligence/modeling/ntm/read_heads/accelerator_reading/accelerator_design.vhd
+../../../../../../../../../validation/types/application/intelligence/modeling/ntm/read_heads/accelerator_reading/accelerator_design_pkg.vhd
 
-../../../../../../../../../validation/types/library/nn/ntm/read_heads/accelerator_reading/accelerator_model.vhd
-../../../../../../../../../validation/types/library/nn/ntm/read_heads/accelerator_reading/accelerator_model_pkg.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ntm/read_heads/accelerator_reading/accelerator_model.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ntm/read_heads/accelerator_reading/accelerator_model_pkg.vhd
 
-../../../../../../../../../validation/types/library/nn/ntm/read_heads/accelerator_reading/accelerator_testbench.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ntm/read_heads/accelerator_reading/accelerator_testbench.vhd

@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/types/application/trainer/lstm/forget/accelerator_lstm_forget_v_trainer/accelerator_design.vhd
-../../../../../../../../../verification/types/application/trainer/lstm/forget/accelerator_lstm_forget_v_trainer/accelerator_design_pkg.vhd
+../../../../../../../../../verification/types/application/intelligence/training/lstm/forget/accelerator_lstm_forget_v_trainer/accelerator_design.vhd
+../../../../../../../../../verification/types/application/intelligence/training/lstm/forget/accelerator_lstm_forget_v_trainer/accelerator_design_pkg.vhd
 
-../../../../../../../../../verification/types/library/trainer/lstm/forget/accelerator_lstm_forget_v_trainer/accelerator_model.vhd
-../../../../../../../../../verification/types/library/trainer/lstm/forget/accelerator_lstm_forget_v_trainer/accelerator_model_pkg.vhd
+../../../../../../../../../verification/types/library/intelligence/training/lstm/forget/accelerator_lstm_forget_v_trainer/accelerator_model.vhd
+../../../../../../../../../verification/types/library/intelligence/training/lstm/forget/accelerator_lstm_forget_v_trainer/accelerator_model_pkg.vhd
 
-../../../../../../../../../verification/types/library/trainer/lstm/forget/accelerator_lstm_forget_v_trainer/accelerator_testbench.vhd
+../../../../../../../../../verification/types/library/intelligence/training/lstm/forget/accelerator_lstm_forget_v_trainer/accelerator_testbench.vhd

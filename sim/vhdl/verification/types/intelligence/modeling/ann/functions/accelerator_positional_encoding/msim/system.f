@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/types/application/nn/ann/functions/accelerator_positional_encoding/accelerator_design.vhd
-../../../../../../../../../verification/types/application/nn/ann/functions/accelerator_positional_encoding/accelerator_design_pkg.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_design.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_design_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/ann/functions/accelerator_positional_encoding/accelerator_model.vhd
-../../../../../../../../../verification/types/library/nn/ann/functions/accelerator_positional_encoding/accelerator_model_pkg.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_model.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_model_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/ann/functions/accelerator_positional_encoding/accelerator_testbench.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_testbench.vhd

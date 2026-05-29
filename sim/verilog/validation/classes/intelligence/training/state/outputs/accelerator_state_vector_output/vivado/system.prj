@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../validation/classes/application/state/outputs/accelerator_state_vector_output/accelerator_design.sv
+sv work ../../../../../../../../validation/classes/application/intelligence/training/outputs/accelerator_state_vector_output/accelerator_design.sv
 
-sv work ../../../../../../../../validation/classes/library/state/outputs/accelerator_state_vector_output/accelerator_testbench.sv
+sv work ../../../../../../../../validation/classes/library/intelligence/training/outputs/accelerator_state_vector_output/accelerator_testbench.sv

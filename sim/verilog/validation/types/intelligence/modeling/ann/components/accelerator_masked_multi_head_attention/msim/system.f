@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/types/application/nn/ann/components/accelerator_masked_multi_head_attention/accelerator_design.vhd
-../../../../../../../../../validation/types/application/nn/ann/components/accelerator_masked_multi_head_attention/accelerator_design_pkg.vhd
+../../../../../../../../../validation/types/application/intelligence/modeling/ann/components/accelerator_masked_multi_head_attention/accelerator_design.vhd
+../../../../../../../../../validation/types/application/intelligence/modeling/ann/components/accelerator_masked_multi_head_attention/accelerator_design_pkg.vhd
 
-../../../../../../../../../validation/types/library/nn/ann/components/accelerator_masked_multi_head_attention/accelerator_model.vhd
-../../../../../../../../../validation/types/library/nn/ann/components/accelerator_masked_multi_head_attention/accelerator_model_pkg.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ann/components/accelerator_masked_multi_head_attention/accelerator_model.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ann/components/accelerator_masked_multi_head_attention/accelerator_model_pkg.vhd
 
-../../../../../../../../../validation/types/library/nn/ann/components/accelerator_masked_multi_head_attention/accelerator_testbench.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ann/components/accelerator_masked_multi_head_attention/accelerator_testbench.vhd

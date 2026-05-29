@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/classes/application/nn/ann/components/accelerator_multi_head_attention/accelerator_design.sv
+../../../../../../../../../verification/classes/application/intelligence/modeling/ann/components/accelerator_multi_head_attention/accelerator_design.sv
 
-../../../../../../../../../verification/classes/library/nn/ann/components/accelerator_multi_head_attention/accelerator_testbench.sv
+../../../../../../../../../verification/classes/library/intelligence/modeling/ann/components/accelerator_multi_head_attention/accelerator_testbench.sv

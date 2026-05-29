@@ -42,10 +42,10 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-vhdl2008 work ../../../../../../../../verification/types/application/trainer/fnn/accelerator_fnn_w_trainer/accelerator_design.vhd
-vhdl2008 work ../../../../../../../../verification/types/application/trainer/fnn/accelerator_fnn_w_trainer/accelerator_design_pkg.vhd
+vhdl2008 work ../../../../../../../../verification/types/application/intelligence/training/fnn/accelerator_fnn_w_trainer/accelerator_design.vhd
+vhdl2008 work ../../../../../../../../verification/types/application/intelligence/training/fnn/accelerator_fnn_w_trainer/accelerator_design_pkg.vhd
 
-vhdl2008 work ../../../../../../../../verification/types/library/trainer/fnn/accelerator_fnn_w_trainer/accelerator_model.vhd
-vhdl2008 work ../../../../../../../../verification/types/library/trainer/fnn/accelerator_fnn_w_trainer/accelerator_model_pkg.vhd
+vhdl2008 work ../../../../../../../../verification/types/library/intelligence/training/fnn/accelerator_fnn_w_trainer/accelerator_model.vhd
+vhdl2008 work ../../../../../../../../verification/types/library/intelligence/training/fnn/accelerator_fnn_w_trainer/accelerator_model_pkg.vhd
 
-vhdl2008 work ../../../../../../../../verification/types/library/trainer/fnn/accelerator_fnn_w_trainer/accelerator_testbench.vhd
+vhdl2008 work ../../../../../../../../verification/types/library/intelligence/training/fnn/accelerator_fnn_w_trainer/accelerator_testbench.vhd

@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../verification/types/application/state/top/accelerator_state_top/accelerator_design.vhd
-../../../../../../../../verification/types/application/state/top/accelerator_state_top/accelerator_design_pkg.vhd
+../../../../../../../../verification/types/application/intelligence/training/top/accelerator_state_top/accelerator_design.vhd
+../../../../../../../../verification/types/application/intelligence/training/top/accelerator_state_top/accelerator_design_pkg.vhd
 
-../../../../../../../../verification/types/library/state/top/accelerator_state_top/accelerator_model.vhd
-../../../../../../../../verification/types/library/state/top/accelerator_state_top/accelerator_model_pkg.vhd
+../../../../../../../../verification/types/library/intelligence/training/top/accelerator_state_top/accelerator_model.vhd
+../../../../../../../../verification/types/library/intelligence/training/top/accelerator_state_top/accelerator_model_pkg.vhd
 
-../../../../../../../../verification/types/library/state/top/accelerator_state_top/accelerator_testbench.vhd
+../../../../../../../../verification/types/library/intelligence/training/top/accelerator_state_top/accelerator_testbench.vhd

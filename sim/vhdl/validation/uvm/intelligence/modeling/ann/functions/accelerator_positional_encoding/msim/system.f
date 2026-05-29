@@ -44,6 +44,6 @@
 
 +incdir+../../../../../../../../../validation/uvm/src
 
-../../../../../../../../../validation/uvm/application/nn/ann/functions/accelerator_positional_encoding/accelerator_design.sv
+../../../../../../../../../validation/uvm/application/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_design.sv
 
-../../../../../../../../../validation/uvm/library/nn/ann/functions/accelerator_positional_encoding/accelerator_uvm_testbench.sv
+../../../../../../../../../validation/uvm/library/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_uvm_testbench.sv

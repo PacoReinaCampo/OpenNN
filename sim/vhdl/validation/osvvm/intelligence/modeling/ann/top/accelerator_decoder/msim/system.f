@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/osvvm/application/nn/ann/top/accelerator_decoder/accelerator_design.vhd
-../../../../../../../../../validation/osvvm/application/nn/ann/top/accelerator_decoder/accelerator_design_pkg.vhd
+../../../../../../../../../validation/osvvm/application/intelligence/modeling/ann/top/accelerator_decoder/accelerator_design.vhd
+../../../../../../../../../validation/osvvm/application/intelligence/modeling/ann/top/accelerator_decoder/accelerator_design_pkg.vhd
 
-../../../../../../../../../validation/osvvm/library/nn/ann/top/accelerator_decoder/accelerator_model.vhd
-../../../../../../../../../validation/osvvm/library/nn/ann/top/accelerator_decoder/accelerator_model_pkg.vhd
+../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/top/accelerator_decoder/accelerator_model.vhd
+../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/top/accelerator_decoder/accelerator_model_pkg.vhd
 
-../../../../../../../../../validation/osvvm/library/nn/ann/top/accelerator_decoder/accelerator_testbench.vhd
+../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/top/accelerator_decoder/accelerator_testbench.vhd

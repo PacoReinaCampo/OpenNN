@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../../verification/types/application/nn/ann/fnn/accelerator_fnn/accelerator_design.vhd
-../../../../../../../../../../verification/types/application/nn/ann/fnn/accelerator_fnn/accelerator_design_pkg.vhd
+../../../../../../../../../../verification/types/application/intelligence/modeling/ann/fnn/accelerator_fnn/accelerator_design.vhd
+../../../../../../../../../../verification/types/application/intelligence/modeling/ann/fnn/accelerator_fnn/accelerator_design_pkg.vhd
 
-../../../../../../../../../../verification/types/library/nn/ann/fnn/accelerator_fnn/accelerator_model.vhd
-../../../../../../../../../../verification/types/library/nn/ann/fnn/accelerator_fnn/accelerator_model_pkg.vhd
+../../../../../../../../../../verification/types/library/intelligence/modeling/ann/fnn/accelerator_fnn/accelerator_model.vhd
+../../../../../../../../../../verification/types/library/intelligence/modeling/ann/fnn/accelerator_fnn/accelerator_model_pkg.vhd
 
-../../../../../../../../../../verification/types/library/nn/ann/fnn/accelerator_fnn/accelerator_testbench.vhd
+../../../../../../../../../../verification/types/library/intelligence/modeling/ann/fnn/accelerator_fnn/accelerator_testbench.vhd

@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/osvvm/application/state/feedback/accelerator_state_matrix_state/accelerator_design.vhd
-../../../../../../../../validation/osvvm/application/state/feedback/accelerator_state_matrix_state/accelerator_design_pkg.vhd
+../../../../../../../../validation/osvvm/application/intelligence/training/feedback/accelerator_state_matrix_state/accelerator_design.vhd
+../../../../../../../../validation/osvvm/application/intelligence/training/feedback/accelerator_state_matrix_state/accelerator_design_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/state/feedback/accelerator_state_matrix_state/accelerator_model.vhd
-../../../../../../../../validation/osvvm/library/state/feedback/accelerator_state_matrix_state/accelerator_model_pkg.vhd
+../../../../../../../../validation/osvvm/library/intelligence/training/feedback/accelerator_state_matrix_state/accelerator_model.vhd
+../../../../../../../../validation/osvvm/library/intelligence/training/feedback/accelerator_state_matrix_state/accelerator_model_pkg.vhd
 
-../../../../../../../../validation/osvvm/library/state/feedback/accelerator_state_matrix_state/accelerator_testbench.vhd
+../../../../../../../../validation/osvvm/library/intelligence/training/feedback/accelerator_state_matrix_state/accelerator_testbench.vhd

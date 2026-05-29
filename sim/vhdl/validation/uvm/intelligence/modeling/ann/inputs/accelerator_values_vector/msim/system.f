@@ -44,6 +44,6 @@
 
 +incdir+../../../../../../../../../validation/uvm/src
 
-../../../../../../../../../validation/uvm/application/nn/ann/inputs/accelerator_values_vector/accelerator_design.sv
+../../../../../../../../../validation/uvm/application/intelligence/modeling/ann/inputs/accelerator_values_vector/accelerator_design.sv
 
-../../../../../../../../../validation/uvm/library/nn/ann/inputs/accelerator_values_vector/accelerator_uvm_testbench.sv
+../../../../../../../../../validation/uvm/library/intelligence/modeling/ann/inputs/accelerator_values_vector/accelerator_uvm_testbench.sv

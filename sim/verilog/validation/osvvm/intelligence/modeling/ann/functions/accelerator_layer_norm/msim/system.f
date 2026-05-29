@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/osvvm/application/nn/ann/functions/accelerator_layer_norm/accelerator_design.vhd
-../../../../../../../../../validation/osvvm/application/nn/ann/functions/accelerator_layer_norm/accelerator_design_pkg.vhd
+../../../../../../../../../validation/osvvm/application/intelligence/modeling/ann/functions/accelerator_layer_norm/accelerator_design.vhd
+../../../../../../../../../validation/osvvm/application/intelligence/modeling/ann/functions/accelerator_layer_norm/accelerator_design_pkg.vhd
 
-../../../../../../../../../validation/osvvm/library/nn/ann/functions/accelerator_layer_norm/accelerator_model.vhd
-../../../../../../../../../validation/osvvm/library/nn/ann/functions/accelerator_layer_norm/accelerator_model_pkg.vhd
+../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/functions/accelerator_layer_norm/accelerator_model.vhd
+../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/functions/accelerator_layer_norm/accelerator_model_pkg.vhd
 
-../../../../../../../../../validation/osvvm/library/nn/ann/functions/accelerator_layer_norm/accelerator_testbench.vhd
+../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/functions/accelerator_layer_norm/accelerator_testbench.vhd

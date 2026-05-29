@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/classes/application/nn/ann/functions/accelerator_positional_encoding/accelerator_design.sv
+../../../../../../../../../verification/classes/application/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_design.sv
 
-../../../../../../../../../verification/classes/library/nn/ann/functions/accelerator_positional_encoding/accelerator_testbench.sv
+../../../../../../../../../verification/classes/library/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_testbench.sv

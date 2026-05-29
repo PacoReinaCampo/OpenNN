@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/types/application/trainer/lstm/activation/accelerator_lstm_activation_w_trainer/accelerator_design.vhd
-../../../../../../../../../verification/types/application/trainer/lstm/activation/accelerator_lstm_activation_w_trainer/accelerator_design_pkg.vhd
+../../../../../../../../../verification/types/application/intelligence/training/lstm/activation/accelerator_lstm_activation_w_trainer/accelerator_design.vhd
+../../../../../../../../../verification/types/application/intelligence/training/lstm/activation/accelerator_lstm_activation_w_trainer/accelerator_design_pkg.vhd
 
-../../../../../../../../../verification/types/library/trainer/lstm/activation/accelerator_lstm_activation_w_trainer/accelerator_model.vhd
-../../../../../../../../../verification/types/library/trainer/lstm/activation/accelerator_lstm_activation_w_trainer/accelerator_model_pkg.vhd
+../../../../../../../../../verification/types/library/intelligence/training/lstm/activation/accelerator_lstm_activation_w_trainer/accelerator_model.vhd
+../../../../../../../../../verification/types/library/intelligence/training/lstm/activation/accelerator_lstm_activation_w_trainer/accelerator_model_pkg.vhd
 
-../../../../../../../../../verification/types/library/trainer/lstm/activation/accelerator_lstm_activation_w_trainer/accelerator_testbench.vhd
+../../../../../../../../../verification/types/library/intelligence/training/lstm/activation/accelerator_lstm_activation_w_trainer/accelerator_testbench.vhd

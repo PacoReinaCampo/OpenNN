@@ -42,6 +42,6 @@
 //                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////
 
-sv work ../../../../../../../../../validation/uvm/application/nn/ann/functions/accelerator_positional_encoding/accelerator_design.sv
+sv work ../../../../../../../../../validation/uvm/application/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_design.sv
 
-sv work ../../../../../../../../../validation/uvm/library/nn/ann/functions/accelerator_positional_encoding/accelerator_uvm_testbench.sv
+sv work ../../../../../../../../../validation/uvm/library/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_uvm_testbench.sv

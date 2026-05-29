@@ -42,10 +42,10 @@
 //                                                                               //
 ../../../../../../../../../..////////////////////////////////////////////////////////////////////////////////////
 
-vhdl2008 work ../../../../../../../../../../validation/osvvm/application/nn/ann/lstm/accelerator_lstm/accelerator_design.vhd
-vhdl2008 work ../../../../../../../../../../validation/osvvm/application/nn/ann/lstm/accelerator_lstm/accelerator_design_pkg.vhd
+vhdl2008 work ../../../../../../../../../../validation/osvvm/application/intelligence/modeling/ann/lstm/accelerator_lstm/accelerator_design.vhd
+vhdl2008 work ../../../../../../../../../../validation/osvvm/application/intelligence/modeling/ann/lstm/accelerator_lstm/accelerator_design_pkg.vhd
 
-vhdl2008 work ../../../../../../../../../../validation/osvvm/library/nn/ann/lstm/accelerator_lstm/accelerator_model.vhd
-vhdl2008 work ../../../../../../../../../../validation/osvvm/library/nn/ann/lstm/accelerator_lstm/accelerator_model_pkg.vhd
+vhdl2008 work ../../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/lstm/accelerator_lstm/accelerator_model.vhd
+vhdl2008 work ../../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/lstm/accelerator_lstm/accelerator_model_pkg.vhd
 
-vhdl2008 work ../../../../../../../../../../validation/osvvm/library/nn/ann/lstm/accelerator_lstm/accelerator_testbench.vhd
+vhdl2008 work ../../../../../../../../../../validation/osvvm/library/intelligence/modeling/ann/lstm/accelerator_lstm/accelerator_testbench.vhd

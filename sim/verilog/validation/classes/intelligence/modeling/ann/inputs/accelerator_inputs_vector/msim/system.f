@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/classes/application/nn/ann/inputs/accelerator_inputs_vector/accelerator_design.sv
+../../../../../../../../../validation/classes/application/intelligence/modeling/ann/inputs/accelerator_inputs_vector/accelerator_design.sv
 
-../../../../../../../../../validation/classes/library/nn/ann/inputs/accelerator_inputs_vector/accelerator_testbench.sv
+../../../../../../../../../validation/classes/library/intelligence/modeling/ann/inputs/accelerator_inputs_vector/accelerator_testbench.sv

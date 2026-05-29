@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../validation/classes/application/state/feedback/accelerator_state_matrix_output/accelerator_design.sv
+../../../../../../../../validation/classes/application/intelligence/training/feedback/accelerator_state_matrix_output/accelerator_design.sv
 
-../../../../../../../../validation/classes/library/state/feedback/accelerator_state_matrix_output/accelerator_testbench.sv
+../../../../../../../../validation/classes/library/intelligence/training/feedback/accelerator_state_matrix_output/accelerator_testbench.sv

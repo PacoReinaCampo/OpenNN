@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/types/application/nn/ann/functions/accelerator_layer_norm/accelerator_design.vhd
-../../../../../../../../../validation/types/application/nn/ann/functions/accelerator_layer_norm/accelerator_design_pkg.vhd
+../../../../../../../../../validation/types/application/intelligence/modeling/ann/functions/accelerator_layer_norm/accelerator_design.vhd
+../../../../../../../../../validation/types/application/intelligence/modeling/ann/functions/accelerator_layer_norm/accelerator_design_pkg.vhd
 
-../../../../../../../../../validation/types/library/nn/ann/functions/accelerator_layer_norm/accelerator_model.vhd
-../../../../../../../../../validation/types/library/nn/ann/functions/accelerator_layer_norm/accelerator_model_pkg.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ann/functions/accelerator_layer_norm/accelerator_model.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ann/functions/accelerator_layer_norm/accelerator_model_pkg.vhd
 
-../../../../../../../../../validation/types/library/nn/ann/functions/accelerator_layer_norm/accelerator_testbench.vhd
+../../../../../../../../../validation/types/library/intelligence/modeling/ann/functions/accelerator_layer_norm/accelerator_testbench.vhd

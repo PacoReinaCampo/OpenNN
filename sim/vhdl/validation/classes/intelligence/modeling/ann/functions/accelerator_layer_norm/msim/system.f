@@ -42,6 +42,6 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../validation/classes/application/nn/ann/functions/accelerator_layer_norm/accelerator_design.sv
+../../../../../../../../../validation/classes/application/intelligence/modeling/ann/functions/accelerator_layer_norm/accelerator_design.sv
 
-../../../../../../../../../validation/classes/library/nn/ann/functions/accelerator_layer_norm/accelerator_testbench.sv
+../../../../../../../../../validation/classes/library/intelligence/modeling/ann/functions/accelerator_layer_norm/accelerator_testbench.sv

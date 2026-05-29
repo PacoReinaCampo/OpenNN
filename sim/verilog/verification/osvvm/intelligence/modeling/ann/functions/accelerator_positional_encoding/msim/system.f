@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/osvvm/application/nn/ann/functions/accelerator_positional_encoding/accelerator_design.vhd
-../../../../../../../../../verification/osvvm/application/nn/ann/functions/accelerator_positional_encoding/accelerator_design_pkg.vhd
+../../../../../../../../../verification/osvvm/application/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_design.vhd
+../../../../../../../../../verification/osvvm/application/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_design_pkg.vhd
 
-../../../../../../../../../verification/osvvm/library/nn/ann/functions/accelerator_positional_encoding/accelerator_model.vhd
-../../../../../../../../../verification/osvvm/library/nn/ann/functions/accelerator_positional_encoding/accelerator_model_pkg.vhd
+../../../../../../../../../verification/osvvm/library/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_model.vhd
+../../../../../../../../../verification/osvvm/library/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_model_pkg.vhd
 
-../../../../../../../../../verification/osvvm/library/nn/ann/functions/accelerator_positional_encoding/accelerator_testbench.vhd
+../../../../../../../../../verification/osvvm/library/intelligence/modeling/ann/functions/accelerator_positional_encoding/accelerator_testbench.vhd

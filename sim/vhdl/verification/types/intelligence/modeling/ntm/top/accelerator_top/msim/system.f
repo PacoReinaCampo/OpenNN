@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../verification/types/application/nn/ntm/top/accelerator_top/accelerator_design.vhd
-../../../../../../../../../verification/types/application/nn/ntm/top/accelerator_top/accelerator_design_pkg.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/ntm/top/accelerator_top/accelerator_design.vhd
+../../../../../../../../../verification/types/application/intelligence/modeling/ntm/top/accelerator_top/accelerator_design_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/ntm/top/accelerator_top/accelerator_model.vhd
-../../../../../../../../../verification/types/library/nn/ntm/top/accelerator_top/accelerator_model_pkg.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ntm/top/accelerator_top/accelerator_model.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ntm/top/accelerator_top/accelerator_model_pkg.vhd
 
-../../../../../../../../../verification/types/library/nn/ntm/top/accelerator_top/accelerator_testbench.vhd
+../../../../../../../../../verification/types/library/intelligence/modeling/ntm/top/accelerator_top/accelerator_testbench.vhd

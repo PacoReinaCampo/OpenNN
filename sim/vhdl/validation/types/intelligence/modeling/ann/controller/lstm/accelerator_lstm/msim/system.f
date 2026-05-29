@@ -42,10 +42,10 @@
 ##                                                                               ##
 ###################################################################################
 
-../../../../../../../../../../validation/types/application/nn/ann/lstm/accelerator_lstm/accelerator_design.vhd
-../../../../../../../../../../validation/types/application/nn/ann/lstm/accelerator_lstm/accelerator_design_pkg.vhd
+../../../../../../../../../../validation/types/application/intelligence/modeling/ann/lstm/accelerator_lstm/accelerator_design.vhd
+../../../../../../../../../../validation/types/application/intelligence/modeling/ann/lstm/accelerator_lstm/accelerator_design_pkg.vhd
 
-../../../../../../../../../../validation/types/library/nn/ann/lstm/accelerator_lstm/accelerator_model.vhd
-../../../../../../../../../../validation/types/library/nn/ann/lstm/accelerator_lstm/accelerator_model_pkg.vhd
+../../../../../../../../../../validation/types/library/intelligence/modeling/ann/lstm/accelerator_lstm/accelerator_model.vhd
+../../../../../../../../../../validation/types/library/intelligence/modeling/ann/lstm/accelerator_lstm/accelerator_model_pkg.vhd
 
-../../../../../../../../../../validation/types/library/nn/ann/lstm/accelerator_lstm/accelerator_testbench.vhd
+../../../../../../../../../../validation/types/library/intelligence/modeling/ann/lstm/accelerator_lstm/accelerator_testbench.vhd
